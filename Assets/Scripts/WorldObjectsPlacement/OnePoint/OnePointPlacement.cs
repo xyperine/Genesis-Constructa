@@ -9,7 +9,7 @@ namespace MoonPioneerClone.WorldObjectsPlacement.OnePoint
         
         protected override Vector3 GetPositionForNewItem()
         {
-            return pointTransform.position;
+            return transform.InverseTransformPoint(pointTransform.position);
         }
     }
 }

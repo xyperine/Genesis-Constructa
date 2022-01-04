@@ -9,7 +9,8 @@ namespace MoonPioneerClone.WorldObjectsPlacement
 
         private int LastNonNullIndex => Array.FindLastIndex(_items, i => i != null);
         public int FirstNullIndex => Array.IndexOf(_items, null);
-        
+
+        public WorldPlacementItem[] Items => (WorldPlacementItem[]) _items.Clone();
         public int Count => _items.Count(i => i != null);
 
         public int IndexOf(WorldPlacementItem item) => Array.IndexOf(_items, item);
@@ -45,17 +46,9 @@ namespace MoonPioneerClone.WorldObjectsPlacement
         }
 
 
-        public WorldPlacementItem Pop()
+        public WorldPlacementItem Peek()
         {
-            if (LastNonNullIndex == -1)
-            {
-                return null;
-            }
-            
-            WorldPlacementItem item = _items[LastNonNullIndex];
-            Remove(item);
-
-            return item;
+            return LastNonNullIndex == -1 ? null : _items[LastNonNullIndex];
         }
 
 

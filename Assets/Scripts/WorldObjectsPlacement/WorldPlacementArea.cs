@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using MoonPioneerClone.CollectableItemsInteractions;
 using UnityEngine;
 
 namespace MoonPioneerClone.WorldObjectsPlacement
@@ -78,7 +80,36 @@ namespace MoonPioneerClone.WorldObjectsPlacement
                 throw new OperationCanceledException("Cannot keep items!");
             }
             
-            return items.Pop();
+            print(items.Peek());
+            return items.Peek();
+        }
+
+
+        public WorldPlacementItem GetLast(ResourceType[] acceptableResources)
+        {
+
+            WorldPlacementItem[] placementItems = items.Items;
+            
+            foreach (WorldPlacementItem placementItem in placementItems)
+            {
+                if (!placementItem)
+                {
+                    continue;
+                }
+                
+                StackZoneItem item;
+                if (!placementItem.TryGetComponent(out item))
+                {
+                    continue;
+                }
+
+                if (acceptableResources.Contains(item.Type))
+                {
+                    return placementItem;
+                }
+            }
+
+            return null;
         }
     }
 }
