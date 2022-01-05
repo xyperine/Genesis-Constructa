@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MoonPioneerClone.WorldObjectsPlacement
 {
-    public class WorldPlacementItem : MonoBehaviour
+    public sealed class WorldPlacementItem : MonoBehaviour
     {
         public void Rotate()
         {

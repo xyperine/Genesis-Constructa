@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace MoonPioneerClone.WorldObjectsPlacement
 {
-    public class WorldPlacementItemsCollection
+    public sealed class WorldPlacementItemsCollection
     {
         private WorldPlacementItem[] _items;
 

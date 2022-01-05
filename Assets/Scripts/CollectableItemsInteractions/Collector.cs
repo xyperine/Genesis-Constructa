@@ -6,7 +6,7 @@ namespace MoonPioneerClone.CollectableItemsInteractions
     public abstract class Collector : MonoBehaviour
     {
         [SerializeField] protected ResourceType[] acceptedResources;
-
+        
         public ResourceType[] AcceptedResources => (ResourceType[]) acceptedResources?.Clone();
         public bool CanTakeThisResource(ResourceType type) => acceptedResources.Contains(type);
         

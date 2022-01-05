@@ -2,7 +2,7 @@
 
 namespace MoonPioneerClone.WorldObjectsPlacement.Grid
 {
-    public class GridPlacement : WorldPlacementArea<GridWorldPlacementSettings>
+    public sealed class GridPlacement : WorldPlacementArea<GridWorldPlacementSettings>
     {
         private Vector3 _area;
         private Vector3 _center;

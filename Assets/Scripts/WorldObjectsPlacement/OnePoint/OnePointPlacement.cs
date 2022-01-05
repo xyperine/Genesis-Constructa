@@ -2,7 +2,7 @@
 
 namespace MoonPioneerClone.WorldObjectsPlacement.OnePoint
 {
-    public class OnePointPlacement : WorldPlacementArea<OnePointWorldPlacementSettings>
+    public sealed class OnePointPlacement : WorldPlacementArea<OnePointWorldPlacementSettings>
     {
         [SerializeField] private Transform pointTransform;
         

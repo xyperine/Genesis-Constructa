@@ -5,7 +5,7 @@ using UnityEngine;
 namespace MoonPioneerClone.ResourceRequirementsSystem
 {
     [Serializable]
-    public class ResourceRequirement
+    public sealed class ResourceRequirement
     {
         [SerializeField] private ResourceType type;
         [SerializeField, Min(1), OnValueChanged("@_leftToSatisfaction = amount")] private int amount;

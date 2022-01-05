@@ -11,18 +11,20 @@ namespace MoonPioneerClone.CollectableItemsInteractions
     public class ItemsStackZone : Collector, ICollectorInteractable
     {
         [SerializeField] private List<Collector> giveTo = new List<Collector>();
-        private GridPlacement _gridPlacementArea;
+        [SerializeField] private bool transferItemsOnTouch;
+
+        private GridPlacement _placementArea;
 
 
         private void Awake()
         {
-            GetGridPlacement();
+            GetComponents();
         }
 
 
-        private void GetGridPlacement()
+        private void GetComponents()
         {
-            _gridPlacementArea = GetComponent<GridPlacement>();
+            _placementArea = GetComponent<GridPlacement>();
         }
 
 
@@ -45,7 +47,7 @@ namespace MoonPioneerClone.CollectableItemsInteractions
 
         private StackZoneItem GetLast(ResourceType[] acceptableResources)
         {
-            WorldPlacementItem placementItem = _gridPlacementArea.GetLast(acceptableResources);
+            WorldPlacementItem placementItem = _placementArea.GetLast(acceptableResources);
 
             if (!placementItem)
             {
@@ -80,7 +82,7 @@ namespace MoonPioneerClone.CollectableItemsInteractions
                 return;
             }
 
-            _gridPlacementArea.Remove(item.GetComponent<WorldPlacementItem>());
+            _placementArea.Remove(item.GetComponent<WorldPlacementItem>());
             collector.TryAdd(item);
         }
         
@@ -94,7 +96,7 @@ namespace MoonPioneerClone.CollectableItemsInteractions
             
             ItemsStackZone from = this;
 
-            bool hasItems = from._gridPlacementArea.Count > 0;
+            bool hasItems = from._placementArea.Count > 0;
             bool canGiveTo = from.giveTo.Contains(to);
             bool toCanTake = to.CanTakeMore();
             bool notTheSameEntity = to != from;
@@ -105,7 +107,7 @@ namespace MoonPioneerClone.CollectableItemsInteractions
 
         public override bool CanTakeMore()
         {
-            return _gridPlacementArea.CanFitMore;
+            return _placementArea.CanFitMore;
         }
 
 
@@ -122,12 +124,17 @@ namespace MoonPioneerClone.CollectableItemsInteractions
             }
             
             item.SetZone(this);
-            _gridPlacementArea.Add(item.GetComponent<WorldPlacementItem>());
+            _placementArea.Add(item.GetComponent<WorldPlacementItem>());
         }
 
 
         public void Interact(Collector collector)
         {
+            if (!transferItemsOnTouch)
+            {
+                return;
+            }
+            
             if (!collector)
             {
                 throw new ArgumentNullException(nameof(collector));

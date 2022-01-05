@@ -1,12 +1,26 @@
-﻿using MoonPioneerClone.Utility.Exceptions;
+﻿using System;
+using MoonPioneerClone.Utility.Exceptions;
 using UnityEngine;
 
 namespace MoonPioneerClone.CollectableItemsInteractions
 {
-    public class CollectorInteractionsDetector : MonoBehaviour
+    [RequireComponent(typeof(Collector))]
+    public sealed class CollectorInteractionsDetector : MonoBehaviour
     {
-        [SerializeField] private Collector collector;
-        
+        private Collector _collector;
+
+
+        private void Awake()
+        {
+            GetComponents();
+        }
+
+
+        private void GetComponents()
+        {
+            _collector = GetComponent<Collector>();
+        }
+
 
         private void OnTriggerEnter(Collider other)
         {
@@ -17,7 +31,7 @@ namespace MoonPioneerClone.CollectableItemsInteractions
                 throw new NoCollectorInteractableAttachedException(other.gameObject);
             }
             
-            interactable.Interact(collector);
+            interactable.Interact(_collector);
         }
     }
 }

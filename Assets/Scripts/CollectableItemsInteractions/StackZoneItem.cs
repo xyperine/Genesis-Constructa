@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MoonPioneerClone.CollectableItemsInteractions
 {
-    public class StackZoneItem : MonoBehaviour, ICollectorInteractable
+    public sealed class StackZoneItem : MonoBehaviour, ICollectorInteractable
     {
         [SerializeField] private ResourceType type;
 

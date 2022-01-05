@@ -5,7 +5,7 @@ using UnityEngine;
 namespace MoonPioneerClone.ResourceRequirementsSystem
 {
     [Serializable]
-    public class ResourceRequirementsBlock
+    public sealed class ResourceRequirementsBlock
     {
         [SerializeField] private ResourceRequirement[] requirements;
 
