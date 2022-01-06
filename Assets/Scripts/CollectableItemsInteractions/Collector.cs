@@ -7,7 +7,7 @@ namespace MoonPioneerClone.CollectableItemsInteractions
     {
         [SerializeField] protected ResourceType[] acceptedResources;
         
-        public ResourceType[] AcceptedResources => (ResourceType[]) acceptedResources?.Clone();
+        public ResourceType[] AcceptableResources => (ResourceType[]) acceptedResources?.Clone();
         public bool CanTakeThisResource(ResourceType type) => acceptedResources.Contains(type);
         
         

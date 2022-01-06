@@ -1,5 +1,4 @@
-﻿using System;
-using MoonPioneerClone.Utility.Exceptions;
+﻿using MoonPioneerClone.Utility.Exceptions;
 using UnityEngine;
 
 namespace MoonPioneerClone.CollectableItemsInteractions

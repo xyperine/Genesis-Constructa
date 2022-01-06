@@ -1,5 +1,4 @@
 ﻿using System;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace MoonPioneerClone.ResourceRequirementsSystem
@@ -8,7 +7,7 @@ namespace MoonPioneerClone.ResourceRequirementsSystem
     public sealed class ResourceRequirement
     {
         [SerializeField] private ResourceType type;
-        [SerializeField, Min(1), OnValueChanged("@_leftToSatisfaction = amount")] private int amount;
+        [SerializeField, Min(1)] private int amount;
         
         private int _leftToSatisfaction;
 
@@ -16,7 +15,7 @@ namespace MoonPioneerClone.ResourceRequirementsSystem
         public bool Satisfied => _leftToSatisfaction <= 0;
         
 
-        public void Add()
+        public void AddOneResource()
         {
             _leftToSatisfaction--;
         }

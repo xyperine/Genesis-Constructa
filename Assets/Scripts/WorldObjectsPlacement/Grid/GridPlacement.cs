@@ -4,68 +4,68 @@ namespace MoonPioneerClone.WorldObjectsPlacement.Grid
 {
     public sealed class GridPlacement : WorldPlacementArea<GridWorldPlacementSettings>
     {
-        private Vector3 _area;
-        private Vector3 _center;
+        private readonly int[] _fillingOrderAxes = new int[3];
 
-
-        protected override Vector3 GetPositionForNewItem()
-        {
-            int emptySpotIndex = items.FirstNullIndex;
-            Vector3 padding = placementSettings.DefaultItemSize * 0.5f;
-            Vector3 position = padding;
-            int[] fillingOrderAxes = new int[3];
-
-            for (int i = 0; i < 3; i++)
-            {
-                fillingOrderAxes[i] = (int) placementSettings.FillingOrder[i];
-            }
-
-            float firstAxisRawPosition = emptySpotIndex % placementSettings.Size[fillingOrderAxes[0]];
-            float secondAxisRawPosition = Mathf.Floor(emptySpotIndex / placementSettings.Size[fillingOrderAxes[0]])
-                                          % placementSettings.Size[fillingOrderAxes[1]];
-            float thirdAxisRawPosition = Mathf.Floor(emptySpotIndex / (placementSettings.Size[fillingOrderAxes[0]]
-                                                                       * placementSettings.Size[fillingOrderAxes[1]]))
-                                         % placementSettings.Size[fillingOrderAxes[2]];
-
-            float[] axesRawPositions =
-            {
-                firstAxisRawPosition,
-                secondAxisRawPosition,
-                thirdAxisRawPosition,
-            };
-
-            for (int i = 0; i < 3; i++)
-            {
-                int axisIndex = fillingOrderAxes[i];
-                position[axisIndex] = padding[axisIndex] + placementSettings.DefaultItemSize[axisIndex] * axesRawPositions[i];
-            }
-
-            return position;
-        }
+        public override bool CanFitMore => Count < placementSettings.MaxItems;
 
 
         private void OnValidate()
         {
-            RecalculateBounds();
+            GetFillingOrderAxes();
+        }
+        
+        
+        private void GetFillingOrderAxes()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                _fillingOrderAxes[i] = (int) placementSettings.FillingOrder[i];
+            }
         }
 
 
-        private void RecalculateBounds()
+        protected override void InitializeItemsKeepingBehaviour()
         {
-            float width = placementSettings.Width * placementSettings.DefaultItemSize.x;
-            float height = placementSettings.Height * placementSettings.DefaultItemSize.y;
-            float depth = placementSettings.Depth * placementSettings.DefaultItemSize.z;
+            itemsKeepingBehaviour = new GridItemsKeepingBehaviour(placementSettings.MaxItems);
+        }
+
+
+        protected override Vector3 GetPositionForNewItem()
+        {
+            Vector3 axesRawPositions = CalculateAxesRawPositions();
+            Vector3 position = CalculatePosition(axesRawPositions);
+
+            return position;
+        }
+        
+
+        private Vector3 CalculateAxesRawPositions()
+        {
+            int emptySpotIndex = itemsKeepingBehaviour.FirstNullIndex;
             
-            _area = new Vector3(width, height, depth);
-            _center = _area * 0.5f;
+            float firstAxisRawPosition = emptySpotIndex % placementSettings.Size[_fillingOrderAxes[0]];
+            float secondAxisRawPosition = Mathf.Floor(emptySpotIndex / placementSettings.Size[_fillingOrderAxes[0]])
+                                          % placementSettings.Size[_fillingOrderAxes[1]];
+            float thirdAxisRawPosition = Mathf.Floor(emptySpotIndex / (placementSettings.Size[_fillingOrderAxes[0]]
+                                                                       * placementSettings.Size[_fillingOrderAxes[1]]))
+                                         % placementSettings.Size[_fillingOrderAxes[2]];
+
+            return new Vector3(firstAxisRawPosition, secondAxisRawPosition, thirdAxisRawPosition);
         }
 
 
-        private void OnDrawGizmosSelected()
+        private Vector3 CalculatePosition(Vector3 axesRawPositions)
         {
-            Gizmos.color = Color.yellow;
-            Gizmos.matrix = transform.localToWorldMatrix;
-            Gizmos.DrawWireCube(_center, _area);
+            Vector3 padding = placementSettings.DefaultItemSize * 0.5f;
+            Vector3 position = padding;
+            
+            for (int i = 0; i < 3; i++)
+            {
+                int axisIndex = _fillingOrderAxes[i];
+                position[axisIndex] = padding[axisIndex] + placementSettings.DefaultItemSize[axisIndex] * axesRawPositions[i];
+            }
+
+            return position;
         }
     }
 }

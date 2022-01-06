@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using MoonPioneerClone.WorldObjectsPlacement;
 using MoonPioneerClone.WorldObjectsPlacement.Grid;
@@ -28,20 +27,26 @@ namespace MoonPioneerClone.CollectableItemsInteractions
         }
 
 
+        public void Interact(Collector collector)
+        {
+            if (!transferItemsOnTouch)
+            {
+                return;
+            }
+
+            TryTransferTo(collector);
+        }
+        
+        
         public void TryTransferTo(Collector collector)
         {
-            if (!collector)
-            {
-                throw new ArgumentNullException(nameof(collector));
-            }
-            
-            StackZoneItem item = GetLast(collector.AcceptedResources);
+            StackZoneItem item = GetLast(collector.AcceptableResources);
             if (!item)
             {
                 return;
             }
     
-            TryTransferItemTo(item, collector);
+            TryTransferItemTo(collector, item);
         }
 
 
@@ -56,22 +61,13 @@ namespace MoonPioneerClone.CollectableItemsInteractions
             
             StackZoneItem item;
             placementItem.TryGetComponent(out item);
+            
             return item;
         }
         
 
-        public void TryTransferItemTo(StackZoneItem item, Collector collector)
+        public void TryTransferItemTo( Collector collector, StackZoneItem item)
         {
-            if (!item)
-            {
-                throw new ArgumentNullException(nameof(item));
-            }
-
-            if (!collector)
-            {
-                throw new ArgumentNullException(nameof(collector));
-            }
-            
             if (!CanTransferTo(collector))
             {
                 return;
@@ -88,12 +84,7 @@ namespace MoonPioneerClone.CollectableItemsInteractions
         
         
         private bool CanTransferTo(Collector to)
-        {
-            if (!to)
-            {
-                throw new ArgumentNullException(nameof(to));
-            }
-            
+        { 
             ItemsStackZone from = this;
 
             bool hasItems = from._placementArea.Count > 0;
@@ -113,11 +104,6 @@ namespace MoonPioneerClone.CollectableItemsInteractions
 
         protected override void Add(StackZoneItem item)
         {
-            if (!item)
-            {
-                throw new ArgumentNullException(nameof(item));
-            }
-
             if (!acceptedResources.Contains(item.Type))
             {
                 return;
@@ -125,22 +111,6 @@ namespace MoonPioneerClone.CollectableItemsInteractions
             
             item.SetZone(this);
             _placementArea.Add(item.GetComponent<WorldPlacementItem>());
-        }
-
-
-        public void Interact(Collector collector)
-        {
-            if (!transferItemsOnTouch)
-            {
-                return;
-            }
-            
-            if (!collector)
-            {
-                throw new ArgumentNullException(nameof(collector));
-            }
-            
-            TryTransferTo(collector);
         }
     }
 }

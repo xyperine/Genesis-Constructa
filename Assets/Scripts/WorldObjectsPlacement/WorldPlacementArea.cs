@@ -1,32 +1,28 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Linq;
 using MoonPioneerClone.CollectableItemsInteractions;
 using UnityEngine;
 
 namespace MoonPioneerClone.WorldObjectsPlacement
 {
-    // Do something with a KeepItems mess
     public abstract class WorldPlacementArea<TPlacementSettings> : MonoBehaviour
         where TPlacementSettings : WorldPlacementSettingsSO
     {
         [SerializeField] protected TPlacementSettings placementSettings;
 
-        protected WorldPlacementItemsCollection items;
+        protected IWorldPlacementItemsKeepingBehaviour itemsKeepingBehaviour;
         
-        public int Count => items.Count;
-        public bool CanFitMore => Count < placementSettings.MaxItems || !placementSettings.KeepItems;
-        
-        
+        public int Count => itemsKeepingBehaviour.Count;
+        public abstract bool CanFitMore { get; }
+
+
         private void Awake()
         {
-            InitializeItemsCollection();
+            InitializeItemsKeepingBehaviour();
         }
 
 
-        private void InitializeItemsCollection()
-        {
-            items = new WorldPlacementItemsCollection(placementSettings.MaxItems);
-        }
+        protected abstract void InitializeItemsKeepingBehaviour();
 
 
         public void Add(WorldPlacementItem item)
@@ -38,13 +34,8 @@ namespace MoonPioneerClone.WorldObjectsPlacement
             
             Vector3 position = GetPositionForNewItem();
             MoveItem(item, position);
-            
-            if (!placementSettings.KeepItems)
-            {
-                return;
-            }
-            
-            items.Add(item);
+
+            itemsKeepingBehaviour.TryAdd(item);
         }
 
 
@@ -64,31 +55,19 @@ namespace MoonPioneerClone.WorldObjectsPlacement
             item.transform.SetParent(null);
             item.Rotate();
 
-            if (!placementSettings.KeepItems)
-            {
-                return;
-            }
-            
-            items.Remove(item);
+            itemsKeepingBehaviour.TryRemove(item);
         }
 
 
         public WorldPlacementItem GetLast()
         {
-            if (!placementSettings.KeepItems)
-            {
-                throw new OperationCanceledException("Cannot keep items!");
-            }
-            
-            print(items.Peek());
-            return items.Peek();
+            return itemsKeepingBehaviour.TryPeek();
         }
 
 
         public WorldPlacementItem GetLast(ResourceType[] acceptableResources)
         {
-
-            WorldPlacementItem[] placementItems = items.Items;
+            IEnumerable<WorldPlacementItem> placementItems = itemsKeepingBehaviour.Items;
             
             foreach (WorldPlacementItem placementItem in placementItems)
             {

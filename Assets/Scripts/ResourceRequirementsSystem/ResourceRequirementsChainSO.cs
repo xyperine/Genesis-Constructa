@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 
 namespace MoonPioneerClone.ResourceRequirementsSystem
@@ -10,24 +11,30 @@ namespace MoonPioneerClone.ResourceRequirementsSystem
 
         private ResourceRequirementsBlock _activeRequirementBlock;
 
-        public ResourceType[] RequiredResources => _activeRequirementBlock?.GetRequiredResources();
+        public ResourceType[] RequiredResources => _activeRequirementBlock?.RequiredResources;
         public bool NeedMore => _activeRequirementBlock.NeedMore;
         public event Action BlockSatisfied;
 
 
-        public bool NeedThisResource(ResourceType type)
+        public bool NeedResource(ResourceType type)
         {
-            return _activeRequirementBlock.NeedThisResource(type);
+            return RequiredResources.Contains(type);
         }
         
         
-        public void Add(ResourceType type)
+        public void AddResource(ResourceType type)
         {
-            _activeRequirementBlock.Add(type);
+            _activeRequirementBlock.AddResource(type);
         }
 
 
         private void OnValidate()
+        {
+            SetupChain();
+        }
+
+
+        private void SetupChain()
         {
             if (blocks.Length < 1)
             {
@@ -38,14 +45,7 @@ namespace MoonPioneerClone.ResourceRequirementsSystem
 
             for (int i = 0; i < blocks.Length; i++)
             {
-                blocks[i].UpdateCounter();
-                if (i == blocks.Length - 1)
-                {
-                    return;
-                }
-
-                int nextIndex = i + 1;
-                blocks[i].SetNextBlock(blocks[nextIndex]);
+                SetupBlock(i);
             }
         }
 
@@ -53,25 +53,56 @@ namespace MoonPioneerClone.ResourceRequirementsSystem
         private void SetupInitialBlock()
         {
             _activeRequirementBlock = blocks[0];
-            _activeRequirementBlock.Satisfied += SetupBlock;
-            _activeRequirementBlock.Satisfied += InvokeBlockSatisfied;
-        }
-        
-        
-        private void SetupBlock()
-        {
-            _activeRequirementBlock.Satisfied -= SetupBlock;
-            _activeRequirementBlock.Satisfied -= InvokeBlockSatisfied;
             
-            _activeRequirementBlock = _activeRequirementBlock.NextBlock;
+            SubscribeToActiveBlockSatisfaction();
+        }
 
+
+        private void SetupBlock(int index)
+        {
+            ResourceRequirementsBlock block = blocks[index];
+            block.UpdateCounter();
+            
+            if (index == blocks.Length - 1)
+            {
+                return;
+            }
+            
+            block.SetNextBlock(blocks[index + 1]);
+        }
+
+
+        private void SubscribeToActiveBlockSatisfaction()
+        {
             if (_activeRequirementBlock == null)
             {
                 return;
             }
             
-            _activeRequirementBlock.Satisfied += SetupBlock;
+            _activeRequirementBlock.Satisfied += GoToNextBlock;
             _activeRequirementBlock.Satisfied += InvokeBlockSatisfied;
+        }
+
+
+        private void UnsubscribeFromActiveBlockSatisfaction()
+        {
+            if (_activeRequirementBlock == null)
+            {
+                return;
+            }
+            
+            _activeRequirementBlock.Satisfied -= GoToNextBlock;
+            _activeRequirementBlock.Satisfied -= InvokeBlockSatisfied;
+        }
+        
+        
+        private void GoToNextBlock()
+        {
+            UnsubscribeFromActiveBlockSatisfaction();
+            
+            _activeRequirementBlock = _activeRequirementBlock.NextBlock;
+
+            SubscribeToActiveBlockSatisfaction();
         }
 
 

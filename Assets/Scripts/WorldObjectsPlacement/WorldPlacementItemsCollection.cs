@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace MoonPioneerClone.WorldObjectsPlacement
@@ -10,7 +11,7 @@ namespace MoonPioneerClone.WorldObjectsPlacement
         private int LastNonNullIndex => Array.FindLastIndex(_items, i => i != null);
         public int FirstNullIndex => Array.IndexOf(_items, null);
 
-        public WorldPlacementItem[] Items => (WorldPlacementItem[]) _items.Clone();
+        public IEnumerable<WorldPlacementItem> Items => (IEnumerable<WorldPlacementItem>) _items.Clone();
         public int Count => _items.Count(i => i != null);
 
         public int IndexOf(WorldPlacementItem item) => Array.IndexOf(_items, item);

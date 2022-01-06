@@ -9,25 +9,25 @@ namespace MoonPioneerClone.WorldObjectsPlacement
     public abstract class WorldPlacementSettingsSO : ScriptableObject
     {
         [SerializeField] private Vector3 defaultItemSize = new Vector3(1f, 0.5f, 0.5f);
-        [SerializeField] private bool keepItems;
 
         [Header("Filling")] 
         [SerializeField] private bool useCustomFillingOrder;
+        
         [ShowIf(nameof(useCustomFillingOrder))]
         [ListDrawerSettings(DraggableItems = true, HideAddButton = true, HideRemoveButton = true)]
-        [SerializeField, Tooltip("Do not change any value, just rearrange elements instead!\nDefault order is X -> Z -> Y")]
-        private WorldPlacementAreaAxesFillingOrder[] fillingOrder = DefaultFillingOrder.ToArray();
-        
-        private static readonly HashSet<WorldPlacementAreaAxesFillingOrder> DefaultFillingOrder = new HashSet<WorldPlacementAreaAxesFillingOrder>
-        {
-            WorldPlacementAreaAxesFillingOrder.X,
-            WorldPlacementAreaAxesFillingOrder.Z,
-            WorldPlacementAreaAxesFillingOrder.Y,
-        };
+        [Tooltip("Do not change any value, just rearrange elements instead!\nDefault order is X -> Z -> Y")]
+        [SerializeField] private WorldPlacementAreaAxesFillingOrder[] fillingOrder = DefaultFillingOrder.ToArray();
+
+        private static readonly HashSet<WorldPlacementAreaAxesFillingOrder> DefaultFillingOrder =
+            new HashSet<WorldPlacementAreaAxesFillingOrder>
+            {
+                WorldPlacementAreaAxesFillingOrder.X,
+                WorldPlacementAreaAxesFillingOrder.Z,
+                WorldPlacementAreaAxesFillingOrder.Y,
+            };
 
         public Vector3 DefaultItemSize => defaultItemSize;
-        public bool KeepItems => keepItems;
-        
+
         public WorldPlacementAreaAxesFillingOrder[] FillingOrder { get; private set; }
         public int MaxItems { get; protected set; }
 
@@ -54,7 +54,7 @@ namespace MoonPioneerClone.WorldObjectsPlacement
             
             if (MaxItems < 0)
             {
-                throw new ArgumentOutOfRangeException($"{ nameof(MaxItems) } cannot be less than 0!");
+                throw new Exception($"{ nameof(MaxItems) } cannot be less than 0!");
             }
         }
 

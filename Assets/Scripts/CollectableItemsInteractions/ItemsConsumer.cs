@@ -1,5 +1,4 @@
-﻿using System;
-using MoonPioneerClone.ResourceRequirementsSystem;
+﻿using MoonPioneerClone.ResourceRequirementsSystem;
 using MoonPioneerClone.WorldObjectsPlacement;
 using MoonPioneerClone.WorldObjectsPlacement.OnePoint;
 using UnityEngine;
@@ -40,12 +39,12 @@ namespace MoonPioneerClone.CollectableItemsInteractions
 
         protected override void Add(StackZoneItem item)
         {
-            if (!requirementsChain.NeedThisResource(item.Type))
+            if (!requirementsChain.NeedResource(item.Type))
             {
                 return;
             }
             
-            requirementsChain.Add(item.Type);
+            requirementsChain.AddResource(item.Type);
             _onePointPlacement.Add(item.GetComponent<WorldPlacementItem>());
 
             UpdateAcceptedResources();

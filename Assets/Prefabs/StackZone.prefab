@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1333683585837732915}
   - component: {fileID: 6603498891035493326}
   - component: {fileID: 8609682957797139675}
+  - component: {fileID: 5487914845396876}
   m_Layer: 8
   m_Name: StackZone
   m_TagString: Untagged
@@ -45,7 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29aee4aa77944e7589688ab0e3af5c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  acceptedResources: 
   giveTo: []
+  transferItemsOnTouch: 0
 --- !u!114 &8609682957797139675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,3 +62,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placementSettings: {fileID: 0}
+--- !u!114 &5487914845396876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6807856290383794726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1dbd4b7daf6406fb80994eb1dcc7118, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

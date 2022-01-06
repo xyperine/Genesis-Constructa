@@ -10,20 +10,10 @@ namespace MoonPioneerClone.ResourceRequirementsSystem
         [SerializeField] private ResourceRequirement[] requirements;
 
         public ResourceRequirementsBlock NextBlock { get; private set; }
-        public event Action Satisfied;
         public bool NeedMore => requirements.Any(r => !r.Satisfied);
-
-
-        public bool NeedThisResource(ResourceType type)
-        {
-            return requirements.Any(r => !r.Satisfied && r.Type == type);
-        }
-
-
-        public ResourceType[] GetRequiredResources()
-        {
-            return requirements.Where(r => !r.Satisfied).Select(r => r.Type).ToArray();
-        }
+        public ResourceType[] RequiredResources => requirements.Where(r => !r.Satisfied).Select(r => r.Type).ToArray();
+        
+        public event Action Satisfied;
 
 
         public void SetNextBlock(ResourceRequirementsBlock block)
@@ -32,27 +22,28 @@ namespace MoonPioneerClone.ResourceRequirementsSystem
         }
         
 
-        public void Add(ResourceType type)
+        public void AddResource(ResourceType type)
         {
-            ResourceRequirement matchingRequirement = requirements.FirstOrDefault(r => r.Type == type);
-            if (matchingRequirement == null)
-            {
-                return;
-            }
-            matchingRequirement.Add();
+            PassToMatchingRequirement(type);
             
             CheckSatisfaction();
+        }
+
+
+        private void PassToMatchingRequirement(ResourceType type)
+        {
+            ResourceRequirement matchingRequirement = requirements.FirstOrDefault(r => r.Type == type);
+            matchingRequirement?.AddOneResource();
         }
 
 
         private void CheckSatisfaction()
         {
             bool allRequirementsSatisfied = requirements.Aggregate(true, (s, r) => s & r.Satisfied);
-            Debug.Log(allRequirementsSatisfied);
+
             if (allRequirementsSatisfied)
             {
                 Satisfied?.Invoke();
-                Debug.Log("SATISFIED");
             }
         }
         

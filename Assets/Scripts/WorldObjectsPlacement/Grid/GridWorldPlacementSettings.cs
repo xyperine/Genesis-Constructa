@@ -9,18 +9,17 @@ namespace MoonPioneerClone.WorldObjectsPlacement.Grid
         [SerializeField, Range(1, 30)] private int width;
         [SerializeField, Range(1, 30)] private int height;
         [SerializeField, Range(1, 30)] private int depth;
-        
-        public int Width => width;
-        public int Height => height;
-        public int Depth => depth;
-        
+
         public Vector3 Size { get; private set; }
+        public Vector3 ScaledSize { get; private set; }
 
 
         protected override void CacheSomeValues()
         {
             base.CacheSomeValues();
+            
             SetSize();
+            SetScaledSize();
         }
 
 
@@ -33,6 +32,12 @@ namespace MoonPioneerClone.WorldObjectsPlacement.Grid
         private void SetSize()
         {
             Size = new Vector3(width, height, depth);
+        }
+
+
+        private void SetScaledSize()
+        {
+            ScaledSize = Vector3.Scale(Size, DefaultItemSize);
         }
     }
 }

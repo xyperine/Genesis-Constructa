@@ -38,7 +38,7 @@ namespace MoonPioneerClone.CollectableItemsInteractions
                 return;
             }
 
-            _zone.TryTransferItemTo(this, potentialNewZone);
+            _zone.TryTransferItemTo(potentialNewZone, this);
         }
     }
 }
