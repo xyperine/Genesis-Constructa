@@ -123,6 +123,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6753569587692771540}
     m_Modifications:
+    - target: {fileID: 5487914845396876, guid: 02d12719347f6784bb414701ae065403, type: 3}
+      propertyPath: alwaysDraw
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487914845396876, guid: 02d12719347f6784bb414701ae065403, type: 3}
+      propertyPath: placementSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 74287dea933e6554988764df7649c756, type: 2}
     - target: {fileID: 1333683585837732915, guid: 02d12719347f6784bb414701ae065403, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -207,7 +215,8 @@ PrefabInstance:
       propertyPath: placementSettings
       value: 
       objectReference: {fileID: 11400000, guid: 74287dea933e6554988764df7649c756, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6603498891035493326, guid: 02d12719347f6784bb414701ae065403, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 02d12719347f6784bb414701ae065403, type: 3}
 --- !u!1 &271098867551359107 stripped
 GameObject:
@@ -239,18 +248,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d38de6c38a4a5caec5b9ded8ad4aa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collector: {fileID: 440552881784848747}
---- !u!114 &440552881784848747 stripped
+--- !u!114 &6753569589463166128
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6603498891035493326, guid: 02d12719347f6784bb414701ae065403, type: 3}
-  m_PrefabInstance: {fileID: 6753569588179681957}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 271098867551359107}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29aee4aa77944e7589688ab0e3af5c91, type: 3}
+  m_Script: {fileID: 11500000, guid: bfa53150faca498993a9d14086721754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  acceptedResources: 00000000010000000200000003000000
+  giveTo:
+  - {fileID: 0}
+  transferItemsOnTouch: 1
 --- !u!4 &5709242601080903318 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1333683585837732915, guid: 02d12719347f6784bb414701ae065403, type: 3}

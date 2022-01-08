@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using MoonPioneerClone.WorldObjectsPlacement;
 using MoonPioneerClone.WorldObjectsPlacement.Grid;
@@ -13,6 +14,7 @@ namespace MoonPioneerClone.CollectableItemsInteractions
         [SerializeField] private bool transferItemsOnTouch;
 
         private GridPlacement _placementArea;
+        private IEnumerator _transferRoutineEnumerator;
 
 
         private void Awake()
@@ -36,17 +38,50 @@ namespace MoonPioneerClone.CollectableItemsInteractions
 
             TryTransferTo(collector);
         }
-        
-        
-        public void TryTransferTo(Collector collector)
+
+
+        public virtual void TryTransferTo(Collector collector)
         {
-            StackZoneItem item = GetLast(collector.AcceptableResources);
-            if (!item)
+            if (!CanTransferTo(collector))
             {
                 return;
             }
-    
-            TryTransferItemTo(collector, item);
+            
+            if (_transferRoutineEnumerator != null)
+            {
+                return;
+            }
+            
+            _transferRoutineEnumerator = TransferRoutine(collector);
+            StartCoroutine(_transferRoutineEnumerator);
+        }
+
+
+        private IEnumerator TransferRoutine(Collector collector)
+        {
+            StackZoneItem item = GetLast(collector.AcceptableResources);
+
+            while (item)
+            {
+                if (NeedToBrakeTransferRoutine())
+                {
+                    _transferRoutineEnumerator = null;
+                    yield break;
+                }
+                
+                TryTransferItemTo(collector, item);
+                item = GetLast(collector.AcceptableResources);
+
+                yield return new WaitForSeconds(0.2f);
+            }
+            
+            _transferRoutineEnumerator = null;
+        }
+
+
+        protected virtual bool NeedToBrakeTransferRoutine()
+        {
+            return true;
         }
 
 
@@ -66,7 +101,7 @@ namespace MoonPioneerClone.CollectableItemsInteractions
         }
         
 
-        public void TryTransferItemTo( Collector collector, StackZoneItem item)
+        public virtual void TryTransferItemTo( Collector collector, StackZoneItem item)
         {
             if (!CanTransferTo(collector))
             {
