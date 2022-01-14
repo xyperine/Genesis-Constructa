@@ -32,29 +32,21 @@ namespace MoonPioneerClone.WorldObjectsPlacement
                 return;
             }
             
-            Vector3 position = GetPositionForNewItem();
-            MoveItem(item, position);
+            MoveItemInside(item);
 
             itemsKeepingBehaviour.TryAdd(item);
         }
 
 
+        protected abstract void MoveItemInside(WorldPlacementItem item);
+
+
         protected abstract Vector3 GetPositionForNewItem();
-
-
-        private void MoveItem(WorldPlacementItem item, Vector3 position)
-        {
-            item.transform.SetParent(transform);
-            item.Rotate();
-            item.Move(position);
-        }
-
+        
 
         public void Remove(WorldPlacementItem item)
         {
-            item.transform.SetParent(null);
-            item.Rotate();
-
+            item.Discard();
             itemsKeepingBehaviour.TryRemove(item);
         }
 

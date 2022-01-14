@@ -11,7 +11,7 @@ namespace MoonPioneerClone.CollectableItemsInteractions
     public class ItemsStackZone : Collector, ICollectorInteractable
     {
         [SerializeField] private List<Collector> giveTo = new List<Collector>();
-        [SerializeField] private bool transferItemsOnTouch;
+        [SerializeField] private bool transferItems;
 
         private GridPlacement _placementArea;
         private IEnumerator _transferRoutineEnumerator;
@@ -31,7 +31,7 @@ namespace MoonPioneerClone.CollectableItemsInteractions
 
         public void Interact(Collector collector)
         {
-            if (!transferItemsOnTouch)
+            if (!transferItems)
             {
                 return;
             }
@@ -69,10 +69,11 @@ namespace MoonPioneerClone.CollectableItemsInteractions
                     yield break;
                 }
                 
+                yield return new WaitForSeconds(0.2f);
+                
                 TryTransferItemTo(collector, item);
                 item = GetLast(collector.AcceptableResources);
-
-                yield return new WaitForSeconds(0.2f);
+                print(item);
             }
             
             _transferRoutineEnumerator = null;
@@ -81,7 +82,7 @@ namespace MoonPioneerClone.CollectableItemsInteractions
 
         protected virtual bool NeedToBrakeTransferRoutine()
         {
-            return true;
+            return false;
         }
 
 
@@ -101,7 +102,7 @@ namespace MoonPioneerClone.CollectableItemsInteractions
         }
         
 
-        public virtual void TryTransferItemTo( Collector collector, StackZoneItem item)
+        public virtual void TryTransferItemTo(Collector collector, StackZoneItem item)
         {
             if (!CanTransferTo(collector))
             {

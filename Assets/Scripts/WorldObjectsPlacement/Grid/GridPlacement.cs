@@ -30,6 +30,16 @@ namespace MoonPioneerClone.WorldObjectsPlacement.Grid
         }
 
 
+        protected override void MoveItemInside(WorldPlacementItem item)
+        {
+            Vector3 position = GetPositionForNewItem();
+            
+            item.transform.SetParent(transform);
+            item.Rotate();
+            item.Move(position);
+        }
+
+
         protected override Vector3 GetPositionForNewItem()
         {
             Vector3 axesRawPositions = CalculateAxesRawPositions();

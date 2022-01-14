@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace MoonPioneerClone.WorldObjectsPlacement
 {
@@ -31,6 +32,7 @@ namespace MoonPioneerClone.WorldObjectsPlacement
 
         public void Remove(WorldPlacementItem item)
         {
+            Debug.Log(IndexOf(item));
             Remove(IndexOf(item));
         }
         

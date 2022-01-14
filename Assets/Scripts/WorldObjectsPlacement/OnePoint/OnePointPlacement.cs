@@ -15,6 +15,17 @@ namespace MoonPioneerClone.WorldObjectsPlacement.OnePoint
         }
 
 
+        protected override void MoveItemInside(WorldPlacementItem item)
+        {
+            Vector3 position = GetPositionForNewItem();
+            
+            item.transform.SetParent(transform);
+            item.Move(position);
+            
+            Destroy(item.gameObject, item.TransformationsDuration + 0.02f);
+        }
+
+
         protected override Vector3 GetPositionForNewItem()
         {
             return transform.InverseTransformPoint(pointTransform.position);

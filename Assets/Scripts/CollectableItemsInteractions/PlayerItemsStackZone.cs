@@ -15,19 +15,6 @@
         }
 
 
-        public override void TryTransferItemTo(Collector collector, StackZoneItem item)
-        {
-            bool collectorIsConsumer = collector is ItemsConsumer;
-
-            if (!collectorIsConsumer)
-            {
-                return;
-            }
-            
-            base.TryTransferItemTo(collector, item);
-        }
-
-
         protected override bool NeedToBrakeTransferRoutine()
         {
             bool standingStill = true; // Get movement status here
