@@ -13,8 +13,11 @@ namespace MoonPioneerClone.WorldObjectsPlacement
         {
             RecalculateShape();
         }
-        
-        
+
+
+        protected abstract void RecalculateShape();
+
+
         private void OnDrawGizmosSelected()
         {
             if (!alwaysDraw)
@@ -24,6 +27,9 @@ namespace MoonPioneerClone.WorldObjectsPlacement
         }
 
 
+        protected abstract void DrawShape();
+
+
         private void OnDrawGizmos()
         {
             if (alwaysDraw)
@@ -31,9 +37,5 @@ namespace MoonPioneerClone.WorldObjectsPlacement
                 DrawShape();
             }
         }
-
-
-        protected abstract void RecalculateShape();
-        protected abstract void DrawShape();
     }
 }

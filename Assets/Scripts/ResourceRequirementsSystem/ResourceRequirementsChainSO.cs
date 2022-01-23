@@ -16,18 +16,6 @@ namespace MoonPioneerClone.ResourceRequirementsSystem
         public event Action BlockSatisfied;
 
 
-        public bool NeedResource(ResourceType type)
-        {
-            return RequiredResources.Contains(type);
-        }
-        
-        
-        public void AddResource(ResourceType type)
-        {
-            _activeRequirementBlock.AddResource(type);
-        }
-
-
         private void OnValidate()
         {
             SetupChain();
@@ -109,6 +97,18 @@ namespace MoonPioneerClone.ResourceRequirementsSystem
         private void InvokeBlockSatisfied()
         {
             BlockSatisfied?.Invoke();
+        }
+
+
+        public bool NeedResource(ResourceType type)
+        {
+            return RequiredResources.Contains(type);
+        }
+
+
+        public void AddResource(ResourceType type)
+        {
+            _activeRequirementBlock.AddResource(type);
         }
     }
 }

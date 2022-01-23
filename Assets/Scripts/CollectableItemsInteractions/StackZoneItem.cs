@@ -1,5 +1,4 @@
-﻿using MoonPioneerClone.Utility.Exceptions;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace MoonPioneerClone.CollectableItemsInteractions
 {
@@ -14,9 +13,9 @@ namespace MoonPioneerClone.CollectableItemsInteractions
 
         public void SetZone(ItemsStackZone zone)
         {
-            if (zone == _zone)
+            if (_zone == zone)
             {
-                throw new SameStackZoneException();
+                return;
             }
             
             _zone = zone;

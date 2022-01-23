@@ -73,7 +73,6 @@ namespace MoonPioneerClone.CollectableItemsInteractions
                 
                 TryTransferItemTo(collector, item);
                 item = GetLast(collector.AcceptableResources);
-                print(item);
             }
             
             _transferRoutineEnumerator = null;

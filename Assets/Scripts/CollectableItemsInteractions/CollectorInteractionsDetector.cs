@@ -1,5 +1,4 @@
-﻿using MoonPioneerClone.Utility.Exceptions;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace MoonPioneerClone.CollectableItemsInteractions
 {
@@ -27,7 +26,7 @@ namespace MoonPioneerClone.CollectableItemsInteractions
 
             if (!other.TryGetComponent(out interactable))
             {
-                throw new NoCollectorInteractableAttachedException(other.gameObject);
+                return;
             }
             
             interactable.Interact(_collector);

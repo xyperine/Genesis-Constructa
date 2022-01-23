@@ -9,6 +9,7 @@ namespace MoonPioneerClone.WorldObjectsPlacement
         [SerializeField] private float tweenDuration = 0.2f;
 
         public float TransformationsDuration => tweenDuration;
+        public bool Moving { get; private set; }
 
 
         public void Rotate()
@@ -19,7 +20,9 @@ namespace MoonPioneerClone.WorldObjectsPlacement
 
         public void Move(Vector3 position)
         {
-            transform.DOLocalMove(position, tweenDuration).SetEase(easingCurve);
+            Moving = true;
+            transform.DOLocalMove(position, tweenDuration).SetEase(easingCurve).
+                OnKill(() => Moving = false);
         }
 
 
