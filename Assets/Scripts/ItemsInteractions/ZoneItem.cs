@@ -1,7 +1,7 @@
 ﻿using MoonPioneerClone.WorldObjectsPlacement;
 using UnityEngine;
 
-namespace MoonPioneerClone.CollectableItemsInteractions.Split
+namespace MoonPioneerClone.ItemsInteractions
 {
     [RequireComponent(typeof(WorldPlacementItem))]
     public class ZoneItem : MonoBehaviour

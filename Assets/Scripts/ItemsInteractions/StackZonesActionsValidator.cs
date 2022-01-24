@@ -1,8 +1,8 @@
-﻿using MoonPioneerClone.CollectableItemsInteractions.Split.PickUp;
-using MoonPioneerClone.CollectableItemsInteractions.Split.Transfer;
+﻿using MoonPioneerClone.ItemsInteractions.PickUp;
+using MoonPioneerClone.ItemsInteractions.Transfer;
 using UnityEngine;
 
-namespace MoonPioneerClone.CollectableItemsInteractions.Split
+namespace MoonPioneerClone.ItemsInteractions
 {
     public sealed class StackZonesActionsValidator : MonoBehaviour
     {

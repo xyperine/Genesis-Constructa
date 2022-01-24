@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MoonPioneerClone.CollectableItemsInteractions.Split
+namespace MoonPioneerClone.ItemsInteractions
 {
     public abstract class StackZoneInteractor<T> : MonoBehaviour
     {

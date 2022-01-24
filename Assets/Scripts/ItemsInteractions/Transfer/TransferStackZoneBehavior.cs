@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace MoonPioneerClone.CollectableItemsInteractions.Split.Transfer
+namespace MoonPioneerClone.ItemsInteractions.Transfer
 {
     public class TransferStackZoneBehavior : MonoBehaviour
     {
@@ -33,6 +32,16 @@ namespace MoonPioneerClone.CollectableItemsInteractions.Split.Transfer
 
             while (item)
             {
+                if (NeedToBrakeTransferRoutine())
+                {
+                    break;
+                }
+
+                if (!target.CanTakeMore)
+                {
+                    break;
+                }
+
                 yield return TransferSingleItemRoutine(target, item);
                 
                 item = stackZone.GetLast(target.AcceptableResources);
@@ -42,30 +51,18 @@ namespace MoonPioneerClone.CollectableItemsInteractions.Split.Transfer
         }
 
 
-        private IEnumerator TransferSingleItemRoutine(ITransferTarget target, ZoneItem item)
-        {
-            if (NeedToBrakeTransferRoutine())
-            {
-                StopCoroutine(_transferRoutines[target]);
-                _transferRoutines.Remove(target);
-                yield break;
-            }
-
-            if (!target.CanTakeMore)
-            {
-                yield break;
-            }
-                
-            yield return new WaitForSeconds(0.2f);
-
-            stackZone.Remove(item);
-            target.Add(item);
-        }
-
-
         protected virtual bool NeedToBrakeTransferRoutine()
         {
             return false;
+        }
+
+
+        private IEnumerator TransferSingleItemRoutine(ITransferTarget target, ZoneItem item)
+        {
+            stackZone.Remove(item);
+            target.Add(item);
+
+            yield return new WaitForSeconds(0.2f);
         }
     }
 }

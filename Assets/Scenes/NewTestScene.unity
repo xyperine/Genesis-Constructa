@@ -4042,6 +4042,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7457624223326908158, guid: a545d628fac155a4c93d7d1d591f0d32, type: 3}
+      propertyPath: placementSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 74287dea933e6554988764df7649c756, type: 2}
     - target: {fileID: 8373953019753389368, guid: a545d628fac155a4c93d7d1d591f0d32, type: 3}
       propertyPath: pickUpFrom.Array.size
       value: 1
@@ -18100,7 +18104,7 @@ PrefabInstance:
     - target: {fileID: 3306793018433117870, guid: ff4549510fc13184489be089c41dfcda, type: 3}
       propertyPath: requirementsChain
       value: 
-      objectReference: {fileID: 11400000, guid: ee76911a5a3e9a04b92838d26783ecbb, type: 2}
+      objectReference: {fileID: 11400000, guid: e3bbf6e881fe8ed4db9578cd9196e1df, type: 2}
     - target: {fileID: 4990917755210131342, guid: ff4549510fc13184489be089c41dfcda, type: 3}
       propertyPath: m_Icon
       value: 

@@ -80,7 +80,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acceptableResources: 
-  placement: {fileID: 8621674433344194033}
 --- !u!114 &8621674433344194033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2955867430892914367}
+  - component: {fileID: 7388648788753887237}
   m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
@@ -139,3 +139,16 @@ Transform:
   m_Father: {fileID: 4222651788780519323}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7388648788753887237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6095317316683150772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e88a287a26c2264f9321d737ca10231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 6420693040838171798}

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MoonPioneerClone.CollectableItemsInteractions;
+using MoonPioneerClone.ItemsInteractions;
 using UnityEngine;
 
 namespace MoonPioneerClone.WorldObjectsPlacement
@@ -68,7 +68,7 @@ namespace MoonPioneerClone.WorldObjectsPlacement
                     continue;
                 }
                 
-                StackZoneItem item;
+                ZoneItem item;
                 if (!placementItem.TryGetComponent(out item))
                 {
                     continue;

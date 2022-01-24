@@ -1,11 +1,10 @@
-﻿using System.Linq;
-using MoonPioneerClone.CollectableItemsInteractions.Split.Transfer;
+﻿using MoonPioneerClone.ItemsInteractions.Transfer;
 using MoonPioneerClone.ResourceRequirementsSystem;
 using MoonPioneerClone.WorldObjectsPlacement;
 using MoonPioneerClone.WorldObjectsPlacement.OnePoint;
 using UnityEngine;
 
-namespace MoonPioneerClone.CollectableItemsInteractions.Split
+namespace MoonPioneerClone.ItemsInteractions
 {
     [RequireComponent(typeof(OnePointPlacement))]
     public class Consumer : SerializedTransferTarget

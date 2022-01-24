@@ -1,4 +1,4 @@
-﻿namespace MoonPioneerClone.CollectableItemsInteractions.Split.Transfer
+﻿namespace MoonPioneerClone.ItemsInteractions.Transfer
 {
     public sealed class PlayerTransferBehavior : TransferStackZoneBehavior
     {

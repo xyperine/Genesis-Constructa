@@ -1,12 +1,12 @@
-﻿using MoonPioneerClone.CollectableItemsInteractions.Split.PickUp;
-using MoonPioneerClone.CollectableItemsInteractions.Split.Transfer;
+﻿using MoonPioneerClone.ItemsInteractions.PickUp;
+using MoonPioneerClone.ItemsInteractions.Transfer;
 using UnityEngine;
 
-namespace MoonPioneerClone.CollectableItemsInteractions.Split
+namespace MoonPioneerClone.ItemsInteractions
 {
     [RequireComponent(typeof(StackZonesActionsValidator))]
     public sealed class ResourcesInteractionsHandler : MonoBehaviour
-    { 
+    {
         [SerializeField] private PickUpStackZoneBehavior pickUpBehavior;
         [SerializeField] private TransferStackZoneBehavior transferBehavior;
         

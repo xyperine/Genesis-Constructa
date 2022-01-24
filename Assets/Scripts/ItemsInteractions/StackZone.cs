@@ -1,10 +1,10 @@
 ﻿using System.Linq;
-using MoonPioneerClone.CollectableItemsInteractions.Split.Transfer;
+using MoonPioneerClone.ItemsInteractions.Transfer;
 using MoonPioneerClone.WorldObjectsPlacement;
 using MoonPioneerClone.WorldObjectsPlacement.Grid;
 using UnityEngine;
 
-namespace MoonPioneerClone.CollectableItemsInteractions.Split
+namespace MoonPioneerClone.ItemsInteractions
 {
     [RequireComponent(typeof(GridPlacement))]
     public class StackZone : SerializedTransferTarget

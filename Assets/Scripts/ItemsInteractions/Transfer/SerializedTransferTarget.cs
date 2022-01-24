@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MoonPioneerClone.CollectableItemsInteractions.Split.Transfer
+namespace MoonPioneerClone.ItemsInteractions.Transfer
 {
     public abstract class SerializedTransferTarget : MonoBehaviour, ITransferTarget
     {

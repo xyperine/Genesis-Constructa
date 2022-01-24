@@ -1,4 +1,4 @@
-﻿namespace MoonPioneerClone.CollectableItemsInteractions.Split.PickUp
+﻿namespace MoonPioneerClone.ItemsInteractions.PickUp
 {
     public class PickUpsInteractor : StackZoneInteractor<ZoneItem>
     {

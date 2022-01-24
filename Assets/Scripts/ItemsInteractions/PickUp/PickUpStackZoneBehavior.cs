@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace MoonPioneerClone.CollectableItemsInteractions.Split.PickUp
+namespace MoonPioneerClone.ItemsInteractions.PickUp
 {
     public class PickUpStackZoneBehavior : MonoBehaviour
     {
