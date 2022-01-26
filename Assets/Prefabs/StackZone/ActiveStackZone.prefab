@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3918761376359813050}
-  - component: {fileID: 3919604405760669303}
   - component: {fileID: 498276363300210463}
   m_Layer: 8
   m_Name: InteractionsHandler
@@ -33,21 +32,6 @@ Transform:
   m_Father: {fileID: 6578516319941595265}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3919604405760669303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7614792273182064805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3e4a833b26849129384f7767482650d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  validator: {fileID: 498276363300210463}
-  pickUpBehavior: {fileID: 0}
-  transferBehavior: {fileID: 0}
 --- !u!114 &498276363300210463
 MonoBehaviour:
   m_ObjectHideFlags: 0

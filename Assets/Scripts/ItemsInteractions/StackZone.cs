@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using MoonPioneerClone.ItemsInteractions.Transfer;
+using MoonPioneerClone.ItemsInteractions.Transfer.Target;
 using MoonPioneerClone.WorldObjectsPlacement;
 using MoonPioneerClone.WorldObjectsPlacement.Grid;
 using UnityEngine;
@@ -7,7 +7,7 @@ using UnityEngine;
 namespace MoonPioneerClone.ItemsInteractions
 {
     [RequireComponent(typeof(GridPlacement))]
-    public class StackZone : SerializedTransferTarget
+    public class StackZone : TransferTarget
     {
         [SerializeField] private ResourceType[] acceptableResources; 
         
@@ -48,6 +48,7 @@ namespace MoonPioneerClone.ItemsInteractions
         public ZoneItem GetLast(ResourceType[] resources)
         {
             WorldPlacementItem placementItem = _placement.GetLast(resources);
+
             if (!placementItem)
             {
                 return null;
