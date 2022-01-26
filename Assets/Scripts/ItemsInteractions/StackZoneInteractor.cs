@@ -2,23 +2,24 @@
 
 namespace MoonPioneerClone.ItemsInteractions
 {
-    public abstract class StackZoneInteractor<T> : MonoBehaviour
+    public abstract class StackZoneInteractor<TObject, THandler> : MonoBehaviour
+        where THandler : ItemsInteractionsHandler
     {
-        [SerializeField] protected ResourcesInteractionsHandler handler;
+        [SerializeField] protected THandler handler;
 
 
         private void OnTriggerEnter(Collider other)
         {
-            T @object;
-            if (!other.TryGetComponent(out @object))
+            TObject obj;
+            if (!other.TryGetComponent(out obj))
             {
                 return;
             }
             
-            InteractWith(@object);
+            InteractWith(obj);
         }
 
 
-        protected abstract void InteractWith(T @object);
+        protected abstract void InteractWith(TObject obj);
     }
 }

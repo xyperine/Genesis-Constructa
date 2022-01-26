@@ -1,4 +1,5 @@
 ﻿using MoonPioneerClone.ItemsInteractions.Transfer;
+using MoonPioneerClone.ItemsInteractions.Transfer.Target;
 using MoonPioneerClone.ResourceRequirementsSystem;
 using MoonPioneerClone.WorldObjectsPlacement;
 using MoonPioneerClone.WorldObjectsPlacement.OnePoint;
@@ -7,7 +8,7 @@ using UnityEngine;
 namespace MoonPioneerClone.ItemsInteractions
 {
     [RequireComponent(typeof(OnePointPlacement))]
-    public class Consumer : SerializedTransferTarget
+    public class Consumer : TransferTarget
     {
         [SerializeField] private ResourceRequirementsChainSO requirementsChain;
         

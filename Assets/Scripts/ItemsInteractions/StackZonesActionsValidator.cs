@@ -1,5 +1,6 @@
 ﻿using MoonPioneerClone.ItemsInteractions.PickUp;
 using MoonPioneerClone.ItemsInteractions.Transfer;
+using MoonPioneerClone.ItemsInteractions.Transfer.Target;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsInteractions
@@ -20,7 +21,7 @@ namespace MoonPioneerClone.ItemsInteractions
        }
        
        
-       public bool CanTransferTo(ITransferTarget to)
+       public bool CanTransferTo(TransferTarget to)
        {
            bool hasItems = zone.HasItems;
            bool canTakeMore = to.CanTakeMore;

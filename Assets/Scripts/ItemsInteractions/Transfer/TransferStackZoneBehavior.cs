@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using MoonPioneerClone.ItemsInteractions.Transfer.Target;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsInteractions.Transfer
@@ -7,15 +8,17 @@ namespace MoonPioneerClone.ItemsInteractions.Transfer
     public class TransferStackZoneBehavior : MonoBehaviour
     {
         [SerializeField] private StackZone stackZone;
-        [SerializeField] private List<SerializedTransferTarget> giveTo = new List<SerializedTransferTarget>();
+        [SerializeField] private List<TransferTarget> giveTo = new List<TransferTarget>();
 
-        private readonly Dictionary<ITransferTarget, IEnumerator> _transferRoutines =
-            new Dictionary<ITransferTarget, IEnumerator>();
+        private readonly WaitForSeconds transferInterval = new WaitForSeconds(0.2f);
 
-        public bool CanGiveTo(ITransferTarget to) => giveTo.Contains(to as SerializedTransferTarget);
+        private readonly Dictionary<TransferTarget, IEnumerator> _transferRoutines =
+            new Dictionary<TransferTarget, IEnumerator>();
+
+        public bool CanGiveTo(TransferTarget to) => giveTo.Contains(to as TransferTarget);
 
 
-        public void TransferTo(ITransferTarget target)
+        public void TransferTo(TransferTarget target)
         {
             if (!_transferRoutines.TryAdd(target, TransferItemsRoutine(target)))
             {
@@ -26,7 +29,7 @@ namespace MoonPioneerClone.ItemsInteractions.Transfer
         }
         
         
-        private IEnumerator TransferItemsRoutine(ITransferTarget target)
+        private IEnumerator TransferItemsRoutine(TransferTarget target)
         {
             ZoneItem item = stackZone.GetLast(target.AcceptableResources);
 
@@ -42,8 +45,10 @@ namespace MoonPioneerClone.ItemsInteractions.Transfer
                     break;
                 }
 
-                yield return TransferSingleItemRoutine(target, item);
-                
+                TransferSingleItemTo(target, item);
+
+                yield return transferInterval;
+
                 item = stackZone.GetLast(target.AcceptableResources);
             }
 
@@ -57,12 +62,10 @@ namespace MoonPioneerClone.ItemsInteractions.Transfer
         }
 
 
-        private IEnumerator TransferSingleItemRoutine(ITransferTarget target, ZoneItem item)
+        private void TransferSingleItemTo(TransferTarget target, ZoneItem item)
         {
             stackZone.Remove(item);
             target.Add(item);
-
-            yield return new WaitForSeconds(0.2f);
         }
     }
 }
