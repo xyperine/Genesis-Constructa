@@ -1,8 +1,8 @@
 ﻿namespace MoonPioneerClone.ItemsInteractions.PickUp
 {
-    public class PickUpsInteractor : StackZoneInteractor<ZoneItem, PickUpInteractionsHandler>
+    public class PickUpsInteractor : StackZoneInteractor<StackZoneItem, PickUpInteractionsHandler>
     {
-        protected override void InteractWith(ZoneItem item)
+        protected override void InteractWith(StackZoneItem item)
         {
             handler.PickUpItem(item);
         }

@@ -5,8 +5,8 @@ namespace MoonPioneerClone.ItemsInteractions.Transfer.Target
     public abstract class TransferTarget : MonoBehaviour
     {
         public abstract bool CanTakeMore { get; }
-        public abstract ResourceType[] AcceptableResources { get; }
+        public abstract ItemType[] AcceptableItems { get; }
 
-        public abstract void Add(ZoneItem item);
+        public abstract void Add(StackZoneItem item);
     }
 }

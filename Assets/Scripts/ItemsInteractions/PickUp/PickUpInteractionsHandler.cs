@@ -4,10 +4,10 @@ namespace MoonPioneerClone.ItemsInteractions.PickUp
 {
     public sealed class PickUpInteractionsHandler : ItemsInteractionsHandler
     {
-        [SerializeField] private PickUpStackZoneBehavior pickUpBehavior;
+        [SerializeField] private PickUpStackZoneBehaviour _pickUpBehaviour;
 
 
-        public void PickUpItem(ZoneItem item)
+        public void PickUpItem(StackZoneItem item)
         {
             if (item.Moving)
             {
@@ -23,7 +23,7 @@ namespace MoonPioneerClone.ItemsInteractions.PickUp
 
             if (!itemZone)
             {
-                pickUpBehavior.Add(item);
+                _pickUpBehaviour.Add(item);
                 return;
             }
             
@@ -32,7 +32,7 @@ namespace MoonPioneerClone.ItemsInteractions.PickUp
                 return;
             }
             
-            pickUpBehavior.PickUpItem(item);
+            _pickUpBehaviour.PickUpItem(item);
         }
     }
 }

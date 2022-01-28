@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using MoonPioneerClone.ItemsInteractions.Transfer.Target;
 using MoonPioneerClone.WorldObjectsPlacement;
-using MoonPioneerClone.WorldObjectsPlacement.Grid;
+using MoonPioneerClone.WorldObjectsPlacement.Placements.Grid;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsInteractions
@@ -9,14 +9,15 @@ namespace MoonPioneerClone.ItemsInteractions
     [RequireComponent(typeof(GridPlacement))]
     public class StackZone : TransferTarget
     {
-        [SerializeField] private ResourceType[] acceptableResources; 
+        [SerializeField] private ItemType[] acceptableItems; 
         
         private GridPlacement _placement;
         
         public bool HasItems => _placement.Count > 0;
         public override bool CanTakeMore => _placement.CanFitMore;
-        public bool CanTakeThisResource(ResourceType type) => acceptableResources.Contains(type);
-        public override ResourceType[] AcceptableResources => (ResourceType[]) acceptableResources.Clone();
+        public override ItemType[] AcceptableItems => (ItemType[]) acceptableItems.Clone();
+
+        public bool CanTakeThisItem(ItemType type) => acceptableItems.Contains(type);
 
 
         private void Awake()
@@ -31,30 +32,30 @@ namespace MoonPioneerClone.ItemsInteractions
         }
 
 
-        public override void Add(ZoneItem item)
+        public override void Add(StackZoneItem item)
         {
             item.SetZone(this);
             _placement.Add(item.GetComponent<WorldPlacementItem>());
         }
 
 
-        public void Remove(ZoneItem item)
+        public void Remove(StackZoneItem item)
         {
             item.SetZone(null);
             _placement.Remove(item.GetComponent<WorldPlacementItem>());
         }
 
 
-        public ZoneItem GetLast(ResourceType[] resources)
+        public StackZoneItem GetLast(ItemType[] requestedItems)
         {
-            WorldPlacementItem placementItem = _placement.GetLast(resources);
+            WorldPlacementItem placementItem = _placement.GetLast(requestedItems);
 
             if (!placementItem)
             {
                 return null;
             }
             
-            ZoneItem item;
+            StackZoneItem item;
             placementItem.TryGetComponent(out item);
 
             return item;

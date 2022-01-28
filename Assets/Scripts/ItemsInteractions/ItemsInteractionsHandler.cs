@@ -2,15 +2,21 @@
 
 namespace MoonPioneerClone.ItemsInteractions
 {
-    [RequireComponent(typeof(StackZonesActionsValidator))]
+    [RequireComponent(typeof(StackZoneActionsValidator))]
     public abstract class ItemsInteractionsHandler : MonoBehaviour
     {
-        protected StackZonesActionsValidator validator;
+        protected StackZoneActionsValidator validator;
 
 
         private void Awake()
         {
-            validator = GetComponent<StackZonesActionsValidator>();
+            GetComponents();
+        }
+
+
+        private void GetComponents()
+        {
+            validator = GetComponent<StackZoneActionsValidator>();
         }
     }
 }

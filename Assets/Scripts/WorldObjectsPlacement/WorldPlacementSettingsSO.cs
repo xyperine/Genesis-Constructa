@@ -8,7 +8,7 @@ namespace MoonPioneerClone.WorldObjectsPlacement
 {
     public abstract class WorldPlacementSettingsSO : ScriptableObject
     {
-        [SerializeField] private Vector3 defaultItemSize = new Vector3(1f, 0.5f, 0.5f);
+        [SerializeField] private Vector3 itemSize = new Vector3(1f, 0.5f, 0.5f);
 
         [Header("Filling")] 
         [SerializeField] private bool useCustomFillingOrder;
@@ -16,19 +16,19 @@ namespace MoonPioneerClone.WorldObjectsPlacement
         [ShowIf(nameof(useCustomFillingOrder))]
         [ListDrawerSettings(DraggableItems = true, HideAddButton = true, HideRemoveButton = true)]
         [Tooltip("Do not change any value, just rearrange elements instead!\nDefault order is X -> Z -> Y")]
-        [SerializeField] private WorldPlacementAreaAxesFillingOrder[] fillingOrder = DefaultFillingOrder.ToArray();
+        [SerializeField] private Axes[] fillingOrder = DefaultFillingOrder.ToArray();
 
-        private static readonly HashSet<WorldPlacementAreaAxesFillingOrder> DefaultFillingOrder =
-            new HashSet<WorldPlacementAreaAxesFillingOrder>
+        private static readonly HashSet<Axes> DefaultFillingOrder =
+            new HashSet<Axes>
             {
-                WorldPlacementAreaAxesFillingOrder.X,
-                WorldPlacementAreaAxesFillingOrder.Z,
-                WorldPlacementAreaAxesFillingOrder.Y,
+                Axes.X,
+                Axes.Z,
+                Axes.Y,
             };
 
-        public Vector3 DefaultItemSize => defaultItemSize;
+        public Vector3 ItemSize => itemSize;
 
-        public WorldPlacementAreaAxesFillingOrder[] FillingOrder { get; private set; }
+        public Axes[] FillingOrder { get; private set; }
         public int MaxItems { get; protected set; }
 
 
@@ -43,11 +43,11 @@ namespace MoonPioneerClone.WorldObjectsPlacement
         
         private void OnValidate()
         {
-            CacheSomeValues();
+            SetValues();
         }
 
 
-        protected virtual void CacheSomeValues()
+        protected virtual void SetValues()
         {
             SetFillingOrder();
             SetMaxItems();
@@ -61,7 +61,7 @@ namespace MoonPioneerClone.WorldObjectsPlacement
 
         private void SetFillingOrder()
         {
-            WorldPlacementAreaAxesFillingOrder[] order = useCustomFillingOrder ? fillingOrder : DefaultFillingOrder.ToArray();
+            Axes[] order = useCustomFillingOrder ? fillingOrder : DefaultFillingOrder.ToArray();
             FillingOrder = order;
         }
 

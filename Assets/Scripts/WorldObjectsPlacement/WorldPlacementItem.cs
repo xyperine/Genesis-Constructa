@@ -6,7 +6,7 @@ namespace MoonPioneerClone.WorldObjectsPlacement
     public sealed class WorldPlacementItem : MonoBehaviour
     {
         [SerializeField] private AnimationCurve easingCurve;
-        [SerializeField] private float tweenDuration = 0.2f;
+        [SerializeField] private float tweenDuration = 0.1f;
 
         public float TransformationsDuration => tweenDuration;
         public bool Moving { get; private set; }
@@ -18,11 +18,17 @@ namespace MoonPioneerClone.WorldObjectsPlacement
         }
 
 
-        public void Move(Vector3 position)
+        public void MoveToArea(Vector3 position)
         {
             Moving = true;
             transform.DOLocalMove(position, tweenDuration).SetEase(easingCurve).
                 OnKill(() => Moving = false);
+        }
+
+
+        public void MoveLocally(Vector3 localPosition)
+        {
+            transform.localPosition = localPosition;
         }
 
 

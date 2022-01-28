@@ -10,9 +10,9 @@ namespace MoonPioneerClone.WorldObjectsPlacement
     {
         [SerializeField] protected TPlacementSettings placementSettings;
 
-        protected IWorldPlacementItemsKeepingBehaviour itemsKeepingBehaviour;
+        protected IWorldPlacementItemsCollection itemsCollection;
         
-        public int Count => itemsKeepingBehaviour.Count;
+        public int Count => itemsCollection.Count;
         public abstract bool CanFitMore { get; }
 
 
@@ -34,32 +34,38 @@ namespace MoonPioneerClone.WorldObjectsPlacement
             
             MoveItemInside(item);
 
-            itemsKeepingBehaviour.TryAdd(item);
+            itemsCollection.Add(item);
         }
 
 
-        protected abstract void MoveItemInside(WorldPlacementItem item);
+        protected virtual void MoveItemInside(WorldPlacementItem item)
+        {
+            Vector3 position = CalculatePositionForNewItem();
+
+            item.transform.SetParent(transform);
+            item.MoveToArea(position);
+        }
 
 
-        protected abstract Vector3 GetPositionForNewItem();
+        protected abstract Vector3 CalculatePositionForNewItem();
         
 
-        public void Remove(WorldPlacementItem item)
+        public virtual void Remove(WorldPlacementItem item)
         {
             item.Discard();
-            itemsKeepingBehaviour.TryRemove(item);
+            itemsCollection.Remove(item);
         }
 
 
         public WorldPlacementItem GetLast()
         {
-            return itemsKeepingBehaviour.TryPeek();
+            return itemsCollection.Peek();
         }
 
 
-        public WorldPlacementItem GetLast(ResourceType[] acceptableResources)
+        public WorldPlacementItem GetLast(ItemType[] requiredItems)
         {
-            IEnumerable<WorldPlacementItem> placementItems = itemsKeepingBehaviour.Items;
+            IEnumerable<WorldPlacementItem> placementItems = itemsCollection.Items;
             
             foreach (WorldPlacementItem placementItem in placementItems)
             {
@@ -68,13 +74,13 @@ namespace MoonPioneerClone.WorldObjectsPlacement
                     continue;
                 }
                 
-                ZoneItem item;
+                StackZoneItem item;
                 if (!placementItem.TryGetComponent(out item))
                 {
                     continue;
                 }
 
-                if (acceptableResources.Contains(item.Type))
+                if (requiredItems.Contains(item.Type))
                 {
                     return placementItem;
                 }

@@ -5,7 +5,7 @@ namespace MoonPioneerClone.ItemsInteractions.Transfer
 {
     public sealed class TransferInteractionsHandler : ItemsInteractionsHandler
     {
-        [SerializeField] private TransferStackZoneBehavior transferBehavior;
+        [SerializeField] private TransferStackZoneBehaviour _transferBehaviour;
 
 
         public void TransferItemsTo(TransferTarget target)
@@ -15,7 +15,7 @@ namespace MoonPioneerClone.ItemsInteractions.Transfer
                 return;
             }
 
-            transferBehavior.TransferTo(target);
+            _transferBehaviour.TransferTo(target);
         }
     }
 }
