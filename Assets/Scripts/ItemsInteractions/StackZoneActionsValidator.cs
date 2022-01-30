@@ -5,38 +5,39 @@ using UnityEngine;
 
 namespace MoonPioneerClone.ItemsInteractions
 {
-    public sealed class StackZoneActionsValidator : MonoBehaviour
+	public sealed class StackZoneActionsValidator : MonoBehaviour
     {
-       [SerializeField] private StackZone zone;
-       [SerializeField] private PickUpStackZoneBehaviour pickUpBehaviour;
-       [SerializeField] private TransferStackZoneBehaviour transferBehaviour;
-       
-       
-       public bool ZoneCanTakeItem(StackZoneItem item)
-       {
-           bool canTakeMore = zone.CanTakeMore;
-           bool canTakeThisItem = zone.CanTakeThisItem(item.Type);
+        [Header("Dependencies")]
+        [SerializeField] private StackZone zone; 
+        [SerializeField] private PickUpStackZoneBehaviour pickUpBehaviour;
+	    [SerializeField] private TransferStackZoneBehaviour transferBehaviour;
+	   
+	   
+	    public bool ZoneCanTakeItem(StackZoneItem item)
+	    {
+		    bool canTakeMore = zone.CanTakeMore;
+		    bool canTakeThisItem = zone.CanTakeThisItem(item.Type);
 
-           return canTakeMore && canTakeThisItem;
-       }
-       
-       
-       public bool CanTransferTo(TransferTarget to)
-       {
-           bool hasItems = zone.HasItems;
-           bool canTakeMore = to.CanTakeMore;
-           bool canGiveTo = transferBehaviour.CanGiveTo(to);
+		    return canTakeMore && canTakeThisItem;
+	    }
 
-           return hasItems && canTakeMore && canGiveTo;
-       }
-       
-       
-       public bool CanTakeFrom(StackZone from)
-       {
-           bool fromHasItems = from.HasItems;
-           bool canPickUpFrom = pickUpBehaviour.CanPickUpFrom(from);
 
-           return fromHasItems && canPickUpFrom;
-       }
-    }
+        public bool CanTransferTo(TransferTarget to)
+        {
+            bool hasItems = zone.HasItems;
+            bool canTakeMore = to.CanTakeMore;
+            bool canGiveTo = transferBehaviour.CanGiveTo(to);
+
+            return hasItems && canTakeMore && canGiveTo;
+        }
+
+
+        public bool CanTakeFrom(StackZone from)
+        {
+            bool fromHasItems = from.HasItems;
+            bool canPickUpFrom = pickUpBehaviour.CanPickUpFrom(from);
+
+            return fromHasItems && canPickUpFrom;
+        }
+	}
 }

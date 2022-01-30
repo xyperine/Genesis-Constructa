@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using MoonPioneerClone.ItemsInteractions.Transfer.Target;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsInteractions.Transfer
 {
     public class TransferStackZoneBehaviour : MonoBehaviour
     {
+        [Header("Dependencies")]
         [SerializeField] private StackZone stackZone;
+        [BoxGroup("Transfer settings")]
         [SerializeField] private List<TransferTarget> giveTo = new List<TransferTarget>();
+        [BoxGroup("Transfer settings")]
         [SerializeField, Range(0.02f, 0.2f)] private float transferInterval = 0.1f;
 
         private WaitForSeconds _waitForTransferInterval;

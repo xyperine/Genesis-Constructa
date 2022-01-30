@@ -5,6 +5,7 @@ namespace MoonPioneerClone.WorldObjectsPlacement
 {
     public sealed class WorldPlacementItem : MonoBehaviour
     {
+        [Header("Tweening")]
         [SerializeField] private AnimationCurve easingCurve;
         [SerializeField] private float tweenDuration = 0.1f;
 

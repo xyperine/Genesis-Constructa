@@ -5,7 +5,9 @@ namespace MoonPioneerClone.ItemsInteractions.PickUp
 {
     public class PickUpStackZoneBehaviour : MonoBehaviour
     {
+        [Header("Dependencies")]
         [SerializeField] private StackZone stackZone;
+        [Header("Pick Up Settings")]
         [SerializeField] private List<StackZone> pickUpFrom = new List<StackZone>();
 
         public bool CanPickUpFrom(StackZone from) => pickUpFrom.Contains(from);
