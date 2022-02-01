@@ -8,7 +8,7 @@ namespace MoonPioneerClone.Player
 {
     public class PlayerGridPlacement : GridPlacement
     {
-        protected override void InitializeItemsKeepingBehaviour()
+        protected override void InitializeItemsCollection()
         {
             itemsCollection = new RearrangeablePlacementItemsCollection(placementSettings.MaxItems);
         }

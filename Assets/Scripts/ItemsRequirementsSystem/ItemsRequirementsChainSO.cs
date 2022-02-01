@@ -17,7 +17,7 @@ namespace MoonPioneerClone.ItemsRequirementsSystem
         public event Action BlockSatisfied;
 
 
-        private void OnValidate()
+        private void Awake()
         {
             SetupChain();
         }

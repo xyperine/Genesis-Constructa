@@ -10,8 +10,9 @@ namespace MoonPioneerClone.WorldObjectsPlacement.Placements.Grid
         public override bool CanFitMore => Count < placementSettings.MaxItems;
 
 
-        private void OnValidate()
+        protected override void Awake()
         {
+            base.Awake();
             GetFillingOrderAxes();
         }
         
@@ -25,7 +26,7 @@ namespace MoonPioneerClone.WorldObjectsPlacement.Placements.Grid
         }
 
 
-        protected override void InitializeItemsKeepingBehaviour()
+        protected override void InitializeItemsCollection()
         {
             itemsCollection = new DefaultPlacementItemsCollection(placementSettings.MaxItems);
         }

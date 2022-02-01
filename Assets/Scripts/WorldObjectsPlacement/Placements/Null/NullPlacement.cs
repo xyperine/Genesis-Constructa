@@ -10,7 +10,7 @@ namespace MoonPioneerClone.WorldObjectsPlacement.Placements.Null
         public override bool CanFitMore => true;
 
 
-        protected override void InitializeItemsKeepingBehaviour()
+        protected override void InitializeItemsCollection()
         {
             itemsCollection = new NullPlacementItemsCollection();
         }

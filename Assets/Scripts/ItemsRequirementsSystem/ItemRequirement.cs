@@ -9,22 +9,22 @@ namespace MoonPioneerClone.ItemsRequirementsSystem
         [SerializeField] private ItemType type;
         [SerializeField, Min(1)] private int amount;
         
-        private int _leftToSatisfaction;
+        private int _currentAmount;
 
         public ItemType Type => type;
-        public bool Satisfied => _leftToSatisfaction <= 0;
+        public bool Satisfied => _currentAmount >= amount;
         
 
         public void AddOneItem()
         {
-            _leftToSatisfaction--;
+            _currentAmount++;
         }
 
 
 #if UNITY_EDITOR
         public void UpdateCounter()
         {
-            _leftToSatisfaction = amount;
+            _currentAmount = 0;
         }
 #endif
     }

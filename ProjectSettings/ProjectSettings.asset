@@ -244,7 +244,7 @@ PlayerSettings:
   useCustomBaseGradleTemplate: 0
   useCustomGradlePropertiesTemplate: 0
   useCustomProguardFile: 0
-  AndroidTargetArchitectures: 1
+  AndroidTargetArchitectures: 3
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
@@ -702,10 +702,12 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
+    Android: ODIN_INSPECTOR;ODIN_INSPECTOR_3
     Standalone: ODIN_INSPECTOR;ODIN_INSPECTOR_3
   additionalCompilerArguments: {}
   platformArchitecture: {}
-  scriptingBackend: {}
+  scriptingBackend:
+    Android: 1
   il2cppCompilerConfiguration: {}
   managedStrippingLevel: {}
   incrementalIl2cppBuild: {}

@@ -39,13 +39,19 @@ namespace MoonPioneerClone.WorldObjectsPlacement
         {
             fillingOrder = DefaultFillingOrder.ToArray();
         }
-        
-        
+
+
+#if UNITY_EDITOR
         private void OnValidate()
         {
             SetValues();
         }
-
+#else
+        private void Awake()
+        {
+            SetValues();
+        }
+#endif
 
         protected virtual void SetValues()
         {

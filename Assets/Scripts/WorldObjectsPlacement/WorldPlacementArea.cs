@@ -16,13 +16,13 @@ namespace MoonPioneerClone.WorldObjectsPlacement
         public abstract bool CanFitMore { get; }
 
 
-        private void Awake()
+        protected virtual void Awake()
         {
-            InitializeItemsKeepingBehaviour();
+            InitializeItemsCollection();
         }
 
 
-        protected abstract void InitializeItemsKeepingBehaviour();
+        protected abstract void InitializeItemsCollection();
 
 
         public void Add(WorldPlacementItem item)

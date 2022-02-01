@@ -18,7 +18,7 @@ namespace MoonPioneerClone.ItemsInteractions
 		    bool canTakeMore = zone.CanTakeMore;
 		    bool canTakeThisItem = zone.CanTakeThisItem(item.Type);
 
-		    return canTakeMore && canTakeThisItem;
+            return canTakeMore && canTakeThisItem;
 	    }
 
 
