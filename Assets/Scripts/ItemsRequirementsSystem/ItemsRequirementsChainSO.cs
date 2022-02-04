@@ -17,11 +17,17 @@ namespace MoonPioneerClone.ItemsRequirementsSystem
         public event Action BlockSatisfied;
 
 
+#if UNITY_EDITOR
+        private void OnValidate()
+        {
+            SetupChain();
+        }
+#else
         private void Awake()
         {
             SetupChain();
         }
-
+#endif
 
         private void SetupChain()
         {
