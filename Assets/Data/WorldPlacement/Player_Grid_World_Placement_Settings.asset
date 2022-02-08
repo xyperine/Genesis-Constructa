@@ -9,10 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c0c6d7504a04c50a394bb7af8b43060, type: 3}
-  m_Name: NullWorldPlacementSettings
+  m_Script: {fileID: 11500000, guid: 86c1092c6020460589063df38c69d4a9, type: 3}
+  m_Name: Player_Grid_World_Placement_Settings
   m_EditorClassIdentifier: 
-  defaultItemSize: {x: 0, y: 0, z: 0}
-  keepItems: 0
-  useCustomFillingOrder: 0
-  fillingOrder: 000000000200000001000000
+  defaultItemSize: {x: 1, y: 0.5, z: 0.5}
+  keepItems: 1
+  useCustomFillingOrder: 1
+  fillingOrder: 010000000200000000000000
+  width: 1
+  height: 10
+  depth: 3

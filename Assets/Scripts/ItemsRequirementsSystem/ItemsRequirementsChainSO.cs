@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MoonPioneerClone.ItemsRequirementsSystem
 {
-    [CreateAssetMenu(fileName = "ItemsRequirementsChain", menuName = "Items Requirements Chain")]
+    [CreateAssetMenu(fileName = "Items_Requirements_Chain", menuName = "Items Requirements Chain")]
     public sealed class ItemsRequirementsChainSO : ScriptableObject
     {
         [SerializeField] private ItemsRequirementsBlock[] blocks;

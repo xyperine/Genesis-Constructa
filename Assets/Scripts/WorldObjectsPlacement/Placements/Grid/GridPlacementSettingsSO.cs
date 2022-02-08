@@ -2,7 +2,7 @@
 
 namespace MoonPioneerClone.WorldObjectsPlacement.Placements.Grid
 {
-    [CreateAssetMenu(fileName = "GridPlacementSettings", menuName = "World Placement Settings/Grid")]
+    [CreateAssetMenu(fileName = "Grid_Placement_Settings", menuName = "World Placement Settings/Grid")]
     public sealed class GridPlacementSettingsSO : WorldPlacementSettingsSO
     {
         [Header("Size (in items)")]

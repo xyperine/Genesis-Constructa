@@ -2,7 +2,7 @@
 
 namespace MoonPioneerClone.WorldObjectsPlacement.Placements.Null
 {
-    [CreateAssetMenu(fileName = "NullPlacementSettings", menuName = "World Placement Settings/One Point")]
+    [CreateAssetMenu(fileName = "Null_Placement_Settings", menuName = "World Placement Settings/Null")]
     public sealed class NullPlacementSettingsSO : WorldPlacementSettingsSO
     {
         protected override void SetMaxItems()
