@@ -1,4 +1,5 @@
-﻿using MoonPioneerClone.ItemsInteractions.Transfer.Target;
+﻿using System;
+using MoonPioneerClone.ItemsInteractions.Transfer.Target;
 using MoonPioneerClone.ItemsRequirementsSystem;
 using MoonPioneerClone.WorldObjectsPlacement;
 using MoonPioneerClone.WorldObjectsPlacement.Placements.Null;
@@ -16,10 +17,20 @@ namespace MoonPioneerClone.ItemsInteractions
         public override bool CanTakeMore => requirementsChain.NeedMore && _placement.CanFitMore;
         public override ItemType[] AcceptableItems => requirementsChain.RequiredItems;
 
+        public event Action BlockSatisfied;
+
 
         private void Awake()
         {
             GetComponents();
+
+            requirementsChain.BlockSatisfied += InvokeBlockSatisfied;
+        }
+
+
+        private void InvokeBlockSatisfied()
+        {
+            BlockSatisfied?.Invoke();
         }
 
 
