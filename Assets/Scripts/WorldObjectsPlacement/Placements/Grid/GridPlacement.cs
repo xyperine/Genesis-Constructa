@@ -36,7 +36,7 @@ namespace MoonPioneerClone.WorldObjectsPlacement.Placements.Grid
         {
             base.MoveItemInside(item);
 
-            item.Rotate();
+            item.Rotate(placementSettings.Rotation);
         }
 
 
@@ -70,13 +70,13 @@ namespace MoonPioneerClone.WorldObjectsPlacement.Placements.Grid
 
         private Vector3 CalculatePosition(Vector3 axesRawPositions)
         {
-            Vector3 padding = placementSettings.ItemSize * 0.5f;
+            Vector3 padding = placementSettings.RotatedItemSize * 0.5f;
             Vector3 position = padding;
             
             for (int i = 0; i < 3; i++)
             {
                 int axisIndex = _fillingOrderAxes[i];
-                position[axisIndex] = padding[axisIndex] + placementSettings.ItemSize[axisIndex] * axesRawPositions[i];
+                position[axisIndex] = padding[axisIndex] + placementSettings.RotatedItemSize[axisIndex] * axesRawPositions[i];
             }
 
             return position;

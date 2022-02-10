@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace MoonPioneerClone.WorldObjectsPlacement.Placements.Grid
 {
@@ -10,8 +11,12 @@ namespace MoonPioneerClone.WorldObjectsPlacement.Placements.Grid
         [SerializeField, Range(1, 30)] private int height;
         [SerializeField, Range(1, 30)] private int depth;
 
+        [SerializeField] private ItemsAlignment itemsAlignment;
+
         public Vector3 Size { get; private set; }
         public Vector3 ScaledSize { get; private set; }
+        public Quaternion Rotation { get; private set; }
+        public Vector3 RotatedItemSize { get; private set; }
 
 
         protected override void SetValues()
@@ -19,6 +24,8 @@ namespace MoonPioneerClone.WorldObjectsPlacement.Placements.Grid
             base.SetValues();
             
             SetSize();
+            SetRotation();
+            SetRotatedItemSize();
             SetScaledSize();
         }
 
@@ -37,7 +44,29 @@ namespace MoonPioneerClone.WorldObjectsPlacement.Placements.Grid
 
         private void SetScaledSize()
         {
-            ScaledSize = Vector3.Scale(Size, ItemSize);
+            ScaledSize = Vector3.Scale(Size, RotatedItemSize);
+        }
+
+
+        private void SetRotation()
+        {
+            Rotation = itemsAlignment switch
+            {
+                ItemsAlignment.Horizontal => Quaternion.identity,
+                ItemsAlignment.Vertical => Quaternion.AngleAxis(90f, Vector3.forward),
+                _ => throw new ArgumentOutOfRangeException(),
+            };
+        }
+
+
+        private void SetRotatedItemSize()
+        {
+            RotatedItemSize = itemsAlignment switch
+            {
+                ItemsAlignment.Horizontal => ItemSize,
+                ItemsAlignment.Vertical => new Vector3(ItemSize.y, ItemSize.x, ItemSize.z),
+                _ => throw new ArgumentOutOfRangeException(),
+            };
         }
     }
 }

@@ -13,9 +13,9 @@ namespace MoonPioneerClone.WorldObjectsPlacement
         public bool Moving { get; private set; }
 
 
-        public void Rotate()
+        public void Rotate(Quaternion rotation)
         {
-            transform.DOLocalRotateQuaternion(Quaternion.identity, tweenDuration).SetEase(easingCurve);
+            transform.DOLocalRotateQuaternion(rotation, tweenDuration).SetEase(easingCurve);
         }
 
 
@@ -36,7 +36,7 @@ namespace MoonPioneerClone.WorldObjectsPlacement
         public void Discard()
         {
             transform.SetParent(null);
-            Rotate();
+            Rotate(Quaternion.identity);
         }
     }
 }
