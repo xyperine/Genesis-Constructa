@@ -1,28 +1,18 @@
-using System.Collections;
+﻿using System.Collections;
 using MoonPioneerClone.ItemsInteractions;
 using UnityEngine;
 
-namespace MoonPioneerClone.Extractors
+namespace MoonPioneerClone.ItemsExtraction
 {
-    public class Extractor : MonoBehaviour
+    public class ExtractorProductionUnit : MonoBehaviour
     {
         [Tooltip("Units per second")]
         [SerializeField, Min(0.01f)] private float productionRate;
         [SerializeField] private StackZoneItem product;
 
-        [SerializeField] private ExtractorAnimator animator;
-        [SerializeField] private StackZone stackZone;
-        [SerializeField] private ItemsConsumer consumer;
+        [SerializeField] private StackZone productionStackZone;
 
         private IEnumerator _productionCoroutine;
-
-
-        private void Awake()
-        {
-            consumer.BlockSatisfied += Upgrade;
-
-            StartProduction();
-        }
 
 
         public void StartProduction()
@@ -31,8 +21,6 @@ namespace MoonPioneerClone.Extractors
             {
                 return;
             }
-
-            animator.PlayStartUpAnimation();
 
             _productionCoroutine = ProductionCoroutine();
             StartCoroutine(_productionCoroutine);
@@ -45,11 +33,6 @@ namespace MoonPioneerClone.Extractors
             {
                 yield return new WaitForSeconds(1f / productionRate);
 
-                if (!stackZone.CanTakeMore)
-                {
-                    continue;
-                }
-
                 ProduceItem();
             }
         }
@@ -58,7 +41,7 @@ namespace MoonPioneerClone.Extractors
         private void ProduceItem()
         {
             StackZoneItem item = Instantiate(product, transform.position, Quaternion.identity);
-            stackZone.Add(item);
+            productionStackZone.Add(item);
         }
 
 
@@ -66,12 +49,6 @@ namespace MoonPioneerClone.Extractors
         {
             StopCoroutine(_productionCoroutine);
             _productionCoroutine = null;
-        }
-
-
-        public void Upgrade()
-        {
-            print("Upgraded");
         }
     }
 }
