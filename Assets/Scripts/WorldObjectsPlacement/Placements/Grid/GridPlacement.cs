@@ -26,6 +26,13 @@ namespace MoonPioneerClone.WorldObjectsPlacement.Placements.Grid
         }
 
 
+        public void Resize()
+        {
+            placementSettings.Resize();
+            itemsCollection.Resize(placementSettings.MaxItems);
+        }
+
+
         protected override void InitializeItemsCollection()
         {
             itemsCollection = new DefaultPlacementItemsCollection(placementSettings.MaxItems);

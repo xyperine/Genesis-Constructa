@@ -60,5 +60,11 @@ namespace MoonPioneerClone.ItemsInteractions
 
             return item;
         }
+
+
+        public void Upgrade()
+        {
+            _placement.Resize();
+        }
     }
 }

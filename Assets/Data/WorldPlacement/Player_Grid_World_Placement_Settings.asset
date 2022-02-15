@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c1092c6020460589063df38c69d4a9, type: 3}
   m_Name: Player_Grid_World_Placement_Settings
   m_EditorClassIdentifier: 
-  defaultItemSize: {x: 1, y: 0.5, z: 0.5}
-  keepItems: 1
+  itemSize: {x: 1, y: 0.5, z: 0.5}
   useCustomFillingOrder: 1
   fillingOrder: 010000000200000000000000
-  width: 1
-  height: 10
-  depth: 3
+  itemsAlignment: 0
+  sizeSettings:
+    defaultSize: {x: 1, y: 10, z: 3}
+    useUpgrades: 1
+    sizes: []

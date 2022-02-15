@@ -6,13 +6,20 @@ namespace MoonPioneerClone.ItemsExtraction
 {
     public class ExtractorProductionUnit : MonoBehaviour
     {
-        [Tooltip("Units per second")]
+        [Tooltip("Items per second")]
         [SerializeField, Min(0.01f)] private float productionRate;
         [SerializeField] private StackZoneItem product;
 
         [SerializeField] private StackZone productionStackZone;
 
+        private WaitForSeconds _waitForProductionInterval;
         private IEnumerator _productionCoroutine;
+
+
+        private void Awake()
+        {
+            _waitForProductionInterval = new WaitForSeconds(1f / productionRate);
+        }
 
 
         public void StartProduction()
@@ -31,7 +38,7 @@ namespace MoonPioneerClone.ItemsExtraction
         {
             while (true)
             {
-                yield return new WaitForSeconds(1f / productionRate);
+                yield return _waitForProductionInterval;
 
                 ProduceItem();
             }
@@ -49,6 +56,13 @@ namespace MoonPioneerClone.ItemsExtraction
         {
             StopCoroutine(_productionCoroutine);
             _productionCoroutine = null;
+        }
+
+
+        public void IncreaseProductionRate()
+        {
+            productionRate *= 2f;
+            _waitForProductionInterval = new WaitForSeconds(1f / productionRate);
         }
     }
 }

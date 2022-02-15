@@ -5,27 +5,27 @@ namespace MoonPioneerClone.ItemsExtraction
 {
     public class ExtractorCoreUnit : MonoBehaviour
     {
-        [SerializeField] private ExtractorProductionUnit _productionUnit;
-        [SerializeField] private ExtractorConditionsUnit _conditionsUnit;
+        [SerializeField] private ExtractorProductionUnit productionUnit;
+        [SerializeField] private ExtractorConditionsUnit conditionsUnit;
         [SerializeField] private ExtractorAnimator animator;
 
 
         private void OnEnable()
         {
-            if (_conditionsUnit.WorkConditionsMet)
+            if (conditionsUnit.WorkConditionsMet)
             {
                 StartUp();
             }
 
-            _conditionsUnit.WorkConditionsChanged += OnWorkConditionsChanged;
-            _conditionsUnit.ProductionConditionsChanged += OnProductionConditionsChanged;
+            conditionsUnit.WorkConditionsChanged += OnWorkConditionsChanged;
+            conditionsUnit.ProductionConditionsChanged += OnProductionConditionsChanged;
         }
 
 
         private void OnDisable()
         {
-            _conditionsUnit.WorkConditionsChanged -= OnWorkConditionsChanged;
-            _conditionsUnit.ProductionConditionsChanged -= OnProductionConditionsChanged;
+            conditionsUnit.WorkConditionsChanged -= OnWorkConditionsChanged;
+            conditionsUnit.ProductionConditionsChanged -= OnProductionConditionsChanged;
         }
 
 
@@ -33,9 +33,9 @@ namespace MoonPioneerClone.ItemsExtraction
         {
             animator.PlayStartUpAnimation();
 
-            if (_conditionsUnit.ProductionConditionsMet)
+            if (conditionsUnit.ProductionConditionsMet)
             {
-                _productionUnit.StartProduction();
+                productionUnit.StartProduction();
             }
         }
 
@@ -43,13 +43,13 @@ namespace MoonPioneerClone.ItemsExtraction
         private void ShutDown()
         {
             animator.PlayShutDownAnimation();
-            _productionUnit.StopProduction();
+            productionUnit.StopProduction();
         }
 
 
         private void OnWorkConditionsChanged()
         {
-            if (_conditionsUnit.WorkConditionsMet)
+            if (conditionsUnit.WorkConditionsMet)
             {
                 StartUp();
                 return;
@@ -61,13 +61,13 @@ namespace MoonPioneerClone.ItemsExtraction
         
         private void OnProductionConditionsChanged()
         {
-            if (_conditionsUnit.ProductionConditionsMet)
+            if (conditionsUnit.ProductionConditionsMet)
             {
-                _productionUnit.StartProduction();
+                productionUnit.StartProduction();
                 return;
             }
 
-            _productionUnit.StopProduction();
+            productionUnit.StopProduction();
         }
     }
 }
