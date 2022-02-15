@@ -16,6 +16,12 @@ namespace MoonPioneerClone.ItemsExtraction.Conditions
         public bool Met => conditions.Length == 0 || conditions.All(c => c.Met());
 
 
+        private void Start()
+        {
+            _previousFrameState = Met;
+        }
+
+
         private void Update()
         {
             DetectChange();
@@ -29,9 +35,9 @@ namespace MoonPioneerClone.ItemsExtraction.Conditions
             {
                 return;
             }
-
-            Changed?.Invoke();
+            print($"{gameObject}, met {met}, prev {_previousFrameState}");
             _previousFrameState = met;
+            Changed?.Invoke();
         }
     }
 }

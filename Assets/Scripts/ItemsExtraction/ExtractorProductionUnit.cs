@@ -54,6 +54,12 @@ namespace MoonPioneerClone.ItemsExtraction
 
         public void StopProduction()
         {
+            if (_productionCoroutine == null)
+            {
+                Debug.LogWarning("Trying to stop already finished coroutine");
+                return;
+            }
+
             StopCoroutine(_productionCoroutine);
             _productionCoroutine = null;
         }

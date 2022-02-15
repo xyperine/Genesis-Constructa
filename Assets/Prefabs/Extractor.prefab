@@ -50,8 +50,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93017eaaf2ead7145b0c4788345b66de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _productionUnit: {fileID: 2838886211604961652}
-  _conditionsUnit: {fileID: 5715701274416026861}
+  productionUnit: {fileID: 2838886211604961652}
+  conditionsUnit: {fileID: 5715701274416026861}
   animator: {fileID: 4876488227924365311}
 --- !u!114 &4876488227924365311
 MonoBehaviour:
