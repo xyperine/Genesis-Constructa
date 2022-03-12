@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace MoonPioneerClone.Player
 {
-    public class PlayerGridPlacement : GridPlacement
+    public sealed class PlayerGridPlacement : GridPlacement
     {
         protected override void InitializeItemsCollection()
         {

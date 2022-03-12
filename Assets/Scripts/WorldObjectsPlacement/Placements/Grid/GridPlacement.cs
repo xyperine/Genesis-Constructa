@@ -15,6 +15,13 @@ namespace MoonPioneerClone.WorldObjectsPlacement.Placements.Grid
             base.Awake();
             GetFillingOrderAxes();
         }
+
+
+        public void Upgrade(int newMaxItems)
+        {
+            itemsCollection.Resize(newMaxItems);
+            placementSettings.Grow(newMaxItems);
+        }
         
         
         private void GetFillingOrderAxes()
@@ -24,7 +31,7 @@ namespace MoonPioneerClone.WorldObjectsPlacement.Placements.Grid
                 _fillingOrderAxes[i] = (int) placementSettings.FillingOrder[i];
             }
         }
-
+        
 
         protected override void InitializeItemsCollection()
         {

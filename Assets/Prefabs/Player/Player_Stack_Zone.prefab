@@ -25,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 9112327105181311103}
     - target: {fileID: 1875932617538914906, guid: a61e36ac859071d46a6580377f18bb6f, type: 3}
       propertyPath: acceptableItems.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1875932617538914906, guid: a61e36ac859071d46a6580377f18bb6f, type: 3}
       propertyPath: acceptableItems.Array.data[1]
@@ -38,6 +38,10 @@ PrefabInstance:
     - target: {fileID: 1875932617538914906, guid: a61e36ac859071d46a6580377f18bb6f, type: 3}
       propertyPath: acceptableItems.Array.data[3]
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875932617538914906, guid: a61e36ac859071d46a6580377f18bb6f, type: 3}
+      propertyPath: acceptableItems.Array.data[4]
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1875932617538914906, guid: a61e36ac859071d46a6580377f18bb6f, type: 3}
       propertyPath: acceptableResources.Array.size
@@ -121,7 +125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8331630563690935746, guid: a61e36ac859071d46a6580377f18bb6f, type: 3}
       propertyPath: m_Name
-      value: PlayerStackZone
+      value: Player_Stack_Zone
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3797682084434072381, guid: a61e36ac859071d46a6580377f18bb6f, type: 3}

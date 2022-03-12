@@ -36,7 +36,7 @@ namespace MoonPioneerClone.WorldObjectsPlacement
         public void Discard()
         {
             transform.SetParent(null);
-            Rotate(Quaternion.identity);
+            //Rotate(Quaternion.identity);
         }
     }
 }

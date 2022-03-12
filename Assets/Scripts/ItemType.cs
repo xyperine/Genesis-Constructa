@@ -6,5 +6,6 @@
         Stone,
         Iron,
         Diamond,
+        EnergyCell,
     }
 }
