@@ -130,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coreLight: {fileID: 3143348368638835532}
   meshRenderer: {fileID: 2408550062273630928}
-  lightLevel: 1
+  lightLevel: 0
 --- !u!1 &4209774890745541381
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,8 +322,8 @@ PrefabInstance:
       objectReference: {fileID: 4588247172423726219, guid: f6ab35b5339e812428b86b4d36d7d884, type: 3}
     - target: {fileID: 2838886211604961652, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
       propertyPath: productionRate
-      value: 1
-      objectReference: {fileID: 0}
+      value: 
+      objectReference: {fileID: 11400000, guid: d2c3f08a20007c145af484859753c01b, type: 2}
     - target: {fileID: 2838886211604961652, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
       propertyPath: productionStackZone
       value: 
@@ -336,6 +336,18 @@ PrefabInstance:
       propertyPath: placementSettings
       value: 
       objectReference: {fileID: 11400000, guid: bdce65788fb292e4b8632d50a692bdbc, type: 2}
+    - target: {fileID: 4007950610263896247, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
+      propertyPath: upgrades
+      value: 
+      objectReference: {fileID: 11400000, guid: 034c5284f3b0c8741a520925e3040f67, type: 2}
+    - target: {fileID: 4007950610263896247, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
+      propertyPath: productionRate
+      value: 
+      objectReference: {fileID: 11400000, guid: d2c3f08a20007c145af484859753c01b, type: 2}
+    - target: {fileID: 4007950610263896247, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
+      propertyPath: productionZoneUpgrader
+      value: 
+      objectReference: {fileID: 7500721401582390449}
     - target: {fileID: 4375319728651441908, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
       propertyPath: productionConditions.Array.size
       value: 1
@@ -368,6 +380,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 6954026633224190429, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
+      propertyPath: stackZone
+      value: 
+      objectReference: {fileID: 1242639231477147449}
+    - target: {fileID: 6954026633224190429, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
+      propertyPath: placementSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: bdce65788fb292e4b8632d50a692bdbc, type: 2}
     - target: {fileID: 7198930180780904373, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
       propertyPath: m_LocalPosition.y
       value: 2.07
@@ -380,6 +400,10 @@ PrefabInstance:
       propertyPath: conditions.Array.data[0]
       value: 
       objectReference: {fileID: 3023597479550074388}
+    - target: {fileID: 7889950776996014803, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
+      propertyPath: conditions.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
 --- !u!4 &399311953305326547 stripped
@@ -434,3 +458,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   productionStackZone: {fileID: 1242639231477147449}
+--- !u!114 &7500721401582390449 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6954026633224190429, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
+  m_PrefabInstance: {fileID: 618752639002473836}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54627243d72d4b958199a3a134011969, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

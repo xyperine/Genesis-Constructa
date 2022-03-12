@@ -10,6 +10,11 @@ namespace MoonPioneerClone.WorldObjectsPlacement.Placements.Grid
         
         protected override void RecalculateShape()
         {
+            if (!placementSettings)
+            {
+                return;
+            }
+            
             _size = placementSettings.ScaledSize;
             _center = _size * 0.5f;
         }

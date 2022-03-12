@@ -3,7 +3,7 @@ using MoonPioneerClone.ItemsInteractions.Transfer;
 using MoonPioneerClone.ItemsInteractions.Transfer.Target;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsInteractions
+namespace MoonPioneerClone.ItemsInteractions.StackZoneLogic
 {
 	public sealed class StackZoneActionsValidator : MonoBehaviour
     {

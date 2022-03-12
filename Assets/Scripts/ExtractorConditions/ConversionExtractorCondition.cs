@@ -1,17 +1,17 @@
-﻿using MoonPioneerClone.ItemsExtraction.Conditions;
-using MoonPioneerClone.ItemsInteractions;
+﻿using MoonPioneerClone.ItemsExtraction;
+using MoonPioneerClone.ItemsExtraction.ConditionsLogic;
 using UnityEngine;
 
 namespace MoonPioneerClone.ExtractorConditions
 {
-    public class ConversionExtractorCondition : ExtractorCondition
+    public sealed class ConversionExtractorCondition : ExtractorCondition
     {
-        [SerializeField] private StackZone conversionStackZone;
+        [SerializeField] private ExtractorConversionUnit conversionUnit;
 
 
         public override bool Met()
         {
-            return conversionStackZone.HasItems;
+            return conversionUnit.Active;
         }
     }
 }

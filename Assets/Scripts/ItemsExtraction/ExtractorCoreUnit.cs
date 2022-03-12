@@ -1,4 +1,4 @@
-﻿using MoonPioneerClone.ItemsExtraction.Conditions;
+﻿using MoonPioneerClone.ItemsExtraction.ConditionsLogic;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsExtraction
@@ -54,7 +54,7 @@ namespace MoonPioneerClone.ItemsExtraction
                 StartUp();
                 return;
             }
-
+            
             ShutDown();
         }
         

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace MoonPioneerClone.WorldObjectsPlacement.Placements.Grid
@@ -9,8 +7,7 @@ namespace MoonPioneerClone.WorldObjectsPlacement.Placements.Grid
     public sealed class GridPlacementSettingsSO : WorldPlacementSettingsSO
     {
         [SerializeField] private ItemsAlignment itemsAlignment;
-
-        [SerializeField] private GridPlacementSizeSettings sizeSettings;
+        [SerializeField] private Vector3Int size;
 
         public Vector3 Size { get; private set; }
         public Vector3 ScaledSize { get; private set; }
@@ -18,24 +15,20 @@ namespace MoonPioneerClone.WorldObjectsPlacement.Placements.Grid
         public Vector3 RotatedItemSize { get; private set; }
 
 
-        public void Resize()
+        public void Grow(int newMaxItems)
         {
-            SetNextSize();
-            SetMaxItems(Size);
-        }
-
-
-        private void SetNextSize()
-        {
-            Size = sizeSettings.GetNextSize();
+            MaxItems = newMaxItems;
+            
+            float itemsPerY = Size.x * Size.z;
+            Size = new Vector3(Size.x, Mathf.Ceil(newMaxItems / itemsPerY), Size.z);
         }
 
 
         protected override void SetValues()
         {
             base.SetValues();
-            
-            SetSize();
+
+            Size = size;
             SetRotation();
             SetRotatedItemSize();
             SetScaledSize();
@@ -44,19 +37,8 @@ namespace MoonPioneerClone.WorldObjectsPlacement.Placements.Grid
 
         protected override void SetMaxItems()
         {
-            SetMaxItems(sizeSettings.DefaultSize);
-        }
+            MaxItems = size.x * size.y * size.z;
 
-
-        private void SetMaxItems(Vector3 size)
-        {
-            MaxItems = (int) (size.x * size.y * size.z);
-        }
-
-
-        private void SetSize()
-        {
-            Size = sizeSettings.DefaultSize;
         }
 
 

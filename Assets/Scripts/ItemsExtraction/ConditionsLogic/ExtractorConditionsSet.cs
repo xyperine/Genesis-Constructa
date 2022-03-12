@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsExtraction.Conditions
+namespace MoonPioneerClone.ItemsExtraction.ConditionsLogic
 {
     [Serializable]
     public class ExtractorConditionsSet : MonoBehaviour
@@ -35,7 +35,7 @@ namespace MoonPioneerClone.ItemsExtraction.Conditions
             {
                 return;
             }
-            print($"{gameObject}, met {met}, prev {_previousFrameState}");
+
             _previousFrameState = met;
             Changed?.Invoke();
         }

@@ -1,4 +1,6 @@
-﻿namespace MoonPioneerClone.ItemsInteractions.PickUp
+﻿using MoonPioneerClone.ItemsInteractions.StackZoneLogic;
+
+namespace MoonPioneerClone.ItemsInteractions.PickUp
 {
     public class PickUpsInteractor : StackZoneInteractor<StackZoneItem, PickUpInteractionsHandler>
     {

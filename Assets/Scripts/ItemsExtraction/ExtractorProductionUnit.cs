@@ -1,25 +1,18 @@
 ﻿using System.Collections;
 using MoonPioneerClone.ItemsInteractions;
+using MoonPioneerClone.ItemsInteractions.StackZoneLogic;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsExtraction
 {
-    public class ExtractorProductionUnit : MonoBehaviour
+    public sealed class ExtractorProductionUnit : MonoBehaviour
     {
-        [Tooltip("Items per second")]
-        [SerializeField, Min(0.01f)] private float productionRate;
+        [SerializeField] private ExtractorProductionRateSO productionRate;
         [SerializeField] private StackZoneItem product;
 
         [SerializeField] private StackZone productionStackZone;
 
-        private WaitForSeconds _waitForProductionInterval;
         private IEnumerator _productionCoroutine;
-
-
-        private void Awake()
-        {
-            _waitForProductionInterval = new WaitForSeconds(1f / productionRate);
-        }
 
 
         public void StartProduction()
@@ -38,14 +31,14 @@ namespace MoonPioneerClone.ItemsExtraction
         {
             while (true)
             {
-                yield return _waitForProductionInterval;
+                yield return new WaitForSeconds(1f / productionRate.ItemsPerSecond);
 
                 ProduceItem();
             }
         }
 
 
-        private void ProduceItem()
+        public void ProduceItem()
         {
             StackZoneItem item = Instantiate(product, transform.position, Quaternion.identity);
             productionStackZone.Add(item);
@@ -56,19 +49,11 @@ namespace MoonPioneerClone.ItemsExtraction
         {
             if (_productionCoroutine == null)
             {
-                Debug.LogWarning("Trying to stop already finished coroutine");
                 return;
             }
 
             StopCoroutine(_productionCoroutine);
             _productionCoroutine = null;
-        }
-
-
-        public void IncreaseProductionRate()
-        {
-            productionRate *= 2f;
-            _waitForProductionInterval = new WaitForSeconds(1f / productionRate);
         }
     }
 }

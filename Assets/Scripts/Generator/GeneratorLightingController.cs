@@ -2,32 +2,31 @@ using UnityEngine;
 
 namespace MoonPioneerClone.Generator
 {
-    public class GeneratorLightingController : MonoBehaviour
+    public sealed class GeneratorLightingController : MonoBehaviour
     {
         [SerializeField] private Light coreLight;
         [SerializeField] private MeshRenderer meshRenderer;
 
         [SerializeField] private float lightLevel = 1f;
 
-        private float defaultLightIntensity;
-        private float defaultMaterialEmission;
+        private float _defaultLightIntensity;
+        private float _defaultMaterialEmission;
 
 
-#if UNITY_EDITOR
         private void Awake()
         {
+#if UNITY_EDITOR
             meshRenderer.material = new Material(meshRenderer.material);
-
-            defaultLightIntensity = coreLight.intensity;
-            defaultMaterialEmission = meshRenderer.material.GetFloat("_Emission_Strength");
-        }
 #endif
+            _defaultLightIntensity = coreLight.intensity;
+            _defaultMaterialEmission = meshRenderer.material.GetFloat("_Emission_Strength");
+        }
 
 
         private void Update()
         {
-            coreLight.intensity = defaultLightIntensity * lightLevel;
-            meshRenderer.material.SetFloat("_Emission_Strength", defaultMaterialEmission * lightLevel);
+            coreLight.intensity = _defaultLightIntensity * lightLevel;
+            meshRenderer.material.SetFloat("_Emission_Strength", _defaultMaterialEmission * lightLevel);
         }
     }
 }

@@ -15,7 +15,8 @@ MonoBehaviour:
   itemSize: {x: 1, y: 0.5, z: 0.5}
   useCustomFillingOrder: 0
   fillingOrder: 000000000200000001000000
-  width: 3
-  height: 2
-  depth: 2
   itemsAlignment: 0
+  sizeSettings:
+    defaultSize: {x: 5, y: 2, z: 5}
+    useUpgrades: 0
+    sizes: []

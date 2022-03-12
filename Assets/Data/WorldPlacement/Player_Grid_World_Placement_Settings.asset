@@ -16,7 +16,4 @@ MonoBehaviour:
   useCustomFillingOrder: 1
   fillingOrder: 010000000200000000000000
   itemsAlignment: 0
-  sizeSettings:
-    defaultSize: {x: 1, y: 10, z: 3}
-    useUpgrades: 1
-    sizes: []
+  size: {x: 1, y: 10, z: 3}

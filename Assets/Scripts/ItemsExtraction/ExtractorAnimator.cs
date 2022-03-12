@@ -2,7 +2,7 @@
 
 namespace MoonPioneerClone.ItemsExtraction
 {
-    public class ExtractorAnimator : MonoBehaviour
+    public sealed class ExtractorAnimator : MonoBehaviour
     {
         [SerializeField] private Animator animator;
 

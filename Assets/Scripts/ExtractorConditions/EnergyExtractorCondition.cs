@@ -1,10 +1,10 @@
-﻿using MoonPioneerClone.ItemsExtraction.Conditions;
+﻿using MoonPioneerClone.ItemsExtraction.ConditionsLogic;
 using MoonPioneerClone.ItemsInteractions;
 using UnityEngine;
 
 namespace MoonPioneerClone.ExtractorConditions
 {
-    public class EnergyExtractorCondition : ExtractorCondition
+    public sealed class EnergyExtractorCondition : ExtractorCondition
     {
         [SerializeField] private EnergyCellSlot cellSlot;
 

@@ -4,7 +4,7 @@ using MoonPioneerClone.WorldObjectsPlacement;
 using MoonPioneerClone.WorldObjectsPlacement.Placements.Grid;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsInteractions
+namespace MoonPioneerClone.ItemsInteractions.StackZoneLogic
 {
     [RequireComponent(typeof(GridPlacement))]
     public class StackZone : TransferTarget
@@ -62,9 +62,9 @@ namespace MoonPioneerClone.ItemsInteractions
         }
 
 
-        public void Upgrade()
+        public void Upgrade(int newMaxItems)
         {
-            _placement.Resize();
+            _placement.Upgrade(newMaxItems);
         }
     }
 }

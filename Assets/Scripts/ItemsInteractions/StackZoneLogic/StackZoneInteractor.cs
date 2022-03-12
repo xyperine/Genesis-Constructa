@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MoonPioneerClone.ItemsInteractions
+namespace MoonPioneerClone.ItemsInteractions.StackZoneLogic
 {
     public abstract class StackZoneInteractor<TObject, THandler> : MonoBehaviour
         where THandler : ItemsInteractionsHandler

@@ -1,10 +1,10 @@
-﻿using MoonPioneerClone.ItemsExtraction.Conditions;
-using MoonPioneerClone.ItemsInteractions;
+﻿using MoonPioneerClone.ItemsExtraction.ConditionsLogic;
+using MoonPioneerClone.ItemsInteractions.StackZoneLogic;
 using UnityEngine;
 
 namespace MoonPioneerClone.ExtractorConditions
 {
-    public class SpaceInStackZoneExtractorCondition : ExtractorCondition
+    public sealed class SpaceInStackZoneExtractorCondition : ExtractorCondition
     {
         [SerializeField] private StackZone productionStackZone;
 

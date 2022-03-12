@@ -13,12 +13,7 @@ MonoBehaviour:
   m_Name: Generator_Placement_Settings
   m_EditorClassIdentifier: 
   itemSize: {x: 1, y: 0.5, z: 0.5}
-  useCustomFillingOrder: 0
+  useCustomFillingOrder: 1
   fillingOrder: 000000000200000001000000
   itemsAlignment: 1
-  sizeSettings:
-    defaultSize: {x: 4, y: 1, z: 3}
-    useUpgrades: 1
-    sizes:
-    - {x: 4, y: 2, z: 3}
-    - {x: 4, y: 3, z: 3}
+  size: {x: 4, y: 1, z: 3}
