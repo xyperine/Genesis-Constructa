@@ -79,6 +79,10 @@ PrefabInstance:
       propertyPath: transferBehavior
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4000304704213035108, guid: a61e36ac859071d46a6580377f18bb6f, type: 3}
+      propertyPath: placementSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: d1429cfc6682f2a42990412aeacb519d, type: 2}
     - target: {fileID: 6578516319941595265, guid: a61e36ac859071d46a6580377f18bb6f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -127,15 +131,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Stack_Zone
       objectReference: {fileID: 0}
+    - target: {fileID: 8456622882888079194, guid: a61e36ac859071d46a6580377f18bb6f, type: 3}
+      propertyPath: placementMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456622882888079194, guid: a61e36ac859071d46a6580377f18bb6f, type: 3}
+      propertyPath: placementSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 74287dea933e6554988764df7649c756, type: 2}
     m_RemovedComponents:
     - {fileID: 3797682084434072381, guid: a61e36ac859071d46a6580377f18bb6f, type: 3}
+    - {fileID: 5069678719599941062, guid: a61e36ac859071d46a6580377f18bb6f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a61e36ac859071d46a6580377f18bb6f, type: 3}
 --- !u!1 &157476092490779542 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8331630563690935746, guid: a61e36ac859071d46a6580377f18bb6f, type: 3}
   m_PrefabInstance: {fileID: 8192208736972078676}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7448060607807918210
+--- !u!114 &3509429215135951654
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,10 +157,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 157476092490779542}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a9dd5f65eddce54a9d6ab9f87550a0e, type: 3}
+  m_Script: {fileID: 11500000, guid: 99afa85fc8604a998dd4c43ecb434fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placementSettings: {fileID: 11400000, guid: 74287dea933e6554988764df7649c756, type: 2}
+  itemsMover:
+    itemsParent: {fileID: 1048354437785182363}
+  placementSettings: {fileID: 11400000, guid: d1429cfc6682f2a42990412aeacb519d, type: 2}
 --- !u!1 &263940866991588845 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8221645067130796985, guid: a61e36ac859071d46a6580377f18bb6f, type: 3}
@@ -183,6 +198,11 @@ MonoBehaviour:
   giveTo: []
   transferInterval: 0.1
   joystick: {fileID: 0}
+--- !u!4 &1048354437785182363 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9168223555852279503, guid: a61e36ac859071d46a6580377f18bb6f, type: 3}
+  m_PrefabInstance: {fileID: 8192208736972078676}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1737755361898299121 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7614792273182064805, guid: a61e36ac859071d46a6580377f18bb6f, type: 3}

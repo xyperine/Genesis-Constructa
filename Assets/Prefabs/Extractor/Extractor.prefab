@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e08b2b7d4187cb42815c9ecad4765ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgrades: {fileID: 0}
+  productionRate: {fileID: 0}
   product: {fileID: 0}
   productionStackZone: {fileID: 1849006867888149077}
 --- !u!114 &4007950610263896247
@@ -94,8 +94,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   consumer: {fileID: 4792017474657938612}
+  upgrades: {fileID: 0}
   productionZoneUpgrader: {fileID: 0}
-  extractorUpgrades: {fileID: 0}
+  productionRate: {fileID: 0}
 --- !u!1 &2718288748596786146
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54627243d72d4b958199a3a134011969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placementSettings: {fileID: 0}
+  stackZone: {fileID: 1849006867888149077}
 --- !u!1001 &8026747401480040986
 PrefabInstance:
   m_ObjectHideFlags: 0

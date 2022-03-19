@@ -1,15 +1,16 @@
 ﻿using MoonPioneerClone.ItemsInteractions.StackZoneLogic;
-using MoonPioneerClone.WorldObjectsPlacement;
+using MoonPioneerClone.ItemsPlacement;
+using MoonPioneerClone.ItemsPlacement.Core;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsInteractions
 {
-    [RequireComponent(typeof(WorldPlacementItem))]
+    [RequireComponent(typeof(PlacementItem))]
     public sealed class StackZoneItem : MonoBehaviour
     {
         [SerializeField] private ItemType type;
 
-        private WorldPlacementItem _placementBehavior;
+        private PlacementItem _placementBehavior;
 
         public bool Moving => _placementBehavior.Moving;
         public ItemType Type => type;
@@ -18,7 +19,7 @@ namespace MoonPioneerClone.ItemsInteractions
 
         private void Awake()
         {
-            _placementBehavior = GetComponent<WorldPlacementItem>();
+            _placementBehavior = GetComponent<PlacementItem>();
         }
 
 

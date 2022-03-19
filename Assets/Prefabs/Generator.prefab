@@ -404,6 +404,10 @@ PrefabInstance:
       propertyPath: conditions.Array.data[1]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8573638185051557717, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
+      propertyPath: placementSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: bdce65788fb292e4b8632d50a692bdbc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
 --- !u!4 &399311953305326547 stripped

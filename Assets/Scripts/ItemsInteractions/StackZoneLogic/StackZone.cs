@@ -1,17 +1,18 @@
 ﻿using System.Linq;
 using MoonPioneerClone.ItemsInteractions.Transfer.Target;
-using MoonPioneerClone.WorldObjectsPlacement;
-using MoonPioneerClone.WorldObjectsPlacement.Placements.Grid;
+using MoonPioneerClone.ItemsPlacement;
+using MoonPioneerClone.ItemsPlacement.Core;
+using MoonPioneerClone.ItemsPlacement.Core.Area;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsInteractions.StackZoneLogic
 {
-    [RequireComponent(typeof(GridPlacement))]
+    [RequireComponent(typeof(PlacementArea))]
     public class StackZone : TransferTarget
     {
         [SerializeField] private ItemType[] acceptableItems; 
         
-        private GridPlacement _placement;
+        private PlacementArea _placement;
         
         public bool HasItems => _placement.Count > 0;
         public override bool CanTakeMore => _placement.CanFitMore;
@@ -28,27 +29,27 @@ namespace MoonPioneerClone.ItemsInteractions.StackZoneLogic
 
         private void GetComponents()
         {
-            _placement = GetComponent<GridPlacement>();
+            _placement = GetComponent<PlacementArea>();
         }
 
 
         public override void Add(StackZoneItem item)
         {
             item.SetZone(this);
-            _placement.Add(item.GetComponent<WorldPlacementItem>());
+            _placement.Place(item.GetComponent<PlacementItem>());
         }
 
 
         public void Remove(StackZoneItem item)
         {
             item.SetZone(null);
-            _placement.Remove(item.GetComponent<WorldPlacementItem>());
+            _placement.Remove(item.GetComponent<PlacementItem>());
         }
 
 
         public StackZoneItem GetLast(ItemType[] requestedItems)
         {
-            WorldPlacementItem placementItem = _placement.GetLast(requestedItems);
+            PlacementItem placementItem = _placement.GetLast(requestedItems);
 
             if (!placementItem)
             {

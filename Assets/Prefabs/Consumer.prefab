@@ -55,7 +55,6 @@ GameObject:
   m_Component:
   - component: {fileID: 901565314411085231}
   - component: {fileID: 3306793018433117870}
-  - component: {fileID: 1329757978593383352}
   m_Layer: 8
   m_Name: Consumer
   m_TagString: Untagged
@@ -92,17 +91,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requirementsChain: {fileID: 0}
---- !u!114 &1329757978593383352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4990917755210131342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86dd343655a349e689865273e821f143, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  placementSettings: {fileID: 11400000, guid: ecea1e6605771f544a6c936cdade38b3, type: 2}
-  pointTransform: {fileID: 901565314411085231}

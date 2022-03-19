@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 29
+  controlID: 163
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 35
+  controlID: 133
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 36
+  controlID: 134
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -299,8 +299,8 @@ MonoBehaviour:
     y: 0
     width: 402
     height: 939
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 22}
   m_Panes:
   - {fileID: 22}
@@ -338,7 +338,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -1352
+  m_LastSelectedObjectID: -1734
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -658,9 +658,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -3.4060478, y: -22.41001, z: 24.657305}
+    m_Target: {x: 26.806093, y: -9.469333, z: 75.444275}
     speed: 2
-    m_Value: {x: -3.4060478, y: -22.41001, z: 24.657305}
+    m_Value: {x: 26.806093, y: -9.469333, z: 75.444275}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -707,13 +707,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.33221564, y: 0.3408726, z: -0.1301262, w: -0.8698234}
+    m_Target: {x: -0.076529436, y: -0.073243275, z: 0.0057138777, w: -0.99440587}
     speed: 2
-    m_Value: {x: -0.3322012, y: 0.3408578, z: -0.13012055, w: -0.86978567}
+    m_Value: {x: -0.076525725, y: -0.07323972, z: 0.0057136007, w: -0.99435765}
   m_Size:
-    m_Target: 35.4218
+    m_Target: 42.241154
     speed: 2
-    m_Value: 35.4218
+    m_Value: 42.241154
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1701,9 +1701,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: a40b0000
-      m_LastClickedID: 0
-      m_ExpandedIDs: bc70ffff7e71ffff9a78ffff1ca0ffffd6a0ffff72aaffff94dbffff4edcffffe8e5ffff14fbffff
+      m_SelectedIDs: 3af9ffff
+      m_LastClickedID: -1734
+      m_ExpandedIDs: 8ef3ffff0cf7ffff16f7ffff22f7ffffd4f8ffff60f9ffff74f9ffffa8f9ffff82600000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1768,22 +1768,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Prefabs/StackZone
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 68
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Prefabs/StackZone
   m_LastFoldersGridSize: 68
   m_LastProjectPath: C:\Users\ewsan\Desktop\Gamedev\PersonalProjects\MoonPioneerClone
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 31}
-    m_SelectedIDs: ec640000
-    m_LastClickedID: 25836
-    m_ExpandedIDs: 00000000da640000ffffff7f
+    m_SelectedIDs: d8ae0000
+    m_LastClickedID: 44760
+    m_ExpandedIDs: 00000000905d0000945d00009c5d0000a25d000006af00007eb000008cb0000014940100ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1811,7 +1811,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 00000000905d0000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1836,8 +1836,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: a40b0000
-    m_LastClickedInstanceID: 2980
+    m_SelectedInstanceIDs: 3af9ffff
+    m_LastClickedInstanceID: -1734
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300002e6a0000
     m_RenameOverlay:

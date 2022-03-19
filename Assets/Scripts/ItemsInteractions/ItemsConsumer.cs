@@ -1,20 +1,20 @@
 ﻿using System;
 using MoonPioneerClone.ItemsInteractions.Transfer.Target;
+using MoonPioneerClone.ItemsPlacement;
+using MoonPioneerClone.ItemsPlacement.Core;
+using MoonPioneerClone.ItemsPlacement.Movers;
 using MoonPioneerClone.ItemsRequirementsSystem;
-using MoonPioneerClone.WorldObjectsPlacement;
-using MoonPioneerClone.WorldObjectsPlacement.Placements.Null;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsInteractions
 {
-    [RequireComponent(typeof(NullPlacement))]
     public class ItemsConsumer : TransferTarget
     {
         [SerializeField] private ItemsRequirementsChainSO requirementsChain;
         
-        private NullPlacement _placement;
+        private readonly DestroyingPlacementItemsMover _itemsMover = new DestroyingPlacementItemsMover();
 
-        public override bool CanTakeMore => requirementsChain.NeedMore && _placement.CanFitMore;
+        public override bool CanTakeMore => requirementsChain.NeedMore;
         public override ItemType[] AcceptableItems => requirementsChain.RequiredItems;
 
         public event Action BlockSatisfied;
@@ -36,14 +36,14 @@ namespace MoonPioneerClone.ItemsInteractions
 
         private void GetComponents()
         {
-            _placement = GetComponent<NullPlacement>();
+
         }
         
         
         public override void Add(StackZoneItem item)
         {
             requirementsChain.AddItem(item.Type);
-            _placement.Add(item.GetComponent<WorldPlacementItem>());
+            _itemsMover.MoveItem(item.GetComponent<PlacementItem>(), transform.position);
         }
     }
 }
