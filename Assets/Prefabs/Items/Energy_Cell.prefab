@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: type
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: -2999128272576963149, guid: afb3e9ec722efd846bfe9ae587ff32bf, type: 3}
+      propertyPath: type
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1431310650405795724, guid: afb3e9ec722efd846bfe9ae587ff32bf, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -57,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5599520861547934253, guid: afb3e9ec722efd846bfe9ae587ff32bf, type: 3}
       propertyPath: m_Name
-      value: Energy
+      value: Energy_Cell
       objectReference: {fileID: 0}
     - target: {fileID: 5832128087689194030, guid: afb3e9ec722efd846bfe9ae587ff32bf, type: 3}
       propertyPath: m_Materials.Array.data[0]
