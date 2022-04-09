@@ -1,5 +1,5 @@
 ﻿using System;
-using MoonPioneerClone.ItemsPlacementsInteractions.Transfer.Target;
+using MoonPioneerClone.ItemsPlacementsInteractions.Target;
 using MoonPioneerClone.Utility.Observing;
 using MoonPioneerClone.Utility.Validating;
 using UnityEngine;
@@ -9,19 +9,19 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup
     [Serializable]
     public class Interaction : IValidatable, IObservable
     {
-        [SerializeField] private TransferTarget target;
+        [SerializeField] private InteractionTarget target;
         [SerializeField] private InteractionType type;
 
-        private TransferTarget _prevTarget;
+        private InteractionTarget _prevTarget;
         private InteractionType _prevType;
         
-        public TransferTarget Target => target;
+        public InteractionTarget Target => target;
         public InteractionType Type => type;
         
         public event Action Changed;
 
 
-        public Interaction(TransferTarget target, InteractionType type)
+        public Interaction(InteractionTarget target, InteractionType type)
         {
             this.target = target;
             this.type = type;

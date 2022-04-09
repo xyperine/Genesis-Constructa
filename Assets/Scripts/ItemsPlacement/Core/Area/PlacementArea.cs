@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using MoonPioneerClone.ItemsPlacement.Movers;
-using MoonPioneerClone.NewItemsInteractions;
+using MoonPioneerClone.ItemsPlacementsInteractions;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsPlacement.Core.Area

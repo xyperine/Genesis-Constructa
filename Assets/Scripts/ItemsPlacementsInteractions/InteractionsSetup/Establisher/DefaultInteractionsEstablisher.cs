@@ -1,5 +1,5 @@
 ﻿using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
-using MoonPioneerClone.ItemsPlacementsInteractions.Transfer.Target;
+using MoonPioneerClone.ItemsPlacementsInteractions.Target;
 using MoonPioneerClone.Utility.Validating;
 
 namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.Establisher
@@ -15,7 +15,7 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.Establi
         }
 
 
-        public override bool CanTransferTo(TransferTarget target)
+        public override bool CanTransferTo(InteractionTarget target)
         {
             return interactions.Exists(target, InteractionType.Transfer);
         }

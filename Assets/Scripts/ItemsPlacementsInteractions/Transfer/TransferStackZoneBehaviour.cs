@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
-using MoonPioneerClone.ItemsPlacementsInteractions.Transfer.Target;
+using MoonPioneerClone.ItemsPlacementsInteractions.Target;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsPlacementsInteractions.Transfer
@@ -14,8 +14,8 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.Transfer
 
         private WaitForSeconds _waitForTransferInterval;
 
-        private readonly Dictionary<TransferTarget, IEnumerator> _transferCoroutines =
-            new Dictionary<TransferTarget, IEnumerator>();
+        private readonly Dictionary<InteractionTarget, IEnumerator> _transferCoroutines =
+            new Dictionary<InteractionTarget, IEnumerator>();
 
 
         private void OnValidate()
@@ -30,7 +30,7 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.Transfer
         }
 
 
-        public void TransferTo(TransferTarget target)
+        public void TransferTo(InteractionTarget target)
         {
             if (!_transferCoroutines.TryAdd(target, TransferItemsCoroutine(target)))
             {
@@ -41,7 +41,7 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.Transfer
         }
         
         
-        private IEnumerator TransferItemsCoroutine(TransferTarget target)
+        private IEnumerator TransferItemsCoroutine(InteractionTarget target)
         {
             StackZoneItem item = stackZone.GetLast(target.AcceptableItems);
 
@@ -74,7 +74,7 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.Transfer
         }
 
 
-        private void TransferSingleItemTo(TransferTarget target, StackZoneItem item)
+        private void TransferSingleItemTo(InteractionTarget target, StackZoneItem item)
         {
             stackZone.Remove(item);
             target.Add(item);

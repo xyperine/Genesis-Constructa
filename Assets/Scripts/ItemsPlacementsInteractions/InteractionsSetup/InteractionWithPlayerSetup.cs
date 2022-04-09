@@ -1,4 +1,4 @@
-﻿using MoonPioneerClone.ItemsPlacementsInteractions.Transfer.Target;
+﻿using MoonPioneerClone.ItemsPlacementsInteractions.Target;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -22,7 +22,7 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup
         {
             if (interactWithPlayer)
             {
-                playerInteractionsSO.Register(GetComponent<TransferTarget>(), Type);
+                playerInteractionsSO.Register(GetComponent<InteractionTarget>(), Type);
             }
         }
     }

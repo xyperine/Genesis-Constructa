@@ -1,13 +1,13 @@
 ﻿using System;
 using MoonPioneerClone.ItemsPlacement.Core;
 using MoonPioneerClone.ItemsPlacement.Movers;
-using MoonPioneerClone.ItemsPlacementsInteractions.Transfer.Target;
+using MoonPioneerClone.ItemsPlacementsInteractions.Target;
 using MoonPioneerClone.ItemsRequirementsSystem;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsPlacementsInteractions
 {
-    public class ItemsConsumer : TransferTarget
+    public class ItemsConsumer : InteractionTarget
     {
         [SerializeField] private ItemsRequirementsChainSO requirementsChain;
         

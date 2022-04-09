@@ -1,5 +1,5 @@
 ﻿using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
-using MoonPioneerClone.ItemsPlacementsInteractions.Transfer.Target;
+using MoonPioneerClone.ItemsPlacementsInteractions.Target;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -11,19 +11,19 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup
         [ShowInInspector, ReadOnly] private readonly InteractionsList _interactionsList = new InteractionsList();
 
 
-        public void SetPlayer(TransferTarget player)
+        public void SetPlayer(InteractionTarget player)
         {
             _interactionsList.SetHolder(player);
         }
         
         
-        public void Register(TransferTarget target, InteractionType type)
+        public void Register(InteractionTarget target, InteractionType type)
         {
             _interactionsList.TryAdd(target, type);
         }
 
 
-        public bool CanTransferTo(TransferTarget target)
+        public bool CanTransferTo(InteractionTarget target)
         {
             return _interactionsList.Exists(target, InteractionType.Transfer);
         }

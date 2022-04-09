@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacementsInteractions.Transfer.Target
+namespace MoonPioneerClone.ItemsPlacementsInteractions.Target
 {
-    public abstract class TransferTarget : MonoBehaviour
+    public abstract class InteractionTarget : MonoBehaviour
     {
         public abstract bool CanTakeMore { get; }
         public abstract ItemType[] AcceptableItems { get; }

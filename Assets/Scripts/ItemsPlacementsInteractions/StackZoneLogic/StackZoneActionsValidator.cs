@@ -1,6 +1,6 @@
 ﻿using MoonPioneerClone.ItemsPlacementsInteractions.PickUp;
+using MoonPioneerClone.ItemsPlacementsInteractions.Target;
 using MoonPioneerClone.ItemsPlacementsInteractions.Transfer;
-using MoonPioneerClone.ItemsPlacementsInteractions.Transfer.Target;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic
@@ -22,7 +22,7 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic
 	    }
 
 
-        public bool CanTransferTo(TransferTarget to)
+        public bool CanTransferTo(InteractionTarget to)
         {
             bool hasItems = zone.HasItems;
             bool canTakeMore = to.CanTakeMore;

@@ -1,12 +1,12 @@
 ﻿using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
-using MoonPioneerClone.ItemsPlacementsInteractions.Transfer.Target;
+using MoonPioneerClone.ItemsPlacementsInteractions.Target;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.Establisher
 {
     public class PlayerInteractionsEstablisher : InteractionsEstablisher<PlayerInteractionsSO>
     {
-        [SerializeField] private TransferTarget playerZone;
+        [SerializeField] private InteractionTarget playerZone;
         
         
         private void Awake()
@@ -15,7 +15,7 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.Establi
         }
 
 
-        public override bool CanTransferTo(TransferTarget target)
+        public override bool CanTransferTo(InteractionTarget target)
         {
             return interactions.CanTransferTo(target);
         }

@@ -1,13 +1,13 @@
 ﻿using System.Linq;
 using MoonPioneerClone.ItemsPlacement.Core;
 using MoonPioneerClone.ItemsPlacement.Core.Area;
-using MoonPioneerClone.ItemsPlacementsInteractions.Transfer.Target;
+using MoonPioneerClone.ItemsPlacementsInteractions.Target;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic
 {
     [RequireComponent(typeof(PlacementArea))]
-    public class StackZone : TransferTarget
+    public class StackZone : InteractionTarget
     {
         [SerializeField] private ItemType[] acceptableItems; 
         

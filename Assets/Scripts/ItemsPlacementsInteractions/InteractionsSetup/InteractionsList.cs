@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using MoonPioneerClone.ItemsPlacementsInteractions.Transfer.Target;
+using MoonPioneerClone.ItemsPlacementsInteractions.Target;
 using MoonPioneerClone.Utility.Observing;
 using UnityEngine;
 
@@ -9,7 +9,7 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup
     [Serializable]
     public class InteractionsList
     {
-        [SerializeField] private TransferTarget holder;
+        [SerializeField] private InteractionTarget holder;
         [SerializeField] private ObservingCollection<Interaction> interactions = new ObservingCollection<Interaction>();
         
 
@@ -37,13 +37,13 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup
         }
         
         
-        public void SetHolder(TransferTarget holder)
+        public void SetHolder(InteractionTarget holder)
         {
             this.holder = holder;
         }
         
         
-        public void TryAdd(TransferTarget target, InteractionType type)
+        public void TryAdd(InteractionTarget target, InteractionType type)
         {
             TryAdd(new Interaction(target, type));
         }
@@ -67,7 +67,7 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup
         }
 
 
-        private bool HasInteractionWith(TransferTarget target)
+        private bool HasInteractionWith(InteractionTarget target)
         {
             return interactions.Any(i => i.Target == target);
         }
@@ -79,7 +79,7 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup
         }
         
         
-        public bool Exists(TransferTarget target, InteractionType type)
+        public bool Exists(InteractionTarget target, InteractionType type)
         {
             return interactions.Any(i => i.Target == target && i.Type == type);
         }
