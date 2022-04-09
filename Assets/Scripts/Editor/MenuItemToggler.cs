@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 
-namespace MoonPioneerClone.Utility
+namespace MoonPioneerClone.Editor
 {
     public static class MenuItemToggler
     {

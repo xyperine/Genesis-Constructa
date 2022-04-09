@@ -1,21 +1,15 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace MoonPioneerClone.Utility
 {
     public static class Logger
     {
-        private const string TOGGLE_LOGGING_MENU_NAME = "Tools/Logger/Logging";
-        
         private static bool _logging = true;
-        
 
-        [MenuItem(TOGGLE_LOGGING_MENU_NAME)]
-        public static void ToggleLogging()
+
+        public static void Toggle(bool logging)
         {
-            _logging = !_logging;
-
-            MenuItemToggler.Toggle(TOGGLE_LOGGING_MENU_NAME, _logging);
+            _logging = logging;
         }
 
 
@@ -37,7 +31,7 @@ namespace MoonPioneerClone.Utility
         
         
         /// <summary>
-        /// Logs string of 6 identical random letters
+        /// Logs string of 6 identical randomized letters
         /// </summary>
         public static void LogRandom()
         {
@@ -48,7 +42,7 @@ namespace MoonPioneerClone.Utility
         
         
         /// <summary>
-        /// Logs string of 6 identical random letters
+        /// Logs string of 6 identical randomized letters
         /// </summary>
         public static void LogRandom(object sender)
         {
