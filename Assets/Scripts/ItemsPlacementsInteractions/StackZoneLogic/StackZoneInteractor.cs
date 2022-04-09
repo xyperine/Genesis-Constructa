@@ -1,12 +1,12 @@
-﻿using MoonPioneerClone.NewItemsInteractions.InteractionsSetupSystem;
+﻿using MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.Establisher;
 using UnityEngine;
 
-namespace MoonPioneerClone.NewItemsInteractions.StackZoneLogic
+namespace MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic
 {
     public abstract class StackZoneInteractor<TObject> : MonoBehaviour
     {
         [SerializeField] protected StackZoneActionsValidator validator;
-        [SerializeField] protected InteractionsResolver resolver;
+        [SerializeField] protected InteractionsEstablisher establisher;
 
 
         private void OnTriggerEnter(Collider other)

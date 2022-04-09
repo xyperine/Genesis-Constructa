@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-using MoonPioneerClone.NewItemsInteractions.StackZoneLogic;
-using MoonPioneerClone.NewItemsInteractions.Transfer.Target;
+﻿using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
 using UnityEngine;
 
-namespace MoonPioneerClone.NewItemsInteractions.PickUp
+namespace MoonPioneerClone.ItemsPlacementsInteractions.PickUp
 {
     public class PickUpsInteractor : StackZoneInteractor<StackZoneItem>
     {
@@ -12,7 +10,7 @@ namespace MoonPioneerClone.NewItemsInteractions.PickUp
 
         protected override void InteractWith(StackZoneItem item)
         {
-            if (item.Zone != null && !resolver.CanPickUpFrom(item.Zone))
+            if (item.Zone != null && !establisher.CanPickUpFrom(item.Zone))
             {
                 return;
             }

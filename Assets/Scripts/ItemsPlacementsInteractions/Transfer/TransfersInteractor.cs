@@ -1,8 +1,8 @@
-﻿using MoonPioneerClone.NewItemsInteractions.StackZoneLogic;
-using MoonPioneerClone.NewItemsInteractions.Transfer.Target;
+﻿using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
+using MoonPioneerClone.ItemsPlacementsInteractions.Transfer.Target;
 using UnityEngine;
 
-namespace MoonPioneerClone.NewItemsInteractions.Transfer
+namespace MoonPioneerClone.ItemsPlacementsInteractions.Transfer
 {
     public class TransfersInteractor : StackZoneInteractor<TransferTargetReference>
     {
@@ -23,7 +23,7 @@ namespace MoonPioneerClone.NewItemsInteractions.Transfer
 
         protected override void InteractWith(TransferTargetReference reference)
         {
-            if (!resolver.CanTransferTo(reference.Target))
+            if (!establisher.CanTransferTo(reference.Target))
             {
                 return;
             }

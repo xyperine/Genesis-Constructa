@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using MoonPioneerClone.NewItemsInteractions.StackZoneLogic;
-using MoonPioneerClone.NewItemsInteractions.Transfer.Target;
+using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
+using MoonPioneerClone.ItemsPlacementsInteractions.Transfer.Target;
 using UnityEngine;
 
-namespace MoonPioneerClone.NewItemsInteractions.Transfer
+namespace MoonPioneerClone.ItemsPlacementsInteractions.Transfer
 {
     public class TransferStackZoneBehaviour : MonoBehaviour
     {

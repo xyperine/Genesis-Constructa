@@ -1,9 +1,9 @@
-﻿using MoonPioneerClone.NewItemsInteractions.PickUp;
-using MoonPioneerClone.NewItemsInteractions.Transfer;
-using MoonPioneerClone.NewItemsInteractions.Transfer.Target;
+﻿using MoonPioneerClone.ItemsPlacementsInteractions.PickUp;
+using MoonPioneerClone.ItemsPlacementsInteractions.Transfer;
+using MoonPioneerClone.ItemsPlacementsInteractions.Transfer.Target;
 using UnityEngine;
 
-namespace MoonPioneerClone.NewItemsInteractions.StackZoneLogic
+namespace MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic
 {
 	public sealed class StackZoneActionsValidator : MonoBehaviour
     {

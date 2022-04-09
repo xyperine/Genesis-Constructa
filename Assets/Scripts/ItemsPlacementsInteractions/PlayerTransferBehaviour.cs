@@ -1,7 +1,7 @@
-﻿using MoonPioneerClone.NewItemsInteractions.Transfer;
+﻿using MoonPioneerClone.ItemsPlacementsInteractions.Transfer;
 using UnityEngine;
 
-namespace MoonPioneerClone.NewItemsInteractions
+namespace MoonPioneerClone.ItemsPlacementsInteractions
 {
     public sealed class PlayerTransferBehaviour : TransferStackZoneBehaviour
     {

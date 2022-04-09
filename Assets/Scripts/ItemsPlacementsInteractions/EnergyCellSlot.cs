@@ -1,8 +1,8 @@
 ﻿using System.Collections;
-using MoonPioneerClone.NewItemsInteractions.StackZoneLogic;
+using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
 using UnityEngine;
 
-namespace MoonPioneerClone.NewItemsInteractions
+namespace MoonPioneerClone.ItemsPlacementsInteractions
 {
     public class EnergyCellSlot : StackZone
     {

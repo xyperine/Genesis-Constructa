@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MoonPioneerClone.NewItemsInteractions.StackZoneLogic.Upgrading
+namespace MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic.Upgrading
 {
     public sealed class StackZoneUpgrader : Upgrader
     {

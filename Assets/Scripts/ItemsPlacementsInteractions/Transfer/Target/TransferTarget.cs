@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MoonPioneerClone.NewItemsInteractions.Transfer.Target
+namespace MoonPioneerClone.ItemsPlacementsInteractions.Transfer.Target
 {
     public abstract class TransferTarget : MonoBehaviour
     {

@@ -1,11 +1,11 @@
 ﻿using System;
 using MoonPioneerClone.ItemsPlacement.Core;
 using MoonPioneerClone.ItemsPlacement.Movers;
+using MoonPioneerClone.ItemsPlacementsInteractions.Transfer.Target;
 using MoonPioneerClone.ItemsRequirementsSystem;
-using MoonPioneerClone.NewItemsInteractions.Transfer.Target;
 using UnityEngine;
 
-namespace MoonPioneerClone.NewItemsInteractions
+namespace MoonPioneerClone.ItemsPlacementsInteractions
 {
     public class ItemsConsumer : TransferTarget
     {

@@ -1,8 +1,8 @@
 ﻿using MoonPioneerClone.ItemsPlacement.Core;
-using MoonPioneerClone.NewItemsInteractions.StackZoneLogic;
+using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
 using UnityEngine;
 
-namespace MoonPioneerClone.NewItemsInteractions
+namespace MoonPioneerClone.ItemsPlacementsInteractions
 {
     [RequireComponent(typeof(PlacementItem))]
     public sealed class StackZoneItem : MonoBehaviour

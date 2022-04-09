@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MoonPioneerClone.NewItemsInteractions.StackZoneLogic.Upgrading
+namespace MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic.Upgrading
 {
     [CreateAssetMenu(fileName = "Stack_Zone_Upgrades", menuName = "Upgrades/Stack Zone", order = 0)]
     public sealed class StackZoneUpgradesSO : ScriptableObject
