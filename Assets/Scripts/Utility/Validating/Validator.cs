@@ -61,18 +61,18 @@ namespace MoonPioneerClone.Utility.Validating
         }
 
 
+        private void ValidateField(FieldInfo field, object obj)
+        {
+            ValidateObject(field.GetValue(obj));
+        }
+
+
         private void ValidateCollection(IEnumerable collection)
         {
             foreach (object obj in collection)
             {
                 ValidateObject(obj);
             }
-        }
-
-
-        private void ValidateField(FieldInfo field, object obj)
-        {
-            ValidateObject(field.GetValue(obj));
         }
 
 

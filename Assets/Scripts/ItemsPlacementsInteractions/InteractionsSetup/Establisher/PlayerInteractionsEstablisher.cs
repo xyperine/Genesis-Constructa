@@ -1,11 +1,10 @@
-﻿using System;
-using MoonPioneerClone.NewItemsInteractions.StackZoneLogic;
-using MoonPioneerClone.NewItemsInteractions.Transfer.Target;
+﻿using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
+using MoonPioneerClone.ItemsPlacementsInteractions.Transfer.Target;
 using UnityEngine;
 
-namespace MoonPioneerClone.NewItemsInteractions.InteractionsSetupSystem
+namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.Establisher
 {
-    public class PlayerInteractionsResolver : InteractionsResolver<PlayerInteractionsSO>
+    public class PlayerInteractionsEstablisher : InteractionsEstablisher<PlayerInteractionsSO>
     {
         [SerializeField] private TransferTarget playerZone;
         

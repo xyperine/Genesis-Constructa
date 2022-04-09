@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
-using MoonPioneerClone.NewItemsInteractions.Transfer.Target;
+using MoonPioneerClone.ItemsPlacementsInteractions.Transfer.Target;
 using MoonPioneerClone.Utility.Observing;
 using UnityEngine;
 
-namespace MoonPioneerClone.NewItemsInteractions.InteractionsSetupSystem
+namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup
 {
     [Serializable]
     public class InteractionsList
@@ -43,7 +43,7 @@ namespace MoonPioneerClone.NewItemsInteractions.InteractionsSetupSystem
         }
         
         
-        public void TryAdd(TransferTarget target, StackZoneInteractionType type)
+        public void TryAdd(TransferTarget target, InteractionType type)
         {
             TryAdd(new Interaction(target, type));
         }
@@ -79,9 +79,16 @@ namespace MoonPioneerClone.NewItemsInteractions.InteractionsSetupSystem
         }
         
         
-        public bool Exists(TransferTarget target, StackZoneInteractionType type)
+        public bool Exists(TransferTarget target, InteractionType type)
         {
             return interactions.Any(i => i.Target == target && i.Type == type);
+        }
+
+
+        public void Clear()
+        {
+            SetHolder(null);
+            interactions.Clear();
         }
     }
 }

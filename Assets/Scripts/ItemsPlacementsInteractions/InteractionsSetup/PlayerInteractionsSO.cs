@@ -1,9 +1,9 @@
-﻿using MoonPioneerClone.NewItemsInteractions.StackZoneLogic;
-using MoonPioneerClone.NewItemsInteractions.Transfer.Target;
+﻿using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
+using MoonPioneerClone.ItemsPlacementsInteractions.Transfer.Target;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace MoonPioneerClone.NewItemsInteractions.InteractionsSetupSystem
+namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup
 {
     [CreateAssetMenu(fileName = "Player_Interactions", menuName = "Items Interactions/Player Interactions", order = 0)]
     public class PlayerInteractionsSO : ScriptableObject
@@ -17,7 +17,7 @@ namespace MoonPioneerClone.NewItemsInteractions.InteractionsSetupSystem
         }
         
         
-        public void Add(TransferTarget target, StackZoneInteractionType type)
+        public void Register(TransferTarget target, InteractionType type)
         {
             _interactionsList.TryAdd(target, type);
         }
@@ -25,13 +25,13 @@ namespace MoonPioneerClone.NewItemsInteractions.InteractionsSetupSystem
 
         public bool CanTransferTo(TransferTarget target)
         {
-            return _interactionsList.Exists(target, StackZoneInteractionType.Transfer);
+            return _interactionsList.Exists(target, InteractionType.Transfer);
         }
         
         
         public bool CanPickUpFrom(StackZone target)
         {
-            return _interactionsList.Exists(target, StackZoneInteractionType.PickUp);
+            return _interactionsList.Exists(target, InteractionType.PickUp);
         }
     }
 }

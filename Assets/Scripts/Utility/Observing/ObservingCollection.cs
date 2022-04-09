@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace MoonPioneerClone.Utility.Observing
 {
@@ -8,17 +9,17 @@ namespace MoonPioneerClone.Utility.Observing
     public class ObservingCollection<T> : ICollection<T>
         where T : IObservable
     {
-        private IList<T> _list = new List<T>();
+        [SerializeField, HideInInspector] private List<T> list = new List<T>();
         
-        public int Count => _list.Count;
-        public bool IsReadOnly => _list.IsReadOnly;
+        public int Count => list.Count;
+        public bool IsReadOnly => (list as IList<T>).IsReadOnly;
         
         public event Action Changed;
         
         
         public IEnumerator<T> GetEnumerator()
         {
-            return _list.GetEnumerator();
+            return list.GetEnumerator();
         }
 
 
@@ -30,7 +31,7 @@ namespace MoonPioneerClone.Utility.Observing
 
         public void Add(T item)
         {
-            _list.Add(item);
+            list.Add(item);
 
             if (item != null)
             {
@@ -41,24 +42,24 @@ namespace MoonPioneerClone.Utility.Observing
 
         public void Clear()
         {
-            foreach (T item in _list)
+            foreach (T item in list)
             {
                 item.Changed -= InvokeChangedEvent;
             }
             
-            _list.Clear();
+            list.Clear();
         }
 
 
         public bool Contains(T item)
         {
-            return _list.Contains(item);
+            return list.Contains(item);
         }
 
 
         public void CopyTo(T[] array, int arrayIndex)
         {
-            _list.CopyTo(array, arrayIndex);
+            list.CopyTo(array, arrayIndex);
         }
 
 
@@ -69,20 +70,20 @@ namespace MoonPioneerClone.Utility.Observing
                 item.Changed -= InvokeChangedEvent;
             }
             
-            return _list.Remove(item);
+            return list.Remove(item);
         }
 
 
         public T this[int index]
         {
-            get => _list[index];
+            get => list[index];
             set
             {
-                _list[index].Changed -= InvokeChangedEvent;
+                list[index].Changed -= InvokeChangedEvent;
                 
-                _list[index] = value;
+                list[index] = value;
                 
-                _list[index].Changed += InvokeChangedEvent;
+                list[index].Changed += InvokeChangedEvent;
             }
         }
 

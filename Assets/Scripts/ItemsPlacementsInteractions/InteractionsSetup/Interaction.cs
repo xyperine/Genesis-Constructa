@@ -1,28 +1,27 @@
 ﻿using System;
-using MoonPioneerClone.NewItemsInteractions.Transfer.Target;
-using MoonPioneerClone.Utility;
+using MoonPioneerClone.ItemsPlacementsInteractions.Transfer.Target;
 using MoonPioneerClone.Utility.Observing;
 using MoonPioneerClone.Utility.Validating;
 using UnityEngine;
 
-namespace MoonPioneerClone.NewItemsInteractions.InteractionsSetupSystem
+namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup
 {
     [Serializable]
     public class Interaction : IValidatable, IObservable
     {
         [SerializeField] private TransferTarget target;
-        [SerializeField] private StackZoneInteractionType type;
+        [SerializeField] private InteractionType type;
 
         private TransferTarget _prevTarget;
-        private StackZoneInteractionType _prevType;
+        private InteractionType _prevType;
         
         public TransferTarget Target => target;
-        public StackZoneInteractionType Type => type;
+        public InteractionType Type => type;
         
         public event Action Changed;
 
 
-        public Interaction(TransferTarget target, StackZoneInteractionType type)
+        public Interaction(TransferTarget target, InteractionType type)
         {
             this.target = target;
             this.type = type;
