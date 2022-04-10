@@ -12,7 +12,7 @@ namespace MoonPioneerClone.ItemsRequirementsSystem
         private ItemsRequirementsBlock _activeBlock;
 
         public ItemType[] RequiredItems => _activeBlock?.RequiredItems;
-        public bool NeedMore => _activeBlock.NeedMore;
+        public bool NeedMore => _activeBlock is {NeedMore: true};
 
         public event Action BlockSatisfied;
 

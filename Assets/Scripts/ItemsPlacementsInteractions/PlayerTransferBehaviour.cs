@@ -1,4 +1,5 @@
-﻿using MoonPioneerClone.ItemsPlacementsInteractions.Transfer;
+﻿using MoonPioneerClone.ItemsPlacementsInteractions.Target;
+using MoonPioneerClone.ItemsPlacementsInteractions.Transfer;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsPlacementsInteractions
@@ -8,10 +9,10 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions
         [SerializeField] private Joystick joystick;
 
 
-        protected override bool NeedToBrakeTransfer()
+        protected override bool NeedToBrakeTransfer(InteractionTarget target)
         {
             bool standingStill = joystick.Direction == Vector2.zero;
-            return !standingStill;
+            return !standingStill && base.NeedToBrakeTransfer(target);
         }
     }
 }

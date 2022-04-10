@@ -17,8 +17,6 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic
         public override bool CanTakeMore => _placement.CanFitMore;
         public override ItemType[] AcceptableItems => (ItemType[]) acceptableItems.Clone();
 
-        public bool CanTakeThisItem(ItemType type) => acceptableItems.Contains(type);
-
 
         private void Awake()
         {
@@ -34,8 +32,21 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic
 
         public override void Add(StackZoneItem item)
         {
+            if (!CanTakeThisItem(item))
+            {
+                return;
+            }
+
+            item.SetFree();
             item.SetZone(this);
+            
             _placement.Place(item.GetComponent<PlacementItem>());
+        }
+        
+        
+        private bool CanTakeThisItem(StackZoneItem item)
+        {
+            return acceptableItems.Contains(item.Type) && CanTakeMore;
         }
 
 
@@ -48,6 +59,11 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic
 
         public StackZoneItem GetLast(ItemType[] requestedItems)
         {
+            if (requestedItems == null)
+            {
+                return null;
+            }
+            
             PlacementItem placementItem = _placement.GetLast(requestedItems);
 
             if (!placementItem)

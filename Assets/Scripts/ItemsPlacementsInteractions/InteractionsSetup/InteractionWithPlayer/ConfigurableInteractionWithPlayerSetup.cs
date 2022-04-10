@@ -1,7 +1,7 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup
+namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.InteractionWithPlayer
 {
     public class ConfigurableInteractionWithPlayerSetup : InteractionWithPlayerSetup
     {

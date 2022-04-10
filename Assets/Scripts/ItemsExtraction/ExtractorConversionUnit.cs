@@ -3,6 +3,7 @@ using MoonPioneerClone.ItemsExtraction.ConditionsLogic;
 using MoonPioneerClone.ItemsInteractions;
 using MoonPioneerClone.ItemsInteractions.StackZoneLogic;
 using MoonPioneerClone.ItemsInteractions.Transfer.Target;
+using MoonPioneerClone.Utility;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsExtraction
@@ -35,7 +36,7 @@ namespace MoonPioneerClone.ItemsExtraction
             Active = true;
             _canTakeMore = false;
 
-            yield return new WaitForSeconds(1f / productionRate.ItemsPerSecond);
+            yield return Helpers.GetWaitForSeconds(1f / productionRate.ItemsPerSecond);
 
             Active = false;
             _canTakeMore = true;

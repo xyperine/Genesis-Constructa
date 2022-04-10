@@ -2,7 +2,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup
+namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.InteractionWithPlayer
 {
     public abstract class InteractionWithPlayerSetup : MonoBehaviour
     {

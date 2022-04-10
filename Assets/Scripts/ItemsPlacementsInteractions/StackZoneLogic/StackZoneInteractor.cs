@@ -5,7 +5,6 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic
 {
     public abstract class StackZoneInteractor<TObject> : MonoBehaviour
     {
-        [SerializeField] protected StackZoneActionsValidator validator;
         [SerializeField] protected InteractionsEstablisher establisher;
 
 

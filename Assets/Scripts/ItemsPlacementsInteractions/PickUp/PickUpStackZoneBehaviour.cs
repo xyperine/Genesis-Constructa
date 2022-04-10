@@ -11,15 +11,6 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.PickUp
 
         public void PickUpItem(StackZoneItem item)
         {
-            StackZone itemZone = item.Zone;
-            
-            itemZone.Remove(item);
-            Add(item);
-        }
-
-
-        public void Add(StackZoneItem item)
-        {
             stackZone.Add(item);
         }
     }

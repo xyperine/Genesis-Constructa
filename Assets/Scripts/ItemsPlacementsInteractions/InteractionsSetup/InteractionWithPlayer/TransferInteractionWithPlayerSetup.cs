@@ -1,4 +1,4 @@
-﻿namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup
+﻿namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.InteractionWithPlayer
 {
     public class TransferInteractionWithPlayerSetup : InteractionWithPlayerSetup
     {

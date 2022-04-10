@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using MoonPioneerClone.ItemsInteractions;
 using MoonPioneerClone.ItemsInteractions.StackZoneLogic;
+using MoonPioneerClone.Utility;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsExtraction
@@ -31,7 +32,7 @@ namespace MoonPioneerClone.ItemsExtraction
         {
             while (true)
             {
-                yield return new WaitForSeconds(1f / productionRate.ItemsPerSecond);
+                yield return Helpers.GetWaitForSeconds(1f / productionRate.ItemsPerSecond);
 
                 ProduceItem();
             }

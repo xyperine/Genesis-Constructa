@@ -28,18 +28,7 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.Transfer
                 return;
             }
             
-            TransferItemsTo(reference.Target);
-        }
-        
-        
-        public void TransferItemsTo(InteractionTarget target)
-        {
-            if (!validator.CanTransferTo(target))
-            {
-                return;
-            }
-
-            transferBehaviour.TransferTo(target);
+            transferBehaviour.TransferTo(reference.Target);
         }
     }
 }

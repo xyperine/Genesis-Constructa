@@ -24,12 +24,16 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions
 
         public void SetZone(StackZone zone)
         {
-            if (zone == Zone)
-            {
-                return;
-            }
-
             Zone = zone;
+        }
+
+
+        public void SetFree()
+        {
+            if (Zone)
+            {
+                Zone.Remove(this);
+            }
         }
     }
 }

@@ -25,25 +25,7 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.PickUp
             {
                 return;
             }
-            
-            StackZone itemZone = item.Zone;
-            
-            if (!validator.ZoneCanTakeItem(item))
-            {
-                return;
-            }
 
-            if (!itemZone)
-            {
-                pickUpBehaviour.Add(item);
-                return;
-            }
-            
-            if (!validator.CanTakeFrom(itemZone))
-            {
-                return;
-            }
-            
             pickUpBehaviour.PickUpItem(item);
         }
     }

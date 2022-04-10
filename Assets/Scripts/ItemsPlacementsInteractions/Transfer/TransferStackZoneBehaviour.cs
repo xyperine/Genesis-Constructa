@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
 using MoonPioneerClone.ItemsPlacementsInteractions.Target;
+using MoonPioneerClone.Utility;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsPlacementsInteractions.Transfer
@@ -12,26 +13,17 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.Transfer
         [SerializeField] private StackZone stackZone;
         [SerializeField, Range(0.02f, 0.2f)] private float transferInterval = 0.1f;
 
-        private WaitForSeconds _waitForTransferInterval;
-
         private readonly Dictionary<InteractionTarget, IEnumerator> _transferCoroutines =
             new Dictionary<InteractionTarget, IEnumerator>();
 
 
-        private void OnValidate()
-        {
-            InitializeWaitForTransferInterval();
-        }
-
-
-        private void InitializeWaitForTransferInterval()
-        {
-            _waitForTransferInterval = new WaitForSeconds(transferInterval);
-        }
-
-
         public void TransferTo(InteractionTarget target)
         {
+            if (!CanTransferTo(target))
+            {
+                return;
+            }
+            
             if (!_transferCoroutines.TryAdd(target, TransferItemsCoroutine(target)))
             {
                 return;
@@ -41,25 +33,29 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.Transfer
         }
         
         
+        private bool CanTransferTo(InteractionTarget to)
+        {
+            bool hasItems = stackZone.HasItems;
+            bool canTakeMore = to.CanTakeMore;
+
+            return hasItems && canTakeMore;
+        }
+        
+        
         private IEnumerator TransferItemsCoroutine(InteractionTarget target)
         {
             StackZoneItem item = stackZone.GetLast(target.AcceptableItems);
 
             while (item)
             {
-                if (NeedToBrakeTransfer())
-                {
-                    break;
-                }
-
-                if (!target.CanTakeMore)
+                if (NeedToBrakeTransfer(target))
                 {
                     break;
                 }
 
                 TransferSingleItemTo(target, item);
 
-                yield return _waitForTransferInterval;
+                yield return Helpers.GetWaitForSeconds(transferInterval);
 
                 item = stackZone.GetLast(target.AcceptableItems);
             }
@@ -68,15 +64,14 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.Transfer
         }
 
 
-        protected virtual bool NeedToBrakeTransfer()
+        protected virtual bool NeedToBrakeTransfer(InteractionTarget target)
         {
-            return false;
+            return !CanTransferTo(target);
         }
 
 
         private void TransferSingleItemTo(InteractionTarget target, StackZoneItem item)
         {
-            stackZone.Remove(item);
             target.Add(item);
         }
     }

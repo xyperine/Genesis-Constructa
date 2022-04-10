@@ -21,8 +21,6 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions
 
         private void Awake()
         {
-            GetComponents();
-
             requirementsChain.BlockSatisfied += InvokeBlockSatisfied;
         }
 
@@ -33,14 +31,10 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions
         }
 
 
-        private void GetComponents()
-        {
-
-        }
-        
-        
         public override void Add(StackZoneItem item)
         {
+            item.SetFree();
+            
             requirementsChain.AddItem(item.Type);
             _itemsMover.MoveItem(item.GetComponent<PlacementItem>(), transform.position);
         }
