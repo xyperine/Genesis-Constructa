@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MoonPioneerClone.UpgradesSystem.Upgrading
+namespace MoonPioneerClone.UpgradingSystem
 {
     [Serializable]
     public class UpgradeData

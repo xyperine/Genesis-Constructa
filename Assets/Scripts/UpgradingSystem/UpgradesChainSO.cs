@@ -2,13 +2,15 @@
 using System.Linq;
 using MoonPioneerClone.ItemsRequirementsSystem;
 using MoonPioneerClone.Utility.Validating;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace MoonPioneerClone.UpgradesSystem.Upgrading
+namespace MoonPioneerClone.UpgradingSystem
 {
     public abstract class UpgradesChainSO<TUpgradeData> : ScriptableObject
         where TUpgradeData : UpgradeData
     {
+        [TableList(DefaultMinColumnWidth = 100)]
         [SerializeField] protected List<Upgrade<TUpgradeData>> upgrades;
 
         private readonly Validator _validator = new Validator();

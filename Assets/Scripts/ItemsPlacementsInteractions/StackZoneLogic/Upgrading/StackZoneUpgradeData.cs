@@ -1,7 +1,8 @@
 ﻿using System;
+using MoonPioneerClone.UpgradingSystem;
 using UnityEngine;
 
-namespace MoonPioneerClone.UpgradesSystem.Upgrading
+namespace MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic.Upgrading
 {
     [Serializable]
     public class StackZoneUpgradeData : UpgradeData

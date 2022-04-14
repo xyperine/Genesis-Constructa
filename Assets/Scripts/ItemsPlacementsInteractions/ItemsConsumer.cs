@@ -2,14 +2,11 @@
 using MoonPioneerClone.ItemsPlacement.Movers;
 using MoonPioneerClone.ItemsPlacementsInteractions.Target;
 using MoonPioneerClone.ItemsRequirementsSystem;
-using MoonPioneerClone.UpgradesSystem.Upgrading;
-using UnityEngine;
 
 namespace MoonPioneerClone.ItemsPlacementsInteractions
 {
     public class ItemsConsumer : InteractionTarget
     {
-        [SerializeField] private StackZoneUpgradesChainSO upgradesChain;
         private ItemsRequirementsChain _requirementsChain;
         
         private readonly DestroyingPlacementItemsMover _itemsMover = new DestroyingPlacementItemsMover();
@@ -18,9 +15,9 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions
         public override ItemType[] AcceptableItems => _requirementsChain.RequiredItems;
 
 
-        private void Start()
+        public void Setup(ItemsRequirementsChain requirementsChain)
         {
-            _requirementsChain = upgradesChain.RequirementsChain;
+            _requirementsChain = requirementsChain;
         }
 
 

@@ -1,18 +1,22 @@
 ﻿using System;
 using MoonPioneerClone.ItemsRequirementsSystem;
-using MoonPioneerClone.UpgradesSystem.Unlocking;
+using MoonPioneerClone.UnlockingSystem;
 using MoonPioneerClone.Utility.Observing;
 using MoonPioneerClone.Utility.Validating;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace MoonPioneerClone.UpgradesSystem.Upgrading
+namespace MoonPioneerClone.UpgradingSystem
 {
     [Serializable]
     public class Upgrade<TUpgradeData> : Unlockable, IObservable, IValidatable
         where TUpgradeData : UpgradeData
     {
-        [SerializeField] private TUpgradeData data;
+        [TableColumnWidth(200)]
         [SerializeField] private ItemsRequirementsBlock price;
+        [TableColumnWidth(160, false)]
+        [LabelWidth(100)]
+        [SerializeField] private TUpgradeData data;
 
         public TUpgradeData Data => data;
         public ItemsRequirementsBlock Price => price;

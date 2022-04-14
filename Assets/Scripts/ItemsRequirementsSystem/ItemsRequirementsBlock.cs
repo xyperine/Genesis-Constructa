@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsRequirementsSystem
@@ -7,6 +8,7 @@ namespace MoonPioneerClone.ItemsRequirementsSystem
     [Serializable]
     public sealed class ItemsRequirementsBlock
     {
+        [TableList]
         [SerializeField] private ItemRequirement[] requirements;
 
         public ItemsRequirementsBlock NextBlock { get; private set; }

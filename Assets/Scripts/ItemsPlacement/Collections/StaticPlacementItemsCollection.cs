@@ -24,12 +24,6 @@ namespace MoonPioneerClone.ItemsPlacement.Collections
 
         public void Add(PlacementItem item)
         {
-            if (FirstNullIndex == -1)
-            {
-                Debug.LogError("Adding to placement item to a full collection!");
-                return;
-            }
-            
             _items[FirstNullIndex] = item;
         }
 

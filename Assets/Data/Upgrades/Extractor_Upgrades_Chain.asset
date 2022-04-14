@@ -9,40 +9,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d31084a841f449afbb77b32381f5144a, type: 3}
-  m_Name: Stack_Zone_Upgrades_Chain
+  m_Script: {fileID: 11500000, guid: be2ba14184e74f078904746ea6bff00c, type: 3}
+  m_Name: Extractor_Upgrades_Chain
   m_EditorClassIdentifier: 
   upgrades:
   - locked: 0
     data:
       capacity: 18
+      itemsPerSecond: 1
     price:
       requirements:
       - type: 0
-        amount: 10
-      - type: 1
-        amount: 5
+        amount: 1
       - type: 3
         amount: 1
   - locked: 0
     data:
       capacity: 24
+      itemsPerSecond: 2
     price:
       requirements:
       - type: 0
-        amount: 20
-      - type: 1
-        amount: 10
+        amount: 2
       - type: 3
         amount: 2
   - locked: 0
     data:
       capacity: 30
+      itemsPerSecond: 4
     price:
       requirements:
       - type: 0
-        amount: 30
-      - type: 1
-        amount: 15
+        amount: 3
       - type: 3
         amount: 3

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MoonPioneerClone.Utility.Observing;
 
-namespace MoonPioneerClone.UpgradesSystem.Upgrading
+namespace MoonPioneerClone.UpgradingSystem
 {
     public class UpgradesStatusTracker<TUpgradeData>
         where TUpgradeData : UpgradeData

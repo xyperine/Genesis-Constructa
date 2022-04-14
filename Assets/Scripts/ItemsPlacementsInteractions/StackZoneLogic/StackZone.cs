@@ -1,14 +1,15 @@
 ﻿using System.Linq;
 using MoonPioneerClone.ItemsPlacement.Core;
 using MoonPioneerClone.ItemsPlacement.Core.Area;
+using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
 using MoonPioneerClone.ItemsPlacementsInteractions.Target;
-using MoonPioneerClone.UpgradesSystem.Upgrading;
+using MoonPioneerClone.UpgradingSystem;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic
 {
     [RequireComponent(typeof(PlacementArea))]
-    public class StackZone : InteractionTarget
+    public class StackZone : InteractionTarget, IUpgradeable<StackZoneUpgradeData>
     {
         [SerializeField] private ItemType[] acceptableItems; 
         
