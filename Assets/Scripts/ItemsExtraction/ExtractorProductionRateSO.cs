@@ -14,11 +14,5 @@ namespace MoonPioneerClone.ItemsExtraction
         {
             ItemsPerSecond = itemsPerSecond;
         }
-
-
-        public void Upgrade(float newItemsPerSecond)
-        {
-            ItemsPerSecond = newItemsPerSecond;
-        }
     }
 }

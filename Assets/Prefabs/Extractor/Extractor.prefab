@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 929063110960976280}
   - component: {fileID: 4876488227924365311}
   - component: {fileID: 2838886211604961652}
-  - component: {fileID: 4007950610263896247}
   m_Layer: 0
   m_Name: Extractor
   m_TagString: Untagged
@@ -82,22 +81,6 @@ MonoBehaviour:
   productionRate: {fileID: 0}
   product: {fileID: 0}
   productionStackZone: {fileID: 0}
---- !u!114 &4007950610263896247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 986503735047790915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30a524ab180b00342be6b5af4684b3c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  consumer: {fileID: 0}
-  upgrades: {fileID: 0}
-  productionZoneUpgrader: {fileID: 0}
-  productionRate: {fileID: 0}
 --- !u!1 &2718288748596786146
 GameObject:
   m_ObjectHideFlags: 0
