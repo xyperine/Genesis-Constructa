@@ -1,4 +1,4 @@
-﻿using MoonPioneerClone.ItemsInteractions.StackZoneLogic;
+﻿using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsExtraction.Upgrading
@@ -10,7 +10,7 @@ namespace MoonPioneerClone.ItemsExtraction.Upgrading
 
         public void Upgrade(int newMaxItemsValue)
         {
-            stackZone.Upgrade(newMaxItemsValue);
+            //stackZone.Upgrade(newMaxItemsValue);
         }
     }
 }

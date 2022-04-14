@@ -1,6 +1,7 @@
-﻿using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
+﻿using MoonPioneerClone.ItemsPlacementsInteractions;
+using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
 
-namespace MoonPioneerClone.ItemsPlacementsInteractions
+namespace MoonPioneerClone
 {
     public class EnergyCellSlot : StackZone
     {

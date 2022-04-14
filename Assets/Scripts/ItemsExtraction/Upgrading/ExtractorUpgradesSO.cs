@@ -9,7 +9,7 @@ namespace MoonPioneerClone.ItemsExtraction.Upgrading
         
         private int _index;
 
-        public int Capacity => upgrades[_index].Capacity;
+        public int Capacity => 0;//upgrades[_index].Capacity;
         public float ItemsPerSecond => upgrades[_index].ItemsPerSecond;
 
 

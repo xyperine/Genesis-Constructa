@@ -1,17 +1,18 @@
-﻿using MoonPioneerClone.ItemsInteractions.Transfer;
+﻿using MoonPioneerClone.ItemsPlacementsInteractions.Target;
+using MoonPioneerClone.ItemsPlacementsInteractions.Transfer;
 using UnityEngine;
 
-namespace MoonPioneerClone.Player
+namespace MoonPioneerClone.ItemsPlacementsInteractions
 {
     public sealed class PlayerTransferBehaviour : TransferStackZoneBehaviour
     {
         [SerializeField] private Joystick joystick;
 
 
-        protected override bool NeedToBrakeTransfer()
+        protected override bool NeedToBrakeTransfer(InteractionTarget target)
         {
-            bool standingStill = joystick.Direction == Vector2.zero; // Check for movement state here
-            return !standingStill;
+            bool standingStill = joystick.Direction == Vector2.zero;
+            return !standingStill || base.NeedToBrakeTransfer(target);
         }
     }
 }

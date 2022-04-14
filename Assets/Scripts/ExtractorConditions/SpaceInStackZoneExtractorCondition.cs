@@ -1,5 +1,5 @@
 ﻿using MoonPioneerClone.ItemsExtraction.ConditionsLogic;
-using MoonPioneerClone.ItemsInteractions.StackZoneLogic;
+using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
 using UnityEngine;
 
 namespace MoonPioneerClone.ExtractorConditions

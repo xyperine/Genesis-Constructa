@@ -1,5 +1,4 @@
 ﻿using MoonPioneerClone.ItemsExtraction.ConditionsLogic;
-using MoonPioneerClone.ItemsInteractions;
 using UnityEngine;
 
 namespace MoonPioneerClone.ExtractorConditions

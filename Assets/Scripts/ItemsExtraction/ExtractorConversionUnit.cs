@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using MoonPioneerClone.ItemsExtraction.ConditionsLogic;
-using MoonPioneerClone.ItemsInteractions;
-using MoonPioneerClone.ItemsInteractions.StackZoneLogic;
-using MoonPioneerClone.ItemsInteractions.Transfer.Target;
+using MoonPioneerClone.ItemsPlacementsInteractions;
+using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
+using MoonPioneerClone.ItemsPlacementsInteractions.Target;
 using MoonPioneerClone.Utility;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsExtraction
 {
-    public sealed class ExtractorConversionUnit : TransferTarget
+    public sealed class ExtractorConversionUnit : InteractionTarget
     {
         [SerializeField] private ItemType[] acceptableItems;
         [SerializeField] private ExtractorProductionRateSO productionRate;

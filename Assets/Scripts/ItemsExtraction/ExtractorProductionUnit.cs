@@ -1,6 +1,6 @@
 ﻿using System.Collections;
-using MoonPioneerClone.ItemsInteractions;
-using MoonPioneerClone.ItemsInteractions.StackZoneLogic;
+using MoonPioneerClone.ItemsPlacementsInteractions;
+using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
 using MoonPioneerClone.Utility;
 using UnityEngine;
 
