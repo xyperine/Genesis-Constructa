@@ -1,23 +1,22 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
-using Component = UnityEngine.Component;
+using Object = UnityEngine.Object;
 
 namespace MoonPioneerClone.Utility.Validating
 {
     public class Validator
     {
-        public void Validate(Component component)
+        public void Validate(Object unityObj)
         {
-            ValidateFields(component);
+            ValidateFieldsOf(unityObj);
         }
 
 
-        private void ValidateFields(object obj)
+        private void ValidateFieldsOf(object obj)
         {
             FieldInfo[] fields = GetFields(obj.GetType());
 
@@ -30,7 +29,7 @@ namespace MoonPioneerClone.Utility.Validating
             {
                 ValidateField(field, obj);
 
-                ValidateFields(field.GetValue(obj));
+                ValidateFieldsOf(field.GetValue(obj));
 
                 if (field.GetValue(obj) is IEnumerable collection)
                 {
@@ -71,6 +70,7 @@ namespace MoonPioneerClone.Utility.Validating
         {
             foreach (object obj in collection)
             {
+                ValidateFieldsOf(obj);
                 ValidateObject(obj);
             }
         }
