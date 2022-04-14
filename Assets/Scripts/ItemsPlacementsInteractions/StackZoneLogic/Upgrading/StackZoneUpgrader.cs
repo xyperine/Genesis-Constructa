@@ -11,7 +11,7 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic.Upgrading
         protected override void Upgrade()
         {
             upgrades.Upgrade();
-            stackZone.Upgrade(upgrades.Capacity);
+            //stackZone.Upgrade(upgrades.Capacity);
         }
     }
 }

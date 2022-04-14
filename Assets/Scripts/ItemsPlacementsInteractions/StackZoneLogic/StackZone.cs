@@ -2,6 +2,7 @@
 using MoonPioneerClone.ItemsPlacement.Core;
 using MoonPioneerClone.ItemsPlacement.Core.Area;
 using MoonPioneerClone.ItemsPlacementsInteractions.Target;
+using MoonPioneerClone.UpgradesSystem.Upgrading;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic
@@ -78,9 +79,9 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic
         }
 
 
-        public void Upgrade(int newMaxItems)
+        public void Upgrade(StackZoneUpgradeData data)
         {
-            _placement.Upgrade(newMaxItems);
+            _placement.Upgrade(data.Capacity);
         }
     }
 }

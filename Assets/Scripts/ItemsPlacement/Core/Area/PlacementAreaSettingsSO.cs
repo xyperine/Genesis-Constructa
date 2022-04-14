@@ -46,18 +46,20 @@ namespace MoonPioneerClone.ItemsPlacement.Core.Area
         public Quaternion ItemRotation { get; private set; }
         public Vector3 AlignedItemSize { get; private set; }
 
-
-#if UNITY_EDITOR
+        
         private void OnValidate()
         {
             SetValues();
         }
-#else
-        private void Awake()
+        
+        
+#if !UNITY_EDITOR
+        private void OnEnable()
         {
             SetValues();
         }
 #endif
+        
 
         private void SetValues()
         {

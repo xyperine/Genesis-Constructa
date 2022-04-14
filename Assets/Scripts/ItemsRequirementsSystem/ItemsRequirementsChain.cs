@@ -1,44 +1,35 @@
-﻿using System;
-using System.Linq;
-using UnityEngine;
+﻿using System.Linq;
 
 namespace MoonPioneerClone.ItemsRequirementsSystem
 {
-    [CreateAssetMenu(fileName = "Items_Requirements_Chain", menuName = "Items Requirements Chain")]
-    public sealed class ItemsRequirementsChainSO : ScriptableObject
+    public class ItemsRequirementsChain
     {
-        [SerializeField] private ItemsRequirementsBlock[] blocks;
+        private readonly ItemsRequirementsBlock[] _blocks;
 
         private ItemsRequirementsBlock _activeBlock;
 
         public ItemType[] RequiredItems => _activeBlock?.RequiredItems;
         public bool NeedMore => _activeBlock is {NeedMore: true};
 
-        public event Action BlockSatisfied;
 
-
-#if UNITY_EDITOR
-        private void OnValidate()
+        public ItemsRequirementsChain(ItemsRequirementsBlock[] blocks)
         {
+            _blocks = blocks;
+            
             SetupChain();
         }
-#else
-        private void Awake()
-        {
-            SetupChain();
-        }
-#endif
+        
 
         private void SetupChain()
         {
-            if (!blocks.Any())
+            if (!_blocks.Any())
             {
                 return;
             }
             
             SetupInitialBlock();
 
-            for (int i = 0; i < blocks.Length; i++)
+            for (int i = 0; i < _blocks.Length; i++)
             {
                 SetupBlock(i);
             }
@@ -47,7 +38,7 @@ namespace MoonPioneerClone.ItemsRequirementsSystem
 
         private void SetupInitialBlock()
         {
-            _activeBlock = blocks[0];
+            _activeBlock = _blocks[0];
             
             SubscribeToActiveBlockSatisfaction();
         }
@@ -61,7 +52,6 @@ namespace MoonPioneerClone.ItemsRequirementsSystem
             }
 
             _activeBlock.Satisfied += GoToNextBlock;
-            _activeBlock.Satisfied += InvokeBlockSatisfied;
         }
 
 
@@ -73,7 +63,6 @@ namespace MoonPioneerClone.ItemsRequirementsSystem
             }
 
             _activeBlock.Satisfied -= GoToNextBlock;
-            _activeBlock.Satisfied -= InvokeBlockSatisfied;
         }
 
 
@@ -86,23 +75,16 @@ namespace MoonPioneerClone.ItemsRequirementsSystem
             SubscribeToActiveBlockSatisfaction();
         }
 
-
-        private void InvokeBlockSatisfied()
-        {
-            BlockSatisfied?.Invoke();
-        }
-
-
         private void SetupBlock(int index)
         {
-            ItemsRequirementsBlock block = blocks[index];
+            ItemsRequirementsBlock block = _blocks[index];
 
-            if (index == blocks.Length - 1)
+            if (index == _blocks.Length - 1)
             {
                 return;
             }
             
-            block.SetNextBlock(blocks[index + 1]);
+            block.SetNextBlock(_blocks[index + 1]);
         }
 
 

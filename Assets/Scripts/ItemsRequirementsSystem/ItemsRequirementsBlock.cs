@@ -46,16 +46,5 @@ namespace MoonPioneerClone.ItemsRequirementsSystem
                 Satisfied?.Invoke();
             }
         }
-        
-        
-#if UNITY_EDITOR
-        public void UpdateCounter()
-        {
-            foreach (ItemRequirement requirement in requirements)
-            {
-                requirement.UpdateCounter();
-            }
-        }
-#endif
     }
 }

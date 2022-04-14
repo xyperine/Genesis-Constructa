@@ -12,7 +12,7 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions
         protected override bool NeedToBrakeTransfer(InteractionTarget target)
         {
             bool standingStill = joystick.Direction == Vector2.zero;
-            return !standingStill && base.NeedToBrakeTransfer(target);
+            return !standingStill || base.NeedToBrakeTransfer(target);
         }
     }
 }

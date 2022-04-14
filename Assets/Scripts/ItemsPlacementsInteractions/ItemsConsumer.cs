@@ -3,31 +3,25 @@ using MoonPioneerClone.ItemsPlacement.Core;
 using MoonPioneerClone.ItemsPlacement.Movers;
 using MoonPioneerClone.ItemsPlacementsInteractions.Target;
 using MoonPioneerClone.ItemsRequirementsSystem;
+using MoonPioneerClone.UpgradesSystem.Upgrading;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsPlacementsInteractions
 {
     public class ItemsConsumer : InteractionTarget
     {
-        [SerializeField] private ItemsRequirementsChainSO requirementsChain;
+        [SerializeField] private StackZoneUpgradesChainSO upgradesChain;
+        private ItemsRequirementsChain _requirementsChain;
         
         private readonly DestroyingPlacementItemsMover _itemsMover = new DestroyingPlacementItemsMover();
 
-        public override bool CanTakeMore => requirementsChain.NeedMore;
-        public override ItemType[] AcceptableItems => requirementsChain.RequiredItems;
-
-        public event Action BlockSatisfied;
+        public override bool CanTakeMore => _requirementsChain.NeedMore;
+        public override ItemType[] AcceptableItems => _requirementsChain.RequiredItems;
 
 
-        private void Awake()
+        private void Start()
         {
-            requirementsChain.BlockSatisfied += InvokeBlockSatisfied;
-        }
-
-
-        private void InvokeBlockSatisfied()
-        {
-            BlockSatisfied?.Invoke();
+            _requirementsChain = upgradesChain.RequirementsChain;
         }
 
 
@@ -35,7 +29,7 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions
         {
             item.SetFree();
             
-            requirementsChain.AddItem(item.Type);
+            _requirementsChain.AddItem(item.Type);
             _itemsMover.MoveItem(item.GetComponent<PlacementItem>(), transform.position);
         }
     }

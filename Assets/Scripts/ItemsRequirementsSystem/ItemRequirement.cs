@@ -1,10 +1,11 @@
 ﻿using System;
+using MoonPioneerClone.Utility.Validating;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsRequirementsSystem
 {
     [Serializable]
-    public sealed class ItemRequirement
+    public sealed class ItemRequirement : IValidatable
     {
         [SerializeField] private ItemType type;
         [SerializeField, Min(1)] private int amount;
@@ -20,12 +21,10 @@ namespace MoonPioneerClone.ItemsRequirementsSystem
             _currentAmount++;
         }
 
-
-#if UNITY_EDITOR
-        public void UpdateCounter()
+        
+        public void OnValidate()
         {
             _currentAmount = 0;
         }
-#endif
     }
 }
