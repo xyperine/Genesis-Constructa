@@ -1,7 +1,6 @@
 ﻿using System;
 using MoonPioneerClone.ItemsRequirementsSystem;
 using MoonPioneerClone.UnlockingSystem;
-using MoonPioneerClone.Utility.Observing;
 using MoonPioneerClone.Utility.Validating;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -9,7 +8,7 @@ using UnityEngine;
 namespace MoonPioneerClone.UpgradingSystem
 {
     [Serializable]
-    public class Upgrade<TUpgradeData> : Unlockable, IObservable, IValidatable
+    public class Upgrade<TUpgradeData> : Unlockable, IValidatable
         where TUpgradeData : UpgradeData
     {
         [TableColumnWidth(200)]
@@ -20,32 +19,21 @@ namespace MoonPioneerClone.UpgradingSystem
 
         public TUpgradeData Data => data;
         public ItemsRequirementsBlock Price => price;
-        public bool Satisfied { get; private set; }
-        
-        public event Action Changed;
+
+        public event Action<Upgrade<TUpgradeData>> Purchased;
 
 
-        public override void Unlock()
-        {
-            base.Unlock();
-            
-            Changed?.Invoke();
-        }
-        
-        
         public void OnValidate()
         {
-            price.Satisfied += InvokeChangedDueToBeingPurchased;
-            Satisfied = false;
+            price.Satisfied += InvokePurchased;
         }
         
 
-        private void InvokeChangedDueToBeingPurchased()
-        { 
-            Satisfied = true;
-            price.Satisfied -= InvokeChangedDueToBeingPurchased;
+        private void InvokePurchased()
+        {
+            price.Satisfied -= InvokePurchased;
             
-            Changed?.Invoke();
+            Purchased?.Invoke(this);
         }
     }
 }

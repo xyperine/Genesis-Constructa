@@ -1,58 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using MoonPioneerClone.Utility.Observing;
 
 namespace MoonPioneerClone.UpgradingSystem
 {
     public class UpgradesStatusTracker<TUpgradeData>
         where TUpgradeData : UpgradeData
     {
-        private readonly ObservingCollection<Upgrade<TUpgradeData>> _upgrades = new ObservingCollection<Upgrade<TUpgradeData>>();
-
-        private Upgrade<TUpgradeData> _lastUnlockedUpgrade;
-        private TUpgradeData _lastPurchasedUpgrade;
-
         public event Action<TUpgradeData> Purchased;
-        public event Action<Upgrade<TUpgradeData>> Unlocked;
 
 
         public UpgradesStatusTracker(IEnumerable<Upgrade<TUpgradeData>> upgrades)
         {
             foreach (Upgrade<TUpgradeData> upgrade in upgrades)
             {
-                _upgrades.Add(upgrade);
+                upgrade.Purchased += OnUpgradePurchased;
             }
-
-            _upgrades.Changed += CheckForChanges;
         }
 
 
-        private void CheckForChanges()
+        private void OnUpgradePurchased(Upgrade<TUpgradeData> upgrade)
         {
-            if (_lastUnlockedUpgrade != GetLastUnlockedUpgrade())
-            {
-                _lastUnlockedUpgrade = GetLastUnlockedUpgrade();
-                Unlocked?.Invoke(_lastUnlockedUpgrade);
-            }
+            upgrade.Purchased -= OnUpgradePurchased;
             
-            if (_lastPurchasedUpgrade != GetLastPurchasedUpgrade())
-            {
-                _lastPurchasedUpgrade = GetLastPurchasedUpgrade();
-                Purchased?.Invoke(_lastPurchasedUpgrade);
-            }
-        }
-
-
-        private Upgrade<TUpgradeData> GetLastUnlockedUpgrade()
-        {
-            return _upgrades.LastOrDefault(u => !u.Locked);
-        }
-
-
-        private TUpgradeData GetLastPurchasedUpgrade()
-        {
-            return _upgrades.LastOrDefault(u => u.Satisfied)?.Data;
+            Purchased?.Invoke(upgrade.Data);
         }
     }
 }

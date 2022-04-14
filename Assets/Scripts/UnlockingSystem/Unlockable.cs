@@ -12,10 +12,14 @@ namespace MoonPioneerClone.UnlockingSystem
 
         public bool Locked => locked;
 
+        public event Action<Unlockable> Unlocked;
+
 
         public virtual void Unlock()
         {
             locked = false;
+            
+            Unlocked?.Invoke(this);
         }
     }
 }
