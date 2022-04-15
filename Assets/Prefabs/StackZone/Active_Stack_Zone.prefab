@@ -84,10 +84,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3498629856824353550, guid: c85ca864afb5dd647a315607f1a288dd, type: 3}
       propertyPath: m_Name
-      value: New_Active_Stack_Zone
+      value: Active_Stack_Zone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c85ca864afb5dd647a315607f1a288dd, type: 3}
+--- !u!114 &3970569248854470648 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8137766835704171586, guid: c85ca864afb5dd647a315607f1a288dd, type: 3}
+  m_PrefabInstance: {fileID: 5185169721147089850}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8608856305999937716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c247c8b4d65e47b5b32b8a68d61270ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6069278001406651436 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1427364332269391766, guid: c85ca864afb5dd647a315607f1a288dd, type: 3}
@@ -132,6 +143,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactions:
-    holder: {fileID: 0}
+    holder: {fileID: 3970569248854470648}
     interactions:
       list: []
