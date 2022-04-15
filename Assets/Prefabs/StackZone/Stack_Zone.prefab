@@ -126,6 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsMover:
     itemsParent: {fileID: 4336498272676022275}
+  drawer: {fileID: 6985501866559349306}
   placementSettings: {fileID: 0}
 --- !u!114 &6985501866559349306
 MonoBehaviour:
@@ -139,7 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 647e6d668b184d10a46585c42d7301fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placementSettings: {fileID: 0}
   alwaysDraw: 0
 --- !u!1 &6095317316683150772
 GameObject:

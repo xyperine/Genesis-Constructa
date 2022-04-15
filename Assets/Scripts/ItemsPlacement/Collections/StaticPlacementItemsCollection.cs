@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using MoonPioneerClone.ItemsPlacement.Core;
-using UnityEngine;
 
 namespace MoonPioneerClone.ItemsPlacement.Collections
 {
@@ -35,7 +34,7 @@ namespace MoonPioneerClone.ItemsPlacement.Collections
         }
 
 
-        public void Resize(int newSize)
+        public void Upgrade(int newSize)
         {
             Array.Resize(ref _items, newSize);
         }

@@ -33,7 +33,7 @@ namespace MoonPioneerClone.ItemsPlacement.Collections
         }
 
         
-        public void Resize(int newSize)
+        public void Upgrade(int newSize)
         {
             _items.Capacity = newSize;
         }

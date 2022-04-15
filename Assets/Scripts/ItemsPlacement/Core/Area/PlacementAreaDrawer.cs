@@ -1,35 +1,46 @@
-﻿using UnityEngine;
+﻿using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
+using UnityEngine;
 
 namespace MoonPioneerClone.ItemsPlacement.Core.Area
 {
+    [RequireComponent(typeof(PlacementArea))]
     public sealed class PlacementAreaDrawer : MonoBehaviour
     {
-        [SerializeField] private PlacementAreaSettingsSO placementSettings;
         [SerializeField] private bool alwaysDraw;
+        
+        private PlacementAreaUpgradeableProperties _upgradeableProperties;
 
         private Vector3 _size;
         private Vector3 _center;
-        
+
+
+        private void Start()
+        {
+            _upgradeableProperties = GetComponent<PlacementArea>().GetUpgradeableData();
+        }
+
 
         private void OnValidate()
         {
+            _upgradeableProperties = GetComponent<PlacementArea>().GetUpgradeableData();
+            
             TryRecalculateShape();
         }
-        
-        
+
+
         private void TryRecalculateShape()
         {
-            if (!placementSettings)
+            if (_upgradeableProperties == null)
             {
                 return;
             }
             
-            if (placementSettings.ScaledAreaSize == _size)
+            if (_upgradeableProperties.ScaledAreaSize == _size)
             {
                 return;
             }
             
-            _size = placementSettings.ScaledAreaSize;
+            _size = _upgradeableProperties.ScaledAreaSize;
             _center = _size * 0.5f;
         }
         

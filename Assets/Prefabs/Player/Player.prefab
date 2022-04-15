@@ -184,7 +184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4341465891043500647, guid: 8929d54c2bda9cf4eb2c62520fbaf897, type: 3}
       propertyPath: m_Name
-      value: New_Player_Stack_Zone
+      value: Player_Stack_Zone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8929d54c2bda9cf4eb2c62520fbaf897, type: 3}

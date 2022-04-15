@@ -1,5 +1,4 @@
-﻿using System;
-using MoonPioneerClone.ItemsExtraction.Upgrading;
+﻿using MoonPioneerClone.ItemsExtraction.Upgrading;
 using MoonPioneerClone.UpgradingSystem;
 using UnityEngine;
 

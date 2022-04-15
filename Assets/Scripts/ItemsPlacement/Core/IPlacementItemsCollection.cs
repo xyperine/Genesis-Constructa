@@ -10,6 +10,6 @@ namespace MoonPioneerClone.ItemsPlacement.Core
 
         void Add(PlacementItem item);
         void Remove(PlacementItem item);
-        void Resize(int newSize);
+        void Upgrade(int newSize);
     }
 }

@@ -112,16 +112,5 @@ namespace MoonPioneerClone.ItemsPlacement.Core.Area
         {
             ScaledAreaSize = Vector3.Scale(AreaSize, AlignedItemSize);
         }
-        
-        
-        public void Grow(int newMaxItems)
-        {
-            MaxItems = newMaxItems;
-            
-            float itemsPerY = AreaSize.x * AreaSize.z;
-            AreaSize = new Vector3(AreaSize.x, Mathf.Ceil(newMaxItems / itemsPerY), AreaSize.z);
-            
-            SetScaledAreaSize();
-        }
     }
 }

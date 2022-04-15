@@ -2,6 +2,7 @@
 using System.Linq;
 using MoonPioneerClone.ItemsPlacement.Movers;
 using MoonPioneerClone.ItemsPlacementsInteractions;
+using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsPlacement.Core.Area
@@ -11,23 +12,27 @@ namespace MoonPioneerClone.ItemsPlacement.Core.Area
         [SerializeField] private PlacingPlacementItemsMover itemsMover;
         [SerializeField] protected PlacementAreaSettingsSO placementSettings;
 
+        private PlacementAreaUpgradeableProperties _upgradeableProperties;
+        
         protected IPlacementItemsCollection itemsCollection;
         protected PlacementItemPositionCalculator itemPositionCalculator;
         
         public int Count => itemsCollection.Count;
-        public bool CanFitMore => Count < placementSettings.MaxItems;
+        public bool CanFitMore => Count < _upgradeableProperties.MaxItems;
 
 
         private void Awake()
         {
-            InitializeAlgorithm();
+            _upgradeableProperties = new PlacementAreaUpgradeableProperties(placementSettings);
+            
+            InitializePositionCalculator();
             InitializeItemsCollection();
         }
 
 
-        private void InitializeAlgorithm()
+        private void InitializePositionCalculator()
         {
-            itemPositionCalculator = new PlacementItemPositionCalculator(placementSettings);
+            itemPositionCalculator = new PlacementItemPositionCalculator(placementSettings, _upgradeableProperties);
         }
         
         
@@ -90,8 +95,14 @@ namespace MoonPioneerClone.ItemsPlacement.Core.Area
         
         public void Upgrade(int newMaxItems)
         {
-            itemsCollection.Resize(newMaxItems);
-            placementSettings.Grow(newMaxItems);
+            itemsCollection.Upgrade(newMaxItems);
+            _upgradeableProperties.Upgrade(newMaxItems);
+        }
+
+
+        public PlacementAreaUpgradeableProperties GetUpgradeableData()
+        {
+            return _upgradeableProperties ?? new PlacementAreaUpgradeableProperties(placementSettings);
         }
     }
 }
