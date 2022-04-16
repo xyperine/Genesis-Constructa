@@ -17,6 +17,12 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.Transfer
             new Dictionary<InteractionTarget, IEnumerator>();
 
 
+        public void Setup(StackZone zone)
+        {
+            stackZone = zone;
+        }
+        
+
         public void TransferTo(InteractionTarget target)
         {
             if (!CanTransferTo(target))

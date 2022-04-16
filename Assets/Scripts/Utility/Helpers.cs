@@ -18,5 +18,33 @@ namespace MoonPioneerClone.Utility
             WaitForSecondsDictionary[time] = new WaitForSeconds(time);
             return WaitForSecondsDictionary[time];
         }
+        
+        
+        public static string GetGameObjectPath(Transform transform)
+        {
+            string path = transform.name;
+            while (transform.parent != null)
+            {
+                transform = transform.parent;
+                path = transform.name + "/" + path;
+            }
+            return path;
+        }
+        
+        
+        public static string GetGameObjectPathWithoutRoot(Transform transform)
+        {
+            string path = transform.name;
+            while (transform.parent != null)
+            {
+                transform = transform.parent;
+                if (transform == transform.root)
+                {
+                    continue;
+                }
+                path = transform.name + "/" + path;
+            }
+            return path;
+        }
     }
 }

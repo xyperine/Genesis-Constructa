@@ -9,6 +9,12 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.Establi
         private readonly Validator _validator = new Validator();
 
 
+        public void Setup(InteractionsList interactionsList)
+        {
+            interactions = interactionsList;
+        }
+        
+
         private void OnValidate()
         {
             _validator.Validate(this);

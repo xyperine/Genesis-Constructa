@@ -7,5 +7,11 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.Target
         [SerializeField] private InteractionTarget target;
 
         public InteractionTarget Target => target;
+
+
+        public void Setup(InteractionTarget target)
+        {
+            this.target = target;
+        }
     }
 }

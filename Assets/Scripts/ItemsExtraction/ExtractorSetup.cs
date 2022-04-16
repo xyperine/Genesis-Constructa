@@ -18,8 +18,7 @@ namespace MoonPioneerClone.ItemsExtraction
 
         private void Start()
         {
-            upgrader.Setup(upgradesChain.Upgrades,
-                new IUpgradeable<ExtractorUpgradeData>[] {productionZone, productionRate});
+            upgrader.Setup(upgradesChain, new IUpgradeable<ExtractorUpgradeData>[] {productionZone, productionRate});
             consumer.Setup(upgradesChain.RequirementsChain);
         }
     }

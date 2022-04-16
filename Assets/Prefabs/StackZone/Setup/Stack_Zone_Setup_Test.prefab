@@ -44,20 +44,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5843f376da9142fd8d395c986063c9a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  builder:
+    zoneSchemePrefab: {fileID: 23633198229118409, guid: 93372fc6577a47545b16464b7ec1f2b5, type: 3}
   data:
     interactWithOthers: 0
     interactions:
       holder: {fileID: 0}
       interactions:
         list: []
-    interactWithPlayer: 0
-    interactionWithPlayerType: 0
+    interactWithPlayer: 1
+    playerInteractionsSO: {fileID: 11400000, guid: 88d4d2bbd9432f34489ad1e2de55b2f7, type: 2}
+    interactionWithPlayerType: 1
     upgradeableOnItsOwn: 0
     upgradesChain: {fileID: 0}
     colliderData:
-      sphereColliderSetupData:
-        center: {x: 0, y: 0, z: 0}
-        radius: 0
-      boxColliderSetupData:
-        center: {x: 0, y: 0, z: 0}
-        size: {x: 0, y: 0, z: 0}
+      shape: 1

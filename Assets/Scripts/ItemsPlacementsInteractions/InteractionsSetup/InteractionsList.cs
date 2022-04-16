@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MoonPioneerClone.ItemsPlacementsInteractions.Target;
 using MoonPioneerClone.Utility.Observing;
@@ -11,7 +12,9 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup
     {
         [SerializeField] private InteractionTarget holder;
         [SerializeField] private ObservingCollection<Interaction> interactions = new ObservingCollection<Interaction>();
-        
+
+        public IEnumerable<InteractionType> InteractionTypes => interactions.Select(i => i.Type).Distinct();
+
 
         public InteractionsList()
         {

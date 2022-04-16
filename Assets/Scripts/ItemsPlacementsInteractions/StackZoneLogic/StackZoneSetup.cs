@@ -12,8 +12,8 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic
 
         private void Start()
         {
-            upgrader.Setup(upgradesChain.Upgrades, new []{GetComponent<StackZone>()});
-            consumer.Setup(upgradesChain.RequirementsChain);
+            //upgrader.Setup(upgradesChain.Upgrades, new []{GetComponent<StackZone>()});
+            //consumer.Setup(upgradesChain.RequirementsChain);
         }
     }
 }

@@ -7,12 +7,18 @@ namespace MoonPioneerClone.ItemsPlacement.Movers
     [Serializable]
     public sealed class PlacingPlacementItemsMover : PlacementItemsMover
     {
-        [SerializeField] private Transform itemsParent;
+        private Transform _itemsParent;
+
+
+        public PlacingPlacementItemsMover(Transform itemsParent)
+        {
+            _itemsParent = itemsParent;
+        }
         
         
         public override void MoveItem(PlacementItem item, Vector3 position)
         {
-            item.transform.SetParent(itemsParent);
+            item.transform.SetParent(_itemsParent);
             base.MoveItem(item, position);
         }
     }

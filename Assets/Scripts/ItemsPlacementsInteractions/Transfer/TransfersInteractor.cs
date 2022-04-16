@@ -1,4 +1,5 @@
-﻿using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
+﻿using MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.Establisher;
+using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
 using MoonPioneerClone.ItemsPlacementsInteractions.Target;
 using UnityEngine;
 
@@ -18,6 +19,13 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.Transfer
             }
 
             InteractWith(reference);
+        }
+
+
+        public void Setup(InteractionsEstablisher establisher, TransferStackZoneBehaviour transferBehaviour)
+        {
+            this.establisher = establisher;
+            this.transferBehaviour = transferBehaviour;
         }
 
 

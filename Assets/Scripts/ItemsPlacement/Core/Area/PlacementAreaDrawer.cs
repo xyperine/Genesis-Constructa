@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace MoonPioneerClone.ItemsPlacement.Core.Area
 {
-    [RequireComponent(typeof(PlacementArea))]
     public sealed class PlacementAreaDrawer : MonoBehaviour
     {
         [SerializeField] private bool alwaysDraw;
@@ -16,15 +15,24 @@ namespace MoonPioneerClone.ItemsPlacement.Core.Area
 
         private void Start()
         {
-            _upgradeableProperties = GetComponent<PlacementArea>().GetUpgradeableData();
+            GetUpgradeableProperties();
         }
 
 
         private void OnValidate()
         {
-            _upgradeableProperties = GetComponent<PlacementArea>().GetUpgradeableData();
+            GetUpgradeableProperties();
             
             TryRecalculateShape();
+        }
+
+
+        private void GetUpgradeableProperties()
+        {
+            if (TryGetComponent(out PlacementArea area))
+            {
+                _upgradeableProperties = area.GetUpgradeableData();
+            }
         }
 
 

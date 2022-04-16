@@ -1,10 +1,15 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace MoonPioneerClone.SetupSystem.StackZone
+namespace MoonPioneerClone.SetupSystem.StackZones
 {
     public class StackZoneSetup : MonoBehaviour
     {
+        [SerializeField, ShowIf(nameof(_setupMode))]
+        [HideReferenceObjectPicker]
+        [PropertySpace(SpaceAfter = 16f)]
+        private StackZoneComponentsBuilder builder;
+
         [SerializeField, ShowIf(nameof(_setupMode))]
         [HideReferenceObjectPicker]
         [PropertySpace(SpaceAfter = 16f)]
@@ -23,8 +28,14 @@ namespace MoonPioneerClone.SetupSystem.StackZone
         {
             _setupMode = true;
 
+            if (_savedData == null)
+            {
+                return;
+            }
+            
             data = new StackZoneSetupData(_savedData);
         }
+        
         
         [Button(ButtonSizes.Large, Name = "Reset"), ShowIf(nameof(_setupMode))]
         [ResponsiveButtonGroup("S", DefaultButtonSize = ButtonSizes.Large)]
@@ -58,7 +69,7 @@ namespace MoonPioneerClone.SetupSystem.StackZone
 
         private void PassData()
         {
-            
+            builder.Build(gameObject, _savedData);
         }
     }
 }

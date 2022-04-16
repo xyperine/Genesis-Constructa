@@ -7,7 +7,7 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.Interac
     public abstract class InteractionWithPlayerSetup : MonoBehaviour
     {
         [SerializeField] protected bool interactWithPlayer;
-        [SerializeField, ShowIf(nameof(interactWithPlayer))] private PlayerInteractionsSO playerInteractionsSO;
+        [SerializeField, ShowIf(nameof(interactWithPlayer))] protected PlayerInteractionsSO playerInteractionsSO;
 
         protected abstract InteractionType Type { get; }
         

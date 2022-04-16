@@ -1,14 +1,19 @@
 ﻿using System;
+using MoonPioneerClone.ItemsPlacement.Core.Area;
+using MoonPioneerClone.ItemsPlacementsInteractions;
 using MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup;
 using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace MoonPioneerClone.SetupSystem.StackZone
+namespace MoonPioneerClone.SetupSystem.StackZones
 {
     [Serializable]
     public class StackZoneSetupData
     {
+        [SerializeField]
+        private PlacementAreaSettingsSO placementSettings;
+        
         [SerializeField]
         [LabelWidth(300f)]
         private bool interactWithOthers;
@@ -24,6 +29,11 @@ namespace MoonPioneerClone.SetupSystem.StackZone
         [LabelWidth(300f)]
         private bool interactWithPlayer;
 
+        [SerializeField] 
+        [ShowIf(nameof(interactWithPlayer))]
+        [Indent]
+        private PlayerInteractionsSO playerInteractionsSO;
+        
         [SerializeField]
         [ShowIf(nameof(interactWithPlayer))]
         [Indent]
@@ -38,9 +48,23 @@ namespace MoonPioneerClone.SetupSystem.StackZone
         [Indent]
         private StackZoneUpgradesChainSO upgradesChain;
 
-        [SerializeField]
+        [SerializeField] 
         [HideReferenceObjectPicker]
-        private StackZoneColliderSetupDataPicker colliderData = new StackZoneColliderSetupDataPicker();
+        private StackZoneColliderPicker colliderData;
+
+        public PlacementAreaSettingsSO PlacementSettings => placementSettings;
+        
+        public bool InteractWithOthers => interactWithOthers;
+        public InteractionsList Interactions => interactions;
+
+        public bool InteractWithPlayer => interactWithPlayer;
+        public PlayerInteractionsSO PlayerInteractionsSO => playerInteractionsSO;
+        public InteractionType InteractionWithPlayerType => interactionWithPlayerType;
+
+        public bool UpgradeableOnItsOwn => upgradeableOnItsOwn;
+        public StackZoneUpgradesChainSO UpgradesChain => upgradesChain;
+
+        public StackZoneColliderPicker ColliderData => colliderData;
 
 
         public StackZoneSetupData()

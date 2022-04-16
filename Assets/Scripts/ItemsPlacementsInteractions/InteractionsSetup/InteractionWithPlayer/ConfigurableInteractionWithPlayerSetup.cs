@@ -8,5 +8,14 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.Interac
         [SerializeField, ShowIf(nameof(interactWithPlayer))] private InteractionType interactionType;
 
         protected override InteractionType Type => interactionType;
+
+
+        public void Setup(PlayerInteractionsSO playerInteractionsSO, InteractionType type)
+        {
+            interactWithPlayer = true;
+
+            this.playerInteractionsSO = playerInteractionsSO;
+            interactionType = type;
+        }
     }
 }

@@ -8,11 +8,12 @@ using UnityEngine;
 namespace MoonPioneerClone.ItemsPlacement.Core.Area
 {
     public abstract class PlacementArea : MonoBehaviour
-    {
-        [SerializeField] private PlacingPlacementItemsMover itemsMover;
+    { 
         [SerializeField] protected PlacementAreaSettingsSO placementSettings;
 
         private PlacementAreaUpgradeableProperties _upgradeableProperties;
+        
+        private PlacingPlacementItemsMover _itemsMover;
         
         protected IPlacementItemsCollection itemsCollection;
         protected PlacementItemPositionCalculator itemPositionCalculator;
@@ -24,6 +25,7 @@ namespace MoonPioneerClone.ItemsPlacement.Core.Area
         private void Awake()
         {
             _upgradeableProperties = new PlacementAreaUpgradeableProperties(placementSettings);
+            _itemsMover = new PlacingPlacementItemsMover(transform);
             
             InitializePositionCalculator();
             InitializeItemsCollection();
@@ -37,6 +39,12 @@ namespace MoonPioneerClone.ItemsPlacement.Core.Area
         
         
         protected abstract void InitializeItemsCollection();
+
+
+        public void Setup(PlacementAreaSettingsSO settings)
+        {
+            placementSettings = settings;
+        }
 
 
         public void Place(PlacementItem item)
@@ -54,7 +62,7 @@ namespace MoonPioneerClone.ItemsPlacement.Core.Area
         private void MoveItemInside(PlacementItem item)
         {
             Vector3 position = itemPositionCalculator.Calculate(itemsCollection.FirstNullIndex);
-            itemsMover.MoveItem(item, position);
+            _itemsMover.MoveItem(item, position);
             item.Rotate(placementSettings.ItemRotation);
         }
 

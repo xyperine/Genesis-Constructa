@@ -9,6 +9,12 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.PickUp
         [SerializeField] private StackZone stackZone;
 
 
+        public void Setup(StackZone zone)
+        {
+            stackZone = zone;
+        }
+
+
         public void PickUpItem(StackZoneItem item)
         {
             stackZone.Add(item);
