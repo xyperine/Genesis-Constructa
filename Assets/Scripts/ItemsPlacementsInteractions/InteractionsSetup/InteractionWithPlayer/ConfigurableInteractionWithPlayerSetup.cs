@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using MoonPioneerClone.ItemsPlacementsInteractions.Target;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.InteractionWithPlayer
@@ -10,12 +11,16 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.Interac
         protected override InteractionType Type => interactionType;
 
 
-        public void Setup(PlayerInteractionsSO playerInteractionsSO, InteractionType type)
+        public void Setup(PlayerInteractionsSO playerInteractionsSO, InteractionType type, InteractionTarget target)
         {
             interactWithPlayer = true;
 
             this.playerInteractionsSO = playerInteractionsSO;
             interactionType = type;
+
+            this.target = target;
+            
+            SetUpInteractionWithPlayer();
         }
     }
 }

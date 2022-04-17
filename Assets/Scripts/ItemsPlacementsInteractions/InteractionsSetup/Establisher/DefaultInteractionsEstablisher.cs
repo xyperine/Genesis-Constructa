@@ -1,4 +1,5 @@
-﻿using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
+﻿using System.Threading.Tasks;
+using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
 using MoonPioneerClone.ItemsPlacementsInteractions.Target;
 using MoonPioneerClone.Utility.Validating;
 
@@ -15,8 +16,13 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.Establi
         }
         
 
-        private void OnValidate()
+        private async void OnValidate()
         {
+            while (interactions == null)
+            {
+                await Task.Yield();
+            }
+
             _validator.Validate(this);
         }
 

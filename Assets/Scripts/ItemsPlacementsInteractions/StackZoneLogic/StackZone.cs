@@ -41,6 +41,12 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic
         }
 
 
+        public void Setup(ItemType[] acceptableItems)
+        {
+            this.acceptableItems = acceptableItems;
+        }
+
+
         public override void Add(StackZoneItem item)
         {
             if (!CanTakeThisItem(item))

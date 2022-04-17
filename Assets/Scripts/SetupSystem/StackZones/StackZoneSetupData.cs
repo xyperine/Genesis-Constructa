@@ -13,6 +13,9 @@ namespace MoonPioneerClone.SetupSystem.StackZones
     {
         [SerializeField]
         private PlacementAreaSettingsSO placementSettings;
+
+        [SerializeField] 
+        private ItemType[] acceptableItems;
         
         [SerializeField]
         [LabelWidth(300f)]
@@ -48,12 +51,19 @@ namespace MoonPioneerClone.SetupSystem.StackZones
         [Indent]
         private StackZoneUpgradesChainSO upgradesChain;
 
+        [SerializeField]
+        [ShowIf(nameof(upgradeableOnItsOwn))]
+        [Indent]
+        private ItemsConsumer consumerPrefab;
+        
         [SerializeField] 
         [HideReferenceObjectPicker]
         private StackZoneColliderPicker colliderData;
 
         public PlacementAreaSettingsSO PlacementSettings => placementSettings;
         
+        public ItemType[] AcceptableItems => acceptableItems;
+
         public bool InteractWithOthers => interactWithOthers;
         public InteractionsList Interactions => interactions;
 
@@ -63,6 +73,7 @@ namespace MoonPioneerClone.SetupSystem.StackZones
 
         public bool UpgradeableOnItsOwn => upgradeableOnItsOwn;
         public StackZoneUpgradesChainSO UpgradesChain => upgradesChain;
+        public ItemsConsumer ConsumerPrefab => consumerPrefab;
 
         public StackZoneColliderPicker ColliderData => colliderData;
 

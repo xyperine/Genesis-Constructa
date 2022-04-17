@@ -8,21 +8,22 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.Interac
     {
         [SerializeField] protected bool interactWithPlayer;
         [SerializeField, ShowIf(nameof(interactWithPlayer))] protected PlayerInteractionsSO playerInteractionsSO;
+        [SerializeField] protected InteractionTarget target;
 
         protected abstract InteractionType Type { get; }
         
 
         private void Awake()
         {
-            SetUpInteractionWithPlayer();            
+            SetUpInteractionWithPlayer();
         }
 
 
-        private void SetUpInteractionWithPlayer()
+        protected void SetUpInteractionWithPlayer()
         {
             if (interactWithPlayer)
             {
-                playerInteractionsSO.Register(GetComponent<InteractionTarget>(), Type);
+                playerInteractionsSO.Register(target, Type);
             }
         }
     }

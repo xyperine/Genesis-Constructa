@@ -30,7 +30,7 @@ namespace MoonPioneerClone.SetupSystem.StackZones
 
             if (_savedData == null)
             {
-                return;
+                return; 
             }
             
             data = new StackZoneSetupData(_savedData);

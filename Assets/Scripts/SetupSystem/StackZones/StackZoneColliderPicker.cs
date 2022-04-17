@@ -17,6 +17,9 @@ namespace MoonPioneerClone.SetupSystem.StackZones
         [EnumToggleButtons]
         private StackZoneColliderShape shape;
 
+        [SerializeField] 
+        private bool configureCollider;
+
         public Type SelectedColliderType
         {
             get
@@ -29,5 +32,7 @@ namespace MoonPioneerClone.SetupSystem.StackZones
                 };
             }
         }
+
+        public bool ConfigureCollider => configureCollider;
     }
 }

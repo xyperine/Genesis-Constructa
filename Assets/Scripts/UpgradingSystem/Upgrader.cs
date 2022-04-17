@@ -7,8 +7,6 @@ namespace MoonPioneerClone.UpgradingSystem
     public abstract class Upgrader<TUpgradeData> : MonoBehaviour
         where TUpgradeData : UpgradeData
     {
-        [SerializeField] private ItemsConsumer consumer;
-        
         private UpgradesStatusTracker<TUpgradeData> _upgradesTracker;
         private IEnumerable<IUpgradeable<TUpgradeData>> _upgradeables;
 
@@ -17,7 +15,6 @@ namespace MoonPioneerClone.UpgradingSystem
         {
             _upgradeables = upgradeables;
             _upgradesTracker = upgradesChain.Upgrades;
-            consumer.Setup(upgradesChain.RequirementsChain);
 
             _upgradesTracker.Purchased += Upgrade;
         }

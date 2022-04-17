@@ -54,6 +54,12 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup
         
         public void TryAdd(Interaction interaction)
         {
+            if (!interaction.Target)
+            {
+                Debug.LogError($"{holder}: Trying to add interaction with null!");
+                return;
+            }
+            
             if (interaction.Target == holder)
             {
                 Debug.LogError($"{holder}: Trying to add interaction with myself!");
