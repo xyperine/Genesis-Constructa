@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using MoonPioneerClone.ItemsPlacement.Areas;
 using MoonPioneerClone.ItemsPlacement.Core.Area;
-using MoonPioneerClone.ItemsPlacementsInteractions;
 using MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup;
 using MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.Establisher;
 using MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.InteractionWithPlayer;
 using MoonPioneerClone.ItemsPlacementsInteractions.PickUp;
 using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
-using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
 using MoonPioneerClone.ItemsPlacementsInteractions.Target;
 using MoonPioneerClone.ItemsPlacementsInteractions.Transfer;
+using MoonPioneerClone.SetupSystem.Upgrader.StackZones;
 using MoonPioneerClone.Utility;
 using UnityEditor;
 using UnityEngine;
@@ -22,15 +21,18 @@ namespace MoonPioneerClone.SetupSystem.StackZones
     [Serializable]
     public class StackZoneComponentsBuilder
     {
-        [SerializeField] private StackZoneScheme zoneSchemePrefab;
-
+        [SerializeField] private SetupScheme zoneSchemePrefab;
+        
         private StackZoneSetupData _data;
         private GameObject _zoneGameObject;
         private StackZone _zone;
 
         private GameObject _objForCollider;
-        
-        
+
+        private readonly List<Component> _componentsToRemove = new List<Component>();
+        private readonly List<GameObject> _objectsToRemove = new List<GameObject>();
+
+
         public void Build(GameObject zoneGameObject, StackZoneSetupData data)
         {
             if (Equals(_data, data))
@@ -39,6 +41,7 @@ namespace MoonPioneerClone.SetupSystem.StackZones
             }
             // Determine what was changed in data
             List<string> changedProps = DetailedComparer.Compare(_data, data);
+
             _data = data;
             _zoneGameObject = zoneGameObject;
 
@@ -59,16 +62,6 @@ namespace MoonPioneerClone.SetupSystem.StackZones
         {
             foreach (Transform child in scheme.GetComponentsInChildren<Transform>())
             {
-                foreach (Component component in child.GetComponents<Component>())
-                {
-                    if (component == component.transform)
-                    {
-                        continue;
-                    }
-                    
-                    Object.DestroyImmediate(component);
-                }
-
                 if (child.parent == scheme)
                 {
                     child.SetParent(_zoneGameObject.transform);
@@ -85,20 +78,27 @@ namespace MoonPioneerClone.SetupSystem.StackZones
             }
             
             SetupCollider();
+            
+            SetupInteractionsWithOthers();
+            
+            SetupInteractionWithPlayer();
+            
+            SetupUpgrading();
 
-            if (_data.InteractWithOthers)
+            foreach (GameObject obj in _objectsToRemove)
             {
-                SetupInteractionsWithOthers();
-            }
-
-            if (_data.InteractWithPlayer)
-            {
-                SetupInteractionWithPlayer();
+                if (obj)
+                {
+                    Object.DestroyImmediate(obj);
+                }
             }
             
-            if (_data.UpgradeableOnItsOwn)
+            foreach (Component component in _componentsToRemove)
             {
-                SetupUpgrading();
+                if (component && component != component.transform)
+                {
+                    Object.DestroyImmediate(component);
+                }
             }
         }
 
@@ -106,45 +106,73 @@ namespace MoonPioneerClone.SetupSystem.StackZones
         private void SetupStackZone()
         {
             GameObject objForStackZone = GetGameObjectByComponent(typeof(StackZone));
-            objForStackZone.AddComponent<StaticPlacementArea>().Setup(_data.PlacementSettings);
-            objForStackZone.AddComponent<PlacementAreaDrawer>();
-            _zone = objForStackZone.AddComponent<StackZone>();
+            objForStackZone.GetComponent<StaticPlacementArea>().Setup(_data.PlacementSettings);
+            objForStackZone.GetComponent<PlacementAreaDrawer>();
+            
+            _zone = objForStackZone.GetComponent<StackZone>();
             _zone.Setup(_data.AcceptableItems);
         }
 
 
         private void SetupInteractionsWithOthers()
         {
-            _data.Interactions.SetHolder(_zone);
-            
             GameObject objForEstablisher = GetGameObjectByComponent(typeof(DefaultInteractionsEstablisher));
-            DefaultInteractionsEstablisher establisher = objForEstablisher.AddComponent<DefaultInteractionsEstablisher>();
-            establisher.Setup(_data.Interactions);
+            DefaultInteractionsEstablisher establisher = objForEstablisher.GetComponent<DefaultInteractionsEstablisher>();
 
             GameObject objForRigidbody = GetGameObjectByComponent(typeof(Rigidbody));
-            Rigidbody rigidBody = objForRigidbody.AddComponent<Rigidbody>();
-            rigidBody.useGravity = false;
-
-            InteractionType[] distinctInteractionTypes = _data.Interactions.InteractionTypes.ToArray();
+            Rigidbody rigidBody = objForRigidbody.GetComponent<Rigidbody>();
             
-            if (distinctInteractionTypes.Contains(InteractionType.Transfer))
-            {
-                GameObject objForTransferBehaviour = GetGameObjectByComponent(typeof(TransferStackZoneBehaviour));
-                TransferStackZoneBehaviour transferBehaviour = objForTransferBehaviour.AddComponent<TransferStackZoneBehaviour>();
-                transferBehaviour.Setup(_zone);
+            GameObject objForTransferBehaviour = GetGameObjectByComponent(typeof(TransferStackZoneBehaviour));
+            TransferStackZoneBehaviour transferBehaviour = objForTransferBehaviour.GetComponent<TransferStackZoneBehaviour>();
                 
-                GameObject objForTransferInteractor = GetGameObjectByComponent(typeof(TransfersInteractor));
-                objForTransferInteractor.AddComponent<TransfersInteractor>().Setup(establisher, transferBehaviour);
+            GameObject objForTransferInteractor = GetGameObjectByComponent(typeof(TransfersInteractor));
+            TransfersInteractor transfersInteractor = objForTransferInteractor.GetComponent<TransfersInteractor>();
+            
+            GameObject objForPickUpBehaviour = GetGameObjectByComponent(typeof(PickUpStackZoneBehaviour));
+            PickUpStackZoneBehaviour pickupBehaviour = objForPickUpBehaviour.GetComponent<PickUpStackZoneBehaviour>();
+                
+            GameObject objForPickUpsInteractor = GetGameObjectByComponent(typeof(PickUpsInteractor));
+            PickUpsInteractor pickUpsInteractor = objForPickUpsInteractor.GetComponent<PickUpsInteractor>();
+            
+            if (!_data.InteractWithOthers)
+            {
+                _componentsToRemove.Add(establisher);
+                _componentsToRemove.Add(rigidBody);
+                _componentsToRemove.Add(transfersInteractor);
+                _componentsToRemove.Add(pickUpsInteractor);
+                
+                _objectsToRemove.Add(objForTransferBehaviour);
+                _objectsToRemove.Add(objForPickUpBehaviour);
+                
+                return;
             }
             
+            _data.Interactions.SetHolder(_zone);
+            establisher.Setup(_data.Interactions);
+            rigidBody.useGravity = false;
+            
+            InteractionType[] distinctInteractionTypes = _data.Interactions.InteractionTypes.ToArray();
+
+            if (distinctInteractionTypes.Contains(InteractionType.Transfer))
+            {
+                transferBehaviour.Setup(_zone);
+                transfersInteractor.Setup(establisher, transferBehaviour);
+            }
+            else
+            {
+                _componentsToRemove.Add(transferBehaviour);
+                _componentsToRemove.Add(transfersInteractor);
+            }
+
             if (distinctInteractionTypes.Contains(InteractionType.PickUp))
             {
-                GameObject objForPickUpBehaviour = GetGameObjectByComponent(typeof(PickUpStackZoneBehaviour));
-                PickUpStackZoneBehaviour pickupBehaviour = objForPickUpBehaviour.AddComponent<PickUpStackZoneBehaviour>();
                 pickupBehaviour.Setup(_zone);
-                
-                GameObject objForPickUpsInteractor = GetGameObjectByComponent(typeof(PickUpsInteractor));
-                objForPickUpsInteractor.AddComponent<PickUpsInteractor>().Setup(establisher, pickupBehaviour);
+                pickUpsInteractor.Setup(establisher, pickupBehaviour);
+            }
+            else
+            {
+                _componentsToRemove.Add(pickupBehaviour);
+                _componentsToRemove.Add(pickUpsInteractor);
             }
         }
 
@@ -154,7 +182,14 @@ namespace MoonPioneerClone.SetupSystem.StackZones
             GameObject objForInteractionWithPlayerSetup =
                 GetGameObjectByComponent(typeof(ConfigurableInteractionWithPlayerSetup));
             ConfigurableInteractionWithPlayerSetup interactionWithPlayerSetup =
-                objForInteractionWithPlayerSetup.AddComponent<ConfigurableInteractionWithPlayerSetup>();
+                objForInteractionWithPlayerSetup.GetComponent<ConfigurableInteractionWithPlayerSetup>();
+            
+            if (!_data.InteractWithPlayer)
+            {
+                _componentsToRemove.Add(interactionWithPlayerSetup);
+                
+                return;
+            }
             
             interactionWithPlayerSetup.Setup(_data.PlayerInteractionsSO, _data.InteractionWithPlayerType, _zone);
         }
@@ -163,14 +198,20 @@ namespace MoonPioneerClone.SetupSystem.StackZones
         private void SetupCollider()
         {
             _objForCollider = GetGameObjectByComponent(typeof(Collider));
-            Collider collider = _objForCollider.AddComponent(_data.ColliderData.SelectedColliderType) as Collider;
+            Collider[] colliders = _objForCollider.GetComponents<Collider>();
+            Collider collider = colliders.SingleOrDefault(c => c.GetType() == _data.ColliderData.SelectedColliderType);
 
-            if (collider != null)
+            if (!collider)
             {
-                collider.isTrigger = true;
+                Debug.LogError("No colliders available!");
+                return;
             }
+            
+            collider.isTrigger = true;
+            
+            _componentsToRemove.AddRange(colliders.Except(new[] {collider}));
 
-            InteractionTargetReference targetReference = _objForCollider.AddComponent<InteractionTargetReference>();
+            InteractionTargetReference targetReference = _objForCollider.GetComponent<InteractionTargetReference>();
             targetReference.Setup(_zone);
 
             if (_data.ColliderData.ConfigureCollider)
@@ -182,15 +223,20 @@ namespace MoonPioneerClone.SetupSystem.StackZones
         
         private void SetupUpgrading()
         {
-            GameObject objForUpgrader = GetGameObjectByComponent(typeof(StackZoneUpgrader));
-            StackZoneUpgrader upgrader = objForUpgrader.AddComponent<StackZoneUpgrader>();
+            GameObject objForUpgraderSetup = GetGameObjectByComponent(typeof(StackZoneUpgraderSetup));
             
-            upgrader.Setup(_data.UpgradesChain, new []{_zone});
+            if (!_data.UpgradeableOnItsOwn)
+            {
+                _objectsToRemove.Add(objForUpgraderSetup);
+                
+                return;
+            }
+            
+            StackZoneUpgraderSetup upgraderSetup = objForUpgraderSetup.GetComponent<StackZoneUpgraderSetup>();
 
-            ItemsConsumer consumer = Object.Instantiate(_data.ConsumerPrefab, objForUpgrader.transform);
-            consumer.Setup(_data.UpgradesChain.RequirementsChain);
+            upgraderSetup.SetData(new StackZoneUpgraderSetupData(_data.UpgradesChain, new[] {_zone},
+                _data.UpgraderColliderRadius));
         }
-
         
 
         private GameObject GetGameObjectByComponent(Type component)

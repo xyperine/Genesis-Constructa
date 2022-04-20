@@ -1,6 +1,5 @@
 ﻿using System;
 using MoonPioneerClone.ItemsPlacement.Core.Area;
-using MoonPioneerClone.ItemsPlacementsInteractions;
 using MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup;
 using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
 using Sirenix.OdinInspector;
@@ -9,12 +8,13 @@ using UnityEngine;
 namespace MoonPioneerClone.SetupSystem.StackZones
 {
     [Serializable]
-    public class StackZoneSetupData
+    public class StackZoneSetupData : IConstructData
     {
         [SerializeField]
         private PlacementAreaSettingsSO placementSettings;
 
         [SerializeField] 
+        [PropertySpace(SpaceBefore = 0, SpaceAfter = 8)]
         private ItemType[] acceptableItems;
         
         [SerializeField]
@@ -26,6 +26,7 @@ namespace MoonPioneerClone.SetupSystem.StackZones
         [HideLabel]
         [HideReferenceObjectPicker]
         [Indent]
+        [PropertySpace(SpaceBefore = 0, SpaceAfter = 8)]
         private InteractionsList interactions;
 
         [SerializeField]
@@ -40,7 +41,13 @@ namespace MoonPioneerClone.SetupSystem.StackZones
         [SerializeField]
         [ShowIf(nameof(interactWithPlayer))]
         [Indent]
+        [PropertySpace(SpaceBefore = 0, SpaceAfter = 8)]
         private InteractionType interactionWithPlayerType;
+
+        [SerializeField] 
+        [HideReferenceObjectPicker]
+        [PropertySpace(SpaceBefore = 0, SpaceAfter = 8)]
+        private StackZoneColliderPicker colliderData;
 
         [SerializeField]
         [LabelWidth(300f)]
@@ -50,16 +57,13 @@ namespace MoonPioneerClone.SetupSystem.StackZones
         [ShowIf(nameof(upgradeableOnItsOwn))]
         [Indent]
         private StackZoneUpgradesChainSO upgradesChain;
-
-        [SerializeField]
-        [ShowIf(nameof(upgradeableOnItsOwn))]
-        [Indent]
-        private ItemsConsumer consumerPrefab;
         
         [SerializeField] 
-        [HideReferenceObjectPicker]
-        private StackZoneColliderPicker colliderData;
-
+        [ShowIf(nameof(upgradeableOnItsOwn))]
+        [Indent]
+        [Range(1f, 10f)]
+        private float upgraderColliderRadius;
+        
         public PlacementAreaSettingsSO PlacementSettings => placementSettings;
         
         public ItemType[] AcceptableItems => acceptableItems;
@@ -70,29 +74,34 @@ namespace MoonPioneerClone.SetupSystem.StackZones
         public bool InteractWithPlayer => interactWithPlayer;
         public PlayerInteractionsSO PlayerInteractionsSO => playerInteractionsSO;
         public InteractionType InteractionWithPlayerType => interactionWithPlayerType;
+        
+        public StackZoneColliderPicker ColliderData => colliderData;
 
         public bool UpgradeableOnItsOwn => upgradeableOnItsOwn;
         public StackZoneUpgradesChainSO UpgradesChain => upgradesChain;
-        public ItemsConsumer ConsumerPrefab => consumerPrefab;
 
-        public StackZoneColliderPicker ColliderData => colliderData;
+        public float UpgraderColliderRadius => upgraderColliderRadius;
 
 
         public StackZoneSetupData()
         {
             
         }
-        
-        
+
+
         public StackZoneSetupData(StackZoneSetupData data)
         {
+            placementSettings = data.placementSettings;
+            acceptableItems = data.acceptableItems;
             interactWithOthers = data.interactWithOthers;
             interactions = data.interactions;
             interactWithPlayer = data.interactWithPlayer;
-            interactionWithPlayerType = data.interactionWithPlayerType;
+            playerInteractionsSO = data.playerInteractionsSO;
+            interactionWithPlayerType =data. interactionWithPlayerType;
+            colliderData = data.colliderData;
             upgradeableOnItsOwn = data.upgradeableOnItsOwn;
             upgradesChain = data.upgradesChain;
-            colliderData = data.colliderData;
+            upgraderColliderRadius = data.upgraderColliderRadius;
         }
     }
 }

@@ -10,8 +10,8 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup
     [Serializable]
     public class InteractionsList
     {
-        [SerializeField] private InteractionTarget holder;
         [SerializeField] private ObservingCollection<Interaction> interactions = new ObservingCollection<Interaction>();
+        [SerializeField, HideInInspector] private InteractionTarget holder;
 
         public IEnumerable<InteractionType> InteractionTypes => interactions.Select(i => i.Type).Distinct();
 

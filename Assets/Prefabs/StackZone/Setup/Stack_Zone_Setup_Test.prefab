@@ -45,17 +45,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   builder:
-    zoneSchemePrefab: {fileID: 23633198229118409, guid: 93372fc6577a47545b16464b7ec1f2b5, type: 3}
+    zoneSchemePrefab: {fileID: 954461680016188437, guid: 93372fc6577a47545b16464b7ec1f2b5, type: 3}
   data:
+    placementSettings: {fileID: 0}
+    acceptableItems: 
     interactWithOthers: 0
     interactions:
-      holder: {fileID: 0}
       interactions:
         list: []
-    interactWithPlayer: 1
-    playerInteractionsSO: {fileID: 11400000, guid: 88d4d2bbd9432f34489ad1e2de55b2f7, type: 2}
-    interactionWithPlayerType: 1
+      holder: {fileID: 0}
+    interactWithPlayer: 0
+    playerInteractionsSO: {fileID: 0}
+    interactionWithPlayerType: 0
+    colliderData:
+      shape: 0
+      configureCollider: 0
     upgradeableOnItsOwn: 0
     upgradesChain: {fileID: 0}
+    upgraderColliderRadius: 0
+  savedData:
+    placementSettings: {fileID: 0}
+    acceptableItems: 
+    interactWithOthers: 0
+    interactions:
+      interactions:
+        list: []
+      holder: {fileID: 0}
+    interactWithPlayer: 0
+    playerInteractionsSO: {fileID: 0}
+    interactionWithPlayerType: 0
     colliderData:
-      shape: 1
+      shape: 0
+      configureCollider: 0
+    upgradeableOnItsOwn: 0
+    upgradesChain: {fileID: 0}
+    upgraderColliderRadius: 0

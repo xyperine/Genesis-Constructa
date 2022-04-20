@@ -1,4 +1,5 @@
 ﻿using Sirenix.OdinInspector;
+using UnityEditor;
 using UnityEngine;
 
 namespace MoonPioneerClone.SetupSystem.StackZones
@@ -10,12 +11,14 @@ namespace MoonPioneerClone.SetupSystem.StackZones
         [PropertySpace(SpaceAfter = 16f)]
         private StackZoneComponentsBuilder builder;
 
-        [SerializeField, ShowIf(nameof(_setupMode))]
-        [HideReferenceObjectPicker]
+        [SerializeField, ShowIf(nameof(_setupMode))] 
+        [HideReferenceObjectPicker] 
         [PropertySpace(SpaceAfter = 16f)]
-        private StackZoneSetupData data = new StackZoneSetupData();
+        private StackZoneSetupData data;
 
-        private StackZoneSetupData _savedData;
+        [SerializeField]
+        [HideInInspector]
+        private StackZoneSetupData savedData;
         
 #pragma warning disable 0414
         private bool _setupMode;
@@ -28,12 +31,12 @@ namespace MoonPioneerClone.SetupSystem.StackZones
         {
             _setupMode = true;
 
-            if (_savedData == null)
+            if (savedData == null)
             {
                 return; 
             }
             
-            data = new StackZoneSetupData(_savedData);
+            data = new StackZoneSetupData(savedData);
         }
         
         
@@ -51,9 +54,11 @@ namespace MoonPioneerClone.SetupSystem.StackZones
         {
             _setupMode = false;
 
-            _savedData = data;
+            savedData = data;
             
             PassData();
+            
+            EditorUtility.SetDirty(gameObject);
         }
 
         
@@ -63,13 +68,13 @@ namespace MoonPioneerClone.SetupSystem.StackZones
         {
             _setupMode = false;
 
-            data = _savedData;
+            data = savedData;
         }
 
 
         private void PassData()
         {
-            builder.Build(gameObject, _savedData);
+            builder.Build(gameObject, savedData);
         }
     }
 }

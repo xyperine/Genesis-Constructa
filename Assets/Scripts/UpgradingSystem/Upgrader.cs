@@ -1,28 +1,36 @@
 ﻿using System.Collections.Generic;
 using MoonPioneerClone.ItemsPlacementsInteractions;
+using MoonPioneerClone.SetupSystem;
 using UnityEngine;
 
 namespace MoonPioneerClone.UpgradingSystem
 {
-    public abstract class Upgrader<TUpgradeData> : MonoBehaviour
+    public abstract class Upgrader<TUpgradeData> : MonoBehaviour, IConstructable
         where TUpgradeData : UpgradeData
     {
-        private UpgradesStatusTracker<TUpgradeData> _upgradesTracker;
-        private IEnumerable<IUpgradeable<TUpgradeData>> _upgradeables;
+        [SerializeField] protected ItemsConsumer consumer;
+        
+        protected IEnumerable<IUpgradeable<TUpgradeData>> upgradeables;
+        protected UpgradesStatusTracker<TUpgradeData> upgradesTracker;
+
+
+        public abstract void Construct(IConstructData data);
 
 
         public void Setup(UpgradesChainSO<TUpgradeData> upgradesChain, IEnumerable<IUpgradeable<TUpgradeData>> upgradeables)
         {
-            _upgradeables = upgradeables;
-            _upgradesTracker = upgradesChain.Upgrades;
+            this.upgradeables = upgradeables;
+            upgradesTracker = upgradesChain.Upgrades;
 
-            _upgradesTracker.Purchased += Upgrade;
+            upgradesTracker.Purchased += Upgrade;
+            
+            consumer.Setup(upgradesChain.RequirementsChain);
         }
 
 
-        private void Upgrade(TUpgradeData data)
+        protected void Upgrade(TUpgradeData data)
         {
-            foreach (IUpgradeable<TUpgradeData> upgradeable in _upgradeables)
+            foreach (IUpgradeable<TUpgradeData> upgradeable in upgradeables)
             {
                 upgradeable.Upgrade(data);
             }
@@ -31,7 +39,7 @@ namespace MoonPioneerClone.UpgradingSystem
         
         private void OnDisable()
         {
-            _upgradesTracker.Purchased -= Upgrade;
+            upgradesTracker.Purchased -= Upgrade;
         }
     }
 }
