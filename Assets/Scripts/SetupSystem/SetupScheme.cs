@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MoonPioneerClone.Utility;
 using UnityEngine;
 
 namespace MoonPioneerClone.SetupSystem
 {
     public class SetupScheme : MonoBehaviour
     {
-        private readonly Dictionary<GameObject, IEnumerable<Component>> _allowedComponentsMap =
-            new Dictionary<GameObject, IEnumerable<Component>>();
+        private readonly Dictionary<SetupMarker, IEnumerable<Component>> _allowedComponentsMap =
+            new Dictionary<SetupMarker, IEnumerable<Component>>();
 
         private void OnValidate()
         {
@@ -21,27 +20,31 @@ namespace MoonPioneerClone.SetupSystem
         {
             _allowedComponentsMap.Clear();
 
-            IEnumerable<Transform> children = GetComponentsInChildren<Transform>().Except(new []{transform});
-            foreach (Transform child in children)
+            IEnumerable<SetupMarker> children = GetComponentsInChildren<SetupMarker>();
+            foreach (SetupMarker child in children)
             {
-                MapAllowedComponentsFor(child.gameObject);
+                MapAllowedComponentsFor(child);
             }
         }
 
 
-        private void MapAllowedComponentsFor(GameObject obj)
+        private void MapAllowedComponentsFor(SetupMarker marker)
         {
-            _allowedComponentsMap.TryAdd(obj, obj.GetComponents<Component>());
+            _allowedComponentsMap.TryAdd(marker, marker.GetComponents<Component>().Except(new[] {marker.transform}));
         }
 
 
-        public string GetNameOfGameObjectFor(Type componentType)
+        public Component[] GetComponentsOf(Type markerType)
         {
-            GameObject obj = _allowedComponentsMap.FirstOrDefault(kvp => kvp.Value
-                    .Select(v => v.GetType()).Any(t => t == componentType || t.IsSubclassOf(componentType)))
-                .Key;
+            SetupMarker keyMarker = _allowedComponentsMap.Keys.FirstOrDefault(m => m.GetType() == markerType);
 
-            return Helpers.GetGameObjectPathWithoutRoot(obj.transform);
+            if (!keyMarker)
+            {
+                Debug.LogError("Unable to find game object with this name");
+                return null;
+            }
+
+            return _allowedComponentsMap[keyMarker].ToArray();
         }
     }
 }

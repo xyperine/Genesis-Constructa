@@ -2,40 +2,36 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using UnityEngine;
 
 namespace MoonPioneerClone.Utility
 {
     public static class DetailedComparer
     {
-        public static List<string> Compare<T>(T v1, T v2)
+        public static List<string> Compare<T>(T obj1, T obj2)
         {
-            List<string> props = new List<string>();
+            List<string> changedProperties = new List<string>();
 
-            
-            
-            return props;
-        }
-        
-        
-        private static FieldInfo[] GetFields(Type type)
-        {
-            BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.Instance;
-            FieldInfo[] fields = type.GetFields(bindingFlags);
+            PropertyInfo[] properties = GetProperties(typeof(T));
 
-            fields = GetInspectorExposedFields(fields);
+            if (obj1 == null || obj2 == null)
+            {
+                changedProperties.AddRange(properties.Select(property => property.Name));
+            }
 
-            return fields;
+            changedProperties.AddRange(properties
+                .Where(property => !Equals(property.GetValue(obj1), property.GetValue(obj2)))
+                .Select(property => property.Name));
+
+            return changedProperties;
         }
 
 
-        private static FieldInfo[] GetInspectorExposedFields(IEnumerable<FieldInfo> fields)
+        private static PropertyInfo[] GetProperties(Type type)
         {
-            fields = fields.Where(f => f.FieldType != typeof(MonoBehaviour));
-            fields = fields.Where(f => (f.FieldType.Attributes & TypeAttributes.Serializable) != 0);
-            fields = fields.Where(f => f.CustomAttributes.Any(d => d.AttributeType == typeof(SerializeField)));
-
-            return fields.ToArray();
+            BindingFlags bindingFlags = BindingFlags.Public | BindingFlags.Instance;
+            PropertyInfo[] properties = type.GetProperties(bindingFlags);
+            
+            return properties;
         }
     }
 }

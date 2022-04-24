@@ -1,5 +1,6 @@
 ﻿using MoonPioneerClone.SetupSystem;
 using MoonPioneerClone.SetupSystem.StackZones;
+using MoonPioneerClone.SetupSystem.Upgrader.StackZones;
 using MoonPioneerClone.UpgradingSystem;
 
 namespace MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic.Upgrading

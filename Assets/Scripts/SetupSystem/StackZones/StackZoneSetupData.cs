@@ -2,6 +2,7 @@
 using MoonPioneerClone.ItemsPlacement.Core.Area;
 using MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup;
 using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
+using MoonPioneerClone.Utility;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -97,7 +98,7 @@ namespace MoonPioneerClone.SetupSystem.StackZones
             interactions = data.interactions;
             interactWithPlayer = data.interactWithPlayer;
             playerInteractionsSO = data.playerInteractionsSO;
-            interactionWithPlayerType =data. interactionWithPlayerType;
+            interactionWithPlayerType = data.interactionWithPlayerType;
             colliderData = data.colliderData;
             upgradeableOnItsOwn = data.upgradeableOnItsOwn;
             upgradesChain = data.upgradesChain;

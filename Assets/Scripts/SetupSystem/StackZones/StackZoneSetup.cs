@@ -9,7 +9,7 @@ namespace MoonPioneerClone.SetupSystem.StackZones
         [SerializeField, ShowIf(nameof(_setupMode))]
         [HideReferenceObjectPicker]
         [PropertySpace(SpaceAfter = 16f)]
-        private StackZoneComponentsBuilder builder;
+        private StackZoneSetupBuildController buildController;
 
         [SerializeField, ShowIf(nameof(_setupMode))] 
         [HideReferenceObjectPicker] 
@@ -23,6 +23,8 @@ namespace MoonPioneerClone.SetupSystem.StackZones
 #pragma warning disable 0414
         private bool _setupMode;
 #pragma warning restore 0414
+
+        private bool _reset;
 
 
         [PropertySpace(16f)]
@@ -41,15 +43,16 @@ namespace MoonPioneerClone.SetupSystem.StackZones
         
         
         [Button(ButtonSizes.Large, Name = "Reset"), ShowIf(nameof(_setupMode))]
-        [ResponsiveButtonGroup("S", DefaultButtonSize = ButtonSizes.Large)]
+        [ResponsiveButtonGroup("SetupMode", DefaultButtonSize = ButtonSizes.Large)]
         public void ResetZone()
         {
             data = new StackZoneSetupData();
+            _reset = true;
         }
 
         
         [ShowIf(nameof(_setupMode))]
-        [ResponsiveButtonGroup("S")]
+        [ResponsiveButtonGroup("SetupMode")]
         public void Accept()
         {
             _setupMode = false;
@@ -63,7 +66,7 @@ namespace MoonPioneerClone.SetupSystem.StackZones
 
         
         [Button(ButtonSizes.Small), ShowIf(nameof(_setupMode))]
-        [ResponsiveButtonGroup("S")]
+        [ResponsiveButtonGroup("SetupMode")]
         public void Cancel()
         {
             _setupMode = false;
@@ -74,7 +77,13 @@ namespace MoonPioneerClone.SetupSystem.StackZones
 
         private void PassData()
         {
-            builder.Build(gameObject, savedData);
+            if (_reset)
+            {
+                savedData = null;
+                _reset = false;
+            }
+            
+            buildController.Build(gameObject, savedData);
         }
     }
 }

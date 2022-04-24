@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
 using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
-using MoonPioneerClone.SetupSystem.Upgrader;
 
-namespace MoonPioneerClone.SetupSystem.StackZones
+namespace MoonPioneerClone.SetupSystem.Upgrader.StackZones
 {
     [Serializable]
     public class StackZoneUpgraderSetupData : UpgraderSetupData<StackZone, StackZoneUpgradesChainSO, StackZoneUpgradeData>

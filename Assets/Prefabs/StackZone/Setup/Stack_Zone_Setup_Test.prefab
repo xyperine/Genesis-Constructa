@@ -44,8 +44,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5843f376da9142fd8d395c986063c9a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  builder:
+  buildController:
     zoneSchemePrefab: {fileID: 954461680016188437, guid: 93372fc6577a47545b16464b7ec1f2b5, type: 3}
+    data:
+      placementSettings: {fileID: 0}
+      acceptableItems: 
+      interactWithOthers: 0
+      interactions:
+        interactions:
+          list: []
+        holder: {fileID: 0}
+      interactWithPlayer: 0
+      playerInteractionsSO: {fileID: 0}
+      interactionWithPlayerType: 0
+      colliderData:
+        shape: 0
+      upgradeableOnItsOwn: 0
+      upgradesChain: {fileID: 0}
+      upgraderColliderRadius: 0
   data:
     placementSettings: {fileID: 0}
     acceptableItems: 
@@ -59,7 +75,6 @@ MonoBehaviour:
     interactionWithPlayerType: 0
     colliderData:
       shape: 0
-      configureCollider: 0
     upgradeableOnItsOwn: 0
     upgradesChain: {fileID: 0}
     upgraderColliderRadius: 0
@@ -76,7 +91,6 @@ MonoBehaviour:
     interactionWithPlayerType: 0
     colliderData:
       shape: 0
-      configureCollider: 0
     upgradeableOnItsOwn: 0
     upgradesChain: {fileID: 0}
     upgraderColliderRadius: 0
