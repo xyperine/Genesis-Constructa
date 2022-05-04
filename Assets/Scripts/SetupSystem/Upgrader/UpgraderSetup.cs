@@ -15,7 +15,9 @@ namespace MoonPioneerClone.SetupSystem.Upgrader
             builder.SetData(setupData);
             builder.SetupCollider();
             
+#if UNITY_EDITOR
             EditorUtility.SetDirty(gameObject);
+#endif
         }
 
 

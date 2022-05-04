@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestScenes/Upgrading_System.unity
     guid: 5e73e5ac5f30f0044a2aa535cbb0b25e
+  - enabled: 1
+    path: Assets/Scenes/TestScenes/Setup_System.unity
+    guid: 41ca764766edf884687a7531f9fdf0d4
   m_configObjects: {}

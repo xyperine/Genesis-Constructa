@@ -57,22 +57,22 @@ namespace MoonPioneerClone.SetupSystem.StackZones.ComponentsBuilding
                     nameof(_data.PlacementSettings),
                     nameof(_data.AcceptableItems),
                 },
-                [SetupInteractionsWithOthers] = new[]
+                [BuildInteractionsWithOthers] = new[]
                 {
                     nameof(_data.InteractWithOthers),
                     nameof(_data.Interactions),
                 },
-                [SetupInteractionWithPlayer] = new[]
+                [BuildInteractionWithPlayer] = new[]
                 {
                     nameof(_data.InteractWithPlayer),
                     nameof(_data.PlayerInteractionsSO),
                     nameof(_data.InteractionWithPlayerType),
                 },
-                [SetupCollider] = new []
+                [BuildCollider] = new []
                 {
                     nameof(_data.ColliderData),
                 },
-                [SetupUpgrading] = new []
+                [BuildUpgrading] = new []
                 {
                     nameof(_data.UpgradeableOnItsOwn),
                     nameof(_data.UpgradesChain),
@@ -121,7 +121,7 @@ namespace MoonPioneerClone.SetupSystem.StackZones.ComponentsBuilding
         private void SetupStackZone()
         {
             GameObject objForStackZone = _rootGameObject.GetGameObjectByMarker(typeof(PlacementSetupMarker));
-            objForStackZone.GetComponent<StaticPlacementArea>().Setup(_data.PlacementSettings);
+            objForStackZone.GetComponent<PlacementArea>().Setup(_data.PlacementSettings);
             objForStackZone.GetComponent<PlacementAreaDrawer>();
             
             _zone = objForStackZone.GetComponent<StackZone>();
@@ -129,37 +129,37 @@ namespace MoonPioneerClone.SetupSystem.StackZones.ComponentsBuilding
         }
 
 
-        private void SetupInteractionsWithOthers()
+        private void BuildInteractionsWithOthers()
         {
-            _interactionsWithOthersBuilder?.Setup(_data, _zone);
+            _interactionsWithOthersBuilder?.Build(_data, _zone);
         }
 
 
-        private void SetupInteractionWithPlayer()
+        private void BuildInteractionWithPlayer()
         {
             if (!_data.InteractWithPlayer)
             {
                 return;
             }
             
-            _interactionsWithPlayerBuilder?.Setup(_data, _zone);
+            _interactionsWithPlayerBuilder?.Build(_data, _zone);
         }
 
 
-        private void SetupCollider()
+        private void BuildCollider()
         {
-            _colliderBuilder?.Setup(_data, _zone);
+            _colliderBuilder?.Build(_data, _zone);
         }
 
 
-        private void SetupUpgrading()
+        private void BuildUpgrading()
         {
             if (!_data.UpgradeableOnItsOwn)
             {
                 return;
             }
             
-            _upgradingBuilder?.Setup(_data, _zone);
+            _upgradingBuilder?.Build(_data, _zone);
         }
 
 

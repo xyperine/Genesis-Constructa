@@ -5,5 +5,11 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.Establi
     public abstract class InteractionsEstablisher<TInteractions> : InteractionsEstablisher
     {
         [SerializeField] protected TInteractions interactions;
+        
+        
+        public void Setup(TInteractions interactions)
+        {
+            this.interactions = interactions;
+        }
     }
 }

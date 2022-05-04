@@ -25,7 +25,7 @@ namespace MoonPioneerClone.SetupSystem.StackZones.ComponentsBuilding
         }
 
 
-        public virtual void Setup(StackZoneSetupData data, StackZone zone)
+        public virtual void Build(StackZoneSetupData data, StackZone zone)
         {
             this.data = data;
             this.zone = zone;
@@ -43,8 +43,10 @@ namespace MoonPioneerClone.SetupSystem.StackZones.ComponentsBuilding
                         .Contains(mc.GetType())).ToArray();
             foreach (Component missingComponent in missingComponents)
             {
+#if UNITY_EDITOR
                 EditorUtility.CopySerialized(missingComponent,
                     obj.AddComponent(missingComponent.GetType()));
+#endif
             }
         }
     }

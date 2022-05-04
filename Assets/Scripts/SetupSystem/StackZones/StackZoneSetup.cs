@@ -60,8 +60,10 @@ namespace MoonPioneerClone.SetupSystem.StackZones
             savedData = data;
             
             PassData();
-            
+
+#if UNITY_EDITOR
             EditorUtility.SetDirty(gameObject);
+#endif
         }
 
         

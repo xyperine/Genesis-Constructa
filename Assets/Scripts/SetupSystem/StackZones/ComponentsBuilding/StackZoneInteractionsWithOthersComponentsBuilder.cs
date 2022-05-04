@@ -22,9 +22,9 @@ namespace MoonPioneerClone.SetupSystem.StackZones.ComponentsBuilding
         }
 
 
-        public override void Setup(StackZoneSetupData data, StackZone zone)
+        public override void Build(StackZoneSetupData data, StackZone zone)
         {
-            base.Setup(data, zone);
+            base.Build(data, zone);
 
             RestoreMissingComponents(typeof(InteractionsWithOthersSetupMarker));
 

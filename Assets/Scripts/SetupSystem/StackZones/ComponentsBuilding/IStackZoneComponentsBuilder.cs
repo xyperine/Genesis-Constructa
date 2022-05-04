@@ -4,6 +4,6 @@ namespace MoonPioneerClone.SetupSystem.StackZones.ComponentsBuilding
 {
     public interface IStackZoneComponentsBuilder
     {
-        void Setup(StackZoneSetupData data, StackZone zone);
+        void Build(StackZoneSetupData data, StackZone zone);
     }
 }
