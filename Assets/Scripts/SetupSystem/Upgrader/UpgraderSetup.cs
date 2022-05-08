@@ -3,14 +3,14 @@ using UnityEngine;
 
 namespace MoonPioneerClone.SetupSystem.Upgrader
 {
-    public abstract class UpgraderSetup<TSetupData, TBuilder> : MonoBehaviour
-        where TSetupData : UpgraderSetupData
-        where TBuilder : UpgraderComponentsBuilder<TSetupData>
+    public abstract class UpgraderSetup<TUpgraderSetupData, TBuilder> : MonoBehaviour
+        where TUpgraderSetupData : UpgraderSetupData
+        where TBuilder : UpgraderComponentsBuilder<TUpgraderSetupData>
     {
         [SerializeField] protected TBuilder builder;
 
 
-        public void SetData(TSetupData setupData)
+        public void SetData(TUpgraderSetupData setupData)
         {
             builder.SetData(setupData);
             builder.SetupCollider();

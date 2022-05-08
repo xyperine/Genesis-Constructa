@@ -1,14 +1,14 @@
 ﻿using System;
-using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
+using MoonPioneerClone.ItemsExtraction.Upgrading;
 using UnityEngine;
 
-namespace MoonPioneerClone.SetupSystem.Upgrader.StackZones
+namespace MoonPioneerClone.SetupSystem.Upgrader.Extractors
 {
     [Serializable]
-    public class StackZoneUpgraderComponentsBuilder : UpgraderComponentsBuilder<StackZoneUpgraderSetupData>
+    public class ExtractorUpgraderComponentsBuilder : UpgraderComponentsBuilder<ExtractorUpgraderSetupData>
     {
-        [SerializeField] private StackZoneUpgrader upgrader;
-        
+        [SerializeField] private ExtractorUpgrader upgrader;
+
         
         public override void SetupCollider()
         {
