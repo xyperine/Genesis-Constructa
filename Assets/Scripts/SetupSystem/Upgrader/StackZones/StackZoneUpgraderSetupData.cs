@@ -8,8 +8,8 @@ namespace MoonPioneerClone.SetupSystem.Upgrader.StackZones
     [Serializable]
     public class StackZoneUpgraderSetupData : UpgraderSetupData<StackZone, StackZoneUpgradesChainSO, StackZoneUpgradeData>
     {
-        public StackZoneUpgraderSetupData(StackZoneUpgradesChainSO chain, IEnumerable<StackZone> upgradeables, float colliderRadius) 
-            : base(chain, upgradeables, colliderRadius)
+        public StackZoneUpgraderSetupData(StackZoneUpgradesChainSO chainSO, IEnumerable<StackZone> upgradeables, float colliderRadius) 
+            : base(chainSO, upgradeables, colliderRadius)
         {
         }
     }

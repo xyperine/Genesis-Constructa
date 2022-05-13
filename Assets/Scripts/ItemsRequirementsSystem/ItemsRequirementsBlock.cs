@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Linq;
+using MoonPioneerClone.Utility;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsRequirementsSystem
 {
     [Serializable]
-    public sealed class ItemsRequirementsBlock
+    public sealed class ItemsRequirementsBlock : IDeepCloneable<ItemsRequirementsBlock>
     {
         [TableList]
         [SerializeField] private ItemRequirement[] requirements;
@@ -47,6 +48,17 @@ namespace MoonPioneerClone.ItemsRequirementsSystem
             {
                 Satisfied?.Invoke();
             }
+        }
+
+
+        public ItemsRequirementsBlock GetDeepCopy()
+        {
+            ItemsRequirementsBlock block = new ItemsRequirementsBlock
+            {
+                requirements = requirements.Select(r => (ItemRequirement) r.Clone()).ToArray(),
+            };
+
+            return block;
         }
     }
 }

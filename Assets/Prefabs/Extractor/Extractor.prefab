@@ -79,9 +79,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e08b2b7d4187cb42815c9ecad4765ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productionRate: {fileID: 0}
+  productionRateSO: {fileID: 0}
   product: {fileID: 0}
-  productionStackZone: {fileID: 0}
+  productionStackZone: {fileID: 6884291654872460048}
 --- !u!114 &7861859328041991070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   upgraderSetup: {fileID: 8866044190502124101}
   upgradesChain: {fileID: 0}
   productionZone: {fileID: 6884291654872460048}
-  productionRate: {fileID: 0}
+  productionUnit: {fileID: 2838886211604961652}
   upgraderColliderRadius: 1
 --- !u!1 &2718288748596786146
 GameObject:
@@ -489,7 +489,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed03c99d0ac0451dacf44cd28fc6aa13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  consumer: {fileID: 4018452386229039806}
 --- !u!1 &7078914877734916951 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1113676725961546455, guid: 2f80825b1d297524c8bab6fc10b15e5c, type: 3}
@@ -511,7 +510,7 @@ MonoBehaviour:
     consumer: {fileID: 4018452386229039806}
     collider: {fileID: 8954200979829443593}
     setupData:
-      chain: {fileID: 0}
+      chainSO: {fileID: 0}
       colliderRadius: 1
     upgrader: {fileID: 372645640213659641}
 --- !u!4 &7541658651083764360 stripped

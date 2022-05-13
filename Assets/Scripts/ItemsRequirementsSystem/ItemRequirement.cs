@@ -5,7 +5,7 @@ using UnityEngine;
 namespace MoonPioneerClone.ItemsRequirementsSystem
 {
     [Serializable]
-    public sealed class ItemRequirement : IValidatable
+    public sealed class ItemRequirement : IValidatable, ICloneable
     {
         [SerializeField] private ItemType type;
         [SerializeField, Min(1)] private int amount;
@@ -25,6 +25,18 @@ namespace MoonPioneerClone.ItemsRequirementsSystem
         public void OnValidate()
         {
             _currentAmount = 0;
+        }
+
+
+        public object Clone()
+        {
+            ItemRequirement copy = new ItemRequirement
+            {
+                type = type,
+                amount = amount,
+            };
+
+            return copy;
         }
     }
 }

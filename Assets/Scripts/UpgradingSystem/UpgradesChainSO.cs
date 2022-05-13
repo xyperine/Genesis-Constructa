@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using MoonPioneerClone.ItemsRequirementsSystem;
-using MoonPioneerClone.Utility.Validating;
+﻿using MoonPioneerClone.Utility.Validating;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -11,13 +8,13 @@ namespace MoonPioneerClone.UpgradingSystem
         where TUpgradeData : UpgradeData
     {
         [TableList(DefaultMinColumnWidth = 100)]
-        [SerializeField] protected List<Upgrade<TUpgradeData>> upgrades;
+        [SerializeField] protected Upgrade<TUpgradeData>[] upgrades;
 
         private readonly Validator _validator = new Validator();
         
-        public UpgradesStatusTracker<TUpgradeData> Upgrades { get; private set; }
-        public ItemsRequirementsChain RequirementsChain { get; private set; }
-
+        public UpgradesChain<TUpgradeData> Chain { get; private set; }
+        public UpgradesChain<TUpgradeData> UniqueChain => new UpgradesChain<TUpgradeData>(upgrades);
+        
 
 #if !UNITY_EDITOR
         private void OnEnable()
@@ -35,8 +32,7 @@ namespace MoonPioneerClone.UpgradingSystem
 
         private void Setup()
         {
-            Upgrades = new UpgradesStatusTracker<TUpgradeData>(upgrades);
-            RequirementsChain = new ItemsRequirementsChain(upgrades.Select(u => u.Price).ToArray());
+            Chain = new UpgradesChain<TUpgradeData>(upgrades);
             
             _validator.Validate(this);
         }

@@ -325,6 +325,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: d2c3f08a20007c145af484859753c01b, type: 2}
     - target: {fileID: 2838886211604961652, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
+      propertyPath: productionRateSO
+      value: 
+      objectReference: {fileID: 11400000, guid: d2c3f08a20007c145af484859753c01b, type: 2}
+    - target: {fileID: 2838886211604961652, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
       propertyPath: productionStackZone
       value: 
       objectReference: {fileID: 6277924379809029756}
@@ -462,6 +466,10 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: bdce65788fb292e4b8632d50a692bdbc, type: 2}
     - target: {fileID: 8866044190502124101, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
       propertyPath: builder.setupData.chain
+      value: 
+      objectReference: {fileID: 11400000, guid: 053452de87a1fdc4b8668d36be51d97d, type: 2}
+    - target: {fileID: 8866044190502124101, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
+      propertyPath: builder.setupData.chainSO
       value: 
       objectReference: {fileID: 11400000, guid: 053452de87a1fdc4b8668d36be51d97d, type: 2}
     - target: {fileID: 8866044190502124101, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}

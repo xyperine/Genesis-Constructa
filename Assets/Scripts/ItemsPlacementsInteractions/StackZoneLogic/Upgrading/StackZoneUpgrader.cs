@@ -14,7 +14,7 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic.Upgrading
             }
 
             upgradeables = zoneUpgraderData.Upgradeables;
-            upgradesTracker = zoneUpgraderData.Chain.Upgrades;
+            upgradesTracker = zoneUpgraderData.Chain.UpgradesStatusTracker;
             
             upgradesTracker.Purchased += Upgrade;
         }

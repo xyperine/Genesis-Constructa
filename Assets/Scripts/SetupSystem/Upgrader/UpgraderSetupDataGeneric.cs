@@ -12,19 +12,29 @@ namespace MoonPioneerClone.SetupSystem.Upgrader
         where TUpgradesChain : UpgradesChainSO<TUpgradeData>
         where TUpgradeable : IUpgradeable<TUpgradeData>
     {
-        [SerializeField, HideInInspector] private TUpgradesChain chain;
+        [SerializeField, HideInInspector] private TUpgradesChain chainSO;
         [SerializeField, HideInInspector] private List<TUpgradeable> upgradeables;
         [SerializeField, HideInInspector] private float colliderRadius;
-        
-        public TUpgradesChain Chain => chain;
+
+        private UpgradesChain<TUpgradeData> _chain;
+
+        public UpgradesChain<TUpgradeData> Chain
+        {
+            get
+            {
+                _chain ??= chainSO.UniqueChain;
+                return _chain;
+            }
+        }
+
         public List<TUpgradeable> Upgradeables => upgradeables;
 
         public float ColliderRadius => colliderRadius;
 
 
-        protected UpgraderSetupData(TUpgradesChain chain, IEnumerable<TUpgradeable> upgradeables, float colliderRadius)
+        protected UpgraderSetupData(TUpgradesChain chainSO, IEnumerable<TUpgradeable> upgradeables, float colliderRadius)
         {
-            this.chain = chain;
+            this.chainSO = chainSO;
             this.upgradeables = upgradeables.ToList();
             this.colliderRadius = colliderRadius;
         }

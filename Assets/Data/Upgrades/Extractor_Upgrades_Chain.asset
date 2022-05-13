@@ -14,32 +14,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgrades:
   - locked: 0
+    price:
+      requirements:
+      - type: 0
+        amount: 1
+      - type: 3
+        amount: 1
     data:
       capacity: 18
       itemsPerSecond: 1
+  - locked: 0
     price:
       requirements:
       - type: 0
-        amount: 1
+        amount: 2
       - type: 3
-        amount: 1
-  - locked: 0
+        amount: 2
     data:
       capacity: 24
       itemsPerSecond: 2
+  - locked: 0
     price:
       requirements:
       - type: 0
-        amount: 2
+        amount: 3
       - type: 3
-        amount: 2
-  - locked: 0
+        amount: 3
     data:
       capacity: 30
       itemsPerSecond: 4
-    price:
-      requirements:
-      - type: 0
-        amount: 3
-      - type: 3
-        amount: 3
