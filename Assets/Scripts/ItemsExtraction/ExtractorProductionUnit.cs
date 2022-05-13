@@ -1,19 +1,28 @@
 ﻿using System.Collections;
+using MoonPioneerClone.ItemsExtraction.Upgrading;
 using MoonPioneerClone.ItemsPlacementsInteractions;
 using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
+using MoonPioneerClone.UpgradingSystem;
 using MoonPioneerClone.Utility;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsExtraction
 {
-    public sealed class ExtractorProductionUnit : MonoBehaviour
+    public sealed class ExtractorProductionUnit : MonoBehaviour, IUpgradeable<ExtractorUpgradeData>
     {
-        [SerializeField] private ExtractorProductionRateSO productionRate;
+        [SerializeField] private ExtractorProductionRateSO productionRateSO;
         [SerializeField] private StackZoneItem product;
 
         [SerializeField] private StackZone productionStackZone;
 
         private IEnumerator _productionCoroutine;
+        private float _itemsPerSecond;
+
+
+        private void Awake()
+        {
+            _itemsPerSecond = productionRateSO.ItemsPerSecond;
+        }
 
 
         public void StartProduction()
@@ -32,14 +41,14 @@ namespace MoonPioneerClone.ItemsExtraction
         {
             while (true)
             {
-                yield return Helpers.GetWaitForSeconds(1f / productionRate.ItemsPerSecond);
+                yield return Helpers.GetWaitForSeconds(1f / _itemsPerSecond);
 
                 ProduceItem();
             }
         }
 
 
-        public void ProduceItem()
+        private void ProduceItem()
         {
             StackZoneItem item = Instantiate(product, transform.position, Quaternion.identity);
             productionStackZone.Add(item);
@@ -55,6 +64,12 @@ namespace MoonPioneerClone.ItemsExtraction
 
             StopCoroutine(_productionCoroutine);
             _productionCoroutine = null;
+        }
+
+
+        public void Upgrade(ExtractorUpgradeData data)
+        {
+            _itemsPerSecond = data.ItemsPerSecond;
         }
     }
 }

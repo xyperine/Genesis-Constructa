@@ -1,5 +1,4 @@
 ﻿using MoonPioneerClone.SetupSystem;
-using MoonPioneerClone.SetupSystem.StackZones;
 using MoonPioneerClone.SetupSystem.Upgrader.Extractors;
 using MoonPioneerClone.UpgradingSystem;
 
@@ -9,14 +8,14 @@ namespace MoonPioneerClone.ItemsExtraction.Upgrading
     {
         public override void Construct(IConstructData data)
         {
-            if (data is not ExtractorUpgraderSetupData zoneUpgraderData)
+            if (data is not ExtractorUpgraderSetupData extractorUpgraderData)
             {
                 return;
             }
 
-            upgradeables = zoneUpgraderData.Upgradeables;
-            upgradesTracker = zoneUpgraderData.Chain.Upgrades;
-            
+            upgradeables = extractorUpgraderData.Upgradeables;
+            upgradesTracker = extractorUpgraderData.Chain.UpgradesStatusTracker;
+
             upgradesTracker.Purchased += Upgrade;
         }
     }
