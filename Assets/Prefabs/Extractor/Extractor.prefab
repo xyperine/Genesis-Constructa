@@ -80,8 +80,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   productionRateSO: {fileID: 0}
-  product: {fileID: 0}
+  itemType: 0
   productionStackZone: {fileID: 6884291654872460048}
+  itemsPool: {fileID: 0}
 --- !u!114 &7861859328041991070
 MonoBehaviour:
   m_ObjectHideFlags: 0

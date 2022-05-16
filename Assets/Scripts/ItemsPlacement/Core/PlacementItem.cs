@@ -1,16 +1,26 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
+using MoonPioneerClone.ObjectPooling;
 using UnityEngine;
 
 namespace MoonPioneerClone.ItemsPlacement.Core
 {
+    [RequireComponent(typeof(IPoolable))]
     public sealed class PlacementItem : MonoBehaviour
     {
         [SerializeField] private AnimationCurve easingCurve;
         [SerializeField] private float tweenDuration = 0.1f;
 
         private Tween _movingTween;
-        
+        private IPoolable _poolable;
+
         public bool Moving => _movingTween is {active: true,};
+
+
+        private void Awake()
+        {
+            _poolable = GetComponent<IPoolable>();
+        }
 
 
         public void Rotate(Quaternion rotation)
@@ -34,7 +44,6 @@ namespace MoonPioneerClone.ItemsPlacement.Core
         public void Discard()
         {
             transform.SetParent(null);
-            //Rotate(Quaternion.identity);
         }
 
 
@@ -42,7 +51,7 @@ namespace MoonPioneerClone.ItemsPlacement.Core
         {
             if (_movingTween != null)
             {
-                _movingTween.OnKill(() => Destroy(gameObject));
+                _movingTween.OnKill(() => _poolable.Return());
                 return;
             }
             

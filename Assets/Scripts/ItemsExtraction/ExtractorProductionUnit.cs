@@ -2,6 +2,7 @@
 using MoonPioneerClone.ItemsExtraction.Upgrading;
 using MoonPioneerClone.ItemsPlacementsInteractions;
 using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
+using MoonPioneerClone.ObjectPooling;
 using MoonPioneerClone.UpgradingSystem;
 using MoonPioneerClone.Utility;
 using UnityEngine;
@@ -11,9 +12,11 @@ namespace MoonPioneerClone.ItemsExtraction
     public sealed class ExtractorProductionUnit : MonoBehaviour, IUpgradeable<ExtractorUpgradeData>
     {
         [SerializeField] private ExtractorProductionRateSO productionRateSO;
-        [SerializeField] private StackZoneItem product;
+        [SerializeField] private ItemType itemType;
 
         [SerializeField] private StackZone productionStackZone;
+        [SerializeField] private ItemsPool itemsPool;
+        
 
         private IEnumerator _productionCoroutine;
         private float _itemsPerSecond;
@@ -50,7 +53,7 @@ namespace MoonPioneerClone.ItemsExtraction
 
         private void ProduceItem()
         {
-            StackZoneItem item = Instantiate(product, transform.position, Quaternion.identity);
+            StackZoneItem item = itemsPool.Get(itemType, transform.position);
             productionStackZone.Add(item);
         }
 
