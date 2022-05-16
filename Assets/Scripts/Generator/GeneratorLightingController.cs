@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace MoonPioneerClone.Generator
@@ -9,6 +10,8 @@ namespace MoonPioneerClone.Generator
 
         [SerializeField] private float lightLevel = 1f;
 
+        private static readonly int EmissionStrengthPropertyID = Shader.PropertyToID("_Emission_Strength");
+        
         private float _defaultLightIntensity;
         private float _defaultMaterialEmission;
 
@@ -19,14 +22,14 @@ namespace MoonPioneerClone.Generator
             meshRenderer.material = new Material(meshRenderer.material);
 #endif
             _defaultLightIntensity = coreLight.intensity;
-            _defaultMaterialEmission = meshRenderer.material.GetFloat("_Emission_Strength");
+            _defaultMaterialEmission = meshRenderer.material.GetFloat(EmissionStrengthPropertyID);
         }
 
 
         private void Update()
         {
             coreLight.intensity = _defaultLightIntensity * lightLevel;
-            meshRenderer.material.SetFloat("_Emission_Strength", _defaultMaterialEmission * lightLevel);
+            meshRenderer.material.SetFloat(EmissionStrengthPropertyID, _defaultMaterialEmission * lightLevel);
         }
     }
 }
