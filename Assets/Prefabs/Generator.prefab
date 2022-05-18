@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3143348368638835532}
   - component: {fileID: 1434608276082442669}
   - component: {fileID: 2408777152346017677}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Core Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,9 +83,9 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 448
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Version: 1
   m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
+  m_AdditionalLightsShadowResolutionTier: 0
   m_LightLayerMask: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 470649030410528282}
   - component: {fileID: 2408550062273630928}
   - component: {fileID: 4568001467753817780}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Generator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,10 +185,10 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
-  m_LightProbeUsage: 1
+  m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
@@ -300,6 +300,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Extractor
       objectReference: {fileID: 0}
+    - target: {fileID: 986503735047790915, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1693786028253062456, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
       propertyPath: conditions.Array.size
       value: 1
@@ -315,6 +319,10 @@ PrefabInstance:
     - target: {fileID: 1849006867888149077, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
       propertyPath: acceptableItems.Array.data[0]
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2718288748596786146, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2838886211604961652, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
       propertyPath: product
@@ -388,6 +396,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 4568001467753817780}
+    - target: {fileID: 5101468573799195081, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5735248314423100776, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
       propertyPath: placementSettings
       value: 
@@ -396,6 +408,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -2.73
       objectReference: {fileID: 0}
+    - target: {fileID: 6339755733432351654, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6407441982376396942, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2
@@ -403,6 +419,10 @@ PrefabInstance:
     - target: {fileID: 6407441982376396942, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462676964447982545, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6884291654872460048, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
       propertyPath: acceptableItems.Array.size
@@ -420,6 +440,10 @@ PrefabInstance:
       propertyPath: placementSettings
       value: 
       objectReference: {fileID: 11400000, guid: bdce65788fb292e4b8632d50a692bdbc, type: 2}
+    - target: {fileID: 7078914877734916951, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7198930180780904373, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
       propertyPath: m_LocalPosition.y
       value: 2.07

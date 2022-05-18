@@ -16,6 +16,8 @@ namespace MoonPioneerClone.ItemsExtraction
 
         [SerializeField] private StackZone productionStackZone;
         [SerializeField] private ItemsPool itemsPool;
+
+        [SerializeField] private bool produce = true;
         
 
         private IEnumerator _productionCoroutine;
@@ -30,6 +32,11 @@ namespace MoonPioneerClone.ItemsExtraction
 
         public void StartProduction()
         {
+            if (!produce)
+            {
+                return;
+            }
+            
             if (_productionCoroutine != null)
             {
                 return;

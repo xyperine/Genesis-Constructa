@@ -11,6 +11,8 @@ namespace MoonPioneerClone.Generator
         [SerializeField] private float lightLevel = 1f;
 
         private static readonly int EmissionStrengthPropertyID = Shader.PropertyToID("_Emission_Strength");
+
+        private Material _material;
         
         private float _defaultLightIntensity;
         private float _defaultMaterialEmission;
@@ -18,18 +20,17 @@ namespace MoonPioneerClone.Generator
 
         private void Awake()
         {
-#if UNITY_EDITOR
-            meshRenderer.material = new Material(meshRenderer.material);
-#endif
+            _material = meshRenderer.material;
+            
             _defaultLightIntensity = coreLight.intensity;
-            _defaultMaterialEmission = meshRenderer.material.GetFloat(EmissionStrengthPropertyID);
+            _defaultMaterialEmission = _material.GetFloat(EmissionStrengthPropertyID);
         }
 
 
         private void Update()
         {
             coreLight.intensity = _defaultLightIntensity * lightLevel;
-            meshRenderer.material.SetFloat(EmissionStrengthPropertyID, _defaultMaterialEmission * lightLevel);
+            _material.SetFloat(EmissionStrengthPropertyID, _defaultMaterialEmission * lightLevel);
         }
     }
 }
