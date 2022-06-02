@@ -33,7 +33,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: lightLevel
-    path: Core Light
+    path: 
     classID: 114
     script: {fileID: 11500000, guid: b080ef5115a85344cabc2bc5c0c143ca, type: 3}
   m_PPtrCurves: []
@@ -45,7 +45,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 1232334551
+      path: 0
       attribute: 3076279178
       script: {fileID: 11500000, guid: b080ef5115a85344cabc2bc5c0c143ca, type: 3}
       typeID: 114
@@ -89,7 +89,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: lightLevel
-    path: Core Light
+    path: 
     classID: 114
     script: {fileID: 11500000, guid: b080ef5115a85344cabc2bc5c0c143ca, type: 3}
   m_EulerEditorCurves: []
