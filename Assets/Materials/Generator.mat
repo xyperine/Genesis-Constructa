@@ -45,7 +45,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Emission_Strength: 2.92
+    - _Emission_Strength: 9.57
     - _Emission_strength: 3.4
     - _Equal_To_Metalic: 1
     - _Fresnel_Power: 19.95

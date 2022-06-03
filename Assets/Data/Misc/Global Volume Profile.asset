@@ -1,5 +1,30 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8154382285249475541
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29fa0085f50d5e54f8144f766051a691, type: 3}
+  m_Name: FilmGrain
+  m_EditorClassIdentifier: 
+  active: 0
+  type:
+    m_OverrideState: 1
+    m_Value: 0
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.308
+  response:
+    m_OverrideState: 1
+    m_Value: 0.659
+  texture:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,6 +40,7 @@ MonoBehaviour:
   components:
   - {fileID: 1799702777194162259}
   - {fileID: 9018323949158967913}
+  - {fileID: -8154382285249475541}
 --- !u!114 &1799702777194162259
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -30,13 +56,13 @@ MonoBehaviour:
   active: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 2.06
   intensity:
     m_OverrideState: 1
-    m_Value: 1.12
+    m_Value: 1
   scatter:
-    m_OverrideState: 0
-    m_Value: 0.562
+    m_OverrideState: 1
+    m_Value: 0.635
   clamp:
     m_OverrideState: 0
     m_Value: 65472
@@ -47,7 +73,7 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   skipIterations:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 2
   dirtTexture:
     m_OverrideState: 0
