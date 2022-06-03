@@ -27,28 +27,16 @@ namespace MoonPioneerClone
         private void Awake()
         {
 #if UNITY_EDITOR
-            LoadScenesFromSceneAssets();
-#else
-            LoadScenesFromNames();
-#endif
-        }
-
-
-        private void LoadScenesFromSceneAssets()
-        {
             foreach (SceneAsset sceneAsset in scenesToLoad)
             {
                 LoadScene(sceneAsset.name);
             }
-        }
-        
-
-        private void LoadScenesFromNames()
-        {
+#else
             foreach (string sceneName in scenesNames)
             {
                 LoadScene(sceneName);
             }
+#endif
         }
 
 
