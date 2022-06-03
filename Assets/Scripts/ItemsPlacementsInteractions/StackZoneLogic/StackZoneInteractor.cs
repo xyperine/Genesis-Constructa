@@ -18,6 +18,18 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic
             
             InteractWith(obj);
         }
+        
+        
+        private void OnTriggerStay(Collider other)
+        {
+            TObject obj;
+            if (!other.TryGetComponent(out obj))
+            {
+                return;
+            }
+
+            InteractWith(obj);
+        }
 
 
         protected abstract void InteractWith(TObject obj);

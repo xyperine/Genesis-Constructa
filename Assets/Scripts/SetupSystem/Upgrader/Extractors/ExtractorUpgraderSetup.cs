@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MoonPioneerClone.SetupSystem.Upgrader.Extractors
+﻿namespace MoonPioneerClone.SetupSystem.Upgrader.Extractors
 {
     public class ExtractorUpgraderSetup : UpgraderSetup<ExtractorUpgraderSetupData, ExtractorUpgraderComponentsBuilder>
     {

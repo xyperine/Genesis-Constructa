@@ -8,18 +8,6 @@ namespace MoonPioneerClone.ItemsPlacementsInteractions.Transfer
     public class TransfersInteractor : StackZoneInteractor<InteractionTargetReference>
     {
         [SerializeField] private TransferStackZoneBehaviour transferBehaviour;
-        
-
-        private void OnTriggerStay(Collider other)
-        {
-            InteractionTargetReference reference;
-            if (!other.TryGetComponent(out reference))
-            {
-                return;
-            }
-
-            InteractWith(reference);
-        }
 
 
         public void Setup(InteractionsEstablisher establisher, TransferStackZoneBehaviour transferBehaviour)

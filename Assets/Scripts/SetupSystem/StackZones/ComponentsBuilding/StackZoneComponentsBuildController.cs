@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MoonPioneerClone.ItemsPlacement.Areas;
 using MoonPioneerClone.ItemsPlacement.Core.Area;
 using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
 using MoonPioneerClone.SetupSystem.StackZones.Markers;
