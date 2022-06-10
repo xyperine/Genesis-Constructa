@@ -1,8 +1,8 @@
 ﻿using System;
-using MoonPioneerClone.ItemsExtraction.Upgrading;
+using ColonizationMobileGame.ItemsExtraction.Upgrading;
 using UnityEngine;
 
-namespace MoonPioneerClone.SetupSystem.Upgrader.Extractors
+namespace ColonizationMobileGame.SetupSystem.Upgrader.Extractors
 {
     [Serializable]
     public class ExtractorUpgraderComponentsBuilder : UpgraderComponentsBuilder<ExtractorUpgraderSetupData>

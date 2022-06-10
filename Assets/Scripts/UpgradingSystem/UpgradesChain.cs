@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MoonPioneerClone.ItemsRequirementsSystem;
+using ColonizationMobileGame.ItemsRequirementsSystem;
 
-namespace MoonPioneerClone.UpgradingSystem
+namespace ColonizationMobileGame.UpgradingSystem
 {
     public class UpgradesChain<TUpgradeData>
         where TUpgradeData : UpgradeData

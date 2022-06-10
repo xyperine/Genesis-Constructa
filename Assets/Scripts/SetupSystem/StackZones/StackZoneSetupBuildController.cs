@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using MoonPioneerClone.SetupSystem.StackZones.ComponentsBuilding;
-using MoonPioneerClone.Utility;
+using ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding;
+using ColonizationMobileGame.Utility;
 using UnityEngine;
 
-namespace MoonPioneerClone.SetupSystem.StackZones
+namespace ColonizationMobileGame.SetupSystem.StackZones
 {
     [Serializable]
     public class StackZoneSetupBuildController

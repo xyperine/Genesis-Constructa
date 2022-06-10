@@ -1,4 +1,4 @@
-﻿namespace MoonPioneerClone.Utility.Validating
+﻿namespace ColonizationMobileGame.Utility.Validating
 {
     public interface IValidatable
     {

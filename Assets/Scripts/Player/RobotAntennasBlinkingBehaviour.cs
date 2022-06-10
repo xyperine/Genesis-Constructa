@@ -2,7 +2,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace MoonPioneerClone.Player
+namespace ColonizationMobileGame.Player
 {
     public class RobotAntennasBlinkingBehaviour : MonoBehaviour
     {

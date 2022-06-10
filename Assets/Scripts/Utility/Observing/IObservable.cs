@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MoonPioneerClone.Utility.Observing
+namespace ColonizationMobileGame.Utility.Observing
 {
     public interface IObservable
     {

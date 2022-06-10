@@ -1,4 +1,4 @@
-﻿namespace MoonPioneerClone.SetupSystem.StackZones.Markers
+﻿namespace ColonizationMobileGame.SetupSystem.StackZones.Markers
 {
     public class MainColliderSetupMarker : SetupMarker
     {

@@ -1,9 +1,9 @@
-﻿using MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.Establisher;
-using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
-using MoonPioneerClone.ItemsPlacementsInteractions.Target;
+﻿using ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup.Establisher;
+using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
+using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacementsInteractions.Transfer
+namespace ColonizationMobileGame.ItemsPlacementsInteractions.Transfer
 {
     public class TransfersInteractor : StackZoneInteractor<InteractionTargetReference>
     {

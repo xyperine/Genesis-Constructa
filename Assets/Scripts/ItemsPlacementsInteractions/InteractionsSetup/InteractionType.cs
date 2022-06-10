@@ -1,4 +1,4 @@
-﻿namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup
+﻿namespace ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup
 {
     public enum InteractionType
     {

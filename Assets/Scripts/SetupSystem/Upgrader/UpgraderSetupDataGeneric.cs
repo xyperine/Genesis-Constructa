@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MoonPioneerClone.UpgradingSystem;
+using ColonizationMobileGame.UpgradingSystem;
 using UnityEngine;
 
-namespace MoonPioneerClone.SetupSystem.Upgrader
+namespace ColonizationMobileGame.SetupSystem.Upgrader
 {
     [Serializable]
     public abstract class UpgraderSetupData<TUpgradeable, TUpgradesChain, TUpgradeData>: UpgraderSetupData

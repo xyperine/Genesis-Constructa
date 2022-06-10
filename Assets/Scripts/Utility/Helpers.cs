@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace MoonPioneerClone.Utility
+namespace ColonizationMobileGame.Utility
 {
     public static class Helpers
     {

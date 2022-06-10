@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace MoonPioneerClone.ItemsRequirementsSystem
+namespace ColonizationMobileGame.ItemsRequirementsSystem
 {
     public class ItemsRequirementsChain
     {

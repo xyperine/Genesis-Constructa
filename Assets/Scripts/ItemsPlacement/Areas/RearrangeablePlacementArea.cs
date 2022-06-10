@@ -1,10 +1,10 @@
 ﻿using System.Linq;
-using MoonPioneerClone.ItemsPlacement.Collections;
-using MoonPioneerClone.ItemsPlacement.Core;
-using MoonPioneerClone.ItemsPlacement.Core.Area;
+using ColonizationMobileGame.ItemsPlacement.Collections;
+using ColonizationMobileGame.ItemsPlacement.Core;
+using ColonizationMobileGame.ItemsPlacement.Core.Area;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacement.Areas
+namespace ColonizationMobileGame.ItemsPlacement.Areas
 {
     public sealed class RearrangeablePlacementArea : PlacementArea
     {

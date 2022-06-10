@@ -1,4 +1,4 @@
-﻿namespace MoonPioneerClone.SetupSystem
+﻿namespace ColonizationMobileGame.SetupSystem
 {
     public interface IConstructData
     {

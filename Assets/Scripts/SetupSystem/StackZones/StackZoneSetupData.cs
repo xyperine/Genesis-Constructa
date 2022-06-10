@@ -1,11 +1,11 @@
 ﻿using System;
-using MoonPioneerClone.ItemsPlacement.Core.Area;
-using MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup;
-using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
+using ColonizationMobileGame.ItemsPlacement.Core.Area;
+using ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup;
+using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace MoonPioneerClone.SetupSystem.StackZones
+namespace ColonizationMobileGame.SetupSystem.StackZones
 {
     [Serializable]
     public class StackZoneSetupData : IConstructData

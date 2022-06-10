@@ -1,11 +1,11 @@
-﻿using MoonPioneerClone.ItemsExtraction;
-using MoonPioneerClone.ItemsExtraction.Upgrading;
-using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
-using MoonPioneerClone.SetupSystem.Upgrader.Extractors;
-using MoonPioneerClone.UpgradingSystem;
+﻿using ColonizationMobileGame.ItemsExtraction;
+using ColonizationMobileGame.ItemsExtraction.Upgrading;
+using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
+using ColonizationMobileGame.SetupSystem.Upgrader.Extractors;
+using ColonizationMobileGame.UpgradingSystem;
 using UnityEngine;
 
-namespace MoonPioneerClone.SetupSystem.Extractors
+namespace ColonizationMobileGame.SetupSystem.Extractors
 {
     public class ExtractorSetup : MonoBehaviour
     {

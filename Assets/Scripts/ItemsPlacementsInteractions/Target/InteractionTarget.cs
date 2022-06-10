@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacementsInteractions.Target
+namespace ColonizationMobileGame.ItemsPlacementsInteractions.Target
 {
     public abstract class InteractionTarget : MonoBehaviour
     {

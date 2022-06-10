@@ -1,8 +1,8 @@
-﻿using MoonPioneerClone.ItemsPlacementsInteractions.Target;
-using MoonPioneerClone.ItemsPlacementsInteractions.Transfer;
+﻿using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
+using ColonizationMobileGame.ItemsPlacementsInteractions.Transfer;
 using UnityEngine;
 
-namespace MoonPioneerClone.Player
+namespace ColonizationMobileGame.Player
 {
     public sealed class PlayerTransferBehaviour : TransferStackZoneBehaviour
     {

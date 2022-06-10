@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacement.Core
+namespace ColonizationMobileGame.ItemsPlacement.Core
 {
     public abstract class PlacementItemsMover
     {

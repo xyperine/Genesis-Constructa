@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MoonPioneerClone.SetupSystem.Upgrader
+namespace ColonizationMobileGame.SetupSystem.Upgrader
 {
     [Serializable]
     public class UpgraderSetupData : IConstructData

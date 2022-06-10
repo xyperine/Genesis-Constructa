@@ -1,8 +1,8 @@
-﻿using DG.Tweening;
-using MoonPioneerClone.ObjectPooling;
+﻿using ColonizationMobileGame.ObjectPooling;
+using DG.Tweening;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacement.Core
+namespace ColonizationMobileGame.ItemsPlacement.Core
 {
     [RequireComponent(typeof(IPoolable))]
     public sealed class PlacementItem : MonoBehaviour

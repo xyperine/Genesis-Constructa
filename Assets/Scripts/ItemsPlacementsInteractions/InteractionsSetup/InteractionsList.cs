@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MoonPioneerClone.ItemsPlacementsInteractions.Target;
-using MoonPioneerClone.Utility.Observing;
+using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
+using ColonizationMobileGame.Utility.Observing;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup
+namespace ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup
 {
     [Serializable]
     public class InteractionsList

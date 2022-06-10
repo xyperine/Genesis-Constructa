@@ -1,8 +1,8 @@
-﻿using MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.Establisher;
-using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
+﻿using ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup.Establisher;
+using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacementsInteractions.PickUp
+namespace ColonizationMobileGame.ItemsPlacementsInteractions.PickUp
 {
     public class PickUpsInteractor : StackZoneInteractor<StackZoneItem>
     {

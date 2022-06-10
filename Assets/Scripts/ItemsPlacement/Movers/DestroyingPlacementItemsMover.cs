@@ -1,7 +1,7 @@
-﻿using MoonPioneerClone.ItemsPlacement.Core;
+﻿using ColonizationMobileGame.ItemsPlacement.Core;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacement.Movers
+namespace ColonizationMobileGame.ItemsPlacement.Movers
 {
     public sealed class DestroyingPlacementItemsMover : PlacementItemsMover
     {

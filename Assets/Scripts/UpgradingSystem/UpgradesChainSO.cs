@@ -1,8 +1,8 @@
-﻿using MoonPioneerClone.Utility.Validating;
+﻿using ColonizationMobileGame.Utility.Validating;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace MoonPioneerClone.UpgradingSystem
+namespace ColonizationMobileGame.UpgradingSystem
 {
     public abstract class UpgradesChainSO<TUpgradeData> : ScriptableObject
         where TUpgradeData : UpgradeData

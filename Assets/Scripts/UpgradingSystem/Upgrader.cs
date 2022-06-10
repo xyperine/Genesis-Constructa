@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using MoonPioneerClone.SetupSystem;
+using ColonizationMobileGame.SetupSystem;
 using UnityEngine;
 
-namespace MoonPioneerClone.UpgradingSystem
+namespace ColonizationMobileGame.UpgradingSystem
 {
     public abstract class Upgrader<TUpgradeData> : MonoBehaviour, IConstructable
         where TUpgradeData : UpgradeData

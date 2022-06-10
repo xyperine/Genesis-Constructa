@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace MoonPioneerClone.SetupSystem.Upgrader
+namespace ColonizationMobileGame.SetupSystem.Upgrader
 {
     public abstract class UpgraderSetup<TUpgraderSetupData, TBuilder> : MonoBehaviour
         where TUpgraderSetupData : UpgraderSetupData

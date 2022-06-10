@@ -1,7 +1,7 @@
-﻿using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
+﻿using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic
+namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
 {
     public class StackZoneSetup : MonoBehaviour
     {

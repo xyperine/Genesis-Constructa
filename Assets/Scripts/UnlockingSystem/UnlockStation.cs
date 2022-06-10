@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MoonPioneerClone.UnlockingSystem
+namespace ColonizationMobileGame.UnlockingSystem
 {
     public class UnlockStation : MonoBehaviour
     {

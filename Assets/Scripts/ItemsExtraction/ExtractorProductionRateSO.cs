@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MoonPioneerClone.ItemsExtraction
+namespace ColonizationMobileGame.ItemsExtraction
 {
     [CreateAssetMenu(fileName = "Extractor_Production_Rate", menuName = "Extractor/Production Rate", order = 0)]
     public sealed class ExtractorProductionRateSO : ScriptableObject

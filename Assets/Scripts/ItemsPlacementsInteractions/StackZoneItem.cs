@@ -1,9 +1,9 @@
-﻿using MoonPioneerClone.ItemsPlacement.Core;
-using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
-using MoonPioneerClone.ObjectPooling;
+﻿using ColonizationMobileGame.ItemsPlacement.Core;
+using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
+using ColonizationMobileGame.ObjectPooling;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacementsInteractions
+namespace ColonizationMobileGame.ItemsPlacementsInteractions
 {
     [RequireComponent(typeof(PlacementItem))]
     public sealed class StackZoneItem : MonoBehaviour, IPoolable

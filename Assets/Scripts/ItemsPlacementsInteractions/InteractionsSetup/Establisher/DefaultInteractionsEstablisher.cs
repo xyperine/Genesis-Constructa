@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
-using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
-using MoonPioneerClone.ItemsPlacementsInteractions.Target;
-using MoonPioneerClone.Utility.Validating;
+using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
+using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
+using ColonizationMobileGame.Utility.Validating;
 
-namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.Establisher
+namespace ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup.Establisher
 {
     public class DefaultInteractionsEstablisher : InteractionsEstablisher<InteractionsList>
     {

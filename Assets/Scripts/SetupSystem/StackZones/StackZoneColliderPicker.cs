@@ -2,7 +2,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace MoonPioneerClone.SetupSystem.StackZones
+namespace ColonizationMobileGame.SetupSystem.StackZones
 {
     [Serializable]
     public class StackZoneColliderPicker

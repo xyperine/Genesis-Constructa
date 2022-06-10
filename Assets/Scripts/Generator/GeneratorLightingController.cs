@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MoonPioneerClone.Generator
+namespace ColonizationMobileGame.Generator
 {
     public sealed class GeneratorLightingController : MonoBehaviour
     {

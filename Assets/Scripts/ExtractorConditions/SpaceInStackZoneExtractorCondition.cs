@@ -1,8 +1,8 @@
-﻿using MoonPioneerClone.ItemsExtraction.ConditionsLogic;
-using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
+﻿using ColonizationMobileGame.ItemsExtraction.ConditionsLogic;
+using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
 using UnityEngine;
 
-namespace MoonPioneerClone.ExtractorConditions
+namespace ColonizationMobileGame.ExtractorConditions
 {
     public sealed class SpaceInStackZoneExtractorCondition : ExtractorCondition
     {

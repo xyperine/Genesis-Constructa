@@ -1,7 +1,7 @@
-﻿using MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.Establisher;
+﻿using ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup.Establisher;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic
+namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
 {
     public abstract class StackZoneInteractor<TObject> : MonoBehaviour
     {

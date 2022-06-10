@@ -1,7 +1,7 @@
-﻿using MoonPioneerClone.ItemsPlacement.Collections;
-using MoonPioneerClone.ItemsPlacement.Core.Area;
+﻿using ColonizationMobileGame.ItemsPlacement.Collections;
+using ColonizationMobileGame.ItemsPlacement.Core.Area;
 
-namespace MoonPioneerClone.ItemsPlacement.Areas
+namespace ColonizationMobileGame.ItemsPlacement.Areas
 {
     public sealed class StaticPlacementArea : PlacementArea
     {

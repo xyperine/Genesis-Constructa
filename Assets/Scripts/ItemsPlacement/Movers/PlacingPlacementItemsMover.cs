@@ -1,8 +1,8 @@
 ﻿using System;
-using MoonPioneerClone.ItemsPlacement.Core;
+using ColonizationMobileGame.ItemsPlacement.Core;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacement.Movers
+namespace ColonizationMobileGame.ItemsPlacement.Movers
 {
     [Serializable]
     public sealed class PlacingPlacementItemsMover : PlacementItemsMover

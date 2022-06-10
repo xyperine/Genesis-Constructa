@@ -1,9 +1,9 @@
 ﻿using System;
-using MoonPioneerClone.ItemsRequirementsSystem;
-using MoonPioneerClone.Utility.Validating;
+using ColonizationMobileGame.ItemsRequirementsSystem;
+using ColonizationMobileGame.Utility.Validating;
 using UnityEngine;
 
-namespace MoonPioneerClone.UnlockingSystem
+namespace ColonizationMobileGame.UnlockingSystem
 {
     [Serializable]
     public class Unlock : IValidatable

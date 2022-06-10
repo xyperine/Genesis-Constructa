@@ -1,12 +1,12 @@
 ﻿using System.Linq;
-using MoonPioneerClone.ItemsPlacement.Core;
-using MoonPioneerClone.ItemsPlacement.Core.Area;
-using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
-using MoonPioneerClone.ItemsPlacementsInteractions.Target;
-using MoonPioneerClone.UpgradingSystem;
+using ColonizationMobileGame.ItemsPlacement.Core;
+using ColonizationMobileGame.ItemsPlacement.Core.Area;
+using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
+using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
+using ColonizationMobileGame.UpgradingSystem;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic
+namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
 {
     public class StackZone : InteractionTarget, IUpgradeable<StackZoneUpgradeData>
     {

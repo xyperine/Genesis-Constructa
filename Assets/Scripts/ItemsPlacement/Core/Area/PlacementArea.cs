@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MoonPioneerClone.ItemsPlacement.Movers;
-using MoonPioneerClone.ItemsPlacementsInteractions;
-using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
+using ColonizationMobileGame.ItemsPlacement.Movers;
+using ColonizationMobileGame.ItemsPlacementsInteractions;
+using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacement.Core.Area
+namespace ColonizationMobileGame.ItemsPlacement.Core.Area
 {
     public abstract class PlacementArea : MonoBehaviour
     { 

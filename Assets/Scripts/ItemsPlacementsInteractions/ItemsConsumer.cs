@@ -1,9 +1,9 @@
-﻿using MoonPioneerClone.ItemsPlacement.Core;
-using MoonPioneerClone.ItemsPlacement.Movers;
-using MoonPioneerClone.ItemsPlacementsInteractions.Target;
-using MoonPioneerClone.ItemsRequirementsSystem;
+﻿using ColonizationMobileGame.ItemsPlacement.Core;
+using ColonizationMobileGame.ItemsPlacement.Movers;
+using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
+using ColonizationMobileGame.ItemsRequirementsSystem;
 
-namespace MoonPioneerClone.ItemsPlacementsInteractions
+namespace ColonizationMobileGame.ItemsPlacementsInteractions
 {
     public class ItemsConsumer : InteractionTarget
     {

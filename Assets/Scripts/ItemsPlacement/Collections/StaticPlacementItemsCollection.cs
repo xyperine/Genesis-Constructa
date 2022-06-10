@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MoonPioneerClone.ItemsPlacement.Core;
+using ColonizationMobileGame.ItemsPlacement.Core;
 
-namespace MoonPioneerClone.ItemsPlacement.Collections
+namespace ColonizationMobileGame.ItemsPlacement.Collections
 {
     public sealed class StaticPlacementItemsCollection : IPlacementItemsCollection
     {

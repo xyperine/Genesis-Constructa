@@ -1,8 +1,8 @@
 ﻿using System;
-using MoonPioneerClone.Utility.Validating;
+using ColonizationMobileGame.Utility.Validating;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsRequirementsSystem
+namespace ColonizationMobileGame.ItemsRequirementsSystem
 {
     [Serializable]
     public sealed class ItemRequirement : IValidatable, ICloneable

@@ -1,4 +1,4 @@
-﻿namespace MoonPioneerClone.UpgradingSystem
+﻿namespace ColonizationMobileGame.UpgradingSystem
 {
     public interface IUpgradeable<in TUpgradeData>
         where TUpgradeData : UpgradeData

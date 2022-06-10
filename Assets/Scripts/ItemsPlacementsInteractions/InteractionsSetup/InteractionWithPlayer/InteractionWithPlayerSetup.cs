@@ -1,8 +1,8 @@
-﻿using MoonPioneerClone.ItemsPlacementsInteractions.Target;
+﻿using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.InteractionWithPlayer
+namespace ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup.InteractionWithPlayer
 {
     public abstract class InteractionWithPlayerSetup : MonoBehaviour
     {

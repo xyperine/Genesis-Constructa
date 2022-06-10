@@ -1,8 +1,8 @@
 ﻿using System;
-using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
+using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
 using UnityEngine;
 
-namespace MoonPioneerClone.SetupSystem.Upgrader.StackZones
+namespace ColonizationMobileGame.SetupSystem.Upgrader.StackZones
 {
     [Serializable]
     public class StackZoneUpgraderComponentsBuilder : UpgraderComponentsBuilder<StackZoneUpgraderSetupData>

@@ -1,6 +1,6 @@
-﻿using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
+﻿using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
 
-namespace MoonPioneerClone.SetupSystem.StackZones.ComponentsBuilding
+namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
 {
     public interface IStackZoneComponentsBuilder
     {

@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MoonPioneerClone.SetupSystem.StackZones.Markers;
-using MoonPioneerClone.Utility;
+using ColonizationMobileGame.SetupSystem.StackZones.Markers;
+using ColonizationMobileGame.Utility;
 using UnityEngine;
 
-namespace MoonPioneerClone.SetupSystem.StackZones
+namespace ColonizationMobileGame.SetupSystem.StackZones
 {
     public class StackZoneStructureBuilder
     {

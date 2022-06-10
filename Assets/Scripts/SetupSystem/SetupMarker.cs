@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MoonPioneerClone.SetupSystem
+namespace ColonizationMobileGame.SetupSystem
 {
     public abstract class SetupMarker : MonoBehaviour
     {

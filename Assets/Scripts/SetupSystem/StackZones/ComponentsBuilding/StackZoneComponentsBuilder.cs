@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
-using MoonPioneerClone.Utility;
+using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
+using ColonizationMobileGame.Utility;
 using UnityEditor;
 using UnityEngine;
 
-namespace MoonPioneerClone.SetupSystem.StackZones.ComponentsBuilding
+namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
 {
     public abstract class StackZoneComponentsBuilder : IStackZoneComponentsBuilder
     {

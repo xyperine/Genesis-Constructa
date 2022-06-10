@@ -1,9 +1,9 @@
 ﻿using System.Collections;
-using MoonPioneerClone.ItemsPlacementsInteractions;
-using MoonPioneerClone.Utility;
+using ColonizationMobileGame.ItemsPlacementsInteractions;
+using ColonizationMobileGame.Utility;
 using UnityEngine;
 
-namespace MoonPioneerClone
+namespace ColonizationMobileGame
 {
     public class EnergyCell : MonoBehaviour
     {

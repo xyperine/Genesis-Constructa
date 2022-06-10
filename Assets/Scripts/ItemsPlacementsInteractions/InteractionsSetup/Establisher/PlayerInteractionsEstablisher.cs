@@ -1,8 +1,8 @@
-﻿using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
-using MoonPioneerClone.ItemsPlacementsInteractions.Target;
+﻿using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
+using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.Establisher
+namespace ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup.Establisher
 {
     public class PlayerInteractionsEstablisher : InteractionsEstablisher<PlayerInteractionsSO>
     {

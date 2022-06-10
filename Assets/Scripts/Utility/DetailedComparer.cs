@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace MoonPioneerClone.Utility
+namespace ColonizationMobileGame.Utility
 {
     public static class DetailedComparer
     {

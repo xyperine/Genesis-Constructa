@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
-using MoonPioneerClone.SetupSystem;
+using ColonizationMobileGame.SetupSystem;
 using UnityEngine;
 
-namespace MoonPioneerClone.Utility
+namespace ColonizationMobileGame.Utility
 {
     public static class Extensions
     {

@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
-using MoonPioneerClone.ItemsPlacementsInteractions.Target;
-using MoonPioneerClone.Utility;
+using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
+using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
+using ColonizationMobileGame.Utility;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacementsInteractions.Transfer
+namespace ColonizationMobileGame.ItemsPlacementsInteractions.Transfer
 {
     public class TransferStackZoneBehaviour : MonoBehaviour
     {

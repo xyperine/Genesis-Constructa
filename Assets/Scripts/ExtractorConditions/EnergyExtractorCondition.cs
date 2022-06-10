@@ -1,7 +1,7 @@
-﻿using MoonPioneerClone.ItemsExtraction.ConditionsLogic;
+﻿using ColonizationMobileGame.ItemsExtraction.ConditionsLogic;
 using UnityEngine;
 
-namespace MoonPioneerClone.ExtractorConditions
+namespace ColonizationMobileGame.ExtractorConditions
 {
     public sealed class EnergyExtractorCondition : ExtractorCondition
     {

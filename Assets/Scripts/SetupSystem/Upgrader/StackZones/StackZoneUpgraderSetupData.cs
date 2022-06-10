@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
-using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
+using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
+using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
 
-namespace MoonPioneerClone.SetupSystem.Upgrader.StackZones
+namespace ColonizationMobileGame.SetupSystem.Upgrader.StackZones
 {
     [Serializable]
     public class StackZoneUpgraderSetupData : UpgraderSetupData<StackZone, StackZoneUpgradesChainSO, StackZoneUpgradeData>

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MoonPioneerClone
+namespace ColonizationMobileGame.Utility
 {
     public class FramerateSetter : MonoBehaviour
     {

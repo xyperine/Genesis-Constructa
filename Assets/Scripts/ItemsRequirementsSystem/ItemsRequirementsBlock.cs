@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
-using MoonPioneerClone.Utility;
+using ColonizationMobileGame.Utility;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsRequirementsSystem
+namespace ColonizationMobileGame.ItemsRequirementsSystem
 {
     [Serializable]
     public sealed class ItemsRequirementsBlock : IDeepCloneable<ItemsRequirementsBlock>

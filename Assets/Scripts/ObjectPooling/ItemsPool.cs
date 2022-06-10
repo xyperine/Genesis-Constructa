@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MoonPioneerClone.ItemsPlacementsInteractions;
+using ColonizationMobileGame.ItemsPlacementsInteractions;
 using UnityEngine;
 
-namespace MoonPioneerClone.ObjectPooling
+namespace ColonizationMobileGame.ObjectPooling
 {
     public class ItemsPool : MonoBehaviour
     {

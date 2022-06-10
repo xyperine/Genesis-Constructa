@@ -1,4 +1,4 @@
-﻿namespace MoonPioneerClone
+﻿namespace ColonizationMobileGame
 {
     public enum ItemType
     {

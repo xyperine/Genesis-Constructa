@@ -1,8 +1,8 @@
 ﻿using System;
-using MoonPioneerClone.ItemsPlacementsInteractions;
+using ColonizationMobileGame.ItemsPlacementsInteractions;
 using UnityEngine;
 
-namespace MoonPioneerClone.SetupSystem.Upgrader
+namespace ColonizationMobileGame.SetupSystem.Upgrader
 {
     [Serializable]
     public abstract class UpgraderComponentsBuilder<TSetupData>

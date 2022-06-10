@@ -1,7 +1,7 @@
-﻿using MoonPioneerClone.ItemsPlacementsInteractions;
-using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
+﻿using ColonizationMobileGame.ItemsPlacementsInteractions;
+using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
 
-namespace MoonPioneerClone
+namespace ColonizationMobileGame
 {
     public class EnergyCellSlot : StackZone
     {

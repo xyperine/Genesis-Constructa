@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MoonPioneerClone.UpgradingSystem
+namespace ColonizationMobileGame.UpgradingSystem
 {
     public class UpgradesStatusTracker<TUpgradeData>
         where TUpgradeData : UpgradeData

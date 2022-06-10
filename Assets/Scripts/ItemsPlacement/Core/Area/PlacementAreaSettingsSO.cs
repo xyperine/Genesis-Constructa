@@ -4,7 +4,7 @@ using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacement.Core.Area
+namespace ColonizationMobileGame.ItemsPlacement.Core.Area
 {
     [CreateAssetMenu(fileName = "Placement_Area_Settings", menuName = "Items Placement/Placement Area Settings")]
     public sealed class PlacementAreaSettingsSO : ScriptableObject

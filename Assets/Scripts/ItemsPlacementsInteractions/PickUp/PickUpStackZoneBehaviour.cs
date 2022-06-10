@@ -1,7 +1,7 @@
-﻿using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
+﻿using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacementsInteractions.PickUp
+namespace ColonizationMobileGame.ItemsPlacementsInteractions.PickUp
 {
     public class PickUpStackZoneBehaviour : MonoBehaviour
     {

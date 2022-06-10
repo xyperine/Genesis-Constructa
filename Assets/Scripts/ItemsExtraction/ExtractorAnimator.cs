@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MoonPioneerClone.ItemsExtraction
+namespace ColonizationMobileGame.ItemsExtraction
 {
     public sealed class ExtractorAnimator : MonoBehaviour
     {

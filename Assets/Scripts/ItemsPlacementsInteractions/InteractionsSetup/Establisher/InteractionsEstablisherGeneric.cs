@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.Establisher
+namespace ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup.Establisher
 {
     public abstract class InteractionsEstablisher<TInteractions> : InteractionsEstablisher
     {

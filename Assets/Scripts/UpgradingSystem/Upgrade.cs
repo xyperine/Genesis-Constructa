@@ -1,12 +1,12 @@
 ﻿using System;
-using MoonPioneerClone.ItemsRequirementsSystem;
-using MoonPioneerClone.UnlockingSystem;
-using MoonPioneerClone.Utility;
-using MoonPioneerClone.Utility.Validating;
+using ColonizationMobileGame.ItemsRequirementsSystem;
+using ColonizationMobileGame.UnlockingSystem;
+using ColonizationMobileGame.Utility;
+using ColonizationMobileGame.Utility.Validating;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace MoonPioneerClone.UpgradingSystem
+namespace ColonizationMobileGame.UpgradingSystem
 {
     [Serializable]
     public class Upgrade<TUpgradeData> : Unlockable, IValidatable, IDeepCloneable<Upgrade<TUpgradeData>>

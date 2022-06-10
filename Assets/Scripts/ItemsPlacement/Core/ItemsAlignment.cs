@@ -1,4 +1,4 @@
-﻿namespace MoonPioneerClone.ItemsPlacement.Core
+﻿namespace ColonizationMobileGame.ItemsPlacement.Core
 {
     public enum ItemsAlignment
     {

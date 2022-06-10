@@ -1,11 +1,11 @@
 ﻿using System.Linq;
-using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
-using MoonPioneerClone.ItemsPlacementsInteractions.Target;
-using MoonPioneerClone.SetupSystem.StackZones.Markers;
-using MoonPioneerClone.Utility;
+using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
+using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
+using ColonizationMobileGame.SetupSystem.StackZones.Markers;
+using ColonizationMobileGame.Utility;
 using UnityEngine;
 
-namespace MoonPioneerClone.SetupSystem.StackZones.ComponentsBuilding
+namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
 {
     public class StackZoneMainColliderBuilder : StackZoneComponentsBuilder
     {

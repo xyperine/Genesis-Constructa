@@ -1,8 +1,8 @@
-﻿using MoonPioneerClone.SetupSystem;
-using MoonPioneerClone.SetupSystem.Upgrader.Extractors;
-using MoonPioneerClone.UpgradingSystem;
+﻿using ColonizationMobileGame.SetupSystem;
+using ColonizationMobileGame.SetupSystem.Upgrader.Extractors;
+using ColonizationMobileGame.UpgradingSystem;
 
-namespace MoonPioneerClone.ItemsExtraction.Upgrading
+namespace ColonizationMobileGame.ItemsExtraction.Upgrading
 {
     public class ExtractorUpgrader : Upgrader<ExtractorUpgradeData>
     {

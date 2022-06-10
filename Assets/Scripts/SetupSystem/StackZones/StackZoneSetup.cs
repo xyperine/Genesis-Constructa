@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace MoonPioneerClone.SetupSystem.StackZones
+namespace ColonizationMobileGame.SetupSystem.StackZones
 {
     public class StackZoneSetup : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsExtraction.ConditionsLogic
+namespace ColonizationMobileGame.ItemsExtraction.ConditionsLogic
 {
     public class ExtractorConditionsUnit : MonoBehaviour
     {

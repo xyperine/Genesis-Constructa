@@ -1,13 +1,13 @@
 ﻿using System.Collections;
-using MoonPioneerClone.ItemsExtraction.Upgrading;
-using MoonPioneerClone.ItemsPlacementsInteractions;
-using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
-using MoonPioneerClone.ObjectPooling;
-using MoonPioneerClone.UpgradingSystem;
-using MoonPioneerClone.Utility;
+using ColonizationMobileGame.ItemsExtraction.Upgrading;
+using ColonizationMobileGame.ItemsPlacementsInteractions;
+using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
+using ColonizationMobileGame.ObjectPooling;
+using ColonizationMobileGame.UpgradingSystem;
+using ColonizationMobileGame.Utility;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsExtraction
+namespace ColonizationMobileGame.ItemsExtraction
 {
     public sealed class ExtractorProductionUnit : MonoBehaviour, IUpgradeable<ExtractorUpgradeData>
     {

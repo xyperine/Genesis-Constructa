@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup;
-using MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.Establisher;
-using MoonPioneerClone.ItemsPlacementsInteractions.PickUp;
-using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
-using MoonPioneerClone.ItemsPlacementsInteractions.Transfer;
-using MoonPioneerClone.SetupSystem.StackZones.Markers;
-using MoonPioneerClone.Utility;
+using ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup;
+using ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup.Establisher;
+using ColonizationMobileGame.ItemsPlacementsInteractions.PickUp;
+using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
+using ColonizationMobileGame.ItemsPlacementsInteractions.Transfer;
+using ColonizationMobileGame.SetupSystem.StackZones.Markers;
+using ColonizationMobileGame.Utility;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace MoonPioneerClone.SetupSystem.StackZones.ComponentsBuilding
+namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
 {
     public class StackZoneInteractionsWithOthersComponentsBuilder : StackZoneComponentsBuilder
     {

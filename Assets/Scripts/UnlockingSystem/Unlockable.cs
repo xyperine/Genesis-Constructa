@@ -2,7 +2,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace MoonPioneerClone.UnlockingSystem
+namespace ColonizationMobileGame.UnlockingSystem
 {
     [Serializable]
     public abstract class Unlockable

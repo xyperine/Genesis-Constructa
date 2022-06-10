@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MoonPioneerClone.Player
+namespace ColonizationMobileGame.Player
 {
     public class RobotAnimator : MonoBehaviour
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using MoonPioneerClone.ItemsExtraction.Upgrading;
-using MoonPioneerClone.UpgradingSystem;
+using ColonizationMobileGame.ItemsExtraction.Upgrading;
+using ColonizationMobileGame.UpgradingSystem;
 
-namespace MoonPioneerClone.SetupSystem.Upgrader.Extractors
+namespace ColonizationMobileGame.SetupSystem.Upgrader.Extractors
 {
     [Serializable]
     public class ExtractorUpgraderSetupData : UpgraderSetupData<IUpgradeable<ExtractorUpgradeData>, ExtractorUpgradesChainSO, ExtractorUpgradeData>

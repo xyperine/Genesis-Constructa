@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsExtraction.ConditionsLogic
+namespace ColonizationMobileGame.ItemsExtraction.ConditionsLogic
 {
     [Serializable]
     public class ExtractorConditionsSet : MonoBehaviour

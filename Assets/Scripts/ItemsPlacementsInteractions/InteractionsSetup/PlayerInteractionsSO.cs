@@ -1,9 +1,9 @@
-﻿using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
-using MoonPioneerClone.ItemsPlacementsInteractions.Target;
+﻿using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
+using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup
+namespace ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup
 {
     [CreateAssetMenu(fileName = "Player_Interactions", menuName = "Items Interactions/Player Interactions", order = 0)]
     public class PlayerInteractionsSO : ScriptableObject

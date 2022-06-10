@@ -1,8 +1,8 @@
 ﻿using System;
-using MoonPioneerClone.ItemsPlacementsInteractions;
+using ColonizationMobileGame.ItemsPlacementsInteractions;
 using UnityEngine;
 
-namespace MoonPioneerClone.ObjectPooling
+namespace ColonizationMobileGame.ObjectPooling
 {
     [Serializable]
     public struct ItemPoolEntry

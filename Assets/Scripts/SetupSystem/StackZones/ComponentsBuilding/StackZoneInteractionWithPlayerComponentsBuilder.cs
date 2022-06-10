@@ -1,10 +1,10 @@
-﻿using MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup.InteractionWithPlayer;
-using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic;
-using MoonPioneerClone.SetupSystem.StackZones.Markers;
-using MoonPioneerClone.Utility;
+﻿using ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup.InteractionWithPlayer;
+using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
+using ColonizationMobileGame.SetupSystem.StackZones.Markers;
+using ColonizationMobileGame.Utility;
 using UnityEngine;
 
-namespace MoonPioneerClone.SetupSystem.StackZones.ComponentsBuilding
+namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
 {
     public class StackZoneInteractionWithPlayerComponentsBuilder : StackZoneComponentsBuilder
     {

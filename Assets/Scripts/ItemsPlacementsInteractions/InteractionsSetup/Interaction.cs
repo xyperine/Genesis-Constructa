@@ -1,10 +1,10 @@
 ﻿using System;
-using MoonPioneerClone.ItemsPlacementsInteractions.Target;
-using MoonPioneerClone.Utility.Observing;
-using MoonPioneerClone.Utility.Validating;
+using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
+using ColonizationMobileGame.Utility.Observing;
+using ColonizationMobileGame.Utility.Validating;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacementsInteractions.InteractionsSetup
+namespace ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup
 {
     [Serializable]
     public class Interaction : IValidatable, IObservable

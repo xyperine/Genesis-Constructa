@@ -1,7 +1,7 @@
-﻿using MoonPioneerClone.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
+﻿using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
 using UnityEngine;
 
-namespace MoonPioneerClone.ItemsPlacement.Core.Area
+namespace ColonizationMobileGame.ItemsPlacement.Core.Area
 {
     public sealed class PlacementAreaDrawer : MonoBehaviour
     {

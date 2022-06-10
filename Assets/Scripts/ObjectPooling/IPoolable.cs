@@ -1,4 +1,4 @@
-﻿namespace MoonPioneerClone.ObjectPooling
+﻿namespace ColonizationMobileGame.ObjectPooling
 {
     public interface IPoolable
     {
