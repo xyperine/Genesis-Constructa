@@ -531,6 +531,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8262662948465153928, guid: a545d628fac155a4c93d7d1d591f0d32, type: 3}
+      propertyPath: acceptableItems.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8262662948465153928, guid: a545d628fac155a4c93d7d1d591f0d32, type: 3}
+      propertyPath: acceptableItems.Array.data[5]
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a545d628fac155a4c93d7d1d591f0d32, type: 3}
 --- !u!4 &1039094242 stripped
@@ -679,7 +687,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1915682271
 Transform:
   m_ObjectHideFlags: 0
