@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace ColonizationMobileGame
+namespace ColonizationMobileGame.SceneLoading
 {
     public class Bootstrapper : MonoBehaviour
     {

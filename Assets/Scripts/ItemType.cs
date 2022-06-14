@@ -7,5 +7,6 @@
         Iron,
         Diamond,
         EnergyCell,
+        Uranium,
     }
 }

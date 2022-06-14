@@ -2,7 +2,7 @@
 using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ExtractorConditions
+namespace ColonizationMobileGame.ItemsExtraction.Extra
 {
     public sealed class SpaceInStackZoneExtractorCondition : ExtractorCondition
     {
