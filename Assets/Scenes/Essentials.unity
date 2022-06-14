@@ -707,10 +707,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5dc1bdc1ec4675b9ca2c2978795601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenesToLoad:
-  - {fileID: 102900000, guid: 26c17b16364e2684aa6a757a9df6e9d5, type: 3}
-  scenesNames:
-  - Extractors
+  scenesToLoad: []
+  scenesNames: []
 --- !u!1001 &2043227351
 PrefabInstance:
   m_ObjectHideFlags: 0

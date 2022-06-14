@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Essentials.unity
     guid: 129d495dcfba73845b739ca040b73e12
   - enabled: 1
-    path: Assets/Scenes/TestScenes/Extractors.unity
+    path: Assets/Scenes/TestScenes/Mechanics/Extractors.unity
     guid: 26c17b16364e2684aa6a757a9df6e9d5
   m_configObjects: {}
