@@ -98,7 +98,7 @@ MonoBehaviour:
   upgraderSetup: {fileID: 8866044190502124101}
   upgradesChain: {fileID: 0}
   productionZone: {fileID: 6884291654872460048}
-  productionUnit: {fileID: 2838886211604961652}
+  productionUnit: {fileID: 0}
   upgraderColliderRadius: 1
 --- !u!1 &2718288748596786146
 GameObject:

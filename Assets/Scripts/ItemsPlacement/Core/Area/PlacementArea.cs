@@ -18,7 +18,7 @@ namespace ColonizationMobileGame.ItemsPlacement.Core.Area
         protected IPlacementItemsCollection itemsCollection;
         protected PlacementItemPositionCalculator itemPositionCalculator;
         
-        public int Count => itemsCollection.Count;
+        public int Count => itemsCollection?.Count ?? 0;
         public bool CanFitMore => Count < _upgradeableProperties.MaxItems;
 
 
@@ -76,7 +76,7 @@ namespace ColonizationMobileGame.ItemsPlacement.Core.Area
 
         public PlacementItem GetLast(ItemType[] requiredItems)
         {
-            IEnumerable<PlacementItem> placementItems = itemsCollection.Items;
+            IEnumerable<PlacementItem> placementItems = itemsCollection.Items.Reverse();
             
             foreach (PlacementItem placementItem in placementItems)
             {

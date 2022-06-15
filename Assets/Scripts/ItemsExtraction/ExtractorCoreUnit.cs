@@ -17,15 +17,15 @@ namespace ColonizationMobileGame.ItemsExtraction
                 StartUp();
             }
 
-            conditionsUnit.WorkConditionsChanged += OnWorkConditionsChanged;
-            conditionsUnit.ProductionConditionsChanged += OnProductionConditionsChanged;
+            conditionsUnit.ConditionsChanged += OnConditionsChanged;
+            conditionsUnit.ConditionsChanged += OnProductionConditionsChanged;
         }
 
 
         private void OnDisable()
         {
-            conditionsUnit.WorkConditionsChanged -= OnWorkConditionsChanged;
-            conditionsUnit.ProductionConditionsChanged -= OnProductionConditionsChanged;
+            conditionsUnit.ConditionsChanged -= OnConditionsChanged;
+            conditionsUnit.ConditionsChanged -= OnProductionConditionsChanged;
         }
 
 
@@ -47,7 +47,7 @@ namespace ColonizationMobileGame.ItemsExtraction
         }
 
 
-        private void OnWorkConditionsChanged()
+        private void OnConditionsChanged()
         {
             if (conditionsUnit.WorkConditionsMet)
             {

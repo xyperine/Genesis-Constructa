@@ -11,33 +11,26 @@ namespace ColonizationMobileGame.ItemsExtraction.ConditionsLogic
         public bool WorkConditionsMet => workConditions.Met;
         public bool ProductionConditionsMet => productionConditions.Met && workConditions.Met;
 
-        public event Action WorkConditionsChanged; 
-        public event Action ProductionConditionsChanged; 
+        public event Action ConditionsChanged;
 
 
         private void OnEnable()
         {
-            workConditions.Changed += InvokeWorkConditionsChanged;
-            productionConditions.Changed += InvokeProductionConditionsChanged;
+            workConditions.Changed += InvokeConditionsChanged;
+            productionConditions.Changed += InvokeConditionsChanged;
         }
 
 
         private void OnDisable()
         {
-            workConditions.Changed -= InvokeWorkConditionsChanged;
-            productionConditions.Changed -= InvokeProductionConditionsChanged;
+            workConditions.Changed -= InvokeConditionsChanged;
+            productionConditions.Changed -= InvokeConditionsChanged;
         }
 
 
-        private void InvokeWorkConditionsChanged()
+        private void InvokeConditionsChanged()
         {
-            WorkConditionsChanged?.Invoke();
-        }
-
-
-        private void InvokeProductionConditionsChanged()
-        {
-            ProductionConditionsChanged?.Invoke();
+            ConditionsChanged?.Invoke();
         }
     }
 }

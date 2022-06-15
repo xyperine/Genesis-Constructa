@@ -47,6 +47,15 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions
 
         public void Return()
         {
+            if (!_pool)
+            {
+                SetFree();
+                Destroy(gameObject);
+                
+                Debug.Log("Item was destroyed because it was not created by pool");
+                return;
+            }
+            
             _pool.ReturnObject(this);
         }
     }
