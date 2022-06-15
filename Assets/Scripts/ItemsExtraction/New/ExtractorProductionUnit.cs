@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using ColonizationMobileGame.ItemsExtraction.ConditionsLogic;
 using ColonizationMobileGame.ItemsExtraction.Upgrading;
 using ColonizationMobileGame.ItemsPlacementsInteractions;
 using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
@@ -7,10 +8,12 @@ using ColonizationMobileGame.UpgradingSystem;
 using ColonizationMobileGame.Utility;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsExtraction
+namespace ColonizationMobileGame.ItemsExtraction.New
 {
-    public sealed class ExtractorProductionUnit : MonoBehaviour, IUpgradeable<ExtractorUpgradeData>
+    public class ExtractorProductionUnit : MonoBehaviour, IUpgradeable<ExtractorUpgradeData>
     {
+        [SerializeField] private ExtractorConditionsUnit conditionsUnit;
+        
         [SerializeField] private ExtractorProductionRateSO productionRateSO;
         [SerializeField] private ItemType itemType;
 
@@ -18,12 +21,14 @@ namespace ColonizationMobileGame.ItemsExtraction
         [SerializeField] private ItemsPool itemsPool;
 
         [SerializeField] private bool produce = true;
+        [SerializeField] private ExtractorProductionWorkflow workflow;
         
 
         private IEnumerator _productionCoroutine;
         private float _itemsPerSecond;
 
         public float ItemsPerSecond => _itemsPerSecond;
+        public bool CanProduce => productionStackZone.CanTakeMore;
 
 
         private void Awake()
@@ -32,8 +37,50 @@ namespace ColonizationMobileGame.ItemsExtraction
         }
 
 
+        private void OnEnable()
+        {
+            if (conditionsUnit.ProductionConditionsMet)
+            {
+                StartProduction();
+            }
+            
+            conditionsUnit.ConditionsChanged += OnConditionsChanged;
+            conditionsUnit.ConditionsChanged += OnProductionConditionsChanged;
+        }
+
+
+        private void OnDisable()
+        {
+            conditionsUnit.ConditionsChanged -= OnConditionsChanged;
+            conditionsUnit.ConditionsChanged -= OnProductionConditionsChanged;
+        }
+
+
+        private void OnConditionsChanged()
+        {
+            if (conditionsUnit.ProductionConditionsMet)
+            {
+                StartProduction();
+                return;
+            }
+            
+            StopProduction();
+        }
+        
+        
+        private void OnProductionConditionsChanged()
+        {
+            
+        }
+
+
         public void StartProduction()
         {
+            if (workflow == ExtractorProductionWorkflow.Conversion)
+            {
+                return;
+            }
+            
             if (!produce)
             {
                 return;
@@ -60,7 +107,7 @@ namespace ColonizationMobileGame.ItemsExtraction
         }
 
 
-        private void ProduceItem()
+        public void ProduceItem()
         {
             StackZoneItem item = itemsPool.Get(itemType, transform.position);
             productionStackZone.Add(item);
@@ -69,6 +116,11 @@ namespace ColonizationMobileGame.ItemsExtraction
 
         public void StopProduction()
         {
+            if (workflow == ExtractorProductionWorkflow.Conversion)
+            {
+                return;
+            }
+            
             if (_productionCoroutine == null)
             {
                 return;

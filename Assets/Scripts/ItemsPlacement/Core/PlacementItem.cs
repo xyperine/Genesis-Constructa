@@ -54,7 +54,7 @@ namespace ColonizationMobileGame.ItemsPlacement.Core
                 return;
             }
             
-            Destroy(gameObject);
+            _poolable.Return();
         }
     }
 }

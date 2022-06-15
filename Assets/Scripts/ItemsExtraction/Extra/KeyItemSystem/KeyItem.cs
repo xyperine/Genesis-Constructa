@@ -24,9 +24,7 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
 
         private void Destroy()
         {
-            //item.Return(); <--------------- Uncomment this when all key items will be able to be pooled
-            item.SetFree();
-            Destroy(gameObject);
+            item.Return();
         }
     }
 }
