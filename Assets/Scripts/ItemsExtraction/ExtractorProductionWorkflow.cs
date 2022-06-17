@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.ItemsExtraction.New
+﻿namespace ColonizationMobileGame.ItemsExtraction
 {
     public enum ExtractorProductionWorkflow
     {
