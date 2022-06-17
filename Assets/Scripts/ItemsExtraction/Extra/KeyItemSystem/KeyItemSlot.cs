@@ -20,7 +20,27 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
 
         public void Tick()
         {
+            if (!_item)
+            {
+                return;
+            }
+            
             _item.Tick();
+
+            if (_item.Exhausted)
+            {
+                Clear();
+            }
+        }
+
+
+        private void Clear()
+        {
+            StackZoneItem zoneItem = _item.GetComponent<StackZoneItem>();
+            Remove(zoneItem);
+            zoneItem.Return();
+            
+            _item = null;
         }
     }
 }

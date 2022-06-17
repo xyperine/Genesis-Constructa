@@ -9,6 +9,7 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
         [SerializeField, Range(5f, 60f)] private float lifetime;
 
         private float _elapsedTime;
+        public bool Exhausted { get; private set; }
 
 
         public void Tick()
@@ -17,14 +18,8 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
 
             if (_elapsedTime >= lifetime)
             {
-                Destroy();
+                Exhausted = true;
             }
-        }
-
-
-        private void Destroy()
-        {
-            item.Return();
         }
     }
 }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6129290085137854388}
-  - component: {fileID: 6207696185181344923}
+  - component: {fileID: 8415577011025387151}
   m_Layer: 0
   m_Name: Extractor_Conversion_Unit
   m_TagString: Untagged
@@ -34,7 +34,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6207696185181344923
+--- !u!114 &8415577011025387151
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,9 +43,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 329189507035501348}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c39e0156b6742008575504c44212e59, type: 3}
+  m_Script: {fileID: 11500000, guid: d4ce9695647f4ad094ff0c8459547918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  conditionsUnit: {fileID: 0}
   productionUnit: {fileID: 0}
 --- !u!1 &535906103299354246
 GameObject:
@@ -110,7 +111,7 @@ MonoBehaviour:
   interactions:
     interactions:
       list:
-      - target: {fileID: 6207696185181344923}
+      - target: {fileID: 8415577011025387151}
         type: 0
     holder: {fileID: 3188430943453929338}
 --- !u!114 &4101665617071659480
@@ -407,7 +408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactWithPlayer: 1
   playerInteractionsSO: {fileID: 11400000, guid: 88d4d2bbd9432f34489ad1e2de55b2f7, type: 2}
-  target: {fileID: 6207696185181344923}
+  target: {fileID: 8415577011025387151}
 --- !u!1 &7649174401664037606
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,7 +453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facf78a87b8047fc94fbc5941b4061ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 6207696185181344923}
+  target: {fileID: 8415577011025387151}
 --- !u!1 &9004613014197509451
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,11 +677,11 @@ PrefabInstance:
     - target: {fileID: 5240732971954992952, guid: 38e534583b249b84087525f321cb58ad, type: 3}
       propertyPath: data.interactions.interactions.list.Array.data[0].target
       value: 
-      objectReference: {fileID: 6207696185181344923}
+      objectReference: {fileID: 0}
     - target: {fileID: 5240732971954992952, guid: 38e534583b249b84087525f321cb58ad, type: 3}
       propertyPath: savedData.interactions.interactions.list.Array.data[0].target
       value: 
-      objectReference: {fileID: 6207696185181344923}
+      objectReference: {fileID: 0}
     - target: {fileID: 5240732971954992952, guid: 38e534583b249b84087525f321cb58ad, type: 3}
       propertyPath: buildController.data.interactions.interactions.list.Array.size
       value: 1
@@ -688,7 +689,7 @@ PrefabInstance:
     - target: {fileID: 5240732971954992952, guid: 38e534583b249b84087525f321cb58ad, type: 3}
       propertyPath: buildController.data.interactions.interactions.list.Array.data[0].target
       value: 
-      objectReference: {fileID: 6207696185181344923}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38e534583b249b84087525f321cb58ad, type: 3}
 --- !u!4 &7419043135553326562 stripped
