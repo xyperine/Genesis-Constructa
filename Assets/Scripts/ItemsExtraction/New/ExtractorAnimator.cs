@@ -25,12 +25,6 @@ namespace ColonizationMobileGame.ItemsExtraction.New
         }
 
 
-        private void OnDisable()
-        {
-            conditionsUnit.ConditionsChanged -= OnConditionsChanged;
-        }
-
-
         private void OnConditionsChanged()
         {
             if (conditionsUnit.WorkConditionsMet)
@@ -43,13 +37,19 @@ namespace ColonizationMobileGame.ItemsExtraction.New
         }
 
 
+        private void OnDisable()
+        {
+            conditionsUnit.ConditionsChanged -= OnConditionsChanged;
+        }
+
+
         public void PlayIdleAnimation()
         {
             animator.Play(_idleHash);
         }
 
 
-        public void PlayStartUpAnimation()
+        private void PlayStartUpAnimation()
         {
             animator.Play(_startUpHash);
         }
@@ -61,7 +61,7 @@ namespace ColonizationMobileGame.ItemsExtraction.New
         }
 
 
-        public void PlayShutDownAnimation()
+        private void PlayShutDownAnimation()
         {
             animator.Play(_shutDownHash);
         }
