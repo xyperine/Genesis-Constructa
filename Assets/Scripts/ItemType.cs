@@ -2,11 +2,12 @@
 {
     public enum ItemType
     {
-        Oil,
-        Stone,
-        Iron,
-        Diamond,
         EnergyCell,
+        Metal,
+        Food,
+        Mineral,
+        Carbon,
         Uranium,
+        Diamond,
     }
 }

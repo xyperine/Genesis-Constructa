@@ -94,4 +94,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 7167640012461819066}
-  lifetime: 14
+  lifetime: 60

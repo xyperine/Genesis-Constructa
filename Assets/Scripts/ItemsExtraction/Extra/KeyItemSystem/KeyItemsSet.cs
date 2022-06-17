@@ -10,6 +10,17 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
         public bool Satisfied => slots.All(s => s.Satisfied);
 
 
+        private void Awake()
+        {
+            slots = GetComponentsInChildren<KeyItemSlot>();
+            
+            // if (!slots.Any())
+            // {
+            //     throw new NotImplementedException($"You have to put key item slots in {slots} array!");
+            // }
+        }
+
+
         private void Update()
         {
             if (!Satisfied)

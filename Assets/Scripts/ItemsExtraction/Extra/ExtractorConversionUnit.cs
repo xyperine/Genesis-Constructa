@@ -24,10 +24,9 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra
 
         public override ItemType[] AcceptableItems { get; } =
         {
-            ItemType.Oil,
-            ItemType.Stone,
-            ItemType.Iron,
-            ItemType.Diamond,
+            ItemType.Metal,
+            ItemType.Mineral,
+            ItemType.Carbon,
         };
         
         
