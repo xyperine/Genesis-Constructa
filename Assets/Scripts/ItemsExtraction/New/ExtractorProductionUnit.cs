@@ -22,18 +22,17 @@ namespace ColonizationMobileGame.ItemsExtraction.New
 
         [SerializeField] private bool produce = true;
         [SerializeField] private ExtractorProductionWorkflow workflow;
-        
 
         private IEnumerator _productionCoroutine;
-        private float _itemsPerSecond;
 
-        public float ItemsPerSecond => _itemsPerSecond;
+        public float ItemsPerSecond { get; private set; }
+
         public bool CanProduce => productionStackZone.CanTakeMore;
 
 
         private void Awake()
         {
-            _itemsPerSecond = productionRateSO.ItemsPerSecond;
+            ItemsPerSecond = productionRateSO.ItemsPerSecond;
         }
 
 
@@ -45,36 +44,10 @@ namespace ColonizationMobileGame.ItemsExtraction.New
             }
             
             conditionsUnit.ConditionsChanged += OnConditionsChanged;
-            conditionsUnit.ConditionsChanged += OnProductionConditionsChanged;
         }
 
 
-        private void OnDisable()
-        {
-            conditionsUnit.ConditionsChanged -= OnConditionsChanged;
-            conditionsUnit.ConditionsChanged -= OnProductionConditionsChanged;
-        }
-
-
-        private void OnConditionsChanged()
-        {
-            if (conditionsUnit.ProductionConditionsMet)
-            {
-                StartProduction();
-                return;
-            }
-            
-            StopProduction();
-        }
-        
-        
-        private void OnProductionConditionsChanged()
-        {
-            
-        }
-
-
-        public void StartProduction()
+        private void StartProduction()
         {
             if (workflow == ExtractorProductionWorkflow.Conversion)
             {
@@ -100,7 +73,7 @@ namespace ColonizationMobileGame.ItemsExtraction.New
         {
             while (true)
             {
-                yield return Helpers.GetWaitForSeconds(1f / _itemsPerSecond);
+                yield return Helpers.GetWaitForSeconds(1f / ItemsPerSecond);
 
                 ProduceItem();
             }
@@ -114,7 +87,19 @@ namespace ColonizationMobileGame.ItemsExtraction.New
         }
 
 
-        public void StopProduction()
+        private void OnConditionsChanged()
+        {
+            if (conditionsUnit.ProductionConditionsMet)
+            {
+                StartProduction();
+                return;
+            }
+            
+            StopProduction();
+        }
+
+
+        private void StopProduction()
         {
             if (workflow == ExtractorProductionWorkflow.Conversion)
             {
@@ -131,9 +116,15 @@ namespace ColonizationMobileGame.ItemsExtraction.New
         }
 
 
+        private void OnDisable()
+        {
+            conditionsUnit.ConditionsChanged -= OnConditionsChanged;
+        }
+
+
         public void Upgrade(ExtractorUpgradeData data)
         {
-            _itemsPerSecond = data.ItemsPerSecond;
+            ItemsPerSecond = data.ItemsPerSecond;
         }
     }
 }

@@ -16,9 +16,11 @@ namespace ColonizationMobileGame.ItemsExtraction.New
         
         private readonly DestroyingPlacementItemsMover _itemsMover = new DestroyingPlacementItemsMover();
         
-        private bool _canTakeMore;
-        
-        public override bool CanTakeMore => _canTakeMore && productionUnit.CanProduce;
+        private bool _active;
+        private bool _canTakeMore = true;
+        private IEnumerator _conversionCoroutine;
+
+        public override bool CanTakeMore => _active && _canTakeMore && productionUnit.CanProduce;
 
         public override ItemType[] AcceptableItems { get; } =
         {
@@ -31,7 +33,7 @@ namespace ColonizationMobileGame.ItemsExtraction.New
         
         private void OnEnable()
         {
-            _canTakeMore = conditionsUnit.ProductionConditionsMet;
+            _active = conditionsUnit.ProductionConditionsMet;
             
             conditionsUnit.ConditionsChanged += OnConditionsChanged;
         }
@@ -39,10 +41,7 @@ namespace ColonizationMobileGame.ItemsExtraction.New
 
         private void OnConditionsChanged()
         {
-            if (conditionsUnit.ProductionConditionsMet)
-            {
-                _canTakeMore = conditionsUnit.ProductionConditionsMet;
-            }
+            _active = conditionsUnit.ProductionConditionsMet;
         }
 
         
@@ -56,7 +55,14 @@ namespace ColonizationMobileGame.ItemsExtraction.New
         {
             _itemsMover.MoveItem(item.GetComponent<PlacementItem>(), transform.localPosition);
             StartCoroutine(ProduceItemWithDelayCoroutine(item));
-            StartCoroutine(ConversionCoroutine());
+
+            if (_conversionCoroutine != null)
+            {
+                return;
+            }
+
+            _conversionCoroutine = ConversionCoroutine(); 
+            StartCoroutine(_conversionCoroutine);
         }
 
 
@@ -74,7 +80,8 @@ namespace ColonizationMobileGame.ItemsExtraction.New
 
             yield return Helpers.GetWaitForSeconds(1f / productionUnit.ItemsPerSecond);
 
-            _canTakeMore = conditionsUnit.ProductionConditionsMet;
+            _canTakeMore = true;
+            _conversionCoroutine = null;
         }
     }
 }
