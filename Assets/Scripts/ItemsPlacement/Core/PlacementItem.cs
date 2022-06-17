@@ -26,7 +26,7 @@ namespace ColonizationMobileGame.ItemsPlacement.Core
         {
             transform.DOLocalRotateQuaternion(rotation, tweenDuration).SetEase(easingCurve);
         }
-
+        
 
         public void MoveToArea(Vector3 position)
         {

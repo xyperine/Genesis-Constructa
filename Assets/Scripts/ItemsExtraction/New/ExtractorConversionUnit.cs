@@ -45,6 +45,7 @@ namespace ColonizationMobileGame.ItemsExtraction.New
             }
         }
 
+        
         private void OnDisable()
         {
             conditionsUnit.ConditionsChanged -= OnConditionsChanged;
@@ -54,12 +55,20 @@ namespace ColonizationMobileGame.ItemsExtraction.New
         public override void Add(StackZoneItem item)
         {
             _itemsMover.MoveItem(item.GetComponent<PlacementItem>(), transform.localPosition);
-            productionUnit.ProduceItem();
-            StartCoroutine(AddRoutine());
+            StartCoroutine(ProduceItemWithDelayCoroutine(item));
+            StartCoroutine(ConversionCoroutine());
         }
 
 
-        private IEnumerator AddRoutine()
+        private IEnumerator ProduceItemWithDelayCoroutine(StackZoneItem item)
+        {
+            yield return new WaitWhile(() => item.Moving);
+            
+            productionUnit.ProduceItem();
+        }
+
+
+        private IEnumerator ConversionCoroutine()
         {
             _canTakeMore = false;
 

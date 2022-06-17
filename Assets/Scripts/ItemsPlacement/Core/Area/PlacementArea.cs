@@ -84,6 +84,11 @@ namespace ColonizationMobileGame.ItemsPlacement.Core.Area
                 {
                     continue;
                 }
+
+                if (placementItem.Moving)
+                {
+                    continue;
+                }
                 
                 StackZoneItem item;
                 if (!placementItem.TryGetComponent(out item))

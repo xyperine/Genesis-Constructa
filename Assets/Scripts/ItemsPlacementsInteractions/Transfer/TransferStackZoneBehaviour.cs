@@ -51,7 +51,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.Transfer
         private IEnumerator TransferItemsCoroutine(InteractionTarget target)
         {
             StackZoneItem item = stackZone.GetLast(target.AcceptableItems);
-
+            
             while (item)
             {
                 if (NeedToBrakeTransfer(target))
