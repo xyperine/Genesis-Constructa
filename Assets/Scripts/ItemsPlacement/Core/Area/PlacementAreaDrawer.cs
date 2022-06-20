@@ -1,8 +1,10 @@
 ﻿using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
+using UnityEditor;
 using UnityEngine;
 
 namespace ColonizationMobileGame.ItemsPlacement.Core.Area
 {
+    [ExecuteInEditMode]
     public sealed class PlacementAreaDrawer : MonoBehaviour
     {
         [SerializeField] private bool alwaysDraw;
@@ -11,18 +13,22 @@ namespace ColonizationMobileGame.ItemsPlacement.Core.Area
 
         private Vector3 _size;
         private Vector3 _center;
-
-
-        private void Start()
+        
+        
+        private void Update()
         {
-            GetUpgradeableProperties();
-        }
+            if (!Application.isEditor)
+            {
+                return;
+            }
 
+            if (!Selection.Contains(gameObject))
+            {
+                return;
+            }
 
-        private void OnValidate()
-        {
             GetUpgradeableProperties();
-            
+
             TryRecalculateShape();
         }
 
