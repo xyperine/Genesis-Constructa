@@ -76,7 +76,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535906103299354246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.444, y: 0.604, z: 0.68}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c247c8b4d65e47b5b32b8a68d61270ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceptableItems: 03000000
+  acceptableItems: 
 --- !u!114 &1655345238484333031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bf760f413bc4207ad047b8bff025d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placementSettings: {fileID: 11400000, guid: 1a8ab472f18b86c40bd446022944b313, type: 2}
+  placementSettings: {fileID: 0}
 --- !u!114 &592601657038623459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,7 +359,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3114851853304378468
 GameObject:
@@ -386,7 +386,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3114851853304378468}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.626, y: 0.87, z: 0.488}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -591,7 +591,7 @@ PrefabInstance:
     - target: {fileID: 5240732971954992952, guid: 38e534583b249b84087525f321cb58ad, type: 3}
       propertyPath: data.placementSettings
       value: 
-      objectReference: {fileID: 11400000, guid: 1a8ab472f18b86c40bd446022944b313, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 5240732971954992952, guid: 38e534583b249b84087525f321cb58ad, type: 3}
       propertyPath: data.colliderData.shape
       value: 1
@@ -615,7 +615,7 @@ PrefabInstance:
     - target: {fileID: 5240732971954992952, guid: 38e534583b249b84087525f321cb58ad, type: 3}
       propertyPath: savedData.placementSettings
       value: 
-      objectReference: {fileID: 11400000, guid: 1a8ab472f18b86c40bd446022944b313, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 5240732971954992952, guid: 38e534583b249b84087525f321cb58ad, type: 3}
       propertyPath: savedData.colliderData.shape
       value: 1
@@ -638,7 +638,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 88d4d2bbd9432f34489ad1e2de55b2f7, type: 2}
     - target: {fileID: 5240732971954992952, guid: 38e534583b249b84087525f321cb58ad, type: 3}
       propertyPath: data.acceptableItems.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5240732971954992952, guid: 38e534583b249b84087525f321cb58ad, type: 3}
       propertyPath: data.acceptableItems.Array.data[0]
@@ -646,12 +646,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5240732971954992952, guid: 38e534583b249b84087525f321cb58ad, type: 3}
       propertyPath: savedData.acceptableItems.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5240732971954992952, guid: 38e534583b249b84087525f321cb58ad, type: 3}
       propertyPath: buildController.data.placementSettings
       value: 
-      objectReference: {fileID: 11400000, guid: 1a8ab472f18b86c40bd446022944b313, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 5240732971954992952, guid: 38e534583b249b84087525f321cb58ad, type: 3}
       propertyPath: buildController.data.colliderData.shape
       value: 1
@@ -682,7 +682,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5240732971954992952, guid: 38e534583b249b84087525f321cb58ad, type: 3}
       propertyPath: buildController.data.acceptableItems.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5240732971954992952, guid: 38e534583b249b84087525f321cb58ad, type: 3}
       propertyPath: buildController.data.acceptableItems.Array.data[0]
