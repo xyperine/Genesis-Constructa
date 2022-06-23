@@ -15,19 +15,8 @@ namespace ColonizationMobileGame.SetupSystem.Extractors
         [SerializeField] private ExtractorProductionUnit productionUnit;
         [SerializeField, Range(1f, 10f)] private float upgraderColliderRadius;
         
-
-#if !UNITY_EDITOR
+        
         private void OnEnable()
-        {
-            ExtractorUpgraderSetupData data = new ExtractorUpgraderSetupData(upgradesChain,
-                new IUpgradeable<ExtractorUpgradeData>[] {productionZone, productionUnit}, upgraderColliderRadius);
-            
-            upgraderSetup.SetData(data);
-        }
-#endif
-        
-        
-        private void OnValidate()
         {
             ExtractorUpgraderSetupData data = new ExtractorUpgraderSetupData(upgradesChain,
                 new IUpgradeable<ExtractorUpgradeData>[] {productionZone, productionUnit}, upgraderColliderRadius);

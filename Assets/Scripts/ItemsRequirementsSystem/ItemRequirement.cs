@@ -1,5 +1,6 @@
 ﻿using System;
 using ColonizationMobileGame.Utility.Validating;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace ColonizationMobileGame.ItemsRequirementsSystem
@@ -8,7 +9,7 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
     public sealed class ItemRequirement : IValidatable, ICloneable
     {
         [SerializeField] private ItemType type;
-        [SerializeField, Min(1)] private int amount;
+        [SerializeField, MinValue(1)] private int amount;
         
         private int _currentAmount;
 

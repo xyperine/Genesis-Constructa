@@ -122,6 +122,12 @@ namespace ColonizationMobileGame.ItemsExtraction
         }
 
 
+        public void SetPool(ItemsPool pool)
+        {
+            itemsPool = pool;
+        }
+        
+
         public void Upgrade(ExtractorUpgradeData data)
         {
             ItemsPerSecond = data.ItemsPerSecond;
