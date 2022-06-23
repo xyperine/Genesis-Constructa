@@ -1,20 +1,23 @@
-﻿using ColonizationMobileGame.Utility.Validating;
+﻿using System.Collections.Generic;
+using ColonizationMobileGame.UnlockingSystem;
+using ColonizationMobileGame.Utility.Validating;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace ColonizationMobileGame.UpgradingSystem
 {
-    public abstract class UpgradesChainSO<TUpgradeData> : ScriptableObject
+    public abstract class UpgradesChainSO<TUpgradeData> : ScriptableObject, IUnlockableContainer
         where TUpgradeData : UpgradeData
     {
         [TableList(DefaultMinColumnWidth = 100)]
         [SerializeField] protected Upgrade<TUpgradeData>[] upgrades;
+        [SerializeField] private StructureType structureType;
 
         private readonly Validator _validator = new Validator();
-        
-        public UpgradesChain<TUpgradeData> Chain { get; private set; }
-        public UpgradesChain<TUpgradeData> UniqueChain => new UpgradesChain<TUpgradeData>(upgrades);
-        
+
+        public UpgradesChain<TUpgradeData> ChainCopy => new UpgradesChain<TUpgradeData>(upgrades);
+        public IEnumerable<IUnlockable> Unlockables => upgrades;
+
 
 #if !UNITY_EDITOR
         private void OnEnable()
@@ -22,19 +25,22 @@ namespace ColonizationMobileGame.UpgradingSystem
             Setup();
         }
 #endif
-        
-        
+
+
         private void OnValidate()
         {
-            Setup();
-        }
-
-
-        private void Setup()
-        {
-            Chain = new UpgradesChain<TUpgradeData>(upgrades);
+            SetCoordsForUpgrades();
             
             _validator.Validate(this);
+        }
+        
+
+        private void SetCoordsForUpgrades()
+        {
+            for (int i = 0; i < upgrades.Length; i++)
+            {
+                upgrades[i].Identifier = new UnlockIdentifier(structureType, i + 1);
+            }
         }
     }
 }

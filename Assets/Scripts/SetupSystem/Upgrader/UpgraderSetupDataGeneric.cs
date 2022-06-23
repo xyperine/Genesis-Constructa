@@ -22,7 +22,7 @@ namespace ColonizationMobileGame.SetupSystem.Upgrader
         {
             get
             {
-                _chain ??= chainSO.UniqueChain;
+                _chain ??= chainSO.ChainCopy;
                 return _chain;
             }
         }

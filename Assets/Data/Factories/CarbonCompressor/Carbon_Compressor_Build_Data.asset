@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a7ecfe09dc24e369f08457327906887, type: 3}
+  m_Name: Carbon_Compressor_Build_Data
+  m_EditorClassIdentifier: 
+  data:
+    locked: 1
+    structurePrefab: {fileID: 9065922910243019762, guid: d8fb0265257085446899f4494b4facff, type: 3}
+    price:
+      requirements:
+      - type: 1
+        amount: 10
+      - type: 4
+        amount: 5
+    coords:
+      structureType: 6
+      level: 0
+  structureType: 6

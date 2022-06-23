@@ -13,8 +13,8 @@ namespace ColonizationMobileGame.ItemsPlacement.Core.Area
 
         private Vector3 _size;
         private Vector3 _center;
-        
-        
+
+#if UNITY_EDITOR
         private void Update()
         {
             if (!Application.isEditor)
@@ -31,6 +31,7 @@ namespace ColonizationMobileGame.ItemsPlacement.Core.Area
 
             TryRecalculateShape();
         }
+#endif
 
 
         private void GetUpgradeableProperties()

@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 
-namespace MoonPioneerClone.Editor
+namespace ColonizationMobileGame.Editor
 {
     public static class MenuItemToggler
     {
