@@ -213,13 +213,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1742591141323441253, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742591141323441253, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.67
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2133959222633844083, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: upgradesChain
       value: 
-      objectReference: {fileID: 11400000, guid: 053452de87a1fdc4b8668d36be51d97d, type: 2}
+      objectReference: {fileID: 11400000, guid: 742562b0e3e6cd5489ea27a92fdb537d, type: 2}
     - target: {fileID: 2158360499411592640, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: placementSettings
       value: 

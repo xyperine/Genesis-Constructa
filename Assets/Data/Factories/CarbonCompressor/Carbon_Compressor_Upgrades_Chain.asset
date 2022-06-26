@@ -10,50 +10,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be2ba14184e74f078904746ea6bff00c, type: 3}
-  m_Name: Uranium_Factory_Upgrades_Chain
+  m_Name: Carbon_Compressor_Upgrades_Chain
   m_EditorClassIdentifier: 
   upgrades:
   - locked: 0
     price:
       requirements:
       - type: 1
-        amount: 70
+        amount: 110
       - type: 4
-        amount: 20
-    data:
-      capacity: 9
-      itemsPerSecond: 0.2
-    identifier:
-      structureType: 5
-      level: 1
-  - locked: 0
-    price:
-      requirements:
-      - type: 1
-        amount: 100
-      - type: 4
-        amount: 30
+        amount: 35
       - type: 6
-        amount: 5
+        amount: 15
     data:
-      capacity: 12
-      itemsPerSecond: 0.3
+      capacity: 8
+      itemsPerSecond: 0.1
     identifier:
-      structureType: 5
-      level: 2
+      structureType: 6
+      level: 1
   - locked: 1
     price:
       requirements:
       - type: 1
-        amount: 145
+        amount: 170
       - type: 4
-        amount: 55
+        amount: 60
       - type: 6
-        amount: 10
+        amount: 30
     data:
-      capacity: 18
-      itemsPerSecond: 0.6
+      capacity: 12
+      itemsPerSecond: 0.16666667
     identifier:
-      structureType: 5
-      level: 3
-  structureType: 5
+      structureType: 6
+      level: 2
+  structureType: 6

@@ -16,4 +16,4 @@ MonoBehaviour:
   useCustomFillingOrder: 0
   fillingOrder: 000000000200000001000000
   itemsAlignment: 1
-  areaSize: {x: 3, y: 2, z: 4}
+  areaSize: {x: 3, y: 1, z: 4}

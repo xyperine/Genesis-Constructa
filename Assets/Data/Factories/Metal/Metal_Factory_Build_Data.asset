@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Metal_Factory_Build_Data
   m_EditorClassIdentifier: 
   data:
-    locked: 1
+    locked: 0
     structurePrefab: {fileID: 7137553703576385239, guid: 44359dcc96697c447a405b7fafd2a14e, type: 3}
     price:
       requirements:
-      - type: 3
+      - type: 1
         amount: 10
-    coords:
+    identifier:
       structureType: 2
       level: 0
   structureType: 2

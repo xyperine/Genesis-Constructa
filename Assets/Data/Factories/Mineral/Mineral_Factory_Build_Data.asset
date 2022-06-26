@@ -10,18 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a7ecfe09dc24e369f08457327906887, type: 3}
-  m_Name: Carbon_Compressor_Build_Data
+  m_Name: Mineral_Factory_Build_Data
   m_EditorClassIdentifier: 
   data:
     locked: 1
-    structurePrefab: {fileID: 9065922910243019762, guid: d8fb0265257085446899f4494b4facff, type: 3}
+    structurePrefab: {fileID: 739833009682497574, guid: da77ff5d0d6a86d4c812b0d5e67814a4, type: 3}
     price:
       requirements:
       - type: 1
-        amount: 80
-      - type: 4
-        amount: 20
+        amount: 12
     identifier:
-      structureType: 6
+      structureType: 3
       level: 0
-  structureType: 6
+  structureType: 3
