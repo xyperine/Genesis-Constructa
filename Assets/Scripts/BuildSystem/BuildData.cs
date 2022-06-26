@@ -9,7 +9,7 @@ namespace ColonizationMobileGame.BuildSystem
     [Serializable]
     public class BuildData : IUnlockable
     {
-        [SerializeField] private bool locked;
+        [SerializeField] private bool locked = true;
         [SerializeField] private GameObject structurePrefab;
         [SerializeField] private ItemsRequirementsBlock price;
 

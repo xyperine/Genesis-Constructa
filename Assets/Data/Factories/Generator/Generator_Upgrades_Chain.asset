@@ -10,30 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be2ba14184e74f078904746ea6bff00c, type: 3}
-  m_Name: Metal_Factory_Upgrades_Chain
+  m_Name: Generator_Upgrades_Chain
   m_EditorClassIdentifier: 
   upgrades:
   - locked: 0
     price:
       requirements:
       - type: 1
-        amount: 15
+        amount: 20
     data:
-      capacity: 18
-      itemsPerSecond: 0.5
+      capacity: 8
+      itemsPerSecond: 0.24
     identifier:
-      structureType: 2
+      structureType: 0
       level: 1
   - locked: 0
     price:
       requirements:
       - type: 1
-        amount: 25
+        amount: 30
     data:
-      capacity: 18
-      itemsPerSecond: 0.7
+      capacity: 10
+      itemsPerSecond: 0.3
     identifier:
-      structureType: 2
+      structureType: 0
       level: 2
   - locked: 0
     price:
@@ -43,10 +43,10 @@ MonoBehaviour:
       - type: 4
         amount: 5
     data:
-      capacity: 24
-      itemsPerSecond: 1
+      capacity: 12
+      itemsPerSecond: 0.4
     identifier:
-      structureType: 2
+      structureType: 0
       level: 3
   - locked: 0
     price:
@@ -56,10 +56,10 @@ MonoBehaviour:
       - type: 4
         amount: 10
     data:
-      capacity: 30
-      itemsPerSecond: 1.2
+      capacity: 14
+      itemsPerSecond: 0.5
     identifier:
-      structureType: 2
+      structureType: 0
       level: 4
   - locked: 1
     price:
@@ -71,9 +71,9 @@ MonoBehaviour:
       - type: 6
         amount: 5
     data:
-      capacity: 48
-      itemsPerSecond: 2
+      capacity: 18
+      itemsPerSecond: 0.7
     identifier:
-      structureType: 2
+      structureType: 0
       level: 5
-  structureType: 2
+  structureType: 0

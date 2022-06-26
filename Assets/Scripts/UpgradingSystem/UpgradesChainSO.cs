@@ -22,20 +22,20 @@ namespace ColonizationMobileGame.UpgradingSystem
 #if !UNITY_EDITOR
         private void OnEnable()
         {
-            Setup();
+            SetIdentifiersForUpgrades();
         }
 #endif
 
 
         private void OnValidate()
         {
-            SetCoordsForUpgrades();
+            SetIdentifiersForUpgrades();
             
             _validator.Validate(this);
         }
         
 
-        private void SetCoordsForUpgrades()
+        private void SetIdentifiersForUpgrades()
         {
             for (int i = 0; i < upgrades.Length; i++)
             {

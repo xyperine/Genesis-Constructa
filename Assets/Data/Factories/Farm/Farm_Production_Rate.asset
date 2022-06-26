@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fc080b9c1d42359790517a955fc5e5, type: 3}
   m_Name: Farm_Production_Rate
   m_EditorClassIdentifier: 
-  itemsPerSecond: 0.4166667
+  itemsPerSecond: 0.33333334
