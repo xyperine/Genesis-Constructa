@@ -12,6 +12,7 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
         [TableList]
         [SerializeField] private ItemRequirement[] requirements;
 
+        public bool Locked { get; set; }
         public ItemsRequirementsBlock NextBlock { get; private set; }
         public bool NeedMore => requirements.Any(r => !r.Satisfied);
         public ItemType[] RequiredItems => requirements.Where(r => !r.Satisfied).Select(r => r.Type).ToArray();
@@ -55,6 +56,7 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
         {
             ItemsRequirementsBlock block = new ItemsRequirementsBlock
             {
+                Locked = Locked,
                 requirements = requirements.Select(r => (ItemRequirement) r.Clone()).ToArray(),
             };
 

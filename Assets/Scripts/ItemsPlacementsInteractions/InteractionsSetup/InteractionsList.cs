@@ -68,7 +68,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup
             
             if (HasInteractionWith(interaction.Target))
             {
-                Debug.LogError($"{holder}: Trying to add another interaction with {interaction.Target}!");
+                //Debug.LogError($"{holder}: Trying to add another interaction with {interaction.Target}!");
                 return;
             }
             

@@ -1,26 +1,26 @@
 ﻿using System;
 using ColonizationMobileGame.ItemsRequirementsSystem;
-using ColonizationMobileGame.Utility.Validating;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace ColonizationMobileGame.UnlockingSystem
 {
     [Serializable]
-    public class Unlock : IValidatable
+    public class Unlock
     {
-        [SerializeField] private ItemsRequirementsBlock price;
-        private Unlockable _unlockable;
+        [HideLabel]
+        [SerializeField] private UnlockIdentifier identifier;
+        [HideLabel]
+        [PropertySpace(16)]
+        [SerializeField] private ItemsRequirementsBlock price = new ItemsRequirementsBlock();
+        
+        public UnlockIdentifier Identifier => identifier;
+        public ItemsRequirementsBlock Price => price;
+        
 
-
-        public Unlock(Unlockable unlockable)
+        public Unlock(UnlockIdentifier identifier)
         {
-            _unlockable = unlockable;
-        }
-
-
-        public void OnValidate()
-        {
-            price.Satisfied += _unlockable.Unlock;
+            this.identifier = identifier;
         }
     }
 }

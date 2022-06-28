@@ -18,6 +18,11 @@ namespace ColonizationMobileGame.Utility.Validating
 
         private void ValidateFieldsOf(object obj)
         {
+            if (obj == null)
+            {
+                return;
+            }
+            
             FieldInfo[] fields = GetFields(obj.GetType());
 
             if (!fields.Any())

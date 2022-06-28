@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2999128272576963149, guid: afb3e9ec722efd846bfe9ae587ff32bf, type: 3}
       propertyPath: type
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1431310650405795724, guid: afb3e9ec722efd846bfe9ae587ff32bf, type: 3}
       propertyPath: m_RootOrder
@@ -74,7 +74,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5599520861547934253, guid: afb3e9ec722efd846bfe9ae587ff32bf, type: 3}
   m_PrefabInstance: {fileID: 8069641444469763233}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4282948658873681252
+--- !u!114 &4735266183804659523
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,11 +83,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2470328496134020748}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ace2d20d93f44cd4ac46532e1941fc38, type: 3}
+  m_Script: {fileID: 11500000, guid: caef86ea32464c1cacf57a257e24adf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 4151708191398031634}
-  cellLifetime: 5
+  lifetime: 60
 --- !u!114 &4151708191398031634 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -2999128272576963149, guid: afb3e9ec722efd846bfe9ae587ff32bf, type: 3}

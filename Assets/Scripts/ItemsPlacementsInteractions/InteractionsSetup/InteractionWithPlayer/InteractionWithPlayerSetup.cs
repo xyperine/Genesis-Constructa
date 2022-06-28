@@ -6,7 +6,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup.I
 {
     public abstract class InteractionWithPlayerSetup : MonoBehaviour
     {
-        [SerializeField] protected bool interactWithPlayer;
+        [SerializeField] protected bool interactWithPlayer = true;
         [SerializeField, ShowIf(nameof(interactWithPlayer))] protected PlayerInteractionsSO playerInteractionsSO;
         [SerializeField] protected InteractionTarget target;
 

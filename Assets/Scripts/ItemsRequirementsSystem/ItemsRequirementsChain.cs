@@ -9,7 +9,7 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
         private ItemsRequirementsBlock _activeBlock;
 
         public ItemType[] RequiredItems => _activeBlock?.RequiredItems;
-        public bool NeedMore => _activeBlock is {NeedMore: true};
+        public bool NeedMore => _activeBlock is {NeedMore: true, Locked: false};
 
 
         public ItemsRequirementsChain(ItemsRequirementsBlock[] blocks)

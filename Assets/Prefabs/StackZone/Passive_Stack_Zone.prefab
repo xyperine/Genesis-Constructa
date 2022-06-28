@@ -53,7 +53,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3498629856824353550, guid: c85ca864afb5dd647a315607f1a288dd, type: 3}
       propertyPath: m_Name
-      value: New_Stack_Zone
+      value: Passive_Stack_Zone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c85ca864afb5dd647a315607f1a288dd, type: 3}
+--- !u!1 &2858110078702559820 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1427364332269391766, guid: c85ca864afb5dd647a315607f1a288dd, type: 3}
+  m_PrefabInstance: {fileID: 3775441134696623578}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7375568765460743689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2858110078702559820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf408ea7c32f471facfb648161620bdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactWithPlayer: 1
+  playerInteractionsSO: {fileID: 11400000, guid: 88d4d2bbd9432f34489ad1e2de55b2f7, type: 2}
+  target: {fileID: 4938804365099491736}
+  interactionType: 1
+--- !u!114 &4938804365099491736 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8137766835704171586, guid: c85ca864afb5dd647a315607f1a288dd, type: 3}
+  m_PrefabInstance: {fileID: 3775441134696623578}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c247c8b4d65e47b5b32b8a68d61270ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
