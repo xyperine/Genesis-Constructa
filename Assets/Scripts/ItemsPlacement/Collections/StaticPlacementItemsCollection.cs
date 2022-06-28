@@ -10,8 +10,7 @@ namespace ColonizationMobileGame.ItemsPlacement.Collections
         private PlacementItem[] _items;
         public int FirstNullIndex => Array.IndexOf(_items, null);
         public int Count => _items.Count(i => i != null);
-
-
+        
         public IEnumerable<PlacementItem> Items => (IEnumerable<PlacementItem>)_items.Clone();
 
 
