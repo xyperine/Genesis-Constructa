@@ -9,16 +9,18 @@ using UnityEngine;
 namespace ColonizationMobileGame.UnlockingSystem
 {
     [CreateAssetMenu(fileName = "Unlocks_Chain", menuName = "Unlocks Chain", order = 0)]
-    public class UnlocksChainSO : ScriptableObject
+    public class UnlocksChainSO : ScriptableObject, IChain<IUnlockable>
     {
         [SerializeField] private List<Unlock> unlocks;
+        
         [SerializeField] private BuildDataSO[] builds;
         [SerializeField] private ExtractorUpgradesChainSO[] upgrades;
 
         private List<IUnlockable> _unlockables;
         private readonly Validator _validator = new Validator();
 
-        public ItemsRequirementsChain ItemsRequirementsChain { get; private set; }
+        public ItemsRequirementsChain RequirementsChain { get; private set; }
+        public IUnlockable Current => _unlockables.FirstOrDefault(u => u.Locked);
 
 
         private void OnValidate()
@@ -118,7 +120,7 @@ namespace ColonizationMobileGame.UnlockingSystem
 #endif
             WireUnlockingWithPrice();
             
-            ItemsRequirementsChain = new ItemsRequirementsChain(unlocks.Select(u => u.Price).ToArray());
+            RequirementsChain = new ItemsRequirementsChain(unlocks.Select(u => u.Price).ToArray());
         }
 
 
@@ -129,7 +131,7 @@ namespace ColonizationMobileGame.UnlockingSystem
                 IUnlockable unlockable = _unlockables.SingleOrDefault(u => unlock.Identifier.Equals(u.Identifier));
                 if (unlockable != null)
                 {
-                    unlock.Price.Satisfied += unlockable.Unlock;
+                    unlock.Price.Fulfilled += unlockable.Unlock;
                 }
             }
         }

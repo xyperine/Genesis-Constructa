@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
@@ -27,7 +28,7 @@ namespace ColonizationMobileGame.SceneLoading
 #if UNITY_EDITOR
             foreach (SceneAsset sceneAsset in scenesToLoad)
             {
-                LoadScene(sceneAsset.name);
+                StartCoroutine(LoadScene(sceneAsset.name));
             }
 #else
             foreach (string sceneName in scenesNames)
@@ -38,9 +39,18 @@ namespace ColonizationMobileGame.SceneLoading
         }
 
 
-        private void LoadScene(string sceneName)
+        private IEnumerator LoadScene(string sceneName)
         {
-            SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+            var s = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+            yield return new WaitUntil(() => s.isDone);
+            
+            foreach (GameObject rootGameObject in SceneManager.GetSceneByName(sceneName).GetRootGameObjects())
+            {
+                foreach (Canvas canvas in rootGameObject.GetComponentsInChildren<Canvas>())
+                {
+                    canvas.worldCamera = Camera.main;
+                }
+            }
         }
     }
 }

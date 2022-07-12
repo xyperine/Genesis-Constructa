@@ -100,6 +100,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1008100239815824272, guid: ff4549510fc13184489be089c41dfcda, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1926739901819140925, guid: ff4549510fc13184489be089c41dfcda, type: 3}
+      propertyPath: itemsHolder
+      value: 
+      objectReference: {fileID: 2772615054218884546}
     - target: {fileID: 4990917755210131342, guid: ff4549510fc13184489be089c41dfcda, type: 3}
       propertyPath: m_Name
       value: Consumer

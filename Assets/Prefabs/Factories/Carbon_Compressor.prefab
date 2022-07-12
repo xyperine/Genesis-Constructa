@@ -222,6 +222,14 @@ PrefabInstance:
       propertyPath: buildController.data.acceptableItems.Array.data[0]
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1558102619949006949, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558102619949006949, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.08
+      objectReference: {fileID: 0}
     - target: {fileID: 1655345238484333031, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
       propertyPath: placementSettings
       value: 
@@ -245,6 +253,10 @@ PrefabInstance:
     - target: {fileID: 3188430943453929338, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
       propertyPath: acceptableItems.Array.data[0]
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5332051562272080925, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6129290085137854388, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
       propertyPath: m_RootOrder
@@ -578,6 +590,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1906271793800754808, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 4.04
+      objectReference: {fileID: 0}
     - target: {fileID: 2133959222633844083, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: upgradesChain
       value: 
@@ -596,6 +612,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4544138657385296773, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: alwaysDraw
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049747593135321600, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5149145523727696144, guid: b3134d23e164987449c78b0f4fca2986, type: 3}

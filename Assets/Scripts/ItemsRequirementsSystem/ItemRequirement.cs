@@ -10,22 +10,25 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
     {
         [SerializeField] private ItemType type;
         [SerializeField, MinValue(1)] private int amount;
-        
-        private int _currentAmount;
 
         public ItemType Type => type;
-        public bool Satisfied => _currentAmount >= amount;
+
+        public int CurrentAmount { get; private set; }
+
+        public int Required => amount;
+
+        public bool Fulfilled => CurrentAmount >= amount;
         
 
         public void AddOneItem()
         {
-            _currentAmount++;
+            CurrentAmount++;
         }
 
         
         public void OnValidate()
         {
-            _currentAmount = 0;
+            CurrentAmount = 0;
         }
 
 

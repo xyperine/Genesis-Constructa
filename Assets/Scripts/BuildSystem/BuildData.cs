@@ -7,7 +7,7 @@ using UnityEngine;
 namespace ColonizationMobileGame.BuildSystem
 {
     [Serializable]
-    public class BuildData : IUnlockable
+    public class BuildData : IUnlockable, ISerializationCallbackReceiver
     {
         [SerializeField] private bool locked = true;
         [SerializeField] private GameObject structurePrefab;
@@ -19,7 +19,7 @@ namespace ColonizationMobileGame.BuildSystem
         
         public bool Locked => locked;
         public GameObject StructurePrefab => structurePrefab;
-        public ItemsRequirementsBlock Price => price;
+        public ItemsRequirementsBlock Price { get; private set; }
         public UnlockIdentifier Identifier
         {
             get => identifier;
@@ -27,7 +27,7 @@ namespace ColonizationMobileGame.BuildSystem
         }
 
         public event Action Unlocked;
-        
+
 
         public void Unlock()
         {
@@ -51,5 +51,17 @@ namespace ColonizationMobileGame.BuildSystem
             }
         }
 #endif
+        
+        
+        public void OnBeforeSerialize()
+        {
+            
+        }
+
+
+        public void OnAfterDeserialize()
+        {
+            Price = price.GetDeepCopy();
+        }
     }
 }

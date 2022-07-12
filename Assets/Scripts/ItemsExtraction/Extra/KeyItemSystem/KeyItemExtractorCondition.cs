@@ -9,7 +9,7 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
 
         public override bool Met()
         {
-            return keyItemsSet.Satisfied;
+            return keyItemsSet.Filled;
         }
     }
 }

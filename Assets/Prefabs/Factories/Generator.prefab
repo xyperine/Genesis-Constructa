@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -3.25
       objectReference: {fileID: 0}
+    - target: {fileID: 1906271793800754808, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.08
+      objectReference: {fileID: 0}
     - target: {fileID: 2133959222633844083, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: upgradesChain
       value: 

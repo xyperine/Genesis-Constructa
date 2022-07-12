@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   consumer: {fileID: 373236430004182017}
   chainSO: {fileID: 0}
+  itemsCountPanelData: {fileID: 3552915290161366640}
 --- !u!1 &685933803139946635
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,9 +197,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1008100239815824272, guid: ff4549510fc13184489be089c41dfcda, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853815441171228238, guid: ff4549510fc13184489be089c41dfcda, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 3552915290161366640}
     - target: {fileID: 4990917755210131342, guid: ff4549510fc13184489be089c41dfcda, type: 3}
       propertyPath: m_Name
       value: Consumer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880930791245256680, guid: ff4549510fc13184489be089c41dfcda, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.38
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff4549510fc13184489be089c41dfcda, type: 3}
@@ -236,3 +249,14 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2.06
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3552915290161366640 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4092242131030441906, guid: ff4549510fc13184489be089c41dfcda, type: 3}
+  m_PrefabInstance: {fileID: 685933801501342146}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8866478cda9e4982b4418d7d0ffa40cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -89,13 +89,13 @@ namespace ColonizationMobileGame.UpgradingSystem
 
         private void WirePurchasedEventToPrice()
         {
-            price.Satisfied += InvokePurchased;
+            price.Fulfilled += InvokePurchased;
         }
         
 
         private void InvokePurchased()
         {
-            price.Satisfied -= InvokePurchased;
+            price.Fulfilled -= InvokePurchased;
             
             Purchased?.Invoke(this);
         }

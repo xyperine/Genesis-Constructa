@@ -12,10 +12,10 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
     {
         [SerializeField] private ItemType[] acceptableItems; 
         
-        private PlacementArea _placement;
+        protected PlacementArea placement;
         
-        public bool HasItems => _placement.Count > 0;
-        public override bool CanTakeMore => _placement.CanFitMore;
+        public bool HasItems => placement.Count > 0;
+        public override bool CanTakeMore => placement.CanFitMore;
         public override ItemType[] AcceptableItems => (ItemType[]) acceptableItems.Clone();
 
 
@@ -27,7 +27,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
 
         private void OnValidate()
         {
-            if (!TryGetComponent(out _placement))
+            if (!TryGetComponent(out placement))
             {
                 Debug.LogError("No PlacementArea component attached!");
             }
@@ -36,7 +36,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
 
         private void GetComponents()
         {
-            _placement = GetComponent<PlacementArea>();
+            placement = GetComponent<PlacementArea>();
         }
 
 
@@ -56,7 +56,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
             item.SetFree();
             item.SetZone(this);
             
-            _placement.Place(item.GetComponent<PlacementItem>());
+            placement.Place(item.GetComponent<PlacementItem>());
         }
         
         
@@ -66,10 +66,10 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
         }
 
 
-        public void Remove(StackZoneItem item)
+        public virtual void Remove(StackZoneItem item)
         {
             item.SetZone(null);
-            _placement.Remove(item.GetComponent<PlacementItem>());
+            placement.Remove(item.GetComponent<PlacementItem>());
         }
 
 
@@ -80,7 +80,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
                 return null;
             }
             
-            PlacementItem placementItem = _placement.GetLast(requestedItems);
+            PlacementItem placementItem = placement.GetLast(requestedItems);
 
             if (!placementItem)
             {
@@ -96,7 +96,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
 
         public void Upgrade(StackZoneUpgradeData data)
         {
-            _placement.Upgrade(data.Capacity);
+            placement.Upgrade(data.Capacity);
         }
     }
 }

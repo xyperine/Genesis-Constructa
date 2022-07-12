@@ -7,7 +7,7 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
     {
         [SerializeField] private KeyItemSlot[] slots;
         
-        public bool Satisfied => slots.All(s => s.Satisfied);
+        public bool Filled => slots.All(s => s.Filled);
 
 
         private void Awake()
@@ -23,7 +23,7 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
 
         private void Update()
         {
-            if (!Satisfied)
+            if (!Filled)
             {
                 return;
             }

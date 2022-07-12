@@ -22,6 +22,9 @@ MonoBehaviour:
         amount: 1
     data:
       capacity: 18
+    identifier:
+      structureType: 0
+      level: 1
   - locked: 0
     price:
       requirements:
@@ -31,6 +34,9 @@ MonoBehaviour:
         amount: 2
     data:
       capacity: 24
+    identifier:
+      structureType: 0
+      level: 2
   - locked: 0
     price:
       requirements:
@@ -40,3 +46,7 @@ MonoBehaviour:
         amount: 3
     data:
       capacity: 30
+    identifier:
+      structureType: 0
+      level: 3
+  structureType: 0

@@ -197,6 +197,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1906271793800754808, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906271793800754808, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906271793800754808, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906271793800754808, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906271793800754808, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 5.15
+      objectReference: {fileID: 0}
     - target: {fileID: 2133959222633844083, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: upgradesChain
       value: 
@@ -215,6 +235,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4544138657385296773, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: alwaysDraw
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049747593135321600, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5149145523727696144, guid: b3134d23e164987449c78b0f4fca2986, type: 3}

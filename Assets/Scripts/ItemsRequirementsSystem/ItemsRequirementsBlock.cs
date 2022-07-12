@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using ColonizationMobileGame.UI;
 using ColonizationMobileGame.Utility;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -14,12 +15,18 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
 
         public bool Locked { get; set; }
         public ItemsRequirementsBlock NextBlock { get; private set; }
-        public bool NeedMore => requirements.Any(r => !r.Satisfied);
-        public ItemType[] RequiredItems => requirements.Where(r => !r.Satisfied).Select(r => r.Type).ToArray();
+        public bool NeedMore => requirements.Any(r => !r.Fulfilled);
+        public ItemType[] RequiredItems => requirements.Where(r => !r.Fulfilled).Select(r => r.Type).ToArray();
+
+        public event Action Fulfilled;
+
+
+        public ItemCount[] ToItemsCount()
+        {
+            return requirements.Select(r => new ItemCount(r.Type, r.CurrentAmount, r.Required)).ToArray();
+        }
         
-        public event Action Satisfied;
-
-
+        
         public void SetNextBlock(ItemsRequirementsBlock block)
         {
             NextBlock = block;
@@ -43,11 +50,11 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
 
         private void CheckSatisfaction()
         {
-            bool allRequirementsSatisfied = requirements.Aggregate(true, (satisfied, r) => satisfied & r.Satisfied);
+            bool allRequirementsFulfilled = requirements.All(r => r.Fulfilled);
 
-            if (allRequirementsSatisfied)
+            if (allRequirementsFulfilled)
             {
-                Satisfied?.Invoke();
+                Fulfilled?.Invoke();
             }
         }
 

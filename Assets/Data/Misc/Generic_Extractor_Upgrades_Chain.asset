@@ -23,6 +23,9 @@ MonoBehaviour:
     data:
       capacity: 18
       itemsPerSecond: 1
+    identifier:
+      structureType: 0
+      level: 1
   - locked: 0
     price:
       requirements:
@@ -33,7 +36,10 @@ MonoBehaviour:
     data:
       capacity: 24
       itemsPerSecond: 2
-  - locked: 0
+    identifier:
+      structureType: 0
+      level: 2
+  - locked: 1
     price:
       requirements:
       - type: 0
@@ -43,3 +49,7 @@ MonoBehaviour:
     data:
       capacity: 30
       itemsPerSecond: 4
+    identifier:
+      structureType: 0
+      level: 3
+  structureType: 0

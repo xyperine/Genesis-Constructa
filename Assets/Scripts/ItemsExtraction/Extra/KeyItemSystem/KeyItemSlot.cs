@@ -7,7 +7,7 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
     {
         private KeyItem _item;
         
-        public bool Satisfied => HasItems;
+        public bool Filled => HasItems;
 
 
         public override void Add(StackZoneItem item)

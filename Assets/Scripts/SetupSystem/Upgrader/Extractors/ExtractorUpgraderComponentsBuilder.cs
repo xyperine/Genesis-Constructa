@@ -18,7 +18,7 @@ namespace ColonizationMobileGame.SetupSystem.Upgrader.Extractors
 
         protected override void SetupItemsConsumer()
         {
-            consumer.Setup(setupData.Chain.RequirementsChain);
+            consumer.Setup(setupData.Chain);
         }
 
 

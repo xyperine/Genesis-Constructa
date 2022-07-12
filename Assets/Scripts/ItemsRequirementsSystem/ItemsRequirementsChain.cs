@@ -6,10 +6,9 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
     {
         private readonly ItemsRequirementsBlock[] _blocks;
 
-        private ItemsRequirementsBlock _activeBlock;
-
-        public ItemType[] RequiredItems => _activeBlock?.RequiredItems;
-        public bool NeedMore => _activeBlock is {NeedMore: true, Locked: false};
+        public bool NeedMore => CurrentBlock is {NeedMore: true, Locked: false};
+        public ItemType[] RequiredItems => CurrentBlock?.RequiredItems;
+        public ItemsRequirementsBlock CurrentBlock { get; private set; }
 
 
         public ItemsRequirementsChain(ItemsRequirementsBlock[] blocks)
@@ -38,7 +37,7 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
 
         private void SetupInitialBlock()
         {
-            _activeBlock = _blocks[0];
+            CurrentBlock = _blocks[0];
             
             SubscribeToActiveBlockSatisfaction();
         }
@@ -46,23 +45,12 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
 
         private void SubscribeToActiveBlockSatisfaction()
         {
-            if (_activeBlock == null)
+            if (CurrentBlock == null)
             {
                 return;
             }
 
-            _activeBlock.Satisfied += GoToNextBlock;
-        }
-
-
-        private void UnsubscribeFromActiveBlockSatisfaction()
-        {
-            if (_activeBlock == null)
-            {
-                return;
-            }
-
-            _activeBlock.Satisfied -= GoToNextBlock;
+            CurrentBlock.Fulfilled += GoToNextBlock;
         }
 
 
@@ -70,10 +58,22 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
         {
             UnsubscribeFromActiveBlockSatisfaction();
 
-            _activeBlock = _activeBlock.NextBlock;
+            CurrentBlock = CurrentBlock.NextBlock;
 
             SubscribeToActiveBlockSatisfaction();
         }
+
+
+        private void UnsubscribeFromActiveBlockSatisfaction()
+        {
+            if (CurrentBlock == null)
+            {
+                return;
+            }
+
+            CurrentBlock.Fulfilled -= GoToNextBlock;
+        }
+
 
         private void SetupBlock(int index)
         {
@@ -90,7 +90,7 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
 
         public void AddItem(ItemType type)
         {
-            _activeBlock.AddItem(type);
+            CurrentBlock.AddItem(type);
         }
     }
 }

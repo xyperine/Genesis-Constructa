@@ -51,7 +51,7 @@ MonoBehaviour:
     consumer: {fileID: 6525049144284838718}
     collider: {fileID: 1227933341385262473}
     setupData:
-      chain: {fileID: 0}
+      chainSO: {fileID: 0}
       upgradeables: []
       colliderRadius: 0
     upgrader: {fileID: 7208957530713782397}
@@ -111,7 +111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 675f1e1ffa12438a82c05a5055a85361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  consumer: {fileID: 6525049144284838718}
 --- !u!1001 &6208014202579820285
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -166,6 +165,14 @@ PrefabInstance:
     - target: {fileID: 4990917755210131342, guid: ff4549510fc13184489be089c41dfcda, type: 3}
       propertyPath: m_Name
       value: Consumer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880930791245256680, guid: ff4549510fc13184489be089c41dfcda, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880930791245256680, guid: ff4549510fc13184489be089c41dfcda, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff4549510fc13184489be089c41dfcda, type: 3}

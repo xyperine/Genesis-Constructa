@@ -1,6 +1,5 @@
 ﻿using ColonizationMobileGame.ItemsExtraction;
 using ColonizationMobileGame.ItemsPlacementsInteractions;
-using ColonizationMobileGame.ItemsRequirementsSystem;
 using ColonizationMobileGame.ObjectPooling;
 using UnityEngine;
 
@@ -12,17 +11,15 @@ namespace ColonizationMobileGame.BuildSystem
         [SerializeField] private Transform structuresParent;
         [SerializeField] private ItemsPool itemsPool;
         [SerializeField] private ItemsConsumer consumer;
-
-        private Vector2 _bounds;
+        
         private BuildData _buildData;
 
-        
+
         private void Awake()
         {
-            _buildData = buildDataSO.Data;
+            _buildData = buildDataSO.Current;
             
             SetupPrice();
-            DrawBox();
 
             if (!_buildData.Locked)
             {
@@ -32,14 +29,12 @@ namespace ColonizationMobileGame.BuildSystem
             _buildData.Unlocked += OnUnlocked;
             gameObject.SetActive(false);
         }
-
-
+        
+        
         private void SetupPrice()
         {
-            ItemsRequirementsBlock price = _buildData.Price.GetDeepCopy();
-            
-            consumer.Setup(new ItemsRequirementsChain(new []{price}));
-            price.Satisfied += Build;
+            consumer.Setup(buildDataSO);
+            _buildData.Price.Fulfilled += Build;
         }
 
 
@@ -55,13 +50,6 @@ namespace ColonizationMobileGame.BuildSystem
         private void OnUnlocked()
         {
             gameObject.SetActive(true);
-        }
-
-
-        private void DrawBox()
-        {
-            //_bounds = buildData.Bounds;
-            //Handles.DrawSolidRectangleWithOutline(new Rect(transform.position.x, transform.position.y, _bounds.x, _bounds.y), Color.blue, Color.cyan);
         }
     }
 }
