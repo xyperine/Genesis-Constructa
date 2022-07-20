@@ -1,12 +1,17 @@
 ﻿using System.Collections.Generic;
 using ColonizationMobileGame.SetupSystem;
+using ColonizationMobileGame.UI.ItemsAmount.Data;
 using UnityEngine;
 
 namespace ColonizationMobileGame.UpgradingSystem
 {
-    public abstract class Upgrader<TUpgradeData> : MonoBehaviour, IConstructable
+    public abstract class Upgrader<TUpgradeData> : MonoBehaviour, IConstructable, IItemsAmountDataProvider
         where TUpgradeData : UpgradeData
     {
+        [SerializeField] private ItemsAmountPanelData itemsAmountPanelData;
+
+        protected UpgradesChain<TUpgradeData> chain;
+
         protected IEnumerable<IUpgradeable<TUpgradeData>> upgradeables;
         protected UpgradesStatusTracker<TUpgradeData> upgradesTracker;
 
@@ -26,6 +31,18 @@ namespace ColonizationMobileGame.UpgradingSystem
         private void OnDisable()
         {
             upgradesTracker.Purchased -= Upgrade;
+        }
+
+
+        public void SetItemsAmountData()
+        {
+            Upgrade<TUpgradeData> current = chain.Current;
+
+            itemsAmountPanelData.SetData(current?.Price.ToItemsCount());
+            itemsAmountPanelData.SetIdentifier(current?.Identifier);
+            itemsAmountPanelData.SetUnlockable(current);
+            
+            itemsAmountPanelData.InvokeChanged();
         }
     }
 }

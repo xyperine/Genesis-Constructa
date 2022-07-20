@@ -9,7 +9,7 @@ using UnityEngine;
 namespace ColonizationMobileGame.UnlockingSystem
 {
     [CreateAssetMenu(fileName = "Unlocks_Chain", menuName = "Unlocks Chain", order = 0)]
-    public class UnlocksChainSO : ScriptableObject, IChain<IUnlockable>
+    public class UnlocksChainSO : ScriptableObject, IChain<Unlock>
     {
         [SerializeField] private List<Unlock> unlocks;
         
@@ -20,7 +20,7 @@ namespace ColonizationMobileGame.UnlockingSystem
         private readonly Validator _validator = new Validator();
 
         public ItemsRequirementsChain RequirementsChain { get; private set; }
-        public IUnlockable Current => _unlockables.FirstOrDefault(u => u.Locked);
+        public Unlock Current => unlocks.FirstOrDefault(u => RequirementsChain.CurrentBlock == u.Price);
 
 
         private void OnValidate()
@@ -88,7 +88,7 @@ namespace ColonizationMobileGame.UnlockingSystem
 
         private void RemoveInvalidUnlocks()
         {
-            UnlockIdentifier[] unlockablesCoords = _unlockables.Select(u => u.Identifier).ToArray();
+            StructureIdentifier[] unlockablesCoords = _unlockables.Select(u => u.Identifier).ToArray();
             unlocks.RemoveAll(u => !unlockablesCoords.Contains(u.Identifier));
         }
 

@@ -21,7 +21,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
 
         private void Awake()
         {
-            GetComponents();
+            placement = GetComponent<PlacementArea>();
         }
 
 
@@ -31,12 +31,6 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
             {
                 Debug.LogError("No PlacementArea component attached!");
             }
-        }
-
-
-        private void GetComponents()
-        {
-            placement = GetComponent<PlacementArea>();
         }
 
 

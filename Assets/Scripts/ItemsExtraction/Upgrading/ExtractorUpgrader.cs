@@ -13,10 +13,14 @@ namespace ColonizationMobileGame.ItemsExtraction.Upgrading
                 return;
             }
 
+            chain = extractorUpgraderData.Chain;
+            
             upgradeables = extractorUpgraderData.Upgradeables;
             upgradesTracker = extractorUpgraderData.Chain.UpgradesStatusTracker;
 
             upgradesTracker.Purchased += Upgrade;
+            
+            SetItemsAmountData();
         }
     }
 }

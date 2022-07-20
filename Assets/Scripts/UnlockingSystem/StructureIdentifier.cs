@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ColonizationMobileGame.UnlockingSystem
 {
     [Serializable]
-    public class UnlockIdentifier
+    public class StructureIdentifier
     {
         [LabelWidth(150)]
         [SerializeField, ReadOnly] private StructureType structureType;
@@ -16,7 +16,7 @@ namespace ColonizationMobileGame.UnlockingSystem
         public int Level => level;
 
 
-        public UnlockIdentifier(StructureType structureType, int level)
+        public StructureIdentifier(StructureType structureType, int level)
         {
             this.structureType = structureType;
             this.level = level;
@@ -25,7 +25,7 @@ namespace ColonizationMobileGame.UnlockingSystem
 
         public override bool Equals(object obj)
         {
-            UnlockIdentifier identifier = (UnlockIdentifier) obj;
+            StructureIdentifier identifier = (StructureIdentifier) obj;
             return structureType == identifier.structureType && level == identifier.level;
         }
 

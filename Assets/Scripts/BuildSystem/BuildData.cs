@@ -13,14 +13,14 @@ namespace ColonizationMobileGame.BuildSystem
         [SerializeField] private GameObject structurePrefab;
         [SerializeField] private ItemsRequirementsBlock price;
 
-        [SerializeField, HideInInspector] private UnlockIdentifier identifier;
+        [SerializeField, HideInInspector] private StructureIdentifier identifier;
         
         private bool _defaultLockedState;
         
         public bool Locked => locked;
         public GameObject StructurePrefab => structurePrefab;
         public ItemsRequirementsBlock Price { get; private set; }
-        public UnlockIdentifier Identifier
+        public StructureIdentifier Identifier
         {
             get => identifier;
             set => identifier = value;

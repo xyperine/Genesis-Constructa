@@ -29,7 +29,7 @@ namespace ColonizationMobileGame.BuildSystem
 
         private void SetIdentifierForBuildData()
         {
-            data.Identifier = new UnlockIdentifier(structureType, 0);
+            data.Identifier = new StructureIdentifier(structureType, 0);
         }
         
         

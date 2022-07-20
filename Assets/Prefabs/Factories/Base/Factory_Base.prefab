@@ -200,6 +200,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3932761032799028461, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3980931579428593951, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -245,10 +249,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7861859328041991070, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
-      propertyPath: upgraderSetup
-      value: 
-      objectReference: {fileID: 832378455076211880}
-    - target: {fileID: 7861859328041991070, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
       propertyPath: upgradesChain
       value: 
       objectReference: {fileID: 0}
@@ -284,9 +284,21 @@ PrefabInstance:
       propertyPath: productionStackZone
       value: 
       objectReference: {fileID: 3390750055539482109}
-    - target: {fileID: 8866044190502124101, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
-      propertyPath: builder.setupData.chainSO
-      value: 
+    - target: {fileID: 8603550612864053489, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8603550612864053489, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8603550612864053489, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8603550612864053489, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9080247954097408021, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
       propertyPath: conditions.Array.size
@@ -307,17 +319,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 025ee434223447fea08480c86c6404aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &832378455076211880 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8866044190502124101, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
-  m_PrefabInstance: {fileID: 8108651951296280301}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6880b5c5043743a589ca0d3c13dac38c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &3390750055539482109 stripped

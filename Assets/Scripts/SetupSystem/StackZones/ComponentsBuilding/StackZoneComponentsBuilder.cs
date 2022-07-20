@@ -34,7 +34,7 @@ namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
 
         protected void RestoreMissingComponents(Type markerType)
         {
-            GameObject obj = rootGameObject.GetGameObjectByMarker(markerType);
+            GameObject obj = rootGameObject.GetChildByMarker(markerType);
             
             IEnumerable<Component> existingComponents = obj.GetComponents<Component>().Except(new[] {obj.transform});
             Component[] missingComponents = _zoneSchemePrefab.GetComponentsOf(markerType)

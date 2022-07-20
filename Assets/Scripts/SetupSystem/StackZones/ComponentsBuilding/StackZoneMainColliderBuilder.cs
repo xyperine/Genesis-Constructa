@@ -23,7 +23,7 @@ namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
 
             RestoreMissingComponents(typeof(MainColliderSetupMarker));
 
-            _objForCollider = rootGameObject.GetGameObjectByMarker(typeof(MainColliderSetupMarker));
+            _objForCollider = rootGameObject.GetChildByMarker(typeof(MainColliderSetupMarker));
             
             SetupCollider();
             SetupInteractionTargetReference();

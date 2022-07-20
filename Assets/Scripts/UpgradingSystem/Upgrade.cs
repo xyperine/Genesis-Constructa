@@ -21,7 +21,7 @@ namespace ColonizationMobileGame.UpgradingSystem
         [LabelWidth(100)]
         [SerializeField] private TUpgradeData data;
         
-        [SerializeField, HideInInspector] private UnlockIdentifier identifier;
+        [SerializeField, HideInInspector] private StructureIdentifier identifier;
        
         private bool _defaultLockedState;
         
@@ -30,7 +30,7 @@ namespace ColonizationMobileGame.UpgradingSystem
 
         public ItemsRequirementsBlock Price => price;
 
-        public UnlockIdentifier Identifier
+        public StructureIdentifier Identifier
         {
             get => identifier;
             set => identifier = value;
@@ -70,10 +70,13 @@ namespace ColonizationMobileGame.UpgradingSystem
             {
                 price = price.GetDeepCopy(),
                 data = data,
+                identifier = identifier,
                 locked = locked,
             };
-            
+
+            copy.price.Locked = locked;
             copy.WirePurchasedEventToPrice();
+            
             Unlocked += copy.Unlock;
 
             return copy;

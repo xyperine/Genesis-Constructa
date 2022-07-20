@@ -7,7 +7,7 @@ namespace ColonizationMobileGame.Utility
 {
     public static class Extensions
     {
-        public static GameObject GetGameObjectByMarker(this GameObject rootObj, Type markerType)
+        public static GameObject GetChildByMarker(this GameObject rootObj, Type markerType)
         {
             if (!markerType.IsSubclassOf(typeof(SetupMarker)))
             {

@@ -5,14 +5,14 @@ using ColonizationMobileGame.ItemsPlacement.Core;
 using ColonizationMobileGame.ItemsPlacement.Movers;
 using ColonizationMobileGame.ItemsPlacementsInteractions;
 using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
-using ColonizationMobileGame.UI;
+using ColonizationMobileGame.UI.ItemsAmount.Data;
 using UnityEngine;
 
-namespace ColonizationMobileGame
+namespace ColonizationMobileGame.Storage
 {
-    public class Storage : InteractionTarget
+    public class StorageBehaviour : InteractionTarget, IItemsAmountDataProvider
     {
-        [SerializeField] private ItemsCountPanelData itemsCountPanelData;
+        [SerializeField] private ItemsAmountPanelData itemsAmountPanelData;
 
         private Dictionary<ItemType, int> _itemsCount;
         private readonly DestroyingPlacementItemsMover _mover = new DestroyingPlacementItemsMover();
@@ -25,7 +25,7 @@ namespace ColonizationMobileGame
         {
             _itemsCount = AcceptableItems.ToDictionary(t => t, _ => 0);
             
-            SetStateObjectData();
+            SetItemsAmountData();
         }
 
 
@@ -36,16 +36,18 @@ namespace ColonizationMobileGame
             item.SetFree();
             _mover.MoveItem(item.GetComponent<PlacementItem>(), transform.position);
 
-            SetStateObjectData();
+            SetItemsAmountData();
         }
 
 
-        private void SetStateObjectData()
+        public void SetItemsAmountData()
         {
-            ItemCount[] data = _itemsCount.Where(ic => ic.Value > 0)
-                .Select(ic => new ItemCount(ic.Key, ic.Value))
+            InItemAmountData[] data = _itemsCount.Where(ic => ic.Value > 0)
+                .Select(ic => new InItemAmountData(ic.Key, ic.Value))
                 .ToArray();
-            itemsCountPanelData.SetData(data, null);
+            itemsAmountPanelData.SetData(data);
+            
+            itemsAmountPanelData.InvokeChanged();
         }
     }
 }

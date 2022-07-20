@@ -31,7 +31,7 @@ MonoBehaviour:
       requirements:
       - type: 0
         amount: 2
-      - type: 3
+      - type: 4
         amount: 2
     data:
       capacity: 24
@@ -52,4 +52,17 @@ MonoBehaviour:
     identifier:
       structureType: 0
       level: 3
+  - locked: 1
+    price:
+      requirements:
+      - type: 0
+        amount: 4
+      - type: 3
+        amount: 4
+    data:
+      capacity: 60
+      itemsPerSecond: 8
+    identifier:
+      structureType: 0
+      level: 4
   structureType: 0

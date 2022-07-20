@@ -33,7 +33,7 @@ namespace ColonizationMobileGame.SceneLoading
 #else
             foreach (string sceneName in scenesNames)
             {
-                LoadScene(sceneName);
+                StartCoroutine(LoadScene(sceneName));
             }
 #endif
         }
@@ -41,8 +41,8 @@ namespace ColonizationMobileGame.SceneLoading
 
         private IEnumerator LoadScene(string sceneName)
         {
-            var s = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-            yield return new WaitUntil(() => s.isDone);
+            AsyncOperation loading = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+            yield return new WaitUntil(() => loading.isDone);
             
             foreach (GameObject rootGameObject in SceneManager.GetSceneByName(sceneName).GetRootGameObjects())
             {

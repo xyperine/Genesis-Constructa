@@ -145,6 +145,22 @@ PrefabInstance:
       propertyPath: productionRateSO
       value: 
       objectReference: {fileID: 11400000, guid: 6545a30ad0626e844a2efd16d7f8bc7e, type: 2}
+    - target: {fileID: 568091605246002716, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 568091605246002716, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 568091605246002716, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 568091605246002716, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 612635780050523782, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: m_Name
       value: Uranium_Extractor

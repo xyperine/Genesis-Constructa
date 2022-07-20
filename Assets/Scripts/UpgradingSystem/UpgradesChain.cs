@@ -1,18 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using ColonizationMobileGame.ItemsRequirementsSystem;
-using ColonizationMobileGame.UnlockingSystem;
 
 namespace ColonizationMobileGame.UpgradingSystem
 {
-    public class UpgradesChain<TUpgradeData> : IChain<IUnlockable>
+    public class UpgradesChain<TUpgradeData> : IChain<Upgrade<TUpgradeData>>
         where TUpgradeData : UpgradeData
     {
         private readonly Upgrade<TUpgradeData>[] _upgrades;
 
         public UpgradesStatusTracker<TUpgradeData> UpgradesStatusTracker { get; }
         public ItemsRequirementsChain RequirementsChain { get; }
-        public IUnlockable Current => _upgrades.FirstOrDefault(u => u.Price.NeedMore);
+        public Upgrade<TUpgradeData> Current => _upgrades.FirstOrDefault(u => RequirementsChain.CurrentBlock == u.Price);
 
 
         public UpgradesChain(IEnumerable<Upgrade<TUpgradeData>> upgrades)

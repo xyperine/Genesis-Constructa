@@ -6,19 +6,19 @@ using UnityEngine;
 namespace ColonizationMobileGame.UnlockingSystem
 {
     [Serializable]
-    public class Unlock
+    public class Unlock : IIdentifiable
     {
         [HideLabel]
-        [SerializeField] private UnlockIdentifier identifier;
+        [SerializeField] private StructureIdentifier identifier;
         [HideLabel]
         [PropertySpace(16)]
         [SerializeField] private ItemsRequirementsBlock price = new ItemsRequirementsBlock();
         
-        public UnlockIdentifier Identifier => identifier;
+        public StructureIdentifier Identifier => identifier;
         public ItemsRequirementsBlock Price => price;
         
 
-        public Unlock(UnlockIdentifier identifier)
+        public Unlock(StructureIdentifier identifier)
         {
             this.identifier = identifier;
         }

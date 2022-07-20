@@ -20,7 +20,7 @@ namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
             RestoreMissingComponents(typeof(InteractionWithPlayerSetupMarker));
 
             GameObject objForInteractionWithPlayerSetup =
-                rootGameObject.GetGameObjectByMarker(typeof(InteractionWithPlayerSetupMarker));
+                rootGameObject.GetChildByMarker(typeof(InteractionWithPlayerSetupMarker));
 
             ConfigurableInteractionWithPlayerSetup interactionWithPlayerSetup =
                 objForInteractionWithPlayerSetup.GetComponent<ConfigurableInteractionWithPlayerSetup>();

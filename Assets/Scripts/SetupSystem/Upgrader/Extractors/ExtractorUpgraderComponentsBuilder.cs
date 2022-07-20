@@ -18,13 +18,15 @@ namespace ColonizationMobileGame.SetupSystem.Upgrader.Extractors
 
         protected override void SetupItemsConsumer()
         {
-            consumer.Setup(setupData.Chain);
+            consumer.Setup(setupData.Chain.RequirementsChain);
         }
 
 
         protected override void SetupUpgrader()
         {
             upgrader.Construct(setupData);
+            consumer.Consumed += upgrader.SetItemsAmountData;
+            setupData.Chain.RequirementsChain.ChangingBlock += upgrader.SetItemsAmountData;
         }
     }
 }

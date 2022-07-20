@@ -18,7 +18,7 @@ namespace ColonizationMobileGame.SetupSystem.Upgrader.StackZones
 
         protected override void SetupItemsConsumer()
         {
-            consumer.Setup(setupData.Chain);
+            consumer.Setup(setupData.Chain.RequirementsChain);
         }
 
 

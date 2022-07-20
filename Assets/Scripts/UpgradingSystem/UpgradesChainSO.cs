@@ -39,7 +39,7 @@ namespace ColonizationMobileGame.UpgradingSystem
         {
             for (int i = 0; i < upgrades.Length; i++)
             {
-                upgrades[i].Identifier = new UnlockIdentifier(structureType, i + 1);
+                upgrades[i].Identifier = new StructureIdentifier(structureType, i + 1);
             }
         }
     }

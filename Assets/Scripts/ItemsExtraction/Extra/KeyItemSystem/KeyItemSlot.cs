@@ -1,13 +1,23 @@
 ﻿using ColonizationMobileGame.ItemsPlacementsInteractions;
 using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
+using ColonizationMobileGame.UI.ItemsAmount.Data;
+using UnityEngine;
 
 namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
 {
-    public class KeyItemSlot : StackZone
+    public class KeyItemSlot : StackZone, IItemsAmountDataProvider
     {
+        [SerializeField] private ItemsAmountPanelData itemsAmountPanelData;
+        
         private KeyItem _item;
         
         public bool Filled => HasItems;
+
+
+        private void Start()
+        {
+            SetItemsAmountData();
+        }
 
 
         public override void Add(StackZoneItem item)
@@ -15,6 +25,8 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
             base.Add(item);
 
             _item = item.GetComponent<KeyItem>();
+            
+            SetItemsAmountData();
         }
 
 
@@ -41,6 +53,16 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
             zoneItem.Return();
             
             _item = null;
+
+            SetItemsAmountData();
+        }
+
+
+        public void SetItemsAmountData()
+        {
+            itemsAmountPanelData.SetData(new LimitedItemAmountData(AcceptableItems[0], placement.Count, 1));
+            
+            itemsAmountPanelData.InvokeChanged();
         }
     }
 }

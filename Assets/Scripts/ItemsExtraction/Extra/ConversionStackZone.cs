@@ -2,18 +2,19 @@
 using ColonizationMobileGame.ItemsPlacementsInteractions;
 using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
 using ColonizationMobileGame.UI;
+using ColonizationMobileGame.UI.ItemsAmount.Data;
 using UnityEngine;
 
 namespace ColonizationMobileGame.ItemsExtraction.Extra
 {
-    public class ConversionStackZone : StackZone
+    public class ConversionStackZone : StackZone, IItemsAmountDataProvider
     {
-        [SerializeField] private ItemsCountPanelData itemsCountPanelData;
+        [SerializeField] private ItemsAmountPanelData itemsAmountPanelData;
 
 
         private void Start()
         {
-            SetStateObjectData();
+            SetItemsAmountData();
         }
 
 
@@ -21,7 +22,7 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra
         {
             base.Add(item);
             
-            SetStateObjectData();
+            SetItemsAmountData();
         }
 
 
@@ -29,13 +30,15 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra
         {
             base.Remove(item);
             
-            SetStateObjectData();
+            SetItemsAmountData();
         }
 
 
-        private void SetStateObjectData()
+        public void SetItemsAmountData()
         {
-            itemsCountPanelData.SetData(new ItemCount(AcceptableItems.SingleOrDefault(), placement.Count, placement.Capacity));
+            itemsAmountPanelData.SetData(new LimitedItemAmountData(AcceptableItems.SingleOrDefault(), placement.Count, placement.Capacity));
+            
+            itemsAmountPanelData.InvokeChanged();
         }
     }
 }

@@ -20,6 +20,21 @@ MonoBehaviour:
       requirements:
       - type: 5
         amount: 6
-  builds: []
+  - identifier:
+      structureType: 4
+      level: 0
+    price:
+      requirements:
+      - type: 6
+        amount: 5
+  - identifier:
+      structureType: 0
+      level: 4
+    price:
+      requirements:
+      - type: 6
+        amount: 14
+  builds:
+  - {fileID: 11400000, guid: 2ca83240ee4626744831a4a5e35e9ad0, type: 2}
   upgrades:
   - {fileID: 11400000, guid: 053452de87a1fdc4b8668d36be51d97d, type: 2}

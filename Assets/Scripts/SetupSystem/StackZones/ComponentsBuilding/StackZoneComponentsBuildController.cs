@@ -119,7 +119,7 @@ namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
 
         private void SetupStackZone()
         {
-            GameObject objForStackZone = _rootGameObject.GetGameObjectByMarker(typeof(PlacementSetupMarker));
+            GameObject objForStackZone = _rootGameObject.GetChildByMarker(typeof(PlacementSetupMarker));
             objForStackZone.GetComponent<PlacementArea>().Setup(_data.PlacementSettings);
             objForStackZone.GetComponent<PlacementAreaDrawer>();
             

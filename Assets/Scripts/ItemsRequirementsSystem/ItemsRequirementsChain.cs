@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace ColonizationMobileGame.ItemsRequirementsSystem
 {
@@ -10,6 +11,8 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
         public ItemType[] RequiredItems => CurrentBlock?.RequiredItems;
         public ItemsRequirementsBlock CurrentBlock { get; private set; }
 
+        public event Action ChangingBlock;
+        
 
         public ItemsRequirementsChain(ItemsRequirementsBlock[] blocks)
         {
@@ -39,11 +42,11 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
         {
             CurrentBlock = _blocks[0];
             
-            SubscribeToActiveBlockSatisfaction();
+            SubscribeToActiveBlockFulfilment();
         }
 
 
-        private void SubscribeToActiveBlockSatisfaction()
+        private void SubscribeToActiveBlockFulfilment()
         {
             if (CurrentBlock == null)
             {
@@ -56,15 +59,17 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
 
         private void GoToNextBlock()
         {
-            UnsubscribeFromActiveBlockSatisfaction();
+            UnsubscribeFromActiveBlockFulfilment();
 
+            ChangingBlock?.Invoke();
+            
             CurrentBlock = CurrentBlock.NextBlock;
 
-            SubscribeToActiveBlockSatisfaction();
+            SubscribeToActiveBlockFulfilment();
         }
 
 
-        private void UnsubscribeFromActiveBlockSatisfaction()
+        private void UnsubscribeFromActiveBlockFulfilment()
         {
             if (CurrentBlock == null)
             {

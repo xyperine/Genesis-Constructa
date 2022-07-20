@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using ColonizationMobileGame.UI;
+using ColonizationMobileGame.UI.ItemsAmount.Data;
 using ColonizationMobileGame.Utility;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -21,9 +21,9 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
         public event Action Fulfilled;
 
 
-        public ItemCount[] ToItemsCount()
+        public RemainingItemAmountData[] ToItemsCount()
         {
-            return requirements.Select(r => new ItemCount(r.Type, r.CurrentAmount, r.Required)).ToArray();
+            return requirements.Select(r => new RemainingItemAmountData(r.Type, r.CurrentAmount, r.Required)).ToArray();
         }
         
         
@@ -37,7 +37,7 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
         {
             PassToMatchingRequirement(type);
             
-            CheckSatisfaction();
+            CheckFulfilment();
         }
 
 
@@ -48,7 +48,7 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
         }
 
 
-        private void CheckSatisfaction()
+        private void CheckFulfilment()
         {
             bool allRequirementsFulfilled = requirements.All(r => r.Fulfilled);
 

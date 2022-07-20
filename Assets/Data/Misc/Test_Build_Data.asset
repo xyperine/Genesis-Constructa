@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Test_Build_Data
   m_EditorClassIdentifier: 
   data:
-    locked: 0
+    locked: 1
     structurePrefab: {fileID: 4631539195201910850, guid: 3225d100cbe5b6d4ca0ed215c7e9164a, type: 3}
     price:
       requirements:

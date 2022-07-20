@@ -17,7 +17,7 @@ namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
         {
             base.Build(data, zone);
 
-            GameObject objForUpgraderSetup = rootGameObject.GetGameObjectByMarker(typeof(UpgraderSetupSetupMarker));
+            GameObject objForUpgraderSetup = rootGameObject.GetChildByMarker(typeof(UpgraderSetupSetupMarker));
             StackZoneUpgraderSetup upgraderSetup = objForUpgraderSetup.GetComponent<StackZoneUpgraderSetup>();
             upgraderSetup.SetData(new StackZoneUpgraderSetupData(data.UpgradesChain, new[] {zone},
                 data.UpgraderColliderRadius));

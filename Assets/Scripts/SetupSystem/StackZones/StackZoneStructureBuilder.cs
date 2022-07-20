@@ -58,17 +58,17 @@ namespace ColonizationMobileGame.SetupSystem.StackZones
         {
             if (!_data.InteractWithOthers)
             {
-                Object.DestroyImmediate(_rootGameObject.GetGameObjectByMarker(typeof(StackZoneBehavioursSetupMarker)));
+                Object.DestroyImmediate(_rootGameObject.GetChildByMarker(typeof(StackZoneBehavioursSetupMarker)));
             }
 
             if (!_data.InteractWithPlayer)
             {
-                Object.DestroyImmediate(_rootGameObject.GetGameObjectByMarker(typeof(InteractionWithPlayerSetupMarker)));
+                Object.DestroyImmediate(_rootGameObject.GetChildByMarker(typeof(InteractionWithPlayerSetupMarker)));
             }
 
             if (!_data.UpgradeableOnItsOwn)
             {
-                Object.DestroyImmediate(_rootGameObject.GetGameObjectByMarker(typeof(UpgraderSetupSetupMarker)));
+                Object.DestroyImmediate(_rootGameObject.GetChildByMarker(typeof(UpgraderSetupSetupMarker)));
             }
         }
 

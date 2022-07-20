@@ -42,7 +42,7 @@ namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
         private void ClearInteractionsWithOthersGameObject()
         {
             GameObject objForInteractionsWithOthers =
-                rootGameObject.GetGameObjectByMarker(typeof(InteractionsWithOthersSetupMarker));
+                rootGameObject.GetChildByMarker(typeof(InteractionsWithOthersSetupMarker));
 
             Component[] componentsToPreserve = 
             {
@@ -62,7 +62,7 @@ namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
         private void SetupRequiredComponents()
         {
             GameObject objForInteractionsWithOthers =
-                rootGameObject.GetGameObjectByMarker(typeof(InteractionsWithOthersSetupMarker));
+                rootGameObject.GetChildByMarker(typeof(InteractionsWithOthersSetupMarker));
 
             _establisher = objForInteractionsWithOthers.GetComponent<DefaultInteractionsEstablisher>();
             Rigidbody rigidBody = objForInteractionsWithOthers.GetComponent<Rigidbody>();
@@ -78,8 +78,8 @@ namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
             RestoreMissingComponents(typeof(StackZoneBehavioursSetupMarker));
 
             GameObject objForInteractionsWithOthers =
-                rootGameObject.GetGameObjectByMarker(typeof(InteractionsWithOthersSetupMarker));
-            GameObject objForBehaviours = rootGameObject.GetGameObjectByMarker(typeof(StackZoneBehavioursSetupMarker));
+                rootGameObject.GetChildByMarker(typeof(InteractionsWithOthersSetupMarker));
+            GameObject objForBehaviours = rootGameObject.GetChildByMarker(typeof(StackZoneBehavioursSetupMarker));
             
             SetupTransferBehaviour(objForInteractionsWithOthers, objForBehaviours);
             SetupPickUpBehaviour(objForInteractionsWithOthers, objForBehaviours);

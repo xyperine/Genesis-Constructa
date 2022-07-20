@@ -11,6 +11,22 @@ PrefabInstance:
       propertyPath: productionRateSO
       value: 
       objectReference: {fileID: 11400000, guid: d2c3f08a20007c145af484859753c01b, type: 2}
+    - target: {fileID: 568091605246002716, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 568091605246002716, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 568091605246002716, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 568091605246002716, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 612635780050523782, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: m_Name
       value: Generator
@@ -89,6 +105,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4544138657385296773, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: alwaysDraw
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049747593135321600, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5168069486656559090, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
