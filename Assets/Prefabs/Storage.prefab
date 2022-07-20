@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facf78a87b8047fc94fbc5941b4061ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 4754184875301961960}
+  target: {fileID: 8835009382975267287}
 --- !u!135 &2284121111149753648
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactWithPlayer: 1
   playerInteractionsSO: {fileID: 11400000, guid: 88d4d2bbd9432f34489ad1e2de55b2f7, type: 2}
-  target: {fileID: 4754184875301961960}
+  target: {fileID: 8835009382975267287}
 --- !u!1 &7932427801622237246
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,7 +213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3960112230862569784}
-  - component: {fileID: 4754184875301961960}
+  - component: {fileID: 8835009382975267287}
   - component: {fileID: 2230421671113507438}
   m_Layer: 8
   m_Name: Storage
@@ -240,7 +240,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4754184875301961960
+--- !u!114 &8835009382975267287
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7932427801622237246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d15f671e4e0b4dd2b0ddad2dfbae3367, type: 3}
+  m_Script: {fileID: 11500000, guid: d13ecd4e3f32b8c4cb3d1dd4385d1425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemsAmountPanelData: {fileID: 2230421671113507438}
