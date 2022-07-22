@@ -12,37 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990cee947a0f4aad9435aaf58cc67f0d, type: 3}
   m_Name: Icons_Service
   m_EditorClassIdentifier: 
-  itemsIcons:
-  - type: 0
-    icon: {fileID: 0}
-  - type: 0
-    icon: {fileID: 0}
-  - type: 0
-    icon: {fileID: 0}
-  - type: 0
-    icon: {fileID: 0}
-  - type: 0
-    icon: {fileID: 0}
-  - type: 0
-    icon: {fileID: 0}
-  - type: 0
-    icon: {fileID: 0}
-  - type: 0
-    icon: {fileID: 0}
   structureIcons:
   - type: 0
-    icon: {fileID: 21300000, guid: 223b54bcd06a0f044a939778d0fe8f01, type: 3}
+    icon: {fileID: 21300000, guid: 899c5295aefb9ba4aad43f67f4fcfca8, type: 3}
   - type: 1
-    icon: {fileID: 21300000, guid: 0400830726760c3428e27e11c595762c, type: 3}
+    icon: {fileID: 21300000, guid: 7595e0524c4f995478f47bc5ac96e49f, type: 3}
   - type: 3
-    icon: {fileID: 21300000, guid: 5d3c91cef5cbfe94d99dd7a2395b2e0d, type: 3}
+    icon: {fileID: 21300000, guid: 817e7354863bd3e46a796c077c45529a, type: 3}
   - type: 2
-    icon: {fileID: 21300000, guid: f86319cd87ce49e46b83a5ca5ad4de53, type: 3}
+    icon: {fileID: 21300000, guid: aaa3f8cacd20f174c931138cfe053ffd, type: 3}
   - type: 4
-    icon: {fileID: 21300000, guid: c93e29de9f6f60746a314d5abc82983a, type: 3}
+    icon: {fileID: 21300000, guid: 6e1054217c9bc034b8eddd644a0a8501, type: 3}
   - type: 5
-    icon: {fileID: 21300000, guid: 3b7018c201f4cb444899ade5fc87449d, type: 3}
+    icon: {fileID: 21300000, guid: 8c04ec12485779d4b89359817debf2d3, type: 3}
   - type: 6
-    icon: {fileID: 21300000, guid: 5efa90678cdb13e448ddd284af96b8dc, type: 3}
+    icon: {fileID: 21300000, guid: f715f09ccba568e4584b036ef80939b9, type: 3}
   - type: 7
-    icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+    icon: {fileID: 21300000, guid: 2262327b9f733f9459b50d6da6604f2f, type: 3}
