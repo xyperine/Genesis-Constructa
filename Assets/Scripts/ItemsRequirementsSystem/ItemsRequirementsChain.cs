@@ -3,13 +3,13 @@ using System.Linq;
 
 namespace ColonizationMobileGame.ItemsRequirementsSystem
 {
-    public class ItemsRequirementsChain
+    public class ItemsRequirementsChain : IChain<ItemsRequirementsBlock>
     {
         private readonly ItemsRequirementsBlock[] _blocks;
 
-        public bool NeedMore => CurrentBlock is {NeedMore: true, Locked: false};
-        public ItemType[] RequiredItems => CurrentBlock?.RequiredItems;
-        public ItemsRequirementsBlock CurrentBlock { get; private set; }
+        public bool NeedMore => Current is {NeedMore: true, Locked: false};
+        public ItemType[] RequiredItems => Current?.RequiredItems;
+        public ItemsRequirementsBlock Current { get; private set; }
 
         public event Action ChangingBlock;
         
@@ -40,7 +40,7 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
 
         private void SetupInitialBlock()
         {
-            CurrentBlock = _blocks[0];
+            Current = _blocks[0];
             
             SubscribeToActiveBlockFulfilment();
         }
@@ -48,12 +48,12 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
 
         private void SubscribeToActiveBlockFulfilment()
         {
-            if (CurrentBlock == null)
+            if (Current == null)
             {
                 return;
             }
 
-            CurrentBlock.Fulfilled += GoToNextBlock;
+            Current.Fulfilled += GoToNextBlock;
         }
 
 
@@ -63,7 +63,7 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
 
             ChangingBlock?.Invoke();
             
-            CurrentBlock = CurrentBlock.NextBlock;
+            Current = Current.NextBlock;
 
             SubscribeToActiveBlockFulfilment();
         }
@@ -71,12 +71,12 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
 
         private void UnsubscribeFromActiveBlockFulfilment()
         {
-            if (CurrentBlock == null)
+            if (Current == null)
             {
                 return;
             }
 
-            CurrentBlock.Fulfilled -= GoToNextBlock;
+            Current.Fulfilled -= GoToNextBlock;
         }
 
 
@@ -95,7 +95,7 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
 
         public void AddItem(ItemType type)
         {
-            CurrentBlock.AddItem(type);
+            Current.AddItem(type);
         }
     }
 }
