@@ -11,5 +11,6 @@
         CarbonCompressor,
         Storage,
         UnlockStation,
+        MainDome,
     }
 }

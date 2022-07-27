@@ -26,7 +26,7 @@ namespace ColonizationMobileGame.UnlockingSystem
         {
             Unlock current = chainSO.Current;
 
-            itemsAmountPanelData.SetData(current?.Price.ToItemsCount());
+            itemsAmountPanelData.SetData(current?.Price.ToItemsAmount());
             itemsAmountPanelData.SetIdentifier(current?.Identifier);
 
             itemsAmountPanelData.InvokeChanged();

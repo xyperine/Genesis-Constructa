@@ -12,6 +12,7 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
         private KeyItem _item;
         
         public bool Filled => HasItems;
+        public bool WillBeEmpty => Filled && _item.WillBeExhausted;
 
 
         private void Start()
@@ -48,6 +49,8 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
 
         private void Clear()
         {
+            _item.Clear();
+            
             StackZoneItem zoneItem = _item.GetComponent<StackZoneItem>();
             Remove(zoneItem);
             zoneItem.Return();
@@ -60,7 +63,7 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
 
         public void SetItemsAmountData()
         {
-            itemsAmountPanelData.SetData(new LimitedItemAmountData(AcceptableItems[0], placement.Count, 1));
+            itemsAmountPanelData.SetData(new ItemAmountData(AcceptableItems[0], placement.Count, 1));
             
             itemsAmountPanelData.InvokeChanged();
         }

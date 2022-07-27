@@ -86,16 +86,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caef86ea32464c1cacf57a257e24adf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 4151708191398031634}
   lifetime: 60
---- !u!114 &4151708191398031634 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -2999128272576963149, guid: afb3e9ec722efd846bfe9ae587ff32bf, type: 3}
-  m_PrefabInstance: {fileID: 8069641444469763233}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2470328496134020748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ac94c8c61cf4ee8ac04a0f2ce2d7b4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

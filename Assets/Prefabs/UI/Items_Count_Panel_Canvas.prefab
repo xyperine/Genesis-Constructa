@@ -153,7 +153,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!1 &6689450727805330785
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,6 +380,8 @@ MonoBehaviour:
   showIcon: 0
   iconsService: {fileID: 11400000, guid: 2a1c11baaa8e3884c965d0f6002273bb, type: 2}
   iconObject: {fileID: 6706721729927826317}
+  format: 0
+  alwaysVisible: 0
   dataObject: {fileID: 0}
   entryPrefab: {fileID: 2200018172024291756, guid: 5e1570725df8e7e42ab08176b67cc661, type: 3}
   animator: {fileID: 6088684274765121256}

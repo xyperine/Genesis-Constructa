@@ -13,7 +13,10 @@ namespace ColonizationMobileGame.UI.ItemsAmount.Panel
         [SerializeField] private bool showIcon;
         [SerializeField, ShowIf(nameof(showIcon))] private IconsService iconsService;
         [SerializeField, ShowIf(nameof(showIcon))] private ItemsAmountPanelIcon iconObject;
-        [Header("Misc")]
+        [Header("Text")]
+        [SerializeField] private ItemAmountPanelEntryFormat format;
+        [Header("Misc")] 
+        [SerializeField] private bool alwaysVisible;
         [SerializeField] private ItemsAmountPanelData dataObject;
         [SerializeField] private ItemAmountPanelEntry entryPrefab;
         [SerializeField] private ItemsAmountPanelAnimator animator;
@@ -33,9 +36,10 @@ namespace ColonizationMobileGame.UI.ItemsAmount.Panel
 
         private void CalculateVisibility()
         {
-            _visible = dataObject.ItemCounts != null &&
-                       dataObject.ItemCounts.Any(ic => ic.Visible) &&
-                       !dataObject.Locked;
+            _visible = alwaysVisible ||
+                       (dataObject.ItemCounts != null &&
+                       dataObject.ItemCounts.Any(ic => alwaysVisible || ic.GetVisibility(format)) &&
+                       !dataObject.Locked);
         }
 
 
@@ -126,7 +130,10 @@ namespace ColonizationMobileGame.UI.ItemsAmount.Panel
 
         private ItemAmountPanelEntry InstantiateEntry()
         {
-            return Instantiate(entryPrefab, transform);
+            ItemAmountPanelEntry entry = Instantiate(entryPrefab, transform);
+            entry.Setup(format, alwaysVisible);
+
+            return entry;
         }
     }
 }

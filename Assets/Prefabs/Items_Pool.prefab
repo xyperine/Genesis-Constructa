@@ -46,18 +46,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - itemPrefab: {fileID: 4151708191398031634, guid: f6ab35b5339e812428b86b4d36d7d884, type: 3}
-    weight: 1
+    weight: 2
   - itemPrefab: {fileID: 1124003162757113419, guid: 3eda9393a4699a5468210fda993fae55, type: 3}
     weight: 6
-  - itemPrefab: {fileID: 5327023324008692048, guid: 4b54a834409d4724db2e690b9fb454ec, type: 3}
-    weight: 3
   - itemPrefab: {fileID: 6955856760703917650, guid: 68408a690c432f344ac8a4e2c849e62b, type: 3}
     weight: 5
   - itemPrefab: {fileID: 1155038311049901416, guid: 0d08d4cdc98ede04dab9b9d933962e09, type: 3}
     weight: 3
   - itemPrefab: {fileID: 7167640012461819066, guid: 13b6964392030c74483e00b0c8f6236a, type: 3}
-    weight: 2
-  - itemPrefab: {fileID: 1558392165400949591, guid: dcbe34e3884bbe543a8336ab04666686, type: 3}
     weight: 1
+  - itemPrefab: {fileID: 1558392165400949591, guid: dcbe34e3884bbe543a8336ab04666686, type: 3}
+    weight: 2
   initialCount: 250
   prewarm: 1

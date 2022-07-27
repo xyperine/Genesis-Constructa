@@ -38,7 +38,7 @@ namespace ColonizationMobileGame.UpgradingSystem
         {
             Upgrade<TUpgradeData> current = chain.Current;
 
-            itemsAmountPanelData.SetData(current?.Price.ToItemsCount());
+            itemsAmountPanelData.SetData(current?.Price.ToItemsAmount());
             itemsAmountPanelData.SetIdentifier(current?.Identifier);
             itemsAmountPanelData.SetUnlockable(current);
             

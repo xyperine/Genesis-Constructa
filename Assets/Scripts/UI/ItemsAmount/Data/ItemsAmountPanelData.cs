@@ -21,8 +21,7 @@ namespace ColonizationMobileGame.UI.ItemsAmount.Data
         }
 
 
-        public void SetData<T>(T[] itemCounts)
-            where T : ItemAmountData
+        public void SetData(ItemAmountData[] itemCounts)
         {
             ItemCounts = itemCounts;
         }

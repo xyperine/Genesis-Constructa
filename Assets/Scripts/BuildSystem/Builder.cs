@@ -1,5 +1,6 @@
 ﻿using ColonizationMobileGame.ItemsExtraction;
 using ColonizationMobileGame.ItemsPlacementsInteractions;
+using ColonizationMobileGame.ItemsRequirementsSystem;
 using ColonizationMobileGame.ObjectPooling;
 using ColonizationMobileGame.UI.ItemsAmount.Data;
 using UnityEngine;
@@ -19,7 +20,7 @@ namespace ColonizationMobileGame.BuildSystem
 
         private void Awake()
         {
-            _buildData = buildDataSO.Current;
+            _buildData = buildDataSO.Data;
             
             SetupPrice();
             SetItemsAmountData();
@@ -38,7 +39,7 @@ namespace ColonizationMobileGame.BuildSystem
         
         private void SetupPrice()
         {
-            consumer.Setup(buildDataSO.RequirementsChain);
+            consumer.Setup(new ItemsRequirementsChain(new[] {_buildData.Price}));
             _buildData.Price.Fulfilled += Build;
         }
 
@@ -46,8 +47,12 @@ namespace ColonizationMobileGame.BuildSystem
         private void Build()
         {
             GameObject structure = Instantiate(_buildData.StructurePrefab, transform.position, Quaternion.identity, structuresParent);
-            structure.GetComponentInChildren<ExtractorProductionUnit>().SetPool(itemsPool);
-            
+            ExtractorProductionUnit productionUnit = structure.GetComponentInChildren<ExtractorProductionUnit>();
+            if (productionUnit)
+            {
+                productionUnit.SetPool(itemsPool);
+            }
+
             Invoke(nameof(Deactivate), 1f);
         }
 
@@ -68,7 +73,7 @@ namespace ColonizationMobileGame.BuildSystem
         
         public void SetItemsAmountData()
         {
-            itemsAmountPanelData.SetData(_buildData.Price.ToItemsCount());
+            itemsAmountPanelData.SetData(_buildData.Price.ToItemsAmount());
             itemsAmountPanelData.SetIdentifier(_buildData.Identifier);
             itemsAmountPanelData.SetUnlockable(_buildData);
             

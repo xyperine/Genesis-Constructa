@@ -4,7 +4,6 @@
     {
         EnergyCell,
         Metal,
-        Food,
         Mineral,
         Carbon,
         Uranium,

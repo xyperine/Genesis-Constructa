@@ -5,7 +5,6 @@ using ColonizationMobileGame.ItemsPlacementsInteractions;
 using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
 using ColonizationMobileGame.ObjectPooling;
 using ColonizationMobileGame.UpgradingSystem;
-using ColonizationMobileGame.Utility;
 using UnityEngine;
 
 namespace ColonizationMobileGame.ItemsExtraction
@@ -24,6 +23,7 @@ namespace ColonizationMobileGame.ItemsExtraction
         [SerializeField] private ExtractorProductionWorkflow workflow;
 
         private IEnumerator _productionCoroutine;
+        private float _progress;
 
         public float ItemsPerSecond { get; private set; }
 
@@ -73,10 +73,18 @@ namespace ColonizationMobileGame.ItemsExtraction
         {
             while (true)
             {
-                yield return Helpers.GetWaitForSeconds(1f / ItemsPerSecond);
+                _progress += Time.deltaTime * ItemsPerSecond;
 
-                ProduceItem();
+                if (_progress >= 1f)
+                {
+                    ProduceItem();
+
+                    _progress = 0f;
+                }
+                
+                yield return null;
             }
+            // ReSharper disable once IteratorNeverReturns
         }
 
 
@@ -94,6 +102,8 @@ namespace ColonizationMobileGame.ItemsExtraction
                 StartProduction();
                 return;
             }
+            
+            //Invoke(nameof(StopProduction), Time.deltaTime);
             
             StopProduction();
         }

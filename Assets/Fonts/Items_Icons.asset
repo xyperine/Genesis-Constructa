@@ -75,12 +75,6 @@ MonoBehaviour:
     m_Scale: 1
     m_Name: Items_Icons_5
     m_HashCode: -1530612565
-  - m_ElementType: 2
-    m_Unicode: 65534
-    m_GlyphIndex: 6
-    m_Scale: 1
-    m_Name: Items_Icons_6
-    m_HashCode: -1530612568
   m_SpriteGlyphTable:
   - m_Index: 0
     m_Metrics:

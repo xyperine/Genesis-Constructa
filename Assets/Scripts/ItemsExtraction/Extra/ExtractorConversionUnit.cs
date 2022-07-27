@@ -20,6 +20,8 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra
         private bool _canTakeMore = true;
         private IEnumerator _conversionCoroutine;
 
+        private float _progress;
+
         public override bool CanTakeMore => _active && _canTakeMore && productionUnit.CanProduce;
 
         public override ItemType[] AcceptableItems { get; } =
@@ -52,32 +54,39 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra
         
         public override void Add(StackZoneItem item)
         {
-            _itemsMover.MoveItem(item.GetComponent<PlacementItem>(), transform.localPosition);
-            StartCoroutine(ProduceItemWithDelayCoroutine(item));
-
+            item.SetFree();
+            
+            _itemsMover.MoveItem(item.GetComponent<PlacementItem>(), transform.position);
             if (_conversionCoroutine != null)
             {
                 return;
             }
 
-            _conversionCoroutine = ConversionCoroutine(); 
+            _conversionCoroutine = ConversionCoroutine(item); 
             StartCoroutine(_conversionCoroutine);
         }
 
 
-        private IEnumerator ProduceItemWithDelayCoroutine(StackZoneItem item)
-        {
-            yield return new WaitWhile(() => item.Moving);
-            
-            productionUnit.ProduceItem();
-        }
-
-
-        private IEnumerator ConversionCoroutine()
+        private IEnumerator ConversionCoroutine(StackZoneItem item)
         {
             _canTakeMore = false;
 
-            yield return Helpers.GetWaitForSeconds(1f / productionUnit.ItemsPerSecond);
+            yield return new WaitWhile(() => item.Moving);
+
+            while (_progress < 1f)
+            {
+                _progress += Time.deltaTime * productionUnit.ItemsPerSecond;
+                
+                if (!_active)
+                {
+                    yield return new WaitUntil(() => _active);
+                }
+                
+                yield return null;
+            }
+            
+            productionUnit.ProduceItem();
+            _progress = 0f;
 
             _canTakeMore = true;
             _conversionCoroutine = null;

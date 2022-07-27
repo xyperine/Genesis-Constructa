@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {fileID: 0}
-  speed: 10
+  speed: 12
   smoothness: 1.8
 --- !u!1001 &1078500606921808547
 PrefabInstance:

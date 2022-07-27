@@ -42,8 +42,8 @@ namespace ColonizationMobileGame.Storage
 
         public void SetItemsAmountData()
         {
-            InItemAmountData[] data = _itemsCount.Where(ic => ic.Value > 0)
-                .Select(ic => new InItemAmountData(ic.Key, ic.Value))
+            ItemAmountData[] data = _itemsCount.Where(ic => ic.Value > 0)
+                .Select(ic => new ItemAmountData(ic.Key, ic.Value))
                 .ToArray();
             itemsAmountPanelData.SetData(data);
             

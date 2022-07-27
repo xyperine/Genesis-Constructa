@@ -31,7 +31,7 @@ namespace ColonizationMobileGame.UI.ItemsAmount.Panel
             {
                 return;
             }
-            
+
             _upTween?.Kill();
             _downTween = rectTransform.DOScale(0f, duration * 0.3f).SetEase(Ease.InCubic);
         }

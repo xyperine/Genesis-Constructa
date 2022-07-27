@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a7ecfe09dc24e369f08457327906887, type: 3}
+  m_Name: Uranium_Factory_Build_Data
+  m_EditorClassIdentifier: 
+  data:
+    locked: 1
+    structurePrefab: {fileID: 4843671004654594397, guid: 6e9dce6f1677fd54d873adb2db380ad4, type: 3}
+    price:
+      requirements:
+      - type: 1
+        amount: 40
+      - type: 3
+        amount: 10
+    identifier:
+      structureType: 5
+      level: 0
+  structureType: 5

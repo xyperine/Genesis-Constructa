@@ -8,15 +8,26 @@ namespace ColonizationMobileGame.UI.ItemsAmount.Panel
     {
         [SerializeField] private TextMeshProUGUI text;
 
-        private bool _visible;
-        
+        private ItemAmountPanelEntryFormat _format;
 
+        private bool _alwaysVisible;
+        private bool _visible;
+
+
+        public void Setup(ItemAmountPanelEntryFormat format, bool alwaysVisible)
+        {
+            _format = format;
+            _alwaysVisible = alwaysVisible;
+        }
+        
+        
         public void SetData(ItemAmountData data)
         {
-            _visible = data.Visible;
+            _visible = _alwaysVisible || data.GetVisibility(_format);
             SetVisibility(_visible);
             
-            text.text = data.Presentation;
+            text.text = data.GetPresentation(_format);
+            
             transform.SetSiblingIndex((int) data.Type + 1);
         }
 

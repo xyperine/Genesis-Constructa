@@ -1,13 +1,14 @@
 ﻿using System;
 using ColonizationMobileGame.ItemsRequirementsSystem;
 using ColonizationMobileGame.UnlockingSystem;
+using ColonizationMobileGame.Utility;
 using UnityEditor;
 using UnityEngine;
 
 namespace ColonizationMobileGame.BuildSystem
 {
     [Serializable]
-    public class BuildData : IUnlockable, ISerializationCallbackReceiver
+    public class BuildData : IUnlockable, IDeepCloneable<BuildData>
     {
         [SerializeField] private bool locked = true;
         [SerializeField] private GameObject structurePrefab;
@@ -19,7 +20,7 @@ namespace ColonizationMobileGame.BuildSystem
         
         public bool Locked => locked;
         public GameObject StructurePrefab => structurePrefab;
-        public ItemsRequirementsBlock Price { get; private set; }
+        public ItemsRequirementsBlock Price => price;
         public StructureIdentifier Identifier
         {
             get => identifier;
@@ -51,17 +52,21 @@ namespace ColonizationMobileGame.BuildSystem
             }
         }
 #endif
-        
-        
-        public void OnBeforeSerialize()
-        {
-            
-        }
 
 
-        public void OnAfterDeserialize()
+        public BuildData GetDeepCopy()
         {
-            Price = price.GetDeepCopy();
+            BuildData copy = new BuildData
+            {
+                locked = locked,
+                identifier = identifier,
+                price = price.GetDeepCopy(),
+                structurePrefab = structurePrefab,
+            };
+
+            Unlocked += copy.Unlock;
+
+            return copy;
         }
     }
 }

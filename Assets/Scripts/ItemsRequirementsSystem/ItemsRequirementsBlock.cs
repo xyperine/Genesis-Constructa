@@ -21,9 +21,9 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
         public event Action Fulfilled;
 
 
-        public RemainingItemAmountData[] ToItemsCount()
+        public ItemAmountData[] ToItemsAmount()
         {
-            return requirements.Select(r => new RemainingItemAmountData(r.Type, r.CurrentAmount, r.Required)).ToArray();
+            return requirements.Select(r => new ItemAmountData(r.Type, r.CurrentAmount, r.Required)).ToArray();
         }
         
         

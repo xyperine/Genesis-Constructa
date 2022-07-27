@@ -36,7 +36,7 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra
 
         public void SetItemsAmountData()
         {
-            itemsAmountPanelData.SetData(new LimitedItemAmountData(AcceptableItems.SingleOrDefault(), placement.Count, placement.Capacity));
+            itemsAmountPanelData.SetData(new ItemAmountData(AcceptableItems.SingleOrDefault(), placement.Count, placement.Capacity));
             
             itemsAmountPanelData.InvokeChanged();
         }

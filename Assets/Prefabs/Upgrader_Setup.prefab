@@ -240,6 +240,10 @@ PrefabInstance:
       value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 6745508754670122738, guid: ff4549510fc13184489be089c41dfcda, type: 3}
+      propertyPath: format
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745508754670122738, guid: ff4549510fc13184489be089c41dfcda, type: 3}
       propertyPath: dataObject
       value: 
       objectReference: {fileID: 9209161658473862071}

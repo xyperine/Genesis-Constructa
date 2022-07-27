@@ -519,6 +519,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Upgrader_Setup
       objectReference: {fileID: 0}
+    - target: {fileID: 2439868710224371153, guid: 2f80825b1d297524c8bab6fc10b15e5c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2439868710224371153, guid: 2f80825b1d297524c8bab6fc10b15e5c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6929400773707344333, guid: 2f80825b1d297524c8bab6fc10b15e5c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6929400773707344333, guid: 2f80825b1d297524c8bab6fc10b15e5c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6929400773707344333, guid: 2f80825b1d297524c8bab6fc10b15e5c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6929400773707344333, guid: 2f80825b1d297524c8bab6fc10b15e5c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f80825b1d297524c8bab6fc10b15e5c, type: 3}
 --- !u!4 &338356529959092777 stripped

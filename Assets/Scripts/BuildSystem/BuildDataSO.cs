@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using ColonizationMobileGame.ItemsRequirementsSystem;
 using ColonizationMobileGame.UnlockingSystem;
 using ColonizationMobileGame.Utility.Validating;
 using UnityEngine;
@@ -7,22 +6,21 @@ using UnityEngine;
 namespace ColonizationMobileGame.BuildSystem
 {
     [CreateAssetMenu(fileName = "Build_Data", menuName = "Build Data")]
-    public class BuildDataSO : ScriptableObject, IUnlockableContainer, IChain<BuildData>
+    public class BuildDataSO : ScriptableObject, IUnlockableContainer
     {
         [SerializeField] private BuildData data;
         [SerializeField] private StructureType structureType;
 
         private readonly Validator _validator = new Validator();
-        
-        public BuildData Current => data;
-        
+
+        public BuildData Data => data.GetDeepCopy();
         public IEnumerable<IUnlockable> Unlockables => new[] {data};
-        public ItemsRequirementsChain RequirementsChain => new ItemsRequirementsChain(new[] {data.Price});
 
 
         private void OnValidate()
         {
             SetIdentifierForBuildData();
+            
             _validator.Validate(this);
         }
 
