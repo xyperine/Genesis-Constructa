@@ -10,6 +10,7 @@ namespace ColonizationMobileGame.SetupSystem
         private readonly Dictionary<SetupMarker, IEnumerable<Component>> _allowedComponentsMap =
             new Dictionary<SetupMarker, IEnumerable<Component>>();
 
+        
         private void OnValidate()
         {
             Remap();
