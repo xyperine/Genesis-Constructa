@@ -314,6 +314,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemsPool
       objectReference: {fileID: 0}
+    - target: {fileID: 2507256652941072508, guid: 7bff9e5955d8bd64e810d0ad35b1575b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2507256652941072509, guid: 7bff9e5955d8bd64e810d0ad35b1575b, type: 3}
       propertyPath: m_RootOrder
       value: 4
