@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7702317212807810616}
   - component: {fileID: 6722743013950767517}
   - component: {fileID: 8840298263976785239}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spiky_Tree_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

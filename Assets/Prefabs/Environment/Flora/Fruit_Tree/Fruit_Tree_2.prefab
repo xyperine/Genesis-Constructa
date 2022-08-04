@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 622070266105902121}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fruit_Tree_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 5234294703050341392}
   - component: {fileID: 8807444368126891935}
   - component: {fileID: 5235315821341676821}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Trunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 1706922229570336265}
   - component: {fileID: 7764061906012322749}
   - component: {fileID: 5124243484505120722}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fruit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 6706625308140525514}
   - component: {fileID: 792504668157078331}
   - component: {fileID: 8972352420054572205}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Veins
   m_TagString: Untagged
   m_Icon: {fileID: 0}
