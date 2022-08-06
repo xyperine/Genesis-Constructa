@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3754628565968407450}
   - component: {fileID: 267055280944825407}
   - component: {fileID: 2616646449782010101}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Arc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
