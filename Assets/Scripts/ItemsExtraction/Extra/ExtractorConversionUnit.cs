@@ -4,7 +4,6 @@ using ColonizationMobileGame.ItemsPlacement.Core;
 using ColonizationMobileGame.ItemsPlacement.Movers;
 using ColonizationMobileGame.ItemsPlacementsInteractions;
 using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
-using ColonizationMobileGame.Utility;
 using UnityEngine;
 
 namespace ColonizationMobileGame.ItemsExtraction.Extra

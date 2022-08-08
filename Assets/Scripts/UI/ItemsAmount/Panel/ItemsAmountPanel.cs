@@ -11,7 +11,7 @@ namespace ColonizationMobileGame.UI.ItemsAmount.Panel
     {
         [Header("Icon")]
         [SerializeField] private bool showIcon;
-        [SerializeField, ShowIf(nameof(showIcon))] private IconsService iconsService;
+        [SerializeField, ShowIf(nameof(showIcon))] private ObjectsIconsSO objectsIconsSO;
         [SerializeField, ShowIf(nameof(showIcon))] private ItemsAmountPanelIcon iconObject;
         [Header("Text")]
         [SerializeField] private ItemAmountPanelEntryFormat format;
@@ -67,6 +67,8 @@ namespace ColonizationMobileGame.UI.ItemsAmount.Panel
         {
             dataObject.Changed += OnDataChanged;
             dataObject.Unlocked += OnUnlocked;
+            
+            OnDataChanged();
         }
 
 
@@ -103,7 +105,7 @@ namespace ColonizationMobileGame.UI.ItemsAmount.Panel
             }
 
             Sprite icon = dataObject.Identifier == null ?
-                null : iconsService.GetStructureIcon(dataObject.Identifier.StructureType);
+                null : objectsIconsSO.GetStructureIcon(dataObject.Identifier.StructureType);
 
             iconObject.SetData(icon);
         }

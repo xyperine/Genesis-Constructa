@@ -3,9 +3,10 @@ using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 
-namespace ColonizationMobileGame.IconsSystem
+// ReSharper disable once CheckNamespace
+namespace SimpleIconsCreatorNS
 {
-    public class IconsCreator : MonoBehaviour
+    public class SimpleIconsCreator : MonoBehaviour
     {
         [BoxGroup("Camera")]
         [SerializeField] private new Camera camera;

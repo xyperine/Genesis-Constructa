@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showIcon: 0
-  iconsService: {fileID: 11400000, guid: 2a1c11baaa8e3884c965d0f6002273bb, type: 2}
+  objectsIconsSO: {fileID: 11400000, guid: 2a1c11baaa8e3884c965d0f6002273bb, type: 2}
   iconObject: {fileID: 6706721729927826317}
   format: 0
   alwaysVisible: 0

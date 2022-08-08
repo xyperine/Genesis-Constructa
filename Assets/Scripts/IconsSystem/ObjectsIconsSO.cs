@@ -4,7 +4,7 @@ using UnityEngine;
 namespace ColonizationMobileGame.IconsSystem
 {
     [CreateAssetMenu(fileName = "Icons_Service", menuName = "Icons Service")]
-    public class IconsService : ScriptableObject
+    public class ObjectsIconsSO : ScriptableObject
     {
         [SerializeField] private StructureIcon[] structureIcons;
 

@@ -10,7 +10,7 @@ namespace ColonizationMobileGame.UnlockingSystem
         [SerializeField] private ItemsConsumer consumer;
         [SerializeField] private UnlocksChainSO chainSO;
 
-        
+
         private void Start()
         {
             consumer.Setup(chainSO.RequirementsChain);

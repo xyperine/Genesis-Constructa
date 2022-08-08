@@ -43,13 +43,21 @@ namespace ColonizationMobileGame.SceneLoading
         {
             AsyncOperation loading = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
             yield return new WaitUntil(() => loading.isDone);
+
+            GameObject[] rootGameObjects = SceneManager.GetSceneByName(sceneName).GetRootGameObjects();
             
-            foreach (GameObject rootGameObject in SceneManager.GetSceneByName(sceneName).GetRootGameObjects())
+            foreach (GameObject rootGameObject in rootGameObjects)
             {
-                foreach (Canvas canvas in rootGameObject.GetComponentsInChildren<Canvas>())
-                {
-                    canvas.worldCamera = Camera.main;
-                }
+                SetCameraForCanvases(rootGameObject);
+            }
+        }
+
+
+        private void SetCameraForCanvases(GameObject rootGameObject)
+        {
+            foreach (Canvas canvas in rootGameObject.GetComponentsInChildren<Canvas>())
+            {
+                canvas.worldCamera = Camera.main;
             }
         }
     }

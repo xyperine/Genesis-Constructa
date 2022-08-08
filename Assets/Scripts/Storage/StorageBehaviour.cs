@@ -29,17 +29,6 @@ namespace ColonizationMobileGame.Storage
         }
 
 
-        public override void Add(StackZoneItem item)
-        {
-            _itemsCount[item.Type]++;
-            
-            item.SetFree();
-            _mover.MoveItem(item.GetComponent<PlacementItem>(), transform.position);
-
-            SetItemsAmountData();
-        }
-
-
         public void SetItemsAmountData()
         {
             ItemAmountData[] data = _itemsCount.Where(ic => ic.Value > 0)
@@ -48,6 +37,17 @@ namespace ColonizationMobileGame.Storage
             itemsAmountPanelData.SetData(data);
             
             itemsAmountPanelData.InvokeChanged();
+        }
+
+
+        public override void Add(StackZoneItem item)
+        {
+            _itemsCount[item.Type]++;
+            
+            item.SetFree();
+            _mover.MoveItem(item.GetComponent<PlacementItem>(), transform.position);
+
+            SetItemsAmountData();
         }
     }
 }

@@ -19,6 +19,7 @@ namespace ColonizationMobileGame.UnlockingSystem
         private List<IUnlockable> _unlockables;
         private readonly Validator _validator = new Validator();
 
+        public List<Unlock> Unlocks => unlocks;
         public ItemsRequirementsChain RequirementsChain { get; private set; }
         public Unlock Current => unlocks.FirstOrDefault(u => RequirementsChain.Current == u.Price);
 
