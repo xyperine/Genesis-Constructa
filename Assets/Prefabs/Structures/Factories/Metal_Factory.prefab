@@ -190,7 +190,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 903a5946c937c344ab93f5014b6eb52d, type: 2}
     - target: {fileID: 612635780050523782, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: m_Name
-      value: Metal_Extractor
+      value: Metal_Factory
       objectReference: {fileID: 0}
     - target: {fileID: 832378455076211880, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: builder.setupData.chainSO
@@ -220,6 +220,10 @@ PrefabInstance:
       propertyPath: conditions.Array.data[0]
       value: 
       objectReference: {fileID: 6117624384626554471}
+    - target: {fileID: 1056795861092058654, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1742591141323441253, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.22
@@ -258,11 +262,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4328619848421188284, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: 4328619848421188284, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: 4544138657385296773, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: alwaysDraw
@@ -342,19 +346,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9071465920047519392, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9071465920047519392, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9071465920047519392, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 9071465920047519392, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -22
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5795859163313615054, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
@@ -382,3 +386,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyItemsSet: {fileID: 5345627353753894166}
+--- !u!1 &7137553703576385239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 612635780050523782, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+  m_PrefabInstance: {fileID: 7749898603391000657}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3222658430889269586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7137553703576385239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5755988a173f4aa898d56af14da29b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unlockable: {fileID: 7288888549897954895}
+  milestoneType: 1
+--- !u!1 &7288888549897954895 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1056795861092058654, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+  m_PrefabInstance: {fileID: 7749898603391000657}
+  m_PrefabAsset: {fileID: 0}

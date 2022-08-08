@@ -1,4 +1,5 @@
-﻿using ColonizationMobileGame.ItemsExtraction;
+﻿using System;
+using ColonizationMobileGame.ItemsExtraction;
 using ColonizationMobileGame.ItemsPlacementsInteractions;
 using ColonizationMobileGame.ItemsRequirementsSystem;
 using ColonizationMobileGame.ObjectPooling;
@@ -16,6 +17,8 @@ namespace ColonizationMobileGame.BuildSystem
         [SerializeField] private ItemsAmountPanelData itemsAmountPanelData;
         
         private BuildData _buildData;
+
+        public event Action Built;
 
 
         private void Awake()
@@ -52,6 +55,8 @@ namespace ColonizationMobileGame.BuildSystem
             {
                 productionUnit.SetPool(itemsPool);
             }
+            
+            Built?.Invoke();
 
             Invoke(nameof(Deactivate), 1f);
         }
