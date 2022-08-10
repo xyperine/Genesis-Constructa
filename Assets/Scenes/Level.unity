@@ -3243,6 +3243,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1608412726212837044, guid: d8370b7f8509180419359e295107abb0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1608412726464121445, guid: d8370b7f8509180419359e295107abb0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7940628967063872076, guid: d8370b7f8509180419359e295107abb0, type: 3}
       propertyPath: m_Name
       value: Environment
