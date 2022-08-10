@@ -1,7 +1,7 @@
 ﻿using ColonizationMobileGame.BuildSystem;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ProgressionTracking
+namespace ColonizationMobileGame.ProgressionMilestonesSystem
 {
     public class MetalFactoryBuiltMilestone : ProgressionMilestone
     {

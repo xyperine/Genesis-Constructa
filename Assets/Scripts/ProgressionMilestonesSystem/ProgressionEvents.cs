@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ColonizationMobileGame.ProgressionTracking;
 using UnityEngine;
 
 namespace ColonizationMobileGame.ProgressionMilestonesSystem

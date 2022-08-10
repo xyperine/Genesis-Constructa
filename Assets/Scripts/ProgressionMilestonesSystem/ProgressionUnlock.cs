@@ -1,7 +1,6 @@
-﻿using ColonizationMobileGame.ProgressionMilestonesSystem;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace ColonizationMobileGame.ProgressionTracking
+namespace ColonizationMobileGame.ProgressionMilestonesSystem
 {
     public class ProgressionUnlock : MonoBehaviour
     {

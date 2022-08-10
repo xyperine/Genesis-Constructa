@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ColonizationMobileGame.ProgressionTracking
+namespace ColonizationMobileGame.ProgressionMilestonesSystem
 {
     public interface IProgressionMilestone
     {

@@ -2,7 +2,7 @@
 using ColonizationMobileGame.UnlockingSystem;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ProgressionTracking
+namespace ColonizationMobileGame.ProgressionMilestonesSystem
 {
     public class MineralFactoryUnlockedMilestone : ProgressionMilestone
     {

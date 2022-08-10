@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.ProgressionTracking
+﻿namespace ColonizationMobileGame.ProgressionMilestonesSystem
 {
     public enum ProgressionMilestoneType
     {
