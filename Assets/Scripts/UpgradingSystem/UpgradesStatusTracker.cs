@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ColonizationMobileGame.UpgradingSystem
 {
-    public class UpgradesStatusTracker<TUpgradeData>
+    public sealed class UpgradesStatusTracker<TUpgradeData>
         where TUpgradeData : UpgradeData
     {
         public event Action<TUpgradeData> Purchased;
@@ -21,7 +21,7 @@ namespace ColonizationMobileGame.UpgradingSystem
         private void OnUpgradePurchased(Upgrade<TUpgradeData> upgrade)
         {
             upgrade.Purchased -= OnUpgradePurchased;
-            
+
             Purchased?.Invoke(upgrade.Data);
         }
     }

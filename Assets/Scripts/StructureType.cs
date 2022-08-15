@@ -10,7 +10,6 @@
         UraniumFactory,
         CarbonCompressor,
         Storage,
-        UnlockStation,
         MainDome,
     }
 }

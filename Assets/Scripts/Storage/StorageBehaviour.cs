@@ -46,6 +46,8 @@ namespace ColonizationMobileGame.Storage
             
             item.SetFree();
             _mover.MoveItem(item.GetComponent<PlacementItem>(), transform.position);
+            
+            LevelData.Instance.SetItemInStorage(item.Type, (uint) _itemsCount[item.Type]);
 
             SetItemsAmountData();
         }

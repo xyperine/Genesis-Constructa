@@ -13,8 +13,6 @@ namespace ColonizationMobileGame.UpgradingSystem
         [SerializeField] protected Upgrade<TUpgradeData>[] upgrades;
         [SerializeField] private StructureType structureType;
 
-        private readonly Validator _validator = new Validator();
-
         public UpgradesChain<TUpgradeData> ChainCopy => new UpgradesChain<TUpgradeData>(upgrades);
         public IEnumerable<IUnlockable> Unlockables => upgrades;
 
@@ -31,7 +29,7 @@ namespace ColonizationMobileGame.UpgradingSystem
         {
             SetIdentifiersForUpgrades();
             
-            _validator.Validate(this);
+            Validator.Validate(this);
         }
         
 

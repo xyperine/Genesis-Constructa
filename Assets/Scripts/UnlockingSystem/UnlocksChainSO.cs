@@ -17,7 +17,6 @@ namespace ColonizationMobileGame.UnlockingSystem
         [SerializeField] private ExtractorUpgradesChainSO[] upgrades;
 
         private List<IUnlockable> _unlockables;
-        private readonly Validator _validator = new Validator();
 
         public List<Unlock> Unlocks => unlocks;
         public ItemsRequirementsChain RequirementsChain { get; private set; }
@@ -26,7 +25,7 @@ namespace ColonizationMobileGame.UnlockingSystem
 
         private void OnValidate()
         {
-            _validator.Validate(this);
+            Validator.Validate(this);
 
             ManageUnlockablesList();
             ManageUnlocksList();

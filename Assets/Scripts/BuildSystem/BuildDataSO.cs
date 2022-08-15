@@ -11,8 +11,6 @@ namespace ColonizationMobileGame.BuildSystem
         [SerializeField] private BuildData data;
         [SerializeField] private StructureType structureType;
 
-        private readonly Validator _validator = new Validator();
-
         public BuildData Data => data.GetDeepCopy();
         public IEnumerable<IUnlockable> Unlockables => new[] {data};
 
@@ -21,7 +19,7 @@ namespace ColonizationMobileGame.BuildSystem
         {
             SetIdentifierForBuildData();
             
-            _validator.Validate(this);
+            Validator.Validate(this);
         }
 
 

@@ -1,14 +1,13 @@
 ﻿using System;
 using ColonizationMobileGame.ItemsExtraction;
 using ColonizationMobileGame.ItemsPlacementsInteractions;
-using ColonizationMobileGame.ItemsRequirementsSystem;
 using ColonizationMobileGame.ObjectPooling;
 using ColonizationMobileGame.UI.ItemsAmount.Data;
 using UnityEngine;
 
 namespace ColonizationMobileGame.BuildSystem
 {
-    public class Builder : MonoBehaviour, IItemsAmountDataProvider
+    public sealed class Builder : MonoBehaviour, IItemsAmountDataProvider
     {
         [SerializeField] private BuildDataSO buildDataSO;
         [SerializeField] private Transform structuresParent;
@@ -42,21 +41,29 @@ namespace ColonizationMobileGame.BuildSystem
         
         private void SetupPrice()
         {
-            consumer.Setup(new ItemsRequirementsChain(new[] {_buildData.Price}));
+            consumer.Setup(_buildData.Price);
             _buildData.Price.Fulfilled += Build;
         }
 
 
         private void Build()
         {
-            GameObject structure = Instantiate(_buildData.StructurePrefab, transform.position, Quaternion.identity, structuresParent);
-            ExtractorProductionUnit productionUnit = structure.GetComponentInChildren<ExtractorProductionUnit>();
+            GameObject structureObject = Instantiate(_buildData.StructurePrefab, transform.position, Quaternion.identity, structuresParent);
+            ExtractorProductionUnit productionUnit = structureObject.GetComponentInChildren<ExtractorProductionUnit>();
+
+            if (structureObject.TryGetComponent(out Structure structure))
+            {
+                structure.Setup(_buildData.Identifier.StructureType, _buildData.MaxLevel);
+            }
+
             if (productionUnit)
             {
                 productionUnit.SetPool(itemsPool);
             }
             
             Built?.Invoke();
+            
+            LevelData.Instance.SetStructure(structure);
 
             Invoke(nameof(Deactivate), 1f);
         }

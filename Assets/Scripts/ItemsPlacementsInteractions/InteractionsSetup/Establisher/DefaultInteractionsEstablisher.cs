@@ -7,9 +7,6 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup.E
 {
     public class DefaultInteractionsEstablisher : InteractionsEstablisher<InteractionsList>
     {
-        private readonly Validator _validator = new Validator();
-
-
         private async void OnValidate()
         {
             while (interactions == null)
@@ -17,7 +14,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup.E
                 await Task.Yield();
             }
 
-            _validator.Validate(this);
+            Validator.Validate(this);
         }
 
 

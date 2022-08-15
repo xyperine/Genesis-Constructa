@@ -1,0 +1,173 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80d6a84faf184a13b5ada1cc4a43a469, type: 3}
+  m_Name: Tasks_List_SO
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: mainTasks
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[ColonizationMobileGame.TasksSystem.Task,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 1|ColonizationMobileGame.TasksSystem.Task, Assembly-CSharp
+    - Name: title
+      Entry: 1
+      Data: Build metal factory
+    - Name: reward
+      Entry: 4
+      Data: 0
+    - Name: requirement
+      Entry: 7
+      Data: 2|ColonizationMobileGame.TasksSystem.Requirements.BuildTaskRequirement,
+        Assembly-CSharp
+    - Name: structureType
+      Entry: 3
+      Data: 2
+    - Name: structuresRequired
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|ColonizationMobileGame.TasksSystem.Task, Assembly-CSharp
+    - Name: title
+      Entry: 1
+      Data: Collect 5 metals and 5 minerals
+    - Name: reward
+      Entry: 4
+      Data: 0
+    - Name: requirement
+      Entry: 7
+      Data: 4|ColonizationMobileGame.TasksSystem.Requirements.ItemsInStorageTaskRequirement,
+        Assembly-CSharp
+    - Name: requirements
+      Entry: 7
+      Data: 5|ColonizationMobileGame.ItemsRequirementsSystem.ItemRequirement[], Assembly-CSharp
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 6|ColonizationMobileGame.ItemsRequirementsSystem.ItemRequirement, Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 1
+    - Name: amount
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 7|ColonizationMobileGame.ItemsRequirementsSystem.ItemRequirement, Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 2
+    - Name: amount
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 8|ColonizationMobileGame.TasksSystem.Task, Assembly-CSharp
+    - Name: title
+      Entry: 1
+      Data: Build carbon factory
+    - Name: reward
+      Entry: 4
+      Data: 0
+    - Name: requirement
+      Entry: 7
+      Data: 9|ColonizationMobileGame.TasksSystem.Requirements.BuildTaskRequirement,
+        Assembly-CSharp
+    - Name: structureType
+      Entry: 3
+      Data: 4
+    - Name: structuresRequired
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: optionalTasks
+      Entry: 7
+      Data: 10|System.Collections.Generic.List`1[[ColonizationMobileGame.TasksSystem.Task,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 11|ColonizationMobileGame.TasksSystem.Task, Assembly-CSharp
+    - Name: title
+      Entry: 1
+      Data: Complete all tasks
+    - Name: reward
+      Entry: 4
+      Data: 0
+    - Name: requirement
+      Entry: 7
+      Data: 12|ColonizationMobileGame.TasksSystem.Requirements.CompleteAllTasksRequirement,
+        Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 

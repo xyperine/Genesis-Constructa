@@ -8,19 +8,21 @@ using UnityEngine;
 namespace ColonizationMobileGame.BuildSystem
 {
     [Serializable]
-    public class BuildData : IUnlockable, IDeepCloneable<BuildData>
+    public sealed class BuildData : IUnlockable, IDeepCloneable<BuildData>
     {
         [SerializeField] private bool locked = true;
         [SerializeField] private GameObject structurePrefab;
         [SerializeField] private ItemsRequirementsBlock price;
+        [SerializeField] private int maxLevel;
 
         [SerializeField, HideInInspector] private StructureIdentifier identifier;
-        
+
         private bool _defaultLockedState;
         
         public bool Locked => locked;
         public GameObject StructurePrefab => structurePrefab;
         public ItemsRequirementsBlock Price => price;
+        public int MaxLevel => maxLevel;
         public StructureIdentifier Identifier
         {
             get => identifier;

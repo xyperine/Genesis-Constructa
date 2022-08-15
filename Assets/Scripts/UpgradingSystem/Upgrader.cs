@@ -14,6 +14,8 @@ namespace ColonizationMobileGame.UpgradingSystem
 
         protected IEnumerable<IUpgradeable<TUpgradeData>> upgradeables;
         protected UpgradesStatusTracker<TUpgradeData> upgradesTracker;
+        
+        public int Level { get; private set; }
 
 
         public abstract void Construct(IConstructData data);
@@ -25,6 +27,8 @@ namespace ColonizationMobileGame.UpgradingSystem
             {
                 upgradeable.Upgrade(data);
             }
+
+            Level++;
         }
         
         
