@@ -1,9 +1,13 @@
-﻿using UnityEngine;
+﻿using ColonizationMobileGame.Level;
+using ColonizationMobileGame.TasksSystem;
+using UnityEngine;
 
-namespace ColonizationMobileGame.SceneLoading
+namespace ColonizationMobileGame.Initialization
 {
     public class DependenciesResolver : MonoBehaviour
     {
+        [SerializeField] private TasksInitializer tasksInitializer;
+        
         private LevelData _levelData;
         
         
@@ -14,7 +18,7 @@ namespace ColonizationMobileGame.SceneLoading
             foreach (GameObject rootGameObject in rootGameObjects)
             {
                 SetCameraForCanvases(rootGameObject);
-                SetLevelDataToObjects(rootGameObject);
+                SetLevelData(rootGameObject);
             }
         }
         
@@ -28,8 +32,10 @@ namespace ColonizationMobileGame.SceneLoading
         }
 
 
-        private void SetLevelDataToObjects(GameObject rootGameObject)
+        private void SetLevelData(GameObject rootGameObject)
         {
+            tasksInitializer.SetLevelData(_levelData);
+            
             foreach (ILevelDataUser dataUser in rootGameObject.GetComponentsInChildren<ILevelDataUser>(true))
             {
                 dataUser.SetLevelData(_levelData);

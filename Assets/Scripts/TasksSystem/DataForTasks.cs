@@ -1,4 +1,6 @@
-﻿namespace ColonizationMobileGame.TasksSystem
+﻿using ColonizationMobileGame.Level;
+
+namespace ColonizationMobileGame.TasksSystem
 {
     public class DataForTasks
     {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using ColonizationMobileGame.Structures;
 using UnityEngine;
 
 namespace ColonizationMobileGame.TasksSystem.Requirements

@@ -27,16 +27,16 @@ MonoBehaviour:
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 2
     - Name: 
       Entry: 7
       Data: 1|ColonizationMobileGame.TasksSystem.Task, Assembly-CSharp
-    - Name: title
+    - Name: actionToDo
       Entry: 1
-      Data: Build metal factory
+      Data: Build Metal Factory
     - Name: reward
-      Entry: 4
-      Data: 0
+      Entry: 3
+      Data: 100
     - Name: requirement
       Entry: 7
       Data: 2|ColonizationMobileGame.TasksSystem.Requirements.BuildTaskRequirement,
@@ -56,70 +56,15 @@ MonoBehaviour:
     - Name: 
       Entry: 7
       Data: 3|ColonizationMobileGame.TasksSystem.Task, Assembly-CSharp
-    - Name: title
+    - Name: actionToDo
       Entry: 1
-      Data: Collect 5 metals and 5 minerals
+      Data: Build Carbon Factory
     - Name: reward
-      Entry: 4
-      Data: 0
+      Entry: 3
+      Data: 200
     - Name: requirement
       Entry: 7
-      Data: 4|ColonizationMobileGame.TasksSystem.Requirements.ItemsInStorageTaskRequirement,
-        Assembly-CSharp
-    - Name: requirements
-      Entry: 7
-      Data: 5|ColonizationMobileGame.ItemsRequirementsSystem.ItemRequirement[], Assembly-CSharp
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: 6|ColonizationMobileGame.ItemsRequirementsSystem.ItemRequirement, Assembly-CSharp
-    - Name: type
-      Entry: 3
-      Data: 1
-    - Name: amount
-      Entry: 3
-      Data: 5
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 7|ColonizationMobileGame.ItemsRequirementsSystem.ItemRequirement, Assembly-CSharp
-    - Name: type
-      Entry: 3
-      Data: 2
-    - Name: amount
-      Entry: 3
-      Data: 5
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 8|ColonizationMobileGame.TasksSystem.Task, Assembly-CSharp
-    - Name: title
-      Entry: 1
-      Data: Build carbon factory
-    - Name: reward
-      Entry: 4
-      Data: 0
-    - Name: requirement
-      Entry: 7
-      Data: 9|ColonizationMobileGame.TasksSystem.Requirements.BuildTaskRequirement,
+      Data: 4|ColonizationMobileGame.TasksSystem.Requirements.BuildTaskRequirement,
         Assembly-CSharp
     - Name: structureType
       Entry: 3
@@ -141,20 +86,75 @@ MonoBehaviour:
       Data: 
     - Name: optionalTasks
       Entry: 7
-      Data: 10|System.Collections.Generic.List`1[[ColonizationMobileGame.TasksSystem.Task,
+      Data: 5|System.Collections.Generic.List`1[[ColonizationMobileGame.TasksSystem.Task,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 6|ColonizationMobileGame.TasksSystem.Task, Assembly-CSharp
+    - Name: actionToDo
+      Entry: 1
+      Data: Put items in storage
+    - Name: reward
+      Entry: 3
+      Data: 100
+    - Name: requirement
+      Entry: 7
+      Data: 7|ColonizationMobileGame.TasksSystem.Requirements.ItemsInStorageTaskRequirement,
+        Assembly-CSharp
+    - Name: itemsRequired
+      Entry: 7
+      Data: 8|ColonizationMobileGame.ItemsRequirementsSystem.ItemRequirement[], Assembly-CSharp
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 9|ColonizationMobileGame.ItemsRequirementsSystem.ItemRequirement, Assembly-CSharp
+    - Name: type
+      Entry: 3
       Data: 1
+    - Name: amount
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 10|ColonizationMobileGame.ItemsRequirementsSystem.ItemRequirement, Assembly-CSharp
+    - Name: type
+      Entry: 3
+      Data: 2
+    - Name: amount
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 7
       Data: 11|ColonizationMobileGame.TasksSystem.Task, Assembly-CSharp
-    - Name: title
+    - Name: actionToDo
       Entry: 1
-      Data: Complete all tasks
+      Data: Comlete all tasks
     - Name: reward
-      Entry: 4
-      Data: 0
+      Entry: 3
+      Data: 1000
     - Name: requirement
       Entry: 7
       Data: 12|ColonizationMobileGame.TasksSystem.Requirements.CompleteAllTasksRequirement,
@@ -167,6 +167,35 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: r
+      Entry: 7
+      Data: 13|ColonizationMobileGame.TasksSystem.TestTask, Assembly-CSharp
+    - Name: reward
+      Entry: 3
+      Data: 0
+    - Name: requirement
+      Entry: 7
+      Data: 14|ColonizationMobileGame.TasksSystem.Requirements.ItemsInStorageTaskRequirement,
+        Assembly-CSharp
+    - Name: itemsRequired
+      Entry: 7
+      Data: 15|ColonizationMobileGame.ItemsRequirementsSystem.ItemRequirement[],
+        Assembly-CSharp
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8

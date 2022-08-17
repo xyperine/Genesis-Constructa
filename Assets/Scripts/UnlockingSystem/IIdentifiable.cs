@@ -1,6 +1,6 @@
-﻿using ColonizationMobileGame.UnlockingSystem;
+﻿using ColonizationMobileGame.Structures;
 
-namespace ColonizationMobileGame
+namespace ColonizationMobileGame.UnlockingSystem
 {
     public interface IIdentifiable
     {

@@ -1,5 +1,6 @@
 ﻿using System;
 using ColonizationMobileGame.ItemsRequirementsSystem;
+using ColonizationMobileGame.Structures;
 using ColonizationMobileGame.UnlockingSystem;
 using ColonizationMobileGame.Utility;
 using ColonizationMobileGame.Utility.Validating;

@@ -9,7 +9,7 @@ namespace ColonizationMobileGame.TasksSystem.Requirements
     [Serializable]
     public class ItemsInStorageTaskRequirement : TaskRequirement
     {
-        [SerializeField] private ItemRequirement[] requirements;
+        [SerializeField] private ItemRequirement[] itemsRequired;
         
         public override Progress Progress => GetProgress();
         
@@ -29,13 +29,13 @@ namespace ColonizationMobileGame.TasksSystem.Requirements
         private Progress GetProgress()
         {
             IEnumerable<KeyValuePair<ItemType, uint>> filteredItemsInStorage = data.LevelData.ItemsInStorage
-                .Where(kvp => requirements
+                .Where(kvp => itemsRequired
                     .Select(r => r.Type)
                     .Contains(kvp.Key));
             int current = filteredItemsInStorage
-                .Where(kvp => (int) kvp.Value >= requirements.SingleOrDefault(r => r.Type == kvp.Key)?.Required)
+                .Where(kvp => (int) kvp.Value >= itemsRequired.SingleOrDefault(r => r.Type == kvp.Key)?.Required)
                 .Sum(kvp => (int) kvp.Value);
-            int required = requirements.Sum(r => r.Required);
+            int required = itemsRequired.Sum(r => r.Required);
 
             return new Progress(current, required);
         }

@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using ColonizationMobileGame.TasksSystem;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace ColonizationMobileGame.SceneLoading
+namespace ColonizationMobileGame.Initialization
 {
     public class Bootstrapper : MonoBehaviour
     {
         [SerializeField] private DependenciesResolver dependenciesResolver;
+        [SerializeField] private TasksInitializer tasksInitializer;
 #if UNITY_EDITOR
         [SerializeField] private List<SceneAsset> scenesToLoad;
 #endif
@@ -48,6 +50,7 @@ namespace ColonizationMobileGame.SceneLoading
             GameObject[] rootGameObjects = SceneManager.GetSceneByName(sceneName).GetRootGameObjects();
             
             dependenciesResolver.Resolve(rootGameObjects);
+            tasksInitializer.InitializeTasks();
         }
     }
 }

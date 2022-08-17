@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame
+﻿namespace ColonizationMobileGame.Structures
 {
     public enum StructureType
     {

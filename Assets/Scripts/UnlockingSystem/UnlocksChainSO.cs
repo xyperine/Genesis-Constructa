@@ -3,6 +3,7 @@ using System.Linq;
 using ColonizationMobileGame.BuildSystem;
 using ColonizationMobileGame.ItemsExtraction.Upgrading;
 using ColonizationMobileGame.ItemsRequirementsSystem;
+using ColonizationMobileGame.Structures;
 using ColonizationMobileGame.Utility.Validating;
 using UnityEngine;
 

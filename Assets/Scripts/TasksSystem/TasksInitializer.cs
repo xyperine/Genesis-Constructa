@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using ColonizationMobileGame.Level;
 using UnityEngine;
 
 namespace ColonizationMobileGame.TasksSystem
 {
-    public class TasksBuilder : MonoBehaviour, ILevelDataUser
+    public class TasksInitializer : MonoBehaviour, ILevelDataUser
     {
         [SerializeField] private TasksListSO tasksListSO;
 
@@ -19,9 +20,8 @@ namespace ColonizationMobileGame.TasksSystem
         }
 
 
-        private void Awake()
+        public void InitializeTasks()
         {
-            _levelData = FindObjectOfType<LevelData>();
             _tasks = tasksListSO.AllTasks;
 
             DataForTasks data = new DataForTasks(_levelData, _tasks.Select(t => t.Requirement).ToArray());

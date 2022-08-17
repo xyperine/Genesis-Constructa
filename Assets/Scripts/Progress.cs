@@ -6,7 +6,7 @@ namespace ColonizationMobileGame
     {
         public int Current { get; }
         public int Required { get; }
-        public float Percentage => (float) Current / Required * 100f;
+        public float Completion => (float) Current / Required;
 
         public bool Complete => Current >= Required;
 

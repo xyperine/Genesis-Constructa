@@ -34,7 +34,7 @@ namespace ColonizationMobileGame.SetupSystem.StackZones
                 return;
             }
 
-            List<string> changedProperties = DetailedComparer.Compare(this.data, data);
+            List<string> changedProperties = DeepComparer.Compare(this.data, data);
 
             this.data = data;
 

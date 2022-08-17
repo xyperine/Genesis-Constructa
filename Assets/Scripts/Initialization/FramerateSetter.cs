@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ColonizationMobileGame.Utility
+namespace ColonizationMobileGame.Initialization
 {
     public class FramerateSetter : MonoBehaviour
     {

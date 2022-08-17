@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame
+﻿namespace ColonizationMobileGame.Level
 {
     public interface ILevelDataUser
     {

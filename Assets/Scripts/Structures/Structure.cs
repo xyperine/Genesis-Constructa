@@ -1,7 +1,7 @@
 ﻿using ColonizationMobileGame.ItemsExtraction.Upgrading;
 using UnityEngine;
 
-namespace ColonizationMobileGame
+namespace ColonizationMobileGame.Structures
 {
     public class Structure : MonoBehaviour
     {

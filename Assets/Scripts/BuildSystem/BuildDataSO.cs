@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ColonizationMobileGame.Structures;
 using ColonizationMobileGame.UnlockingSystem;
 using ColonizationMobileGame.Utility.Validating;
 using UnityEngine;

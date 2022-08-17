@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace ColonizationMobileGame.Utility
 {
-    public static class DetailedComparer
+    public static class DeepComparer
     {
         public static List<string> Compare<T>(T obj1, T obj2)
         {

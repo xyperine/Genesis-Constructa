@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7730718997147459500}
   - component: {fileID: 7730718997147459475}
+  - component: {fileID: 7137095656433062257}
+  - component: {fileID: 8533756249926470206}
   - component: {fileID: 7730718997147459474}
   m_Layer: 0
-  m_Name: Bootstrapper
+  m_Name: Initialization
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,10 +47,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5dc1bdc1ec4675b9ca2c2978795601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dependenciesResolver: {fileID: 7137095656433062257}
+  tasksInitializer: {fileID: 8533756249926470206}
   scenesToLoad:
-  - {fileID: 102900000, guid: 26c17b16364e2684aa6a757a9df6e9d5, type: 3}
+  - {fileID: 102900000, guid: 10cfb378149f57b4788d488bbf4004f6, type: 3}
   scenesNames:
-  - Extractors
+  - Level
+--- !u!114 &7137095656433062257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7730718997147459501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f3988e3064143859424d7ac615348f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tasksInitializer: {fileID: 8533756249926470206}
+--- !u!114 &8533756249926470206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7730718997147459501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d40c5445d62145e283516592fd84151a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tasksListSO: {fileID: 11400000, guid: e80301849600afc4bbc5548c9ccf00b6, type: 2}
 --- !u!114 &7730718997147459474
 MonoBehaviour:
   m_ObjectHideFlags: 0

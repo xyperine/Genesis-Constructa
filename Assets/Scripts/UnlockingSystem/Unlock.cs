@@ -1,5 +1,6 @@
 ﻿using System;
 using ColonizationMobileGame.ItemsRequirementsSystem;
+using ColonizationMobileGame.Structures;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

@@ -1,16 +1,16 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
 
 namespace ColonizationMobileGame.TasksSystem
 {
-    [ShowOdinSerializedPropertiesInInspector]
-    [SuppressMessage("ReSharper", "InconsistentNaming")]
+    [Serializable]
     public class Task
     {
-        [OdinSerialize] private string title;
-        [OdinSerialize] private int reward;
+        [SerializeField] private string actionToDo;
+        [SerializeField, MinValue(0)] private int reward;
+        // ReSharper disable once InconsistentNaming
         [OdinSerialize] private ITaskRequirement requirement;
         
         public ITaskRequirement Requirement => requirement;
@@ -19,7 +19,7 @@ namespace ColonizationMobileGame.TasksSystem
         public void Setup(DataForTasks data)
         {
             requirement.Setup(data);
-            requirement.Fulfilled += () => Debug.Log(title + " complete!");
+            requirement.Fulfilled += () => Debug.Log(actionToDo + " complete!");
         }
     }
 }
