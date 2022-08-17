@@ -9,6 +9,7 @@ namespace ColonizationMobileGame.SceneLoading
 {
     public class Bootstrapper : MonoBehaviour
     {
+        [SerializeField] private DependenciesResolver dependenciesResolver;
 #if UNITY_EDITOR
         [SerializeField] private List<SceneAsset> scenesToLoad;
 #endif
@@ -46,19 +47,7 @@ namespace ColonizationMobileGame.SceneLoading
 
             GameObject[] rootGameObjects = SceneManager.GetSceneByName(sceneName).GetRootGameObjects();
             
-            foreach (GameObject rootGameObject in rootGameObjects)
-            {
-                SetCameraForCanvases(rootGameObject);
-            }
-        }
-
-
-        private void SetCameraForCanvases(GameObject rootGameObject)
-        {
-            foreach (Canvas canvas in rootGameObject.GetComponentsInChildren<Canvas>())
-            {
-                canvas.worldCamera = Camera.main;
-            }
+            dependenciesResolver.Resolve(rootGameObjects);
         }
     }
 }

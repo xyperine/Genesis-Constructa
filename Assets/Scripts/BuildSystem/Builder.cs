@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace ColonizationMobileGame.BuildSystem
 {
-    public sealed class Builder : MonoBehaviour, IItemsAmountDataProvider
+    public sealed class Builder : MonoBehaviour, IItemsAmountDataProvider, ILevelDataUser
     {
         [SerializeField] private BuildDataSO buildDataSO;
         [SerializeField] private Transform structuresParent;
@@ -15,10 +15,18 @@ namespace ColonizationMobileGame.BuildSystem
         [SerializeField] private ItemsConsumer consumer;
         [SerializeField] private ItemsAmountPanelData itemsAmountPanelData;
         
+        private LevelData _levelData;
+        
         private BuildData _buildData;
 
         public event Action Built;
 
+
+        public void SetLevelData(LevelData levelData)
+        {
+            _levelData = levelData;
+        }
+        
 
         private void Awake()
         {
@@ -63,7 +71,7 @@ namespace ColonizationMobileGame.BuildSystem
             
             Built?.Invoke();
             
-            LevelData.Instance.SetStructure(structure);
+            _levelData.SetStructure(structure);
 
             Invoke(nameof(Deactivate), 1f);
         }

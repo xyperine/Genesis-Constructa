@@ -4,13 +4,19 @@ using UnityEngine;
 
 namespace ColonizationMobileGame.TasksSystem
 {
-    public class TasksBuilder : MonoBehaviour
+    public class TasksBuilder : MonoBehaviour, ILevelDataUser
     {
         [SerializeField] private TasksListSO tasksListSO;
 
         private LevelData _levelData;
         
         private List<Task> _tasks;
+
+
+        public void SetLevelData(LevelData levelData)
+        {
+            _levelData = levelData;
+        }
 
 
         private void Awake()

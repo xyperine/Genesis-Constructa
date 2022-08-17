@@ -10,17 +10,25 @@ using UnityEngine;
 
 namespace ColonizationMobileGame.Storage
 {
-    public class StorageBehaviour : InteractionTarget, IItemsAmountDataProvider
+    public class StorageBehaviour : InteractionTarget, IItemsAmountDataProvider, ILevelDataUser
     {
         [SerializeField] private ItemsAmountPanelData itemsAmountPanelData;
 
-        private Dictionary<ItemType, int> _itemsCount;
         private readonly DestroyingPlacementItemsMover _mover = new DestroyingPlacementItemsMover();
+        
+        private Dictionary<ItemType, int> _itemsCount;
+        private LevelData _levelData;
 
         public override bool CanTakeMore => true;
         public override ItemType[] AcceptableItems { get; } = Enum.GetValues(typeof(ItemType)).Cast<ItemType>().ToArray();
 
 
+        public void SetLevelData(LevelData levelData)
+        {
+            _levelData = levelData;
+        }
+        
+        
         private void Awake()
         {
             _itemsCount = AcceptableItems.ToDictionary(t => t, _ => 0);
@@ -47,7 +55,7 @@ namespace ColonizationMobileGame.Storage
             item.SetFree();
             _mover.MoveItem(item.GetComponent<PlacementItem>(), transform.position);
             
-            LevelData.Instance.SetItemInStorage(item.Type, (uint) _itemsCount[item.Type]);
+            _levelData.SetItemInStorage(item.Type, (uint) _itemsCount[item.Type]);
 
             SetItemsAmountData();
         }

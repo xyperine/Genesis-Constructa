@@ -621,6 +621,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7730718997147459475, guid: fcb4fbc281730f04a9288188820bb0ae, type: 3}
+      propertyPath: dependenciesResolver
+      value: 
+      objectReference: {fileID: 7730718998995165818}
+    - target: {fileID: 7730718997147459475, guid: fcb4fbc281730f04a9288188820bb0ae, type: 3}
       propertyPath: scenesNames.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -728,3 +732,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tasksListSO: {fileID: 11400000, guid: e80301849600afc4bbc5548c9ccf00b6, type: 2}
+--- !u!114 &7730718998995165818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7730718998995165812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f3988e3064143859424d7ac615348f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelData: {fileID: 7730718998995165813}

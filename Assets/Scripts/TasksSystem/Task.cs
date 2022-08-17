@@ -10,7 +10,7 @@ namespace ColonizationMobileGame.TasksSystem
     public class Task
     {
         [OdinSerialize] private string title;
-        [OdinSerialize] private float reward;
+        [OdinSerialize] private int reward;
         [OdinSerialize] private ITaskRequirement requirement;
         
         public ITaskRequirement Requirement => requirement;
