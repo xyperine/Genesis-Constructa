@@ -15,7 +15,7 @@ namespace ColonizationMobileGame.Initialization
         public void Resolve(GameObject[] rootGameObjects)
         {
             _levelData = FindObjectOfType<LevelData>();
-            ScoreCounter scoreCounter = FindObjectOfType<ScoreCounter>();
+            ScoreModifier scoreModifier = FindObjectOfType<ScoreModifier>();
             
             foreach (GameObject rootGameObject in rootGameObjects)
             {
@@ -23,7 +23,7 @@ namespace ColonizationMobileGame.Initialization
                 SetLevelData(rootGameObject);
             }
             
-            tasksInitializer.SetScoreCounter(scoreCounter);
+            tasksInitializer.SetScoreCounter(scoreModifier);
         }
         
         

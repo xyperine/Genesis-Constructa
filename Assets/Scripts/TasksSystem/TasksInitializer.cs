@@ -11,7 +11,7 @@ namespace ColonizationMobileGame.TasksSystem
         [SerializeField] private TasksListSO tasksListSO;
 
         private LevelData _levelData;
-        private ScoreCounter _scoreCounter;
+        private ScoreModifier _scoreModifier;
         
         private List<Task> _tasks;
 
@@ -22,9 +22,9 @@ namespace ColonizationMobileGame.TasksSystem
         }
 
 
-        public void SetScoreCounter(ScoreCounter scoreCounter)
+        public void SetScoreCounter(ScoreModifier scoreModifier)
         {
-            _scoreCounter = scoreCounter;
+            _scoreModifier = scoreModifier;
         }
 
 
@@ -35,7 +35,7 @@ namespace ColonizationMobileGame.TasksSystem
             DataForTasks data = new DataForTasks(_levelData, _tasks.Select(t => t.Requirement).ToArray());
             foreach (Task task in _tasks)
             {
-                task.Setup(data, _scoreCounter);
+                task.Setup(data, _scoreModifier);
             }
         }
     }

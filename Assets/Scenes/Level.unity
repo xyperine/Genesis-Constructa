@@ -479,6 +479,10 @@ PrefabInstance:
       propertyPath: scoreCounter
       value: 
       objectReference: {fileID: 1947850914}
+    - target: {fileID: 685933801875632120, guid: 53f6c97c58067754c8d3ca32c4794def, type: 3}
+      propertyPath: scoreModifier
+      value: 
+      objectReference: {fileID: 1947850914}
     - target: {fileID: 685933801875632121, guid: 53f6c97c58067754c8d3ca32c4794def, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -784,6 +788,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2173674456679080727, guid: 65b9836be6014e4428674be2178376ed, type: 3}
       propertyPath: scoreCounter
+      value: 
+      objectReference: {fileID: 1947850914}
+    - target: {fileID: 2173674456679080727, guid: 65b9836be6014e4428674be2178376ed, type: 3}
+      propertyPath: scoreModifier
       value: 
       objectReference: {fileID: 1947850914}
     - target: {fileID: 2765470283298963367, guid: 65b9836be6014e4428674be2178376ed, type: 3}
@@ -3253,6 +3261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1947850913}
   - component: {fileID: 1947850914}
+  - component: {fileID: 1947850915}
   m_Layer: 0
   m_Name: Score_System
   m_TagString: Untagged
@@ -3287,7 +3296,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaaee355d6df4eb587f63fa05311c35d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: {fileID: 1947850915}
   scoreRewardsSO: {fileID: 11400000, guid: a655b4da0f78e62459d4460e581240c4, type: 2}
+--- !u!114 &1947850915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947850912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a51198843f554aa884763c823e427605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1978837230 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4570548245149242661, guid: 91579add97abbd04186c5008f85bd507, type: 3}

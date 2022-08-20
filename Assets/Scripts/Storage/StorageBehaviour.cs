@@ -15,7 +15,7 @@ namespace ColonizationMobileGame.Storage
     public class StorageBehaviour : InteractionTarget, IItemsAmountDataProvider, ILevelDataUser
     {
         [SerializeField] private ItemsAmountPanelData itemsAmountPanelData;
-        [SerializeField] private ScoreCounter scoreCounter;
+        [SerializeField] private ScoreModifier scoreModifier;
 
         private readonly DestroyingPlacementItemsMover _mover = new DestroyingPlacementItemsMover();
         
@@ -60,7 +60,7 @@ namespace ColonizationMobileGame.Storage
             
             _levelData.SetItemInStorage(item.Type, (uint) _itemsCount[item.Type]);
             
-            scoreCounter.Add(item.Type);
+            scoreModifier.Add(item.Type);
 
             SetItemsAmountData();
         }

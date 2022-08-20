@@ -14,15 +14,15 @@ namespace ColonizationMobileGame.TasksSystem
         // ReSharper disable once InconsistentNaming
         [OdinSerialize] private ITaskRequirement requirement;
 
-        private ScoreCounter _scoreCounter;
+        private ScoreModifier _scoreModifier;
         
         
         public ITaskRequirement Requirement => requirement;
 
 
-        public void Setup(DataForTasks data, ScoreCounter scoreCounter)
+        public void Setup(DataForTasks data, ScoreModifier scoreModifier)
         {
-            _scoreCounter = scoreCounter;
+            _scoreModifier = scoreModifier;
             
             requirement.Setup(data);
             requirement.Fulfilled += Reward;
@@ -32,7 +32,7 @@ namespace ColonizationMobileGame.TasksSystem
         private void Reward()
         {
             Debug.Log(actionToDo + " complete!");
-            _scoreCounter.Add(reward);
+            _scoreModifier.Add(reward);
         }
     }
 }

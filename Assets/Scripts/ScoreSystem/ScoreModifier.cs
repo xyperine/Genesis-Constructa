@@ -1,14 +1,12 @@
-﻿using System;
-using ColonizationMobileGame.Structures;
+﻿using ColonizationMobileGame.Structures;
 using UnityEngine;
 
 namespace ColonizationMobileGame.ScoreSystem
 {
-    public class ScoreCounter : MonoBehaviour
+    public class ScoreModifier : MonoBehaviour
     {
+        [SerializeField] private Score score;
         [SerializeField] private ScoreRewardsSO scoreRewardsSO;
-        
-        private int _score;
 
 
         public void Add(ItemType itemType)
@@ -23,16 +21,9 @@ namespace ColonizationMobileGame.ScoreSystem
         }
         
         
-        public void Add(int points)
+        public void Add(int value)
         {
-            if (points < 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(points));
-            }
-            
-            _score += points;
-            
-            Debug.Log(_score);
+            score.Add(value);
         }
     }
 }

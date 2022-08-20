@@ -11,17 +11,17 @@ namespace ColonizationMobileGame.UnlockingSystem
         [SerializeField] private ItemsConsumer consumer;
         [SerializeField] private UnlocksChainSO chainSO;
 
-        [SerializeField] private ScoreCounter scoreCounter; 
+        [SerializeField] private ScoreModifier scoreModifier; 
 
 
         private void Start()
         {
             consumer.Setup(chainSO.RequirementsChain);
             consumer.Consumed += SetItemsAmountData;
-
-            chainSO.Current.Price.Fulfilling += SetItemsAmountData;
-            chainSO.Current.Price.Fulfilling += AddScore;
             
+            chainSO.RequirementsChain.ChangingBlock += SetItemsAmountData;
+            chainSO.RequirementsChain.ChangingBlock += AddScore;
+
             SetItemsAmountData();
         }
         
@@ -39,7 +39,7 @@ namespace ColonizationMobileGame.UnlockingSystem
 
         private void AddScore()
         {
-            scoreCounter.Add(chainSO.Current.Identifier.StructureType);
+            scoreModifier.Add(chainSO.Current.Identifier.StructureType);
         }
     }
 }
