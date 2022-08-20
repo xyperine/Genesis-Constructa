@@ -26,7 +26,7 @@ namespace ColonizationMobileGame.SetupSystem.Upgrader.Extractors
         {
             upgrader.Construct(setupData);
             consumer.Consumed += upgrader.SetItemsAmountData;
-            setupData.Chain.Current.Price.Fulfilling += upgrader.SetItemsAmountData;
+            setupData.Chain.RequirementsChain.ChangingBlock += upgrader.SetItemsAmountData;
         }
     }
 }

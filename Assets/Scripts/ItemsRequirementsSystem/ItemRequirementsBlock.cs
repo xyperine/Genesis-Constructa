@@ -19,7 +19,6 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
         public ItemType[] RequiredItems => requirements.Where(r => !r.Fulfilled).Select(r => r.Type).ToArray();
 
         public event Action Fulfilled;
-        public event Action Fulfilling;
 
 
         public ItemAmountData[] ToItemsAmount()
@@ -45,18 +44,7 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
         private void PassToMatchingRequirement(ItemType type)
         {
             ItemRequirement matchingRequirement = requirements.FirstOrDefault(r => r.Type == type);
-
-            if (matchingRequirement == null)
-            {
-                return;
-            }
-            
-            if (matchingRequirement.CurrentAmount + 1 >= matchingRequirement.Required)
-            {
-                Fulfilling?.Invoke();
-            }
-            
-            matchingRequirement.AddOneItem();
+            matchingRequirement?.AddOneItem();
         }
 
 
