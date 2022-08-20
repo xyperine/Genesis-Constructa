@@ -18,7 +18,7 @@ namespace ColonizationMobileGame.BuildSystem
         [SerializeField] private ItemsAmountPanelData itemsAmountPanelData;
         
         private LevelData _levelData;
-        
+
         private BuildData _buildData;
 
         public event Action Built;

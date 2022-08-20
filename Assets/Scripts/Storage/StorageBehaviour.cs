@@ -6,6 +6,7 @@ using ColonizationMobileGame.ItemsPlacement.Movers;
 using ColonizationMobileGame.ItemsPlacementsInteractions;
 using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
 using ColonizationMobileGame.Level;
+using ColonizationMobileGame.ScoreSystem;
 using ColonizationMobileGame.UI.ItemsAmount.Data;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ namespace ColonizationMobileGame.Storage
     public class StorageBehaviour : InteractionTarget, IItemsAmountDataProvider, ILevelDataUser
     {
         [SerializeField] private ItemsAmountPanelData itemsAmountPanelData;
+        [SerializeField] private ScoreCounter scoreCounter;
 
         private readonly DestroyingPlacementItemsMover _mover = new DestroyingPlacementItemsMover();
         
@@ -57,6 +59,8 @@ namespace ColonizationMobileGame.Storage
             _mover.MoveItem(item.GetComponent<PlacementItem>(), transform.position);
             
             _levelData.SetItemInStorage(item.Type, (uint) _itemsCount[item.Type]);
+            
+            scoreCounter.Add(item.Type);
 
             SetItemsAmountData();
         }

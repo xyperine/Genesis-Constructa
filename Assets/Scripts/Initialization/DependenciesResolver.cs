@@ -1,4 +1,5 @@
 ﻿using ColonizationMobileGame.Level;
+using ColonizationMobileGame.ScoreSystem;
 using ColonizationMobileGame.TasksSystem;
 using UnityEngine;
 
@@ -14,12 +15,15 @@ namespace ColonizationMobileGame.Initialization
         public void Resolve(GameObject[] rootGameObjects)
         {
             _levelData = FindObjectOfType<LevelData>();
+            ScoreCounter scoreCounter = FindObjectOfType<ScoreCounter>();
             
             foreach (GameObject rootGameObject in rootGameObjects)
             {
                 SetCameraForCanvases(rootGameObject);
                 SetLevelData(rootGameObject);
             }
+            
+            tasksInitializer.SetScoreCounter(scoreCounter);
         }
         
         
