@@ -119,21 +119,18 @@ namespace ColonizationMobileGame.UnlockingSystem
 #if !UNITY_EDITOR
             ManageUnlockablesList();
 #endif
-            WireUnlockingWithPrice();
+            ConnectUnlocksWithUnlockables();
             
             RequirementsChain = new ItemsRequirementsChain(unlocks.Select(u => u.Price).ToArray());
         }
 
 
-        private void WireUnlockingWithPrice()
+        private void ConnectUnlocksWithUnlockables()
         {
             foreach (Unlock unlock in unlocks)
             {
                 IUnlockable unlockable = _unlockables.SingleOrDefault(u => unlock.Identifier.Equals(u.Identifier));
-                if (unlockable != null)
-                {
-                    unlock.Price.Fulfilled += unlockable.Unlock;
-                }
+                unlock.ConnectWith(unlockable);
             }
         }
     }

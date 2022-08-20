@@ -23,5 +23,16 @@ namespace ColonizationMobileGame.UnlockingSystem
         {
             this.identifier = identifier;
         }
+
+
+        public void ConnectWith(IUnlockable unlockable)
+        {
+            if (unlockable == null)
+            {
+                return;
+            }
+            
+            price.Fulfilled += unlockable.Unlock;
+        }
     }
 }
