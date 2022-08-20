@@ -11,8 +11,6 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
         public ItemType[] RequiredItems => Current?.RequiredItems;
         public ItemRequirementsBlock Current { get; private set; }
 
-        public event Action ChangingBlock;
-        
 
         public ItemsRequirementsChain(ItemRequirementsBlock[] blocks)
         {
@@ -61,8 +59,6 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
         {
             UnsubscribeFromActiveBlockFulfilment();
 
-            ChangingBlock?.Invoke();
-            
             Current = Current.NextBlock;
 
             SubscribeToActiveBlockFulfilment();

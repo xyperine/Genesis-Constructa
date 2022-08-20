@@ -19,9 +19,8 @@ namespace ColonizationMobileGame.UnlockingSystem
             consumer.Setup(chainSO.RequirementsChain);
             consumer.Consumed += SetItemsAmountData;
 
-            chainSO.RequirementsChain.ChangingBlock += SetItemsAmountData;
-
-            chainSO.RequirementsChain.ChangingBlock += () => scoreCounter.Add(chainSO.Current.Identifier.StructureType);
+            chainSO.Current.Price.Fulfilling += SetItemsAmountData;
+            chainSO.Current.Price.Fulfilling += AddScore;
             
             SetItemsAmountData();
         }
@@ -35,6 +34,12 @@ namespace ColonizationMobileGame.UnlockingSystem
             itemsAmountPanelData.SetIdentifier(current?.Identifier);
 
             itemsAmountPanelData.InvokeChanged();
+        }
+
+
+        private void AddScore()
+        {
+            scoreCounter.Add(chainSO.Current.Identifier.StructureType);
         }
     }
 }
