@@ -18,7 +18,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions
         public event Action Consumed;
 
 
-        public void Setup(ItemsRequirementsBlock requirementsBlock)
+        public void Setup(ItemRequirementsBlock requirementsBlock)
         {
             Setup(new ItemsRequirementsChain(new[] {requirementsBlock}));
         }

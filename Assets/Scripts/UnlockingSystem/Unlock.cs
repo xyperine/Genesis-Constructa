@@ -13,10 +13,10 @@ namespace ColonizationMobileGame.UnlockingSystem
         [SerializeField] private StructureIdentifier identifier;
         [HideLabel]
         [PropertySpace(16)]
-        [SerializeField] private ItemsRequirementsBlock price = new ItemsRequirementsBlock();
+        [SerializeField] private ItemRequirementsBlock price = new ItemRequirementsBlock();
         
         public StructureIdentifier Identifier => identifier;
-        public ItemsRequirementsBlock Price => price;
+        public ItemRequirementsBlock Price => price;
         
 
         public Unlock(StructureIdentifier identifier)

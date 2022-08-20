@@ -8,17 +8,18 @@ using UnityEngine;
 namespace ColonizationMobileGame.ItemsRequirementsSystem
 {
     [Serializable]
-    public sealed class ItemsRequirementsBlock : IDeepCloneable<ItemsRequirementsBlock>
+    public sealed class ItemRequirementsBlock : IDeepCloneable<ItemRequirementsBlock>
     {
         [TableList]
         [SerializeField] private ItemRequirement[] requirements;
 
         public bool Locked { get; set; }
-        public ItemsRequirementsBlock NextBlock { get; private set; }
+        public ItemRequirementsBlock NextBlock { get; private set; }
         public bool NeedMore => requirements.Any(r => !r.Fulfilled);
         public ItemType[] RequiredItems => requirements.Where(r => !r.Fulfilled).Select(r => r.Type).ToArray();
 
         public event Action Fulfilled;
+        public event Action Fulfilling;
 
 
         public ItemAmountData[] ToItemsAmount()
@@ -27,7 +28,7 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
         }
         
         
-        public void SetNextBlock(ItemsRequirementsBlock block)
+        public void SetNextBlock(ItemRequirementsBlock block)
         {
             NextBlock = block;
         }
@@ -44,7 +45,18 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
         private void PassToMatchingRequirement(ItemType type)
         {
             ItemRequirement matchingRequirement = requirements.FirstOrDefault(r => r.Type == type);
-            matchingRequirement?.AddOneItem();
+
+            if (matchingRequirement == null)
+            {
+                return;
+            }
+            
+            if (matchingRequirement.CurrentAmount + 1 >= matchingRequirement.Required)
+            {
+                Fulfilling?.Invoke();
+            }
+            
+            matchingRequirement.AddOneItem();
         }
 
 
@@ -59,9 +71,9 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
         }
 
 
-        public ItemsRequirementsBlock GetDeepCopy()
+        public ItemRequirementsBlock GetDeepCopy()
         {
-            ItemsRequirementsBlock block = new ItemsRequirementsBlock
+            ItemRequirementsBlock block = new ItemRequirementsBlock
             {
                 Locked = Locked,
                 requirements = requirements.Select(r => (ItemRequirement) r.Clone()).ToArray(),
