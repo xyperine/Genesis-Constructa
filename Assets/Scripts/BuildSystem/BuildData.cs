@@ -13,7 +13,7 @@ namespace ColonizationMobileGame.BuildSystem
     {
         [SerializeField] private bool locked = true;
         [SerializeField] private GameObject structurePrefab;
-        [SerializeField] private ItemsRequirementsBlock price;
+        [SerializeField] private ItemRequirementsBlock price;
         [SerializeField] private int maxLevel;
 
         [SerializeField, HideInInspector] private StructureIdentifier identifier;
@@ -22,7 +22,7 @@ namespace ColonizationMobileGame.BuildSystem
         
         public bool Locked => locked;
         public GameObject StructurePrefab => structurePrefab;
-        public ItemsRequirementsBlock Price => price;
+        public ItemRequirementsBlock Price => price;
         public int MaxLevel => maxLevel;
         public StructureIdentifier Identifier
         {

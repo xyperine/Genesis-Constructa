@@ -17,7 +17,7 @@ namespace ColonizationMobileGame.UpgradingSystem
         [TableColumnWidth(64, false)]
         [SerializeField] private bool locked;
         [TableColumnWidth(200)]
-        [SerializeField] private ItemsRequirementsBlock price;
+        [SerializeField] private ItemRequirementsBlock price;
         [TableColumnWidth(160, false)]
         [LabelWidth(100)]
         [SerializeField] private TUpgradeData data;
@@ -29,7 +29,7 @@ namespace ColonizationMobileGame.UpgradingSystem
         public bool Locked => locked;
         public TUpgradeData Data => data;
 
-        public ItemsRequirementsBlock Price => price;
+        public ItemRequirementsBlock Price => price;
 
         public StructureIdentifier Identifier
         {

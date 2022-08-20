@@ -3,18 +3,18 @@ using System.Linq;
 
 namespace ColonizationMobileGame.ItemsRequirementsSystem
 {
-    public class ItemsRequirementsChain : IChain<ItemsRequirementsBlock>
+    public class ItemsRequirementsChain : IChain<ItemRequirementsBlock>
     {
-        private readonly ItemsRequirementsBlock[] _blocks;
+        private readonly ItemRequirementsBlock[] _blocks;
 
         public bool NeedMore => Current is {NeedMore: true, Locked: false};
         public ItemType[] RequiredItems => Current?.RequiredItems;
-        public ItemsRequirementsBlock Current { get; private set; }
+        public ItemRequirementsBlock Current { get; private set; }
 
         public event Action ChangingBlock;
         
 
-        public ItemsRequirementsChain(ItemsRequirementsBlock[] blocks)
+        public ItemsRequirementsChain(ItemRequirementsBlock[] blocks)
         {
             _blocks = blocks;
             
@@ -82,7 +82,7 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
 
         private void SetupBlock(int index)
         {
-            ItemsRequirementsBlock block = _blocks[index];
+            ItemRequirementsBlock block = _blocks[index];
 
             if (index == _blocks.Length - 1)
             {
