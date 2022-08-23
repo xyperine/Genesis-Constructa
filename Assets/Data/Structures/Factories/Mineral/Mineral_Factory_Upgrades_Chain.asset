@@ -17,12 +17,12 @@ MonoBehaviour:
     price:
       requirements:
       - type: 1
-        amount: 15
-      - type: 2
         amount: 5
+      - type: 2
+        amount: 2
     data:
       capacity: 20
-      itemsPerSecond: 0.34
+      itemsPerSecond: 0.25
     identifier:
       structureType: 3
       level: 1
@@ -30,14 +30,14 @@ MonoBehaviour:
     price:
       requirements:
       - type: 1
-        amount: 35
+        amount: 15
       - type: 2
-        amount: 10
-      - type: 3
         amount: 5
+      - type: 3
+        amount: 2
     data:
       capacity: 32
-      itemsPerSecond: 0.4
+      itemsPerSecond: 0.35
     identifier:
       structureType: 3
       level: 2
@@ -45,16 +45,16 @@ MonoBehaviour:
     price:
       requirements:
       - type: 1
-        amount: 65
+        amount: 30
       - type: 2
-        amount: 25
+        amount: 10
       - type: 3
-        amount: 15
-      - type: 5
         amount: 5
+      - type: 5
+        amount: 2
     data:
       capacity: 36
-      itemsPerSecond: 0.8
+      itemsPerSecond: 0.7
     identifier:
       structureType: 3
       level: 3

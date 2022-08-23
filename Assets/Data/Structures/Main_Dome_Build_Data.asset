@@ -18,13 +18,14 @@ MonoBehaviour:
     price:
       requirements:
       - type: 1
-        amount: 500
+        amount: 150
       - type: 2
-        amount: 200
+        amount: 100
       - type: 3
-        amount: 75
+        amount: 40
       - type: 5
-        amount: 45
+        amount: 25
+    maxLevel: 0
     identifier:
       structureType: 9
       level: 0

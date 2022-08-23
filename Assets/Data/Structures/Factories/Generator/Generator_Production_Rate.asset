@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fc080b9c1d42359790517a955fc5e5, type: 3}
   m_Name: Generator_Production_Rate
   m_EditorClassIdentifier: 
-  secondsPerItem: 45
-  itemsPerSecond: 0.022222223
+  secondsPerItem: 42
+  itemsPerSecond: 0.023809524

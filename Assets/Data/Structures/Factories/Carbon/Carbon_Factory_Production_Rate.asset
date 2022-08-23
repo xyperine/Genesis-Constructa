@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fc080b9c1d42359790517a955fc5e5, type: 3}
   m_Name: Carbon_Factory_Production_Rate
   m_EditorClassIdentifier: 
-  secondsPerItem: 5.366
-  itemsPerSecond: 0.18635854
+  secondsPerItem: 6
+  itemsPerSecond: 0.16666667
