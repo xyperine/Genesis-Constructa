@@ -16,9 +16,9 @@ namespace ColonizationMobileGame.SaveLoadSystem
         private readonly string _fullPath;
 
 
-        public SaveSerializer(string fullPath)
+        public SaveSerializer()
         {
-            _fullPath = fullPath;
+            _fullPath = SaveSystemSettings.instance.FullPath;
         }
         
         
