@@ -16,7 +16,6 @@ namespace ColonizationMobileGame.TasksSystem
 
         private ScoreModifier _scoreModifier;
         
-        
         public ITaskRequirement Requirement => requirement;
 
 

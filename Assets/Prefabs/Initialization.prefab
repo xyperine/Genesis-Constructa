@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7137095656433062257}
   - component: {fileID: 8533756249926470206}
   - component: {fileID: 7730718997147459474}
+  - component: {fileID: 2545771812066715108}
   m_Layer: 0
   m_Name: Initialization
   m_TagString: Untagged
@@ -49,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dependenciesResolver: {fileID: 7137095656433062257}
   tasksInitializer: {fileID: 8533756249926470206}
+  saveLoadManager: {fileID: 2545771812066715108}
   scenesToLoad:
   - {fileID: 102900000, guid: 10cfb378149f57b4788d488bbf4004f6, type: 3}
   scenesNames:
@@ -91,3 +93,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7178953a287fd54e8cdf16f146d39fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2545771812066715108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7730718997147459501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29840726cfc94643af42d6db229680f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: save.json

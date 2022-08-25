@@ -6,7 +6,18 @@ namespace ColonizationMobileGame.SaveLoadSystem
     public class TestClass : MonoBehaviour, ISaveable
     {
         [SerializeField] private int number;
-        public string Guid { get; private set; } = System.Guid.NewGuid().ToString();
+        [SerializeField] private string guid;
+
+        public string Guid => guid;
+
+
+        public void SetGuid(string newGuid)
+        {
+            if (string.IsNullOrEmpty(guid))
+            {
+                guid = newGuid;
+            }
+        }
 
 
         public object Save()

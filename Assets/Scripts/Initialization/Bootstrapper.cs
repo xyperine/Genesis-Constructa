@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.TasksSystem;
 using UnityEditor;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace ColonizationMobileGame.Initialization
     {
         [SerializeField] private DependenciesResolver dependenciesResolver;
         [SerializeField] private TasksInitializer tasksInitializer;
+        [SerializeField] private SaveLoadManager saveLoadManager;
 #if UNITY_EDITOR
         [SerializeField] private List<SceneAsset> scenesToLoad;
 #endif
@@ -51,6 +53,7 @@ namespace ColonizationMobileGame.Initialization
             
             dependenciesResolver.Resolve(rootGameObjects);
             tasksInitializer.InitializeTasks();
+            saveLoadManager.Initialize();
         }
     }
 }

@@ -1,0 +1,23 @@
+﻿using System;
+using System.Linq;
+using ColonizationMobileGame.SaveLoadSystem;
+using UnityEditor;
+using UnityEngine;
+using Object = UnityEngine.Object;
+
+namespace ColonizationMobileGame.Editor.SaveLoadSystem
+{
+    public static class GuidGeneration
+    {
+        [MenuItem("Saving/Generate Guids")]
+        private static void GenerateGuids()
+        {
+            foreach (MonoBehaviour monoBehaviour in Object.FindObjectsOfType<MonoBehaviour>().Where(m => m is ISaveable))
+            {
+                ISaveable saveable = (ISaveable) monoBehaviour;
+                saveable.SetGuid(Guid.NewGuid().ToString());
+                EditorUtility.SetDirty(monoBehaviour);
+            }
+        }
+    }
+}

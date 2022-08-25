@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using UnityEngine;
 
@@ -10,32 +9,19 @@ namespace ColonizationMobileGame.SaveLoadSystem
         [SerializeField] private string fileName;
 
         private string _fullPath;
-        
+
         private Dictionary<string, object> _gameState = new Dictionary<string, object>();
 
+        private SaveSerializer<Dictionary<string, object>> _saveSerializer;
 
-        private void Awake()
+
+        public void Initialize()
         {
             _fullPath = string.Join('/', Application.persistentDataPath, fileName);
-
-            LoadFile();
+            _saveSerializer = new SaveSerializer<Dictionary<string, object>>(_fullPath);
+            
+            _gameState = _saveSerializer.ReadFile();
             RestoreState();
-        }
-
-
-        private void OnApplicationQuit()
-        {
-            CaptureState();
-            SaveFile();
-        }
-
-
-        private void CaptureState()
-        {
-            foreach (ISaveable saveable in FindObjectsOfType<MonoBehaviour>().OfType<ISaveable>())
-            {
-                _gameState[saveable.Guid] = saveable.Save();
-            }
         }
 
 
@@ -49,30 +35,21 @@ namespace ColonizationMobileGame.SaveLoadSystem
                 }
             }
         }
-        
 
-        private void SaveFile()
+
+        private void OnApplicationQuit()
         {
-            if (!Directory.Exists(Application.persistentDataPath))
-            {
-                Directory.CreateDirectory(Application.persistentDataPath);
-            }
-            
-            string json = JsonUtility.ToJson(_gameState);
-            File.WriteAllText(_fullPath, json);
+            CaptureState();
+            _saveSerializer.SaveFile(_gameState);
         }
 
 
-        private void LoadFile()
+        private void CaptureState()
         {
-            if (!File.Exists(_fullPath))
+            foreach (ISaveable saveable in FindObjectsOfType<MonoBehaviour>().OfType<ISaveable>())
             {
-                _gameState = new Dictionary<string, object>();
-                return;
+                _gameState[saveable.Guid] = saveable.Save();
             }
-
-            string json = File.ReadAllText(_fullPath);
-            _gameState = JsonUtility.FromJson<Dictionary<string, object>>(json);
         }
     }
 }
