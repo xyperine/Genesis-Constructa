@@ -7,7 +7,7 @@ namespace ColonizationMobileGame.SaveLoadSystem
     public class SaveSerializer<T>
         where T : new()
     {
-        private readonly JsonSerializerSettings _serializerSettings = new JsonSerializerSettings()
+        private readonly JsonSerializerSettings _serializerSettings = new JsonSerializerSettings
         {
             TypeNameHandling = TypeNameHandling.All,
             Formatting = Formatting.Indented,

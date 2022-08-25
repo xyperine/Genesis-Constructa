@@ -6,20 +6,26 @@ namespace ColonizationMobileGame.SaveLoadSystem
 {
     public class SaveLoadManager : MonoBehaviour
     {
+        [Tooltip("File name without extension")]
         [SerializeField] private string fileName;
-
-        private string _fullPath;
+        
+        private const string FILE_EXTENSION = ".json";
 
         private Dictionary<string, object> _gameState = new Dictionary<string, object>();
-
         private SaveSerializer<Dictionary<string, object>> _saveSerializer;
 
 
         public void Initialize()
         {
-            _fullPath = string.Join('/', Application.persistentDataPath, fileName);
-            _saveSerializer = new SaveSerializer<Dictionary<string, object>>(_fullPath);
+            string fullPath = string.Join('/', Application.persistentDataPath, fileName + FILE_EXTENSION);
+            _saveSerializer = new SaveSerializer<Dictionary<string, object>>(fullPath);
             
+            Load();
+        }
+
+
+        private void Load()
+        {
             _gameState = _saveSerializer.ReadFile();
             RestoreState();
         }
@@ -38,6 +44,12 @@ namespace ColonizationMobileGame.SaveLoadSystem
 
 
         private void OnApplicationQuit()
+        {
+            Save();
+        }
+
+
+        private void Save()
         {
             CaptureState();
             _saveSerializer.SaveFile(_gameState);
