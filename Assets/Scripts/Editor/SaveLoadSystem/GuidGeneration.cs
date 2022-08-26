@@ -15,7 +15,7 @@ namespace ColonizationMobileGame.Editor.SaveLoadSystem
             foreach (MonoBehaviour monoBehaviour in Object.FindObjectsOfType<MonoBehaviour>().Where(m => m is ISaveable))
             {
                 ISaveable saveable = (ISaveable) monoBehaviour;
-                saveable.SetGuid(Guid.NewGuid().ToString());
+                saveable.Guid.Set(Guid.NewGuid().ToString());
                 EditorUtility.SetDirty(monoBehaviour);
             }
         }

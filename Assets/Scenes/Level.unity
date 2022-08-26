@@ -1329,7 +1329,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 0
-  guid: 214c66a1-d781-47f5-a2f5-7ab5027486a9
+  guid:
+    value: b30fc6e0-c91c-4253-82ef-33837e8a07a9
 --- !u!114 &857835050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1343,7 +1344,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 0
-  guid: d9a1aeab-2098-4aca-90b5-da1c61e96fd4
+  guid:
+    value: 4f8abec6-3a64-493a-a5f1-2b02411985eb
 --- !u!1 &949504213
 GameObject:
   m_ObjectHideFlags: 0

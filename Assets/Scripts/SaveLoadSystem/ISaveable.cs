@@ -2,9 +2,8 @@
 {
     public interface ISaveable
     {
-        string Guid { get; }
-
-        void SetGuid(string newGuid);
+        PermanentGuid Guid { get; }
+        
         object Save();
         void Load(object data);
     }

@@ -29,7 +29,7 @@ namespace ColonizationMobileGame.SaveLoadSystem
         {
             foreach (ISaveable saveable in FindObjectsOfType<MonoBehaviour>().OfType<ISaveable>())
             {
-                if (_gameState.TryGetValue(saveable.Guid, out object value))
+                if (_gameState.TryGetValue(saveable.Guid.Value, out object value))
                 {
                     saveable.Load(value);
                 }
@@ -54,7 +54,7 @@ namespace ColonizationMobileGame.SaveLoadSystem
         {
             foreach (ISaveable saveable in FindObjectsOfType<MonoBehaviour>().OfType<ISaveable>())
             {
-                _gameState[saveable.Guid] = saveable.Save();
+                _gameState[saveable.Guid.Value] = saveable.Save();
             }
         }
     }
