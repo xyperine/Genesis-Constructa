@@ -62,7 +62,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
@@ -81,6 +81,8 @@ MonoBehaviour:
   joystick: {fileID: 0}
   speed: 12
   smoothness: 1.8
+  guid:
+    value: e4f27d00-cd3b-4d2d-8912-ce7b56c4646c
 --- !u!1001 &1078500606921808547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -138,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8961453776771878187, guid: 8929d54c2bda9cf4eb2c62520fbaf897, type: 3}
       propertyPath: acceptableItems.Array.size
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8961453776771878187, guid: 8929d54c2bda9cf4eb2c62520fbaf897, type: 3}
       propertyPath: acceptableItems.Array.data[5]
