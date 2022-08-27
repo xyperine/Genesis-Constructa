@@ -732,6 +732,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2173674456679080727, guid: 65b9836be6014e4428674be2178376ed, type: 3}
+      propertyPath: guid.value
+      value: 1c853bca-ad76-4868-9214-b712324f6385
+      objectReference: {fileID: 0}
+    - target: {fileID: 2173674456679080727, guid: 65b9836be6014e4428674be2178376ed, type: 3}
       propertyPath: scoreCounter
       value: 
       objectReference: {fileID: 1947850914}

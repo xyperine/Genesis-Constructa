@@ -6,44 +6,48 @@ using ColonizationMobileGame.ItemsPlacement.Movers;
 using ColonizationMobileGame.ItemsPlacementsInteractions;
 using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
 using ColonizationMobileGame.Level;
+using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.ScoreSystem;
 using ColonizationMobileGame.UI.ItemsAmount.Data;
+using ColonizationMobileGame.Utility;
 using UnityEngine;
 
 namespace ColonizationMobileGame.Storage
 {
-    public class StorageBehaviour : InteractionTarget, IItemsAmountDataProvider, ILevelDataUser
+    public class StorageBehaviour : InteractionTarget, IItemsAmountDataProvider, ILevelDataUser, ISaveable
     {
         [SerializeField] private ItemsAmountPanelData itemsAmountPanelData;
         [SerializeField] private ScoreModifier scoreModifier;
 
-        private readonly DestroyingPlacementItemsMover _mover = new DestroyingPlacementItemsMover();
+        [SerializeField, HideInInspector] private PermanentGuid guid;
         
-        private Dictionary<ItemType, int> _itemsCount;
+        private readonly DestroyingPlacementItemsMover _mover = new DestroyingPlacementItemsMover();
+
+        private Dictionary<ItemType, int> _itemsCount = Helpers.EnumToDictionary<ItemType, int>(0);
         private LevelData _levelData;
 
         public override bool CanTakeMore => true;
-        public override ItemType[] AcceptableItems { get; } = Enum.GetValues(typeof(ItemType)).Cast<ItemType>().ToArray();
+        public override ItemType[] AcceptableItems => _itemsCount.Select(kvp => kvp.Key).ToArray();
+
+        public PermanentGuid Guid => guid;
 
 
         public void SetLevelData(LevelData levelData)
         {
             _levelData = levelData;
         }
-        
-        
+
+
         private void Awake()
         {
-            _itemsCount = AcceptableItems.ToDictionary(t => t, _ => 0);
-            
             SetItemsAmountData();
         }
 
 
         public void SetItemsAmountData()
         {
-            ItemAmountData[] data = _itemsCount.Where(ic => ic.Value > 0)
-                .Select(ic => new ItemAmountData(ic.Key, ic.Value))
+            ItemAmountData[] data = _itemsCount.Where(kvp => kvp.Value > 0)
+                .Select(kvp => new ItemAmountData(kvp.Key, kvp.Value))
                 .ToArray();
             itemsAmountPanelData.SetData(data);
             
@@ -58,11 +62,37 @@ namespace ColonizationMobileGame.Storage
             item.SetFree();
             _mover.MoveItem(item.GetComponent<PlacementItem>(), transform.position);
             
-            _levelData.SetItemInStorage(item.Type, (uint) _itemsCount[item.Type]);
+            _levelData.SetItemsInStorage(_itemsCount);
             
             scoreModifier.Add(item.Type);
 
             SetItemsAmountData();
+        }
+
+
+        public object Save()
+        {
+            return new SaveData
+            {
+                ItemsCount = _itemsCount,
+            };
+        }
+
+
+        public void Load(object data)
+        {
+            SaveData saveData = (SaveData) data;
+
+            _itemsCount = saveData.ItemsCount;
+            _levelData.SetItemsInStorage(_itemsCount);
+            SetItemsAmountData();
+        }
+
+
+        [Serializable]
+        private struct SaveData
+        {
+            public Dictionary<ItemType, int> ItemsCount { get; set; }
         }
     }
 }

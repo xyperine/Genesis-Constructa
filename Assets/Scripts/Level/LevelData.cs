@@ -11,10 +11,10 @@ namespace ColonizationMobileGame.Level
     public sealed class LevelData : MonoBehaviour
     {
         private readonly List<Structure> _structures = new List<Structure>();
-        private readonly Dictionary<ItemType, uint> _itemsInStorage = Helpers.EnumToDictionary<ItemType, uint>(0);
+        private Dictionary<ItemType, int> _itemsInStorage = Helpers.EnumToDictionary<ItemType, int>(0);
 
         public IReadOnlyList<Structure> Structures => _structures;
-        public ReadOnlyDictionary<ItemType, uint> ItemsInStorage => new ReadOnlyDictionary<ItemType, uint>(_itemsInStorage);
+        public ReadOnlyDictionary<ItemType, int> ItemsInStorage => new ReadOnlyDictionary<ItemType, int>(_itemsInStorage);
 
         public event Action Changed;
 
@@ -32,14 +32,9 @@ namespace ColonizationMobileGame.Level
         }
 
 
-        public void SetItemInStorage(ItemType item, uint count)
+        public void SetItemsInStorage(Dictionary<ItemType, int> itemsInStorage)
         {
-            if (!_itemsInStorage.ContainsKey(item))
-            {
-                throw new KeyNotFoundException();
-            }
-
-            _itemsInStorage[item] = count;
+            _itemsInStorage = itemsInStorage;
 
             InvokeChanged();
         }

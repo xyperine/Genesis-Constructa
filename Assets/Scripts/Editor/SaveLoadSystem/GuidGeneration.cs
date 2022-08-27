@@ -12,7 +12,7 @@ namespace ColonizationMobileGame.Editor.SaveLoadSystem
         [MenuItem("Saving/Generate Guids")]
         private static void GenerateGuids()
         {
-            foreach (MonoBehaviour monoBehaviour in Object.FindObjectsOfType<MonoBehaviour>().Where(m => m is ISaveable))
+            foreach (MonoBehaviour monoBehaviour in Object.FindObjectsOfType<MonoBehaviour>(true).Where(m => m is ISaveable))
             {
                 ISaveable saveable = (ISaveable) monoBehaviour;
                 saveable.Guid.Set(Guid.NewGuid().ToString());
