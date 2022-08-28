@@ -8,7 +8,12 @@ namespace ColonizationMobileGame.SaveLoadSystem
     {
         [SerializeField] private string value;
 
-        public string Value => value;
+        // Need public setter in order to be serialized from json
+        public string Value
+        {
+            get => value;
+            set => Set(value);
+        }
 
 
         public void Set(string newGuid)

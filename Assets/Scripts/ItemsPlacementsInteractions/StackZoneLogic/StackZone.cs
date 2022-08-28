@@ -1,22 +1,28 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using ColonizationMobileGame.ItemsPlacement.Core;
 using ColonizationMobileGame.ItemsPlacement.Core.Area;
 using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
 using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
+using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.UpgradingSystem;
 using UnityEngine;
 
 namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
 {
-    public class StackZone : InteractionTarget, IUpgradeable<StackZoneUpgradeData>
+    public class StackZone : InteractionTarget, IUpgradeable<StackZoneUpgradeData>, ISaveableWithGuid
     {
-        [SerializeField] private ItemType[] acceptableItems; 
-        
+        [SerializeField] private ItemType[] acceptableItems;
+
+        [SerializeField, HideInInspector] private PermanentGuid guid;
+
         protected PlacementArea placement;
         
         public bool HasItems => placement.Count > 0;
         public override bool CanTakeMore => placement.CanFitMore;
         public override ItemType[] AcceptableItems => (ItemType[]) acceptableItems.Clone();
+
+        public PermanentGuid Guid => guid;
 
 
         private void Awake()
@@ -91,6 +97,30 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
         public void Upgrade(StackZoneUpgradeData data)
         {
             placement.Upgrade(data.Capacity);
+        }
+
+
+        public object Save()
+        {
+            return new SaveData
+            {
+                PlacementAreaSaveData = placement.Save(),
+            };
+        }
+
+
+        public void Load(object data)
+        {
+            SaveData saveData = (SaveData) data;
+            
+            placement.Load(saveData.PlacementAreaSaveData);
+        }
+        
+        
+        [Serializable]
+        private struct SaveData
+        {
+            public object PlacementAreaSaveData { get; set; }
         }
     }
 }
