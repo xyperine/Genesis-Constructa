@@ -616,6 +616,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5db411b6d945c9ab2464149d91f823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  guid:
+    value: 01ce20d6-6e73-4a68-ac69-2b3852edd919
   builder: {fileID: 1309457338}
 --- !u!1 &595957610 stripped
 GameObject:
@@ -1610,6 +1612,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c28e111ecff42f0a036ca3966318d73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  guid:
+    value: df5de7ed-96c4-41fe-b443-e9a0e00bf4f4
   unlocksChainSO: {fileID: 11400000, guid: 5392e33e69059274e97ad37f76ae4a22, type: 2}
 --- !u!1001 &1135347434
 PrefabInstance:
