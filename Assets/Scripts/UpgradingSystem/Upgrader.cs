@@ -1,14 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.SetupSystem;
 using ColonizationMobileGame.UI.ItemsAmount.Data;
 using UnityEngine;
 
 namespace ColonizationMobileGame.UpgradingSystem
 {
-    public abstract class Upgrader<TUpgradeData> : MonoBehaviour, IConstructable, IItemsAmountDataProvider
+    public abstract class Upgrader<TUpgradeData> : MonoBehaviour, IConstructable, IItemsAmountDataProvider, ISaveableWithGuid
         where TUpgradeData : UpgradeData
     {
         [SerializeField] private ItemsAmountPanelData itemsAmountPanelData;
+        
+        [SerializeField, HideInInspector] private PermanentGuid guid;
 
         protected UpgradesChain<TUpgradeData> chain;
 
@@ -16,6 +20,8 @@ namespace ColonizationMobileGame.UpgradingSystem
         protected UpgradesStatusTracker<TUpgradeData> upgradesTracker;
         
         public int Level { get; private set; }
+        
+        public PermanentGuid Guid => guid;
 
 
         public abstract void Construct(IConstructData data);
@@ -47,6 +53,32 @@ namespace ColonizationMobileGame.UpgradingSystem
             itemsAmountPanelData.SetUnlockable(current);
             
             itemsAmountPanelData.InvokeChanged();
+        }
+
+
+        public object Save()
+        {
+            return new SaveData()
+            {
+                UpgradesChainData = chain.Save(),
+            };
+        }
+
+
+        public void Load(object data)
+        {
+            SaveData saveData = (SaveData) data;
+            
+            chain.Load(saveData.UpgradesChainData);
+            
+            SetItemsAmountData();
+        }
+        
+
+        [Serializable]
+        private struct SaveData
+        {
+            public object UpgradesChainData { get; set; }
         }
     }
 }

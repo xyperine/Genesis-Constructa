@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using ColonizationMobileGame.ItemsRequirementsSystem;
+using ColonizationMobileGame.SaveLoadSystem;
 
 namespace ColonizationMobileGame.UpgradingSystem
 {
-    public class UpgradesChain<TUpgradeData> : IPurchasableChain<Upgrade<TUpgradeData>>
+    public class UpgradesChain<TUpgradeData> : IPurchasableChain<Upgrade<TUpgradeData>>, ISaveable
         where TUpgradeData : UpgradeData
     {
         private readonly Upgrade<TUpgradeData>[] _upgrades;
@@ -21,6 +23,30 @@ namespace ColonizationMobileGame.UpgradingSystem
             _upgrades = copies;
             UpgradesStatusTracker = new UpgradesStatusTracker<TUpgradeData>(copies);
             RequirementsChain = new ItemsRequirementsChain(copies.Select(u => u.Price).ToArray());
+        }
+
+
+        public object Save()
+        {
+            return new SaveData
+            {
+                ItemsRequirementsChainData = RequirementsChain.Save(),
+            };
+        }
+
+
+        public void Load(object data)
+        {
+            SaveData saveData = (SaveData) data;
+
+            RequirementsChain.Load(saveData.ItemsRequirementsChainData);
+        }
+        
+        
+        [Serializable]
+        private struct SaveData
+        {
+            public object ItemsRequirementsChainData { get; set; }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.UI.ItemsAmount.Data;
 using ColonizationMobileGame.Utility;
 using Sirenix.OdinInspector;
@@ -8,7 +9,7 @@ using UnityEngine;
 namespace ColonizationMobileGame.ItemsRequirementsSystem
 {
     [Serializable]
-    public sealed class ItemRequirementsBlock : IDeepCloneable<ItemRequirementsBlock>
+    public sealed class ItemRequirementsBlock : IDeepCloneable<ItemRequirementsBlock>, ISaveable
     {
         [TableList]
         [SerializeField] private ItemRequirement[] requirements;
@@ -68,6 +69,35 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
             };
 
             return block;
+        }
+
+
+        public object Save()
+        {
+            return new SaveData
+            {
+                ItemRequirementsData = requirements.Select(r => r.Save()).ToArray(),
+            };
+        }
+
+
+        public void Load(object data)
+        {
+            SaveData saveData = (SaveData) data;
+            
+            for (int i = 0; i < saveData.ItemRequirementsData.Length; i++)
+            {
+                requirements[i].Load(saveData.ItemRequirementsData[i]);
+            }
+            
+            CheckFulfilment();
+        }
+        
+        
+        [Serializable]
+        private struct SaveData
+        {
+            public object[] ItemRequirementsData { get; set; }
         }
     }
 }

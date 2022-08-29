@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Linq;
+using ColonizationMobileGame.SaveLoadSystem;
 
 namespace ColonizationMobileGame.ItemsRequirementsSystem
 {
-    public class ItemsRequirementsChain : IChain<ItemRequirementsBlock>
+    public class ItemsRequirementsChain : IChain<ItemRequirementsBlock>, ISaveable
     {
         private readonly ItemRequirementsBlock[] _blocks;
 
@@ -96,6 +97,33 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
         public void AddItem(ItemType type)
         {
             Current.AddItem(type);
+        }
+
+
+        public object Save()
+        {
+            return new SaveData
+            {
+                ItemRequirementsBlocksData = _blocks.Select(b => b.Save()).ToArray(),
+            };
+        }
+
+
+        public void Load(object data)
+        {
+            SaveData saveData = (SaveData) data;
+
+            for (int i = 0; i < saveData.ItemRequirementsBlocksData.Length; i++)
+            {
+                _blocks[i].Load(saveData.ItemRequirementsBlocksData[i]);
+            }
+        }
+        
+        
+        [Serializable]
+        private struct SaveData
+        {
+            public object[] ItemRequirementsBlocksData { get; set; }
         }
     }
 }

@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using ColonizationMobileGame.BuildSystem;
 using ColonizationMobileGame.ItemsExtraction.Upgrading;
 using ColonizationMobileGame.ItemsRequirementsSystem;
+using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.Structures;
 using ColonizationMobileGame.Utility.Validating;
 using UnityEngine;
@@ -10,7 +12,7 @@ using UnityEngine;
 namespace ColonizationMobileGame.UnlockingSystem
 {
     [CreateAssetMenu(fileName = "Unlocks_Chain", menuName = "Unlocks Chain", order = 0)]
-    public class UnlocksChainSO : ScriptableObject, IPurchasableChain<Unlock>
+    public class UnlocksChainSO : ScriptableObject, IPurchasableChain<Unlock>, ISaveable
     {
         [SerializeField] private List<Unlock> unlocks;
         
@@ -132,6 +134,30 @@ namespace ColonizationMobileGame.UnlockingSystem
                 IUnlockable unlockable = _unlockables.SingleOrDefault(u => unlock.Identifier.Equals(u.Identifier));
                 unlock.ConnectWith(unlockable);
             }
+        }
+
+
+        public object Save()
+        {
+            return new SaveData
+            {
+                ItemsRequirementsChainData = RequirementsChain.Save(),
+            };
+        }
+
+
+        public void Load(object data)
+        {
+            SaveData saveData = (SaveData) data;
+
+            RequirementsChain.Load(saveData.ItemsRequirementsChainData);
+        }
+        
+        
+        [Serializable]
+        private struct SaveData
+        {
+            public object ItemsRequirementsChainData { get; set; }
         }
     }
 }

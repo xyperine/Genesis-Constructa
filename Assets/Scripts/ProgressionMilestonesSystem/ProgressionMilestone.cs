@@ -59,7 +59,7 @@ namespace ColonizationMobileGame.ProgressionMilestonesSystem
             IsAchieved = saveData.IsAchieved;
             if (IsAchieved)
             {
-                InvokeAchieved();
+                //InvokeAchieved();
             }
         }
         

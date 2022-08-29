@@ -1,4 +1,5 @@
 ﻿using System;
+using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.Utility.Validating;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -6,7 +7,7 @@ using UnityEngine;
 namespace ColonizationMobileGame.ItemsRequirementsSystem
 {
     [Serializable]
-    public sealed class ItemRequirement : IValidatable, ICloneable
+    public sealed class ItemRequirement : IValidatable, ICloneable, ISaveable
     {
         [SerializeField] private ItemType type;
         [SerializeField, MinValue(1)] private int amount;
@@ -41,6 +42,30 @@ namespace ColonizationMobileGame.ItemsRequirementsSystem
             };
 
             return copy;
+        }
+
+
+        public object Save()
+        {
+            return new SaveData
+            {
+                CurrentAmount = CurrentAmount,
+            };
+        }
+
+
+        public void Load(object data)
+        {
+            SaveData saveData = (SaveData) data;
+
+            CurrentAmount = saveData.CurrentAmount;
+        }
+        
+        
+        [Serializable]
+        private struct SaveData
+        {
+            public int CurrentAmount { get; set; }
         }
     }
 }

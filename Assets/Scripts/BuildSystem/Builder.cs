@@ -3,23 +3,28 @@ using ColonizationMobileGame.ItemsExtraction;
 using ColonizationMobileGame.ItemsPlacementsInteractions;
 using ColonizationMobileGame.Level;
 using ColonizationMobileGame.ObjectPooling;
+using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.Structures;
 using ColonizationMobileGame.UI.ItemsAmount.Data;
 using UnityEngine;
 
 namespace ColonizationMobileGame.BuildSystem
 {
-    public sealed class Builder : MonoBehaviour, IItemsAmountDataProvider, ILevelDataUser
+    public sealed class Builder : MonoBehaviour, IItemsAmountDataProvider, ILevelDataUser, ISaveableWithGuid
     {
         [SerializeField] private BuildDataSO buildDataSO;
         [SerializeField] private Transform structuresParent;
         [SerializeField] private ItemsPool itemsPool;
         [SerializeField] private ItemsConsumer consumer;
         [SerializeField] private ItemsAmountPanelData itemsAmountPanelData;
+
+        [SerializeField, HideInInspector] private PermanentGuid guid;
         
         private LevelData _levelData;
 
         private BuildData _buildData;
+
+        public PermanentGuid Guid => guid;
 
         public event Action Built;
 
@@ -81,7 +86,10 @@ namespace ColonizationMobileGame.BuildSystem
 
         private void Deactivate()
         {
-            Destroy(gameObject);
+            _buildData.Price.Fulfilled -= Build;
+            Built = null;
+            
+            gameObject.SetActive(false);
         }
 
 
@@ -100,6 +108,32 @@ namespace ColonizationMobileGame.BuildSystem
             itemsAmountPanelData.SetUnlockable(_buildData);
             
             itemsAmountPanelData.InvokeChanged();
+        }
+
+
+        public object Save()
+        {
+            return new SaveData
+            {
+                ItemRequirementsBlockData = _buildData.Price.Save(),
+            };
+        }
+
+
+        public void Load(object data)
+        {
+            SaveData saveData = (SaveData) data;
+            
+            _buildData.Price.Load(saveData.ItemRequirementsBlockData);
+            
+            SetItemsAmountData();
+        }
+
+        
+        [Serializable]
+        private struct SaveData
+        {
+            public object ItemRequirementsBlockData { get; set; }
         }
     }
 }

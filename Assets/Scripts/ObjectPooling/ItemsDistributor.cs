@@ -25,8 +25,13 @@ namespace ColonizationMobileGame.ObjectPooling
             
             StackZone[] zones = Object.FindObjectsOfType<StackZone>();
 
-            foreach (KeyValuePair<string,ItemType[]> itemsInsideStackZone in itemsInsideStackZones)
+            foreach (KeyValuePair<string, ItemType[]> itemsInsideStackZone in itemsInsideStackZones)
             {
+                if (string.IsNullOrEmpty(itemsInsideStackZone.Key))
+                {
+                    continue;
+                }
+                
                 StackZone zone = zones.SingleOrDefault(z => z.Guid.Value == itemsInsideStackZone.Key);
                 
                 if (zone)
