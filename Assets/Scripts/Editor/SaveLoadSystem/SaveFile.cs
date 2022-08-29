@@ -6,13 +6,13 @@ using Debug = UnityEngine.Debug;
 
 namespace ColonizationMobileGame.Editor.SaveLoadSystem
 {
-    public static class SaveFile
+    internal static class SaveFile
     {
         private static string FullPath => SaveSystemSettings.instance.FullPath;
         
         
         [MenuItem("Saving/Save File/Open")]
-        public static void Open()
+        private static void Open()
         {
             if (!File.Exists(FullPath))
             {
@@ -25,7 +25,7 @@ namespace ColonizationMobileGame.Editor.SaveLoadSystem
         
         
         [MenuItem("Saving/Save File/Clear")]
-        public static void Clear()
+        private static void Clear()
         {
             File.Delete(FullPath);
         }

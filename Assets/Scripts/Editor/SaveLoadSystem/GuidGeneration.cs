@@ -7,7 +7,7 @@ using Object = UnityEngine.Object;
 
 namespace ColonizationMobileGame.Editor.SaveLoadSystem
 {
-    public static class GuidGeneration
+    internal static class GuidGeneration
     {
         [MenuItem("Saving/Generate Guids")]
         private static void GenerateGuids()

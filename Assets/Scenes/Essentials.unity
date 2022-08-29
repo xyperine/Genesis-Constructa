@@ -600,6 +600,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2545771812066715108, guid: fcb4fbc281730f04a9288188820bb0ae, type: 3}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7137095656433062257, guid: fcb4fbc281730f04a9288188820bb0ae, type: 3}
       propertyPath: saveLoadManager
       value: 
