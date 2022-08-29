@@ -23,10 +23,8 @@ namespace ColonizationMobileGame.UpgradingSystem
         [SerializeField] private TUpgradeData data;
         
         [SerializeField, HideInInspector] private StructureIdentifier identifier;
-       
-        private bool _defaultLockedState;
-        
-        public bool Locked => locked;
+
+        public bool Locked { get; private set; }
         public TUpgradeData Data => data;
 
         public ItemRequirementsBlock Price => price;
@@ -40,53 +38,12 @@ namespace ColonizationMobileGame.UpgradingSystem
         public event Action Unlocked;
         public event Action<Upgrade<TUpgradeData>> Purchased;
 
-        
-        public void Unlock()
-        {
-            _defaultLockedState = locked;
-            
-            locked = false;
-            price.Locked = false;
-            Unlocked?.Invoke();
-#if UNITY_EDITOR
-            EditorApplication.playModeStateChanged += ResetLockedState;
-#endif
-        }
 
-
-#if UNITY_EDITOR
-        private void ResetLockedState(PlayModeStateChange state)
-        {
-            if (state == PlayModeStateChange.ExitingPlayMode)
-            {
-                locked = _defaultLockedState;
-            }
-        }
-#endif
-        
-
-        public Upgrade<TUpgradeData> GetDeepCopy()
-        {
-            Upgrade<TUpgradeData> copy = new Upgrade<TUpgradeData>
-            {
-                price = price.GetDeepCopy(),
-                data = data,
-                identifier = identifier,
-                locked = locked,
-            };
-
-            copy.price.Locked = locked;
-            copy.WirePurchasedEventToPrice();
-            
-            Unlocked += copy.Unlock;
-
-            return copy;
-        }
-        
-        
         public void OnValidate()
         {
-            price.Locked = locked;
+            Locked = locked;
+
+            price.Locked = Locked;
             WirePurchasedEventToPrice();
         }
 
@@ -102,6 +59,34 @@ namespace ColonizationMobileGame.UpgradingSystem
             price.Fulfilled -= InvokePurchased;
             
             Purchased?.Invoke(this);
+        }
+
+
+        public void Unlock()
+        {
+            Locked = false;
+            price.Locked = false;
+            
+            Unlocked?.Invoke();
+        }
+
+
+        public Upgrade<TUpgradeData> GetDeepCopy()
+        {
+            Upgrade<TUpgradeData> copy = new Upgrade<TUpgradeData>
+            {
+                price = price.GetDeepCopy(),
+                data = data,
+                identifier = identifier,
+                Locked = Locked,
+            };
+
+            copy.price.Locked = Locked;
+            copy.WirePurchasedEventToPrice();
+            
+            Unlocked += copy.Unlock;
+
+            return copy;
         }
     }
 }
