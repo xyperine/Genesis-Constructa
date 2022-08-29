@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ColonizationMobileGame.Utility;
 using UnityEngine;
 
 namespace ColonizationMobileGame.ProgressionMilestonesSystem
@@ -8,11 +9,10 @@ namespace ColonizationMobileGame.ProgressionMilestonesSystem
     public class ProgressionEvents : MonoBehaviour
     {
         private readonly Dictionary<ProgressionMilestoneType, Action> _progressionEvents =
-            new Dictionary<ProgressionMilestoneType, Action>
-            {
-                [ProgressionMilestoneType.MetalFactoryBuilt] = default,
-                [ProgressionMilestoneType.MineralFactoryUnlocked] = default,
-            };
+            Helpers.EnumToDictionary<ProgressionMilestoneType, Action>(default(Action));
+        
+        private readonly Dictionary<ProgressionMilestoneType, bool> _achievedMilestones =
+            Helpers.EnumToDictionary<ProgressionMilestoneType, bool>(false);
 
         private IProgressionMilestone[] _milestones;
 
@@ -34,6 +34,7 @@ namespace ColonizationMobileGame.ProgressionMilestonesSystem
 
         private void InvokeProgressionEvent(ProgressionMilestoneType type)
         {
+            _achievedMilestones[type] = true;
             _progressionEvents[type]?.Invoke();
 
             _progressionEvents[type] = default;
@@ -70,6 +71,12 @@ namespace ColonizationMobileGame.ProgressionMilestonesSystem
             }
             
             _progressionEvents[type] -= action;
+        }
+
+
+        public bool Achieved(ProgressionMilestoneType milestoneType)
+        {
+            return _achievedMilestones[milestoneType];
         }
     }
 }

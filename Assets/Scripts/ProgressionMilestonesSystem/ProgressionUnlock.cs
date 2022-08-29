@@ -22,6 +22,12 @@ namespace ColonizationMobileGame.ProgressionMilestonesSystem
             {
                 return;
             }
+
+            if (_progressionEvents.Achieved(milestoneType))
+            {
+                Unlock();
+                return;
+            }
             
             _progressionEvents.Subscribe(milestoneType, Unlock);
         }
