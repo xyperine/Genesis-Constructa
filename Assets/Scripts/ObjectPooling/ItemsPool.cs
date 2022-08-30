@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ColonizationMobileGame.ItemsPlacementsInteractions;
 using ColonizationMobileGame.SaveLoadSystem;
+using ColonizationMobileGame.Utility;
 using UnityEngine;
 
 namespace ColonizationMobileGame.ObjectPooling
@@ -18,14 +19,14 @@ namespace ColonizationMobileGame.ObjectPooling
         private readonly List<StackZoneItem> _allItems = new List<StackZoneItem>();
         private readonly List<StackZoneItem> _freeItems = new List<StackZoneItem>();
 
-        private ItemsDistributor _itemsDistributor;
+        private PoolItemsDistributor _itemsDistributor;
         
         public PermanentGuid Guid => guid;
 
         
         private void Awake()
         {
-            _itemsDistributor = new ItemsDistributor(this);
+            _itemsDistributor = new PoolItemsDistributor(this);
             
             if (prewarm)
             {
@@ -123,15 +124,9 @@ namespace ColonizationMobileGame.ObjectPooling
 
         public object Save()
         {
-            StackZoneItem[] notFreeItems = _allItems.Where(i => i.Zone != null).ToArray();
-            string[] stackZoneGuids = notFreeItems.Select(i => i.Zone.Guid.Value).Distinct().ToArray();
-
-            Dictionary<string, ItemType[]> itemsInStackZones = stackZoneGuids.ToDictionary(g => g,
-                g => notFreeItems.Where(i => i.Zone.Guid.Value == g)?.Select(i => i.Type).ToArray());
-
             return new SaveData
             {
-                ItemsInStackZones = itemsInStackZones,
+                ItemsInStackZones = _allItems.MapItemsToZones(),
             };
         }
 
