@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using ColonizationMobileGame.ItemsPlacement.Movers;
 using ColonizationMobileGame.ItemsPlacementsInteractions;
 using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
-using ColonizationMobileGame.SaveLoadSystem;
 using UnityEngine;
 
 namespace ColonizationMobileGame.ItemsPlacement.Core.Area
 {
-    public abstract class PlacementArea : MonoBehaviour, ISaveable
+    public abstract class PlacementArea : MonoBehaviour
     { 
         [SerializeField] protected PlacementAreaSettingsSO placementSettings;
 
@@ -119,30 +117,6 @@ namespace ColonizationMobileGame.ItemsPlacement.Core.Area
         public PlacementAreaUpgradeableProperties GetUpgradeableData()
         {
             return _upgradeableProperties ?? new PlacementAreaUpgradeableProperties(placementSettings);
-        }
-
-
-        public object Save()
-        {
-            return new SaveData
-            {
-                Capacity = Capacity,
-            };
-        }
-
-
-        public void Load(object data)
-        {
-            SaveData saveData = (SaveData) data;
-            
-            Upgrade(saveData.Capacity);
-        }
-        
-        
-        [Serializable]
-        private struct SaveData
-        {
-            public int Capacity { get; set; }
         }
     }
 }

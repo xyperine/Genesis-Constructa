@@ -104,7 +104,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
         {
             return new SaveData
             {
-                PlacementAreaSaveData = placement.Save(),
+       
             };
         }
 
@@ -112,8 +112,6 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
         public void Load(object data)
         {
             SaveData saveData = (SaveData) data;
-            
-            placement.Load(saveData.PlacementAreaSaveData);
         }
         
         
