@@ -23,5 +23,11 @@ namespace ColonizationMobileGame.SaveLoadSystem
                 value = newGuid;
             }
         }
+
+
+        public static string NewGuid()
+        {
+            return Guid.NewGuid().ToString();
+        }
     }
 }

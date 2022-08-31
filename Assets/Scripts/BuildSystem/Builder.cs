@@ -24,6 +24,10 @@ namespace ColonizationMobileGame.BuildSystem
 
         private BuildData _buildData;
 
+        private Structure _structure;
+        private string _structureGuid;
+        private object _structureData;
+        
         public PermanentGuid Guid => guid;
 
         public event Action Built;
@@ -66,9 +70,9 @@ namespace ColonizationMobileGame.BuildSystem
             GameObject structureObject = Instantiate(_buildData.StructurePrefab, transform.position, Quaternion.identity, structuresParent);
             ExtractorProductionUnit productionUnit = structureObject.GetComponentInChildren<ExtractorProductionUnit>();
 
-            if (structureObject.TryGetComponent(out Structure structure))
+            if (structureObject.TryGetComponent(out _structure))
             {
-                structure.Setup(_buildData.Identifier.StructureType, _buildData.MaxLevel);
+                SetupStructure();
             }
 
             if (productionUnit)
@@ -78,9 +82,22 @@ namespace ColonizationMobileGame.BuildSystem
             
             Built?.Invoke();
             
-            _levelData.SetStructure(structure);
+            _levelData.SetStructure(_structure);
 
             Invoke(nameof(Deactivate), 1f);
+        }
+
+
+        private void SetupStructure()
+        {
+            _structure.Setup(_buildData.Identifier.StructureType, _buildData.MaxLevel);
+            
+            _structureGuid = string.IsNullOrEmpty(_structureGuid) ? PermanentGuid.NewGuid() : _structureGuid;
+            _structure.Guid.Set(_structureGuid);
+            if (_structureData != null)
+            {
+                _structure.Load(_structureData);
+            }
         }
 
 
@@ -115,7 +132,9 @@ namespace ColonizationMobileGame.BuildSystem
         {
             return new SaveData
             {
-                ItemRequirementsBlockData = _buildData.Price.Save(),
+                StructureGuid = _structureGuid,
+                StructureData = _structure ? _structure.Save() : null,
+                BuildPriceData = _buildData.Price.Save(),
             };
         }
 
@@ -123,9 +142,11 @@ namespace ColonizationMobileGame.BuildSystem
         public void Load(object data)
         {
             SaveData saveData = (SaveData) data;
-            
-            _buildData.Price.Load(saveData.ItemRequirementsBlockData);
-            
+
+            _structureGuid = saveData.StructureGuid;
+            _structureData = saveData.StructureData;
+
+            _buildData.Price.Load(saveData.BuildPriceData);
             SetItemsAmountData();
         }
 
@@ -133,7 +154,9 @@ namespace ColonizationMobileGame.BuildSystem
         [Serializable]
         private struct SaveData
         {
-            public object ItemRequirementsBlockData { get; set; }
+            public string StructureGuid { get; set; }
+            public object StructureData { get; set; }
+            public object BuildPriceData { get; set; }
         }
     }
 }

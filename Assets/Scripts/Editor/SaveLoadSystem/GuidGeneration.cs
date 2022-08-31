@@ -1,9 +1,7 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using ColonizationMobileGame.SaveLoadSystem;
 using UnityEditor;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace ColonizationMobileGame.Editor.SaveLoadSystem
 {
@@ -15,7 +13,7 @@ namespace ColonizationMobileGame.Editor.SaveLoadSystem
             foreach (MonoBehaviour monoBehaviour in Object.FindObjectsOfType<MonoBehaviour>(true).Where(m => m is ISaveableWithGuid))
             {
                 ISaveableWithGuid saveable = (ISaveableWithGuid) monoBehaviour;
-                saveable.Guid.Set(Guid.NewGuid().ToString());
+                saveable.Guid.Set(PermanentGuid.NewGuid());
                 EditorUtility.SetDirty(monoBehaviour);
             }
         }
