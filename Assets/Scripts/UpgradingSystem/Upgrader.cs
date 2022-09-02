@@ -7,13 +7,13 @@ using UnityEngine;
 
 namespace ColonizationMobileGame.UpgradingSystem
 {
-    public abstract class Upgrader<TUpgradeData> : MonoBehaviour, IConstructable, IItemsAmountDataProvider, ISaveableWithGuid
+    public abstract class Upgrader<TUpgradeData> : MonoBehaviour, IConstructable, IItemsAmountDataProvider, ISaveable, IPermanentGuidIdentifiable
         where TUpgradeData : UpgradeData
     {
         [SerializeField] private ItemsAmountPanelData itemsAmountPanelData;
-        
-        [SerializeField, HideInInspector] private PermanentGuid guid;
 
+        [SerializeField, HideInInspector] private PermanentGuid guid;
+        
         protected UpgradesChain<TUpgradeData> chain;
         protected object chainSaveData;
 
@@ -22,7 +22,6 @@ namespace ColonizationMobileGame.UpgradingSystem
         
         public int Level { get; private set; }
 
-        public SaveableType SaveableType => SaveableType.Other;
         public PermanentGuid Guid => guid;
 
 

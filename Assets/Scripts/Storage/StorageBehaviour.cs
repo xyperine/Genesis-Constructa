@@ -14,7 +14,7 @@ using UnityEngine;
 
 namespace ColonizationMobileGame.Storage
 {
-    public class StorageBehaviour : InteractionTarget, IItemsAmountDataProvider, ILevelDataUser, ISaveableWithGuid
+    public class StorageBehaviour : InteractionTarget, IItemsAmountDataProvider, ILevelDataUser, ISceneSaveable
     {
         [SerializeField] private ItemsAmountPanelData itemsAmountPanelData;
         [SerializeField] private ScoreModifier scoreModifier;

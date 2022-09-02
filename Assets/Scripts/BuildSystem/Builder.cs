@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace ColonizationMobileGame.BuildSystem
 {
-    public sealed class Builder : MonoBehaviour, IItemsAmountDataProvider, ILevelDataUser, ISaveableWithGuid
+    public sealed class Builder : MonoBehaviour, IItemsAmountDataProvider, ILevelDataUser, ISceneSaveable
     {
         [SerializeField] private BuildDataSO buildDataSO;
         [SerializeField] private Transform structuresParent;

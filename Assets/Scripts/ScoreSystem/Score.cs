@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ColonizationMobileGame.ScoreSystem
 {
-    public class Score : MonoBehaviour, ISaveableWithGuid
+    public class Score : MonoBehaviour, ISceneSaveable
     {
         [SerializeField, HideInInspector] private PermanentGuid guid;
         

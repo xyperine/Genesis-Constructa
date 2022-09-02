@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem;
 using ColonizationMobileGame.ItemsExtraction.Upgrading;
 using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
 using ColonizationMobileGame.SaveLoadSystem;
@@ -7,28 +8,34 @@ using UnityEngine;
 
 namespace ColonizationMobileGame.Structures
 {
-    public class StructureRuntimeSaveResolver : MonoBehaviour, ISaveableWithGuid
+    public class StructureRuntimeSaveResolver : MonoBehaviour, ISaveable, IPermanentGuidIdentifiable
     {
-        [SerializeField] private bool active;
-        
-        [SerializeField, HideInInspector] private PermanentGuid guid;
-
         private ExtractorUpgrader _upgrader;
         private StackZone[] _allStackZones;
 
-        public SaveableType SaveableType => SaveableType.RuntimeBuiltStructure;
-        public PermanentGuid Guid => guid;
+        public PermanentGuid Guid { get; } = new PermanentGuid();
 
 
         private void Awake()
         {
-            if (!active)
-            {
-                Destroy(this);
-            }
-
             _upgrader = GetComponentInChildren<ExtractorUpgrader>();
             _allStackZones = GetComponentsInChildren<StackZone>();
+        }
+
+
+        private void Start()
+        {
+            SetGuids();
+        }
+
+
+        private void SetGuids()
+        {
+            _upgrader.Guid.Set(PermanentGuid.NewGuid());
+            foreach (StackZone zone in _allStackZones)
+            {
+                zone.Guid.Set(string.IsNullOrEmpty(zone.Guid.Value) ? PermanentGuid.NewGuid() : zone.Guid.Value);
+            }
         }
 
 
@@ -42,16 +49,6 @@ namespace ColonizationMobileGame.Structures
                 UpgraderData = _upgrader.Save(),
                 StackZonesGuids = _allStackZones?.Select(z => z.Guid.Value).ToArray(),
             };
-        }
-
-
-        private void SetGuids()
-        {
-            _upgrader.Guid.Set(PermanentGuid.NewGuid());
-            foreach (StackZone zone in _allStackZones)
-            {
-                zone.Guid.Set(string.IsNullOrEmpty(zone.Guid.Value) ? PermanentGuid.NewGuid() : zone.Guid.Value);
-            }
         }
 
 
@@ -74,6 +71,7 @@ namespace ColonizationMobileGame.Structures
         {
             public string UpgraderGuid { get; set; }
             public object UpgraderData { get; set; }
+            
             public string[] StackZonesGuids { get; set; }
         }
     }

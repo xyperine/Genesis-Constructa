@@ -12,7 +12,7 @@ namespace ColonizationMobileGame.SaveLoadSystem
         private List<SaveableType> order = Enum.GetValues(typeof(SaveableType)).Cast<SaveableType>().ToList();
         
         
-        public List<ISaveableWithGuid> OrderData(IEnumerable<ISaveableWithGuid> initialData)
+        public List<ISceneSaveable> OrderData(IEnumerable<ISceneSaveable> initialData)
         {
             return initialData.OrderBy(s => order.IndexOf(s.SaveableType)).ToList();
         }

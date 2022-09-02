@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace ColonizationMobileGame.UnlockingSystem
 {
-    public class UnlockStation : MonoBehaviour, IItemsAmountDataProvider, ISaveableWithGuid
+    public class UnlockStation : MonoBehaviour, IItemsAmountDataProvider, ISceneSaveable
     {
         [SerializeField] private ItemsAmountPanelData itemsAmountPanelData;
         [SerializeField] private ItemsConsumer consumer;

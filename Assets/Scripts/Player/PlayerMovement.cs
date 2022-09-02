@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ColonizationMobileGame.Player
 {
-    public class PlayerMovement : MonoBehaviour, ISaveableWithGuid
+    public class PlayerMovement : MonoBehaviour, ISceneSaveable
     {
         [SerializeField] private Joystick joystick;
         [SerializeField] private float speed;

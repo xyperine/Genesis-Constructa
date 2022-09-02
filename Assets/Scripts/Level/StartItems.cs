@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace ColonizationMobileGame.Level
 {
-    public class StartItems : MonoBehaviour, ISaveableWithGuid
+    public class StartItems : MonoBehaviour, ISceneSaveable
     {
         [SerializeField, HideInInspector] private PermanentGuid guid;
 

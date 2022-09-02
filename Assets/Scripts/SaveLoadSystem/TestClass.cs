@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ColonizationMobileGame.SaveLoadSystem
 {
-    public class TestClass : MonoBehaviour, ISaveableWithGuid
+    public class TestClass : MonoBehaviour, ISceneSaveable
     {
         [SerializeField] private int number;
         [SerializeField] private PermanentGuid guid;

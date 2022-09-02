@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace ColonizationMobileGame.ObjectPooling
 {
-    public class ItemsPool : MonoBehaviour, ISaveableWithGuid
+    public class ItemsPool : MonoBehaviour, ISceneSaveable
     {
         [SerializeField] private ItemPoolEntry[] prefabs;
         [SerializeField, Range(100, 500)] private int initialCount = 100;

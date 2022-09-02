@@ -43,10 +43,10 @@ namespace ColonizationMobileGame.SaveLoadSystem
 
         private void RestoreState()
         {
-            List<ISaveableWithGuid> orderedSaveables =
-                loadingCoordinator.OrderData(FindObjectsOfType<MonoBehaviour>(true).OfType<ISaveableWithGuid>());
+            List<ISceneSaveable> orderedSaveables =
+                loadingCoordinator.OrderData(FindObjectsOfType<MonoBehaviour>(true).OfType<ISceneSaveable>());
 
-            foreach (ISaveableWithGuid saveable in orderedSaveables)
+            foreach (ISceneSaveable saveable in orderedSaveables)
             {
                 if (_gameState.TryGetValue(saveable.Guid.Value, out object value))
                 {
@@ -76,7 +76,7 @@ namespace ColonizationMobileGame.SaveLoadSystem
 
         private void CaptureState()
         {
-            foreach (ISaveableWithGuid saveable in FindObjectsOfType<MonoBehaviour>(true).OfType<ISaveableWithGuid>())
+            foreach (ISceneSaveable saveable in FindObjectsOfType<MonoBehaviour>(true).OfType<ISceneSaveable>())
             {
                 _gameState[saveable.Guid.Value] = saveable.Save();
             }
