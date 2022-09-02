@@ -15,6 +15,7 @@ namespace ColonizationMobileGame.UpgradingSystem
         [SerializeField, HideInInspector] private PermanentGuid guid;
 
         protected UpgradesChain<TUpgradeData> chain;
+        protected object chainSaveData;
 
         protected IEnumerable<IUpgradeable<TUpgradeData>> upgradeables;
         protected UpgradesStatusTracker<TUpgradeData> upgradesTracker;
@@ -69,6 +70,12 @@ namespace ColonizationMobileGame.UpgradingSystem
         public void Load(object data)
         {
             SaveData saveData = (SaveData) data;
+
+            if (chain == null)
+            {
+                chainSaveData = saveData.UpgradesChainData;
+                return;
+            }
             
             chain.Load(saveData.UpgradesChainData);
             
