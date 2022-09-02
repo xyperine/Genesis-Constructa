@@ -105,7 +105,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
         {
             return new SaveData
             {
-       
+                Guid = guid.Value,
             };
         }
 
@@ -113,13 +113,15 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
         public void Load(object data)
         {
             SaveData saveData = (SaveData) data;
+            
+            guid.Set(saveData.Guid);
         }
         
         
         [Serializable]
         private struct SaveData
         {
-            public object PlacementAreaSaveData { get; set; }
+            public string Guid { get; set; }
         }
     }
 }

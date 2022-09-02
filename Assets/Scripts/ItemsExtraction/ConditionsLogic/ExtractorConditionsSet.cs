@@ -19,6 +19,8 @@ namespace ColonizationMobileGame.ItemsExtraction.ConditionsLogic
         private void Start()
         {
             _previousFrameState = Met;
+            
+            Changed?.Invoke();
         }
 
 

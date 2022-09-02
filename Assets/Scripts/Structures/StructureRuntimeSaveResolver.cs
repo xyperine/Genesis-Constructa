@@ -12,6 +12,7 @@ namespace ColonizationMobileGame.Structures
         
         [SerializeField, HideInInspector] private PermanentGuid guid;
 
+        private StackZone[] _allStackZones;
 
         public SaveableType SaveableType => SaveableType.RuntimeBuiltStructure;
         public PermanentGuid Guid => guid;
@@ -23,25 +24,40 @@ namespace ColonizationMobileGame.Structures
             {
                 Destroy(this);
             }
+            
+            _allStackZones = GetComponentsInChildren<StackZone>();
         }
 
 
         public object Save()
         {
+            foreach (StackZone zone in _allStackZones)
+            {
+                zone.Guid.Set(string.IsNullOrEmpty(zone.Guid.Value) ? PermanentGuid.NewGuid() : zone.Guid.Value);
+            }
+            
             return new SaveData
             {
+                StackZonesGuids = _allStackZones?.Select(z => z.Guid.Value).ToArray(),
             };
         }
 
 
         public void Load(object data)
         {
+            SaveData saveData = (SaveData) data;
+
+            for (int i = 0; i < _allStackZones.Length; i++)
+            {
+                _allStackZones[i].Guid.Set(saveData.StackZonesGuids[i]);
+            }
         }
 
         
         [Serializable]
         private struct SaveData
         {
+            public string[] StackZonesGuids { get; set; }
         }
     }
 }
