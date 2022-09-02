@@ -12,6 +12,7 @@ namespace ColonizationMobileGame.Structures
     {
         private ExtractorUpgrader _upgrader;
         private StackZone[] _allStackZones;
+        private KeyItemSlot[] _keyItemSlots;
 
         public PermanentGuid Guid { get; } = new PermanentGuid();
 
@@ -20,6 +21,7 @@ namespace ColonizationMobileGame.Structures
         {
             _upgrader = GetComponentInChildren<ExtractorUpgrader>();
             _allStackZones = GetComponentsInChildren<StackZone>();
+            _keyItemSlots = _allStackZones.Where(z => z is KeyItemSlot).Cast<KeyItemSlot>().ToArray();
         }
 
 
@@ -48,6 +50,7 @@ namespace ColonizationMobileGame.Structures
                 UpgraderGuid = _upgrader.Guid.Value,
                 UpgraderData = _upgrader.Save(),
                 StackZonesGuids = _allStackZones?.Select(z => z.Guid.Value).ToArray(),
+                KeyItemsSlotsData = _keyItemSlots?.Select(s => s.Save()).ToArray(),
             };
         }
 
@@ -63,6 +66,11 @@ namespace ColonizationMobileGame.Structures
             {
                 _allStackZones[i].Guid.Set(saveData.StackZonesGuids[i]);
             }
+
+            for (int i = 0; i < _keyItemSlots.Length; i++)
+            {
+                _keyItemSlots[i].Load(saveData.KeyItemsSlotsData[i]);
+            }
         }
 
         
@@ -73,6 +81,7 @@ namespace ColonizationMobileGame.Structures
             public object UpgraderData { get; set; }
             
             public string[] StackZonesGuids { get; set; }
+            public object[] KeyItemsSlotsData { get; set; }
         }
     }
 }

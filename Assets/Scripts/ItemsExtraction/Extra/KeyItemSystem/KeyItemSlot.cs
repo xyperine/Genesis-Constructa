@@ -1,15 +1,18 @@
-﻿using ColonizationMobileGame.ItemsPlacementsInteractions;
+﻿using System;
+using ColonizationMobileGame.ItemsPlacementsInteractions;
 using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
+using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.UI.ItemsAmount.Data;
 using UnityEngine;
 
 namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
 {
-    public class KeyItemSlot : StackZone, IItemsAmountDataProvider
+    public class KeyItemSlot : StackZone, IItemsAmountDataProvider, ISaveable
     {
         [SerializeField] private ItemsAmountPanelData itemsAmountPanelData;
         
         private KeyItem _item;
+        private object _itemData;
         
         public bool Filled => HasItems;
         public bool WillBeEmpty => Filled && _item.WillBeExhausted;
@@ -26,6 +29,10 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
             base.Add(item);
 
             _item = item.GetComponent<KeyItem>();
+            if (_itemData != null)
+            {
+                _item.Load(_itemData);
+            }
             
             SetItemsAmountData();
         }
@@ -56,6 +63,7 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
             zoneItem.Return();
             
             _item = null;
+            _itemData = null;
 
             SetItemsAmountData();
         }
@@ -66,6 +74,40 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
             itemsAmountPanelData.SetData(new ItemAmountData(AcceptableItems[0], placement.Count, 1));
             
             itemsAmountPanelData.InvokeChanged();
+        }
+
+
+        public object Save()
+        {
+            if (!_item)
+            {
+                return null;
+            }
+
+            return new SaveData
+            {
+                ItemData = _item.Save(),
+            };
+        }
+
+
+        public void Load(object data)
+        {
+            if (data == null)
+            {
+                return;
+            }
+            
+            SaveData saveData = (SaveData) data;
+            
+            _itemData = saveData.ItemData;
+        }
+
+
+        [Serializable]
+        private struct SaveData
+        {
+            public object ItemData { get; set; }
         }
     }
 }
