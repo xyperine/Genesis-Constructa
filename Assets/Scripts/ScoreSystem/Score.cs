@@ -9,6 +9,8 @@ namespace ColonizationMobileGame.ScoreSystem
         [SerializeField, HideInInspector] private PermanentGuid guid;
         
         public int Value { get; private set; }
+        
+        public SaveableType SaveableType => SaveableType.Other;
         public PermanentGuid Guid => guid;
 
 

@@ -17,6 +17,7 @@ namespace ColonizationMobileGame.UnlockingSystem
 
         [SerializeField, HideInInspector] private PermanentGuid guid;
 
+        public SaveableType SaveableType => SaveableType.Other;
         public PermanentGuid Guid => guid;
 
 

@@ -20,7 +20,8 @@ namespace ColonizationMobileGame.UpgradingSystem
         protected UpgradesStatusTracker<TUpgradeData> upgradesTracker;
         
         public int Level { get; private set; }
-        
+
+        public SaveableType SaveableType => SaveableType.Other;
         public PermanentGuid Guid => guid;
 
 

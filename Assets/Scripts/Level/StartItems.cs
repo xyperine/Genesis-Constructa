@@ -15,9 +15,10 @@ namespace ColonizationMobileGame.Level
         private StartItemsDistributor _itemsDistributor;
         private List<StackZoneItem> _items;
 
+        public SaveableType SaveableType => SaveableType.StartItemsObject;
         public PermanentGuid Guid => guid;
-        
-        
+
+
         private void Awake()
         {
             _items = GetComponentsInChildren<StackZoneItem>(true).ToList();

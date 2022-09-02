@@ -18,6 +18,7 @@ namespace ColonizationMobileGame.Player
 
         public float RelativeVelocity => Mathf.Clamp01(_velocity.magnitude / Time.fixedDeltaTime / speed);
 
+        public SaveableType SaveableType => SaveableType.Other;
         public PermanentGuid Guid => guid;
 
 

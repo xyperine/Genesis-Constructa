@@ -22,6 +22,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
         public override bool CanTakeMore => placement.CanFitMore;
         public override ItemType[] AcceptableItems => (ItemType[]) acceptableItems.Clone();
 
+        public SaveableType SaveableType => SaveableType.Other;
         public PermanentGuid Guid => guid;
 
 

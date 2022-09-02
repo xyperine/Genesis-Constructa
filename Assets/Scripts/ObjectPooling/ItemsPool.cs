@@ -21,6 +21,7 @@ namespace ColonizationMobileGame.ObjectPooling
 
         private PoolItemsDistributor _itemsDistributor;
         
+        public SaveableType SaveableType => SaveableType.ItemsPool;
         public PermanentGuid Guid => guid;
 
         

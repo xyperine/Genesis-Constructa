@@ -8,6 +8,7 @@ namespace ColonizationMobileGame.SaveLoadSystem
         [SerializeField] private int number;
         [SerializeField] private PermanentGuid guid;
 
+        public SaveableType SaveableType => SaveableType.Other;
         public PermanentGuid Guid => guid;
 
 

@@ -7,6 +7,8 @@ namespace ColonizationMobileGame.SaveLoadSystem
 {
     public class SaveLoadManager : MonoBehaviour
     {
+        [SerializeField] private LoadingCoordinator loadingCoordinator;
+        
         [SerializeField, HideInInspector] private bool active;
         
         private Dictionary<string, object> _gameState = new Dictionary<string, object>();
@@ -41,7 +43,10 @@ namespace ColonizationMobileGame.SaveLoadSystem
 
         private void RestoreState()
         {
-            foreach (ISaveableWithGuid saveable in FindObjectsOfType<MonoBehaviour>(true).OfType<ISaveableWithGuid>())
+            List<ISaveableWithGuid> orderedSaveables =
+                loadingCoordinator.OrderData(FindObjectsOfType<MonoBehaviour>(true).OfType<ISaveableWithGuid>());
+
+            foreach (ISaveableWithGuid saveable in orderedSaveables)
             {
                 if (_gameState.TryGetValue(saveable.Guid.Value, out object value))
                 {

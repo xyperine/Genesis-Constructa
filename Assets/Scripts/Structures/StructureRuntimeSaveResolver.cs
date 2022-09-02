@@ -13,6 +13,7 @@ namespace ColonizationMobileGame.Structures
         [SerializeField, HideInInspector] private PermanentGuid guid;
 
 
+        public SaveableType SaveableType => SaveableType.RuntimeBuiltStructure;
         public PermanentGuid Guid => guid;
 
 
