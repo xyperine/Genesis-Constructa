@@ -24,10 +24,10 @@ namespace ColonizationMobileGame.BuildSystem
 
         private BuildData _buildData;
 
-        private Structure _structure;
+        private StructureRuntimeSaveResolver _structureSaveResolver;
         private string _structureGuid;
         private object _structureData;
-        
+
         public PermanentGuid Guid => guid;
 
         public event Action Built;
@@ -70,9 +70,14 @@ namespace ColonizationMobileGame.BuildSystem
             GameObject structureObject = Instantiate(_buildData.StructurePrefab, transform.position, Quaternion.identity, structuresParent);
             ExtractorProductionUnit productionUnit = structureObject.GetComponentInChildren<ExtractorProductionUnit>();
 
-            if (structureObject.TryGetComponent(out _structure))
+            if (structureObject.TryGetComponent(out Structure structure))
             {
-                SetupStructure();
+                structure.Setup(_buildData.Identifier.StructureType, _buildData.MaxLevel);
+            }
+
+            if (structureObject.TryGetComponent(out _structureSaveResolver))
+            {
+                RestoreStructure();
             }
 
             if (productionUnit)
@@ -82,21 +87,19 @@ namespace ColonizationMobileGame.BuildSystem
             
             Built?.Invoke();
             
-            _levelData.SetStructure(_structure);
+            _levelData.SetStructure(structure);
 
             Invoke(nameof(Deactivate), 1f);
         }
 
 
-        private void SetupStructure()
+        private void RestoreStructure()
         {
-            _structure.Setup(_buildData.Identifier.StructureType, _buildData.MaxLevel);
-            
             _structureGuid = string.IsNullOrEmpty(_structureGuid) ? PermanentGuid.NewGuid() : _structureGuid;
-            _structure.Guid.Set(_structureGuid);
+            _structureSaveResolver.Guid.Set(_structureGuid);
             if (_structureData != null)
             {
-                _structure.Load(_structureData);
+                _structureSaveResolver.Load(_structureData);
             }
         }
 
@@ -133,7 +136,7 @@ namespace ColonizationMobileGame.BuildSystem
             return new SaveData
             {
                 StructureGuid = _structureGuid,
-                StructureData = _structure ? _structure.Save() : null,
+                StructureData = _structureSaveResolver ? _structureSaveResolver.Save() : null,
                 BuildPriceData = _buildData.Price.Save(),
             };
         }
