@@ -34,7 +34,7 @@ namespace ColonizationMobileGame.ItemsExtraction
         public bool CanProduce => productionStackZone.CanTakeMore;
 
         public PermanentGuid Guid => guid;
-        public SaveableType SaveableType => SaveableType.Other;
+        public int LoadingOrder => 0;
 
 
         private void Awake()

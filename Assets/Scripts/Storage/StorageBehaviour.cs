@@ -29,7 +29,7 @@ namespace ColonizationMobileGame.Storage
         public override bool CanTakeMore => true;
         public override ItemType[] AcceptableItems => _itemsCount.Select(kvp => kvp.Key).ToArray();
 
-        public SaveableType SaveableType => SaveableType.Other;
+        public int LoadingOrder => 2;
         public PermanentGuid Guid => guid;
 
 

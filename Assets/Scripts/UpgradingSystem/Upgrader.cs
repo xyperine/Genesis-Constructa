@@ -22,7 +22,7 @@ namespace ColonizationMobileGame.UpgradingSystem
         
         public int Level { get; private set; }
 
-        public SaveableType SaveableType { get; }
+        public int LoadingOrder => 0;
         public PermanentGuid Guid => guid;
 
 

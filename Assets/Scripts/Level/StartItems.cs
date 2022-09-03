@@ -15,7 +15,7 @@ namespace ColonizationMobileGame.Level
         private StartItemsDistributor _itemsDistributor;
         private List<StackZoneItem> _items;
 
-        public SaveableType SaveableType => SaveableType.StartItemsObject;
+        public int LoadingOrder => 10;
         public PermanentGuid Guid => guid;
 
 

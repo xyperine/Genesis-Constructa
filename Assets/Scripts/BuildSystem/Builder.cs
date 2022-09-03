@@ -28,7 +28,7 @@ namespace ColonizationMobileGame.BuildSystem
         private string _structureGuid;
         private object _structureData;
 
-        public SaveableType SaveableType => SaveableType.RuntimeBuiltStructure;
+        public int LoadingOrder => -100;
         public PermanentGuid Guid => guid;
 
         public event Action Built;

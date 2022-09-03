@@ -10,7 +10,7 @@ namespace ColonizationMobileGame.ScoreSystem
         
         public int Value { get; private set; }
         
-        public SaveableType SaveableType => SaveableType.Other;
+        public int LoadingOrder => 100;
         public PermanentGuid Guid => guid;
 
 
