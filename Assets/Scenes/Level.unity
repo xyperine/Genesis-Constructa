@@ -434,6 +434,10 @@ PrefabInstance:
       propertyPath: itemsPool
       value: 
       objectReference: {fileID: 216819949}
+    - target: {fileID: 3852317137096949266, guid: 91579add97abbd04186c5008f85bd507, type: 3}
+      propertyPath: guid.value
+      value: 77288ca9-7580-4315-b8f4-265da4c39911
+      objectReference: {fileID: 0}
     - target: {fileID: 4127306803908314557, guid: 91579add97abbd04186c5008f85bd507, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -510,7 +514,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2487148887451309591, guid: 91579add97abbd04186c5008f85bd507, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 91579add97abbd04186c5008f85bd507, type: 3}
 --- !u!4 &623942257 stripped
 Transform:
