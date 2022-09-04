@@ -1,22 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 
 namespace ColonizationMobileGame.SaveLoadSystem
 {
     public class SaveLoadManager : MonoBehaviour
     {
-        [SerializeField, HideInInspector] private bool active;
+        [SerializeField] private bool active = true;
         
         private Dictionary<string, object> _gameState = new Dictionary<string, object>();
         private SaveSerializer<Dictionary<string, object>> _saveSerializer;
-
-
-        public void SetActive(bool active)
-        {
-            this.active = active;
-        }
 
 
         public void Initialize()
