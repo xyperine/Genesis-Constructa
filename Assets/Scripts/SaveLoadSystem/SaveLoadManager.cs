@@ -18,7 +18,7 @@ namespace ColonizationMobileGame.SaveLoadSystem
             {
                 return;
             }
-            
+
             _saveSerializer = new SaveSerializer<Dictionary<string, object>>();
             
             Load();
@@ -34,8 +34,8 @@ namespace ColonizationMobileGame.SaveLoadSystem
 
         private void RestoreState()
         {
-            List<ISceneSaveable> orderedSaveables = FindObjectsOfType<MonoBehaviour>(true).OfType<ISceneSaveable>()
-                .OrderBy(s => s.LoadingOrder).ToList();
+            ISceneSaveable[] orderedSaveables = FindObjectsOfType<MonoBehaviour>(true).OfType<ISceneSaveable>()
+                .OrderBy(s => s.LoadingOrder).ToArray();
 
             foreach (ISceneSaveable saveable in orderedSaveables)
             {
@@ -53,7 +53,7 @@ namespace ColonizationMobileGame.SaveLoadSystem
             {
                 return;
             }
-            
+
             Save();
         }
 

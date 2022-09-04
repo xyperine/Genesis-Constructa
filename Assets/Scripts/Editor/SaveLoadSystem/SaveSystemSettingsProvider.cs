@@ -4,10 +4,10 @@ using UnityEditor;
 
 namespace ColonizationMobileGame.Editor.SaveLoadSystem
 {
-    public static class SaveSystemSettingsProvider
+    internal static class SaveSystemSettingsProvider
     {
         [SettingsProvider]
-        public static SettingsProvider GetSettingsProvider()
+        private static SettingsProvider GetSettingsProvider()
         {
             return SaveSystemSettings.instance.GetSettingsProvider();
         }

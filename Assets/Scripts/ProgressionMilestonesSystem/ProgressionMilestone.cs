@@ -1,5 +1,4 @@
 ﻿using System;
-using ColonizationMobileGame.SaveLoadSystem;
 using UnityEngine;
 
 namespace ColonizationMobileGame.ProgressionMilestonesSystem
