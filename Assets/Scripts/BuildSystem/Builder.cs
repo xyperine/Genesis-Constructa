@@ -97,7 +97,7 @@ namespace ColonizationMobileGame.BuildSystem
         private void RestoreStructure()
         {
             _structureGuid = string.IsNullOrEmpty(_structureGuid) ? PermanentGuid.NewGuid() : _structureGuid;
-            _structureSaveResolver.Guid.Set(_structureGuid);
+            _structureSaveResolver.Guid.TrySet(_structureGuid);
             if (_structureData != null)
             {
                 _structureSaveResolver.Load(_structureData);
@@ -151,6 +151,7 @@ namespace ColonizationMobileGame.BuildSystem
             _structureData = saveData.StructureData;
 
             _buildData.Price.Load(saveData.BuildPriceData);
+            
             SetItemsAmountData();
         }
 

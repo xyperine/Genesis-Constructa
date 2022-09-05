@@ -13,7 +13,7 @@ namespace ColonizationMobileGame.Editor.SaveLoadSystem
             foreach (MonoBehaviour monoBehaviour in Object.FindObjectsOfType<MonoBehaviour>(true).Where(m => m is IPermanentGuidIdentifiable))
             {
                 IPermanentGuidIdentifiable identifiable = (IPermanentGuidIdentifiable) monoBehaviour;
-                identifiable.Guid.Set(PermanentGuid.NewGuid());
+                identifiable.Guid.TrySet(PermanentGuid.NewGuid());
                 EditorUtility.SetDirty(monoBehaviour);
             }
         }

@@ -71,13 +71,14 @@ namespace ColonizationMobileGame.UpgradingSystem
         {
             SaveData saveData = (SaveData) data;
 
+            chainSaveData = saveData.UpgradesChainData;
+            
             if (chain == null)
             {
-                chainSaveData = saveData.UpgradesChainData;
                 return;
             }
             
-            chain.Load(saveData.UpgradesChainData);
+            chain.Load(chainSaveData);
             
             SetItemsAmountData();
         }

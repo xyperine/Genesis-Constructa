@@ -37,11 +37,11 @@ namespace ColonizationMobileGame.Structures
 
         private void SetGuids()
         {
-            _upgrader.Guid.Set(PermanentGuid.NewGuid());
-            _productionUnit.Guid.Set(PermanentGuid.NewGuid());
+            _upgrader.Guid.TrySet(PermanentGuid.NewGuid());
+            _productionUnit.Guid.TrySet(PermanentGuid.NewGuid());
             foreach (StackZone zone in _allStackZones)
             {
-                zone.Guid.Set(string.IsNullOrEmpty(zone.Guid.Value) ? PermanentGuid.NewGuid() : zone.Guid.Value);
+                zone.Guid.TrySet(PermanentGuid.NewGuid());
             }
         }
 
@@ -54,8 +54,10 @@ namespace ColonizationMobileGame.Structures
             {
                 UpgraderGuid = _upgrader.Guid.Value,
                 UpgraderData = _upgrader.Save(),
+                
                 ProductionUnitGuid = _productionUnit.Guid.Value,
                 ProductionUnitData = _productionUnit.Save(),
+                
                 StackZonesGuids = _allStackZones?.Select(z => z.Guid.Value).ToArray(),
                 KeyItemsSlotsData = _keyItemSlots?.Select(s => s.Save()).ToArray(),
             };
@@ -66,15 +68,15 @@ namespace ColonizationMobileGame.Structures
         {
             SaveData saveData = (SaveData) data;
 
-            _upgrader.Guid.Set(saveData.UpgraderGuid);
+            _upgrader.Guid.TrySet(saveData.UpgraderGuid);
             _upgrader.Load(saveData.UpgraderData);
             
-            _productionUnit.Guid.Set(saveData.ProductionUnitGuid);
+            _productionUnit.Guid.TrySet(saveData.ProductionUnitGuid);
             _productionUnit.Load(saveData.ProductionUnitData);
             
             for (int i = 0; i < _allStackZones.Length; i++)
             {
-                _allStackZones[i].Guid.Set(saveData.StackZonesGuids[i]);
+                _allStackZones[i].Guid.TrySet(saveData.StackZonesGuids[i]);
             }
 
             for (int i = 0; i < _keyItemSlots.Length; i++)

@@ -33,7 +33,7 @@ namespace ColonizationMobileGame.Level
             return new SaveData
             {
                 ItemsInStackZones = _items.MapItemsToZones(),
-                Items = _items.Select(i => i.Type).ToArray(),
+                AllItems = _items.Select(i => i.Type).ToArray(),
             };
         }
 
@@ -48,7 +48,7 @@ namespace ColonizationMobileGame.Level
 
         private void RestoreItems(SaveData saveData)
         {
-            IEnumerable<ItemType> itemsToDelete = GetItemsToDelete(saveData.Items);
+            IEnumerable<ItemType> itemsToDelete = GetItemsToDelete(saveData.AllItems);
             DeleteItems(itemsToDelete);
             
             _itemsDistributor.Distribute(saveData.ItemsInStackZones);
@@ -91,7 +91,7 @@ namespace ColonizationMobileGame.Level
         private struct SaveData
         {
             public Dictionary<string, ItemType[]> ItemsInStackZones { get; set; }
-            public ItemType[] Items { get; set; }
+            public ItemType[] AllItems { get; set; }
         }
     }
 }

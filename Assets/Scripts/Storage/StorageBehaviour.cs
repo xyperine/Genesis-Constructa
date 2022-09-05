@@ -86,6 +86,7 @@ namespace ColonizationMobileGame.Storage
 
             _itemsCount = saveData.ItemsCount;
             _levelData.SetItemsInStorage(_itemsCount);
+            
             SetItemsAmountData();
         }
 

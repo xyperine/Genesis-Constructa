@@ -12,11 +12,11 @@ namespace ColonizationMobileGame.SaveLoadSystem
         public string Value
         {
             get => value;
-            set => Set(value);
+            set => TrySet(value);
         }
 
 
-        public void Set(string newGuid)
+        public void TrySet(string newGuid)
         {
             if (string.IsNullOrEmpty(value))
             {

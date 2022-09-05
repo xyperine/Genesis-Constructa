@@ -12,7 +12,7 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
         [SerializeField] private ItemsAmountPanelData itemsAmountPanelData;
         
         private KeyItem _item;
-        private object _itemData;
+        private object _itemSaveData;
         
         public bool Filled => HasItems;
         public bool WillBeEmpty => Filled && _item.WillBeExhausted;
@@ -29,9 +29,9 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
             base.Add(item);
 
             _item = item.GetComponent<KeyItem>();
-            if (_itemData != null)
+            if (_itemSaveData != null)
             {
-                _item.Load(_itemData);
+                _item.Load(_itemSaveData);
             }
             
             SetItemsAmountData();
@@ -63,7 +63,7 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
             zoneItem.Return();
             
             _item = null;
-            _itemData = null;
+            _itemSaveData = null;
 
             SetItemsAmountData();
         }
@@ -100,7 +100,7 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
             
             SaveData saveData = (SaveData) data;
             
-            _itemData = saveData.ItemData;
+            _itemSaveData = saveData.ItemData;
         }
 
 
