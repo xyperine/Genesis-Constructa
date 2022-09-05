@@ -60,6 +60,11 @@ namespace ColonizationMobileGame.UpgradingSystem
 
         public object Save()
         {
+            if (chain == null)
+            {
+                return null;
+            }
+            
             return new SaveData()
             {
                 UpgradesChainData = chain.Save(),
@@ -69,6 +74,11 @@ namespace ColonizationMobileGame.UpgradingSystem
 
         public void Load(object data)
         {
+            if (data == null)
+            {
+                return;
+            }
+            
             SaveData saveData = (SaveData) data;
 
             chainSaveData = saveData.UpgradesChainData;

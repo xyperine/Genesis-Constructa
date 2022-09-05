@@ -30,6 +30,11 @@ namespace ColonizationMobileGame.TasksSystem
 
         public void InitializeTasks()
         {
+            if (!tasksListSO)
+            {
+                return;
+            }
+            
             _tasks = tasksListSO.AllTasks;
 
             DataForTasks data = new DataForTasks(_levelData, _tasks.Select(t => t.Requirement).ToArray());

@@ -37,7 +37,7 @@ namespace ColonizationMobileGame.Structures
 
         private void SetGuids()
         {
-            _upgrader.Guid.TrySet(PermanentGuid.NewGuid());
+            _upgrader?.Guid.TrySet(PermanentGuid.NewGuid());
             _productionUnit.Guid.TrySet(PermanentGuid.NewGuid());
             foreach (StackZone zone in _allStackZones)
             {
@@ -52,8 +52,8 @@ namespace ColonizationMobileGame.Structures
             
             return new SaveData
             {
-                UpgraderGuid = _upgrader.Guid.Value,
-                UpgraderData = _upgrader.Save(),
+                UpgraderGuid = _upgrader?.Guid.Value,
+                UpgraderData = _upgrader?.Save(),
                 
                 ProductionUnitGuid = _productionUnit.Guid.Value,
                 ProductionUnitData = _productionUnit.Save(),
@@ -68,8 +68,11 @@ namespace ColonizationMobileGame.Structures
         {
             SaveData saveData = (SaveData) data;
 
-            _upgrader.Guid.TrySet(saveData.UpgraderGuid);
-            _upgrader.Load(saveData.UpgraderData);
+            if (_upgrader)
+            {
+                _upgrader.Guid.TrySet(saveData.UpgraderGuid); 
+                _upgrader.Load(saveData.UpgraderData);
+            }
             
             _productionUnit.Guid.TrySet(saveData.ProductionUnitGuid);
             _productionUnit.Load(saveData.ProductionUnitData);

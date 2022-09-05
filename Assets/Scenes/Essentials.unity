@@ -608,6 +608,14 @@ PrefabInstance:
       propertyPath: saveLoadManager
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7730718997147459475, guid: fcb4fbc281730f04a9288188820bb0ae, type: 3}
+      propertyPath: scenesNames.Array.data[0]
+      value: Level
+      objectReference: {fileID: 0}
+    - target: {fileID: 7730718997147459475, guid: fcb4fbc281730f04a9288188820bb0ae, type: 3}
+      propertyPath: scenesToLoad.Array.data[0]
+      value: 
+      objectReference: {fileID: 102900000, guid: 10cfb378149f57b4788d488bbf4004f6, type: 3}
     - target: {fileID: 7730718997147459500, guid: fcb4fbc281730f04a9288188820bb0ae, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -656,5 +664,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Initialization
       objectReference: {fileID: 0}
+    - target: {fileID: 8533756249926470206, guid: fcb4fbc281730f04a9288188820bb0ae, type: 3}
+      propertyPath: tasksListSO
+      value: 
+      objectReference: {fileID: 11400000, guid: e80301849600afc4bbc5548c9ccf00b6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcb4fbc281730f04a9288188820bb0ae, type: 3}

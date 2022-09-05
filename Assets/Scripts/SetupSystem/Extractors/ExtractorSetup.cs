@@ -20,13 +20,15 @@ namespace ColonizationMobileGame.SetupSystem.Extractors
         
         private void OnEnable()
         {
-            if (upgradeable)
+            if (!upgradeable)
             {
-                ExtractorUpgraderSetupData data = new ExtractorUpgraderSetupData(upgradesChain,
-                    new IUpgradeable<ExtractorUpgradeData>[] {productionZone, productionUnit}, upgraderColliderRadius);
-            
-                upgraderSetup.SetData(data); 
+                return;
             }
+
+            ExtractorUpgraderSetupData data = new ExtractorUpgraderSetupData(upgradesChain,
+                new IUpgradeable<ExtractorUpgradeData>[] {productionZone, productionUnit}, upgraderColliderRadius);
+            
+            upgraderSetup.SetData(data);
         }
     }
 }

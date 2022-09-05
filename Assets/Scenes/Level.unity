@@ -1798,6 +1798,10 @@ PrefabInstance:
       value: b78c26b9-9df3-44fb-8839-54e51ca8ded6
       objectReference: {fileID: 0}
     - target: {fileID: 2772615054218884544, guid: 8647f0e5c5321e8418d85cdd86698dbc, type: 3}
+      propertyPath: buildDataSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 6a5da20f26de24444b086f922cbf4624, type: 2}
+    - target: {fileID: 2772615054218884544, guid: 8647f0e5c5321e8418d85cdd86698dbc, type: 3}
       propertyPath: _scoreCounter
       value: 
       objectReference: {fileID: 1947850914}
