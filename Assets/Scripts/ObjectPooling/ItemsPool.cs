@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using ColonizationMobileGame.ItemsPlacementsInteractions;
@@ -19,6 +20,7 @@ namespace ColonizationMobileGame.ObjectPooling
         private readonly List<StackZoneItem> _allItems = new List<StackZoneItem>();
         private readonly List<StackZoneItem> _freeItems = new List<StackZoneItem>();
 
+        private Dictionary<string, ItemType[]> _itemsInZones;
         private PoolItemsDistributor _itemsDistributor;
         
         public int LoadingOrder => 15;
@@ -74,6 +76,14 @@ namespace ColonizationMobileGame.ObjectPooling
         {
             obj.gameObject.SetActive(false);
             _freeItems.Add(obj);
+        }
+
+
+        private IEnumerator Start()
+        {
+            yield return Helpers.GetWaitForSeconds(0.5f);
+            
+            _itemsDistributor.Distribute(_itemsInZones);
         }
 
 
@@ -135,8 +145,8 @@ namespace ColonizationMobileGame.ObjectPooling
         public void Load(object data)
         {
             SaveData saveData = (SaveData) data;
-            
-            _itemsDistributor.Distribute(saveData.ItemsInStackZones);
+
+            _itemsInZones = saveData.ItemsInStackZones;
         }
 
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.TasksSystem;
+using DG.Tweening;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -51,6 +52,7 @@ namespace ColonizationMobileGame.Initialization
 
             GameObject[] rootGameObjects = SceneManager.GetSceneByName(sceneName).GetRootGameObjects();
             
+            DOTween.SetTweensCapacity(350, 50);
             dependenciesResolver.Resolve(rootGameObjects);
             tasksInitializer.InitializeTasks();
             saveLoadManager.Initialize();
