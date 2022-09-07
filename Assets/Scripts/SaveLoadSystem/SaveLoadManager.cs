@@ -47,8 +47,13 @@ namespace ColonizationMobileGame.SaveLoadSystem
         }
 
 
-        private void OnApplicationQuit()
+        private void OnApplicationPause(bool pauseStatus)
         {
+            if (!pauseStatus)
+            {
+                return;
+            }
+            
             if (!active)
             {
                 return;

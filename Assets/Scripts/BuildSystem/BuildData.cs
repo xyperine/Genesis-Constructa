@@ -9,7 +9,7 @@ using UnityEngine;
 namespace ColonizationMobileGame.BuildSystem
 {
     [Serializable]
-    public sealed class BuildData : IUnlockable, IDeepCloneable<BuildData>, IValidatable
+    public sealed class BuildData : IUnlockable, IDeepCloneable<BuildData>, IValidatable, ISerializationCallbackReceiver
     {
         [SerializeField] private bool locked = true;
         [SerializeField] private GameObject structurePrefab;
@@ -17,7 +17,7 @@ namespace ColonizationMobileGame.BuildSystem
         [SerializeField] private int maxLevel;
 
         [SerializeField, HideInInspector] private StructureIdentifier identifier;
-
+        
         public bool Locked { get; private set; }
 
         public GameObject StructurePrefab => structurePrefab;
@@ -31,7 +31,7 @@ namespace ColonizationMobileGame.BuildSystem
 
         public event Action Unlocked;
 
-
+        
         public void OnValidate()
         {
             Locked = locked;
@@ -58,6 +58,18 @@ namespace ColonizationMobileGame.BuildSystem
             Unlocked += copy.Unlock;
 
             return copy;
+        }
+
+
+        public void OnBeforeSerialize()
+        {
+            
+        }
+
+
+        public void OnAfterDeserialize()
+        {
+            Locked = locked;
         }
     }
 }

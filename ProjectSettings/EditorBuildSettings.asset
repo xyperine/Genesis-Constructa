@@ -11,7 +11,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level.unity
     guid: 10cfb378149f57b4788d488bbf4004f6
-  - enabled: 1
-    path: Assets/Scenes/TestScenes/Mechanics/Factories.unity
-    guid: 26c17b16364e2684aa6a757a9df6e9d5
   m_configObjects: {}

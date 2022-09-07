@@ -10,7 +10,7 @@ using UnityEngine;
 namespace ColonizationMobileGame.UpgradingSystem
 {
     [Serializable]
-    public class Upgrade<TUpgradeData> : IUnlockable, IValidatable, IDeepCloneable<Upgrade<TUpgradeData>>
+    public class Upgrade<TUpgradeData> : IUnlockable, IValidatable, IDeepCloneable<Upgrade<TUpgradeData>>, ISerializationCallbackReceiver
         where TUpgradeData : UpgradeData
     {
         [TableColumnWidth(64, false)]
@@ -22,7 +22,7 @@ namespace ColonizationMobileGame.UpgradingSystem
         [SerializeField] private TUpgradeData data;
         
         [SerializeField, HideInInspector] private StructureIdentifier identifier;
-
+        
         public bool Locked { get; private set; }
         public TUpgradeData Data => data;
 
@@ -86,6 +86,21 @@ namespace ColonizationMobileGame.UpgradingSystem
             Unlocked += copy.Unlock;
 
             return copy;
+        }
+
+
+        public void OnBeforeSerialize()
+        {
+            
+        }
+
+
+        public void OnAfterDeserialize()
+        {
+            Locked = locked;
+
+            price.Locked = Locked;
+            WirePurchasedEventToPrice();
         }
     }
 }
