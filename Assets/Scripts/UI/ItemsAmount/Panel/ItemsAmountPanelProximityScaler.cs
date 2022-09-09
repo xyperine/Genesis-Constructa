@@ -10,8 +10,8 @@ namespace ColonizationMobileGame.UI.ItemsAmount.Panel
         [SerializeField] private ParticleSystem.MinMaxCurve range;
         
         private float _proximityFactor;
-        
-        private readonly Collider[] _colliders = new Collider[1];
+
+        private readonly Collider[] _colliders = new Collider[4];
         
 
         private void FixedUpdate()
@@ -30,8 +30,15 @@ namespace ColonizationMobileGame.UI.ItemsAmount.Panel
                 return;
             }
 
-            Vector3 closest = _colliders.Min(c => c.ClosestPoint(rectTransform.position));
-            float distance = Vector3.Distance(rectTransform.position, closest);
+            Collider collider = _colliders.SingleOrDefault(c => c != null && c.CompareTag("PlayerCollider"));
+
+            if (!collider)
+            {
+                return;
+            }
+
+            Vector3 closestPoint = collider.ClosestPoint(rectTransform.position);
+            float distance = Vector3.Distance(rectTransform.position, closestPoint);
             _proximityFactor = Mathf.InverseLerp(range.constantMax, range.constantMin, distance);
         }
         
