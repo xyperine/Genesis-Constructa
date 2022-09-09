@@ -47,6 +47,17 @@ namespace ColonizationMobileGame.SaveLoadSystem
         }
 
 
+#if UNITY_EDITOR
+        private void OnApplicationQuit()
+        {
+            if (!active)
+            {
+                return;
+            }
+
+            Save();
+        }
+#else
         private void OnApplicationPause(bool pauseStatus)
         {
             if (!pauseStatus)
@@ -61,6 +72,7 @@ namespace ColonizationMobileGame.SaveLoadSystem
 
             Save();
         }
+#endif
 
 
         private void Save()
