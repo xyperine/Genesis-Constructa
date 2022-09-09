@@ -78,6 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc19c4daf51074945a2efa36cc949e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigidBody: {fileID: 6753569587692771541}
   joystick: {fileID: 0}
   speed: 12
   smoothness: 1.8

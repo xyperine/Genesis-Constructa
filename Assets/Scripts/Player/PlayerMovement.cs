@@ -6,12 +6,13 @@ namespace ColonizationMobileGame.Player
 {
     public class PlayerMovement : MonoBehaviour, ISceneSaveable
     {
+        [SerializeField] private Rigidbody rigidBody;
         [SerializeField] private Joystick joystick;
         [SerializeField] private float speed;
         [SerializeField, Range(0f, 10f)] private float smoothness;
 
         [SerializeField, HideInInspector] private PermanentGuid guid;
-
+        
         private const float SMOOTHNESS_MODIFIER = 1f / 8f;
         
         private Vector3 _velocity;
@@ -42,7 +43,7 @@ namespace ColonizationMobileGame.Player
         private void GetMovementThisFrame()
         {
             Vector3 input = new Vector3(joystick.Horizontal, 0f, joystick.Vertical);
-            Vector3 newMovement = speed * Time.fixedDeltaTime * input;
+            Vector3 newMovement = speed * input;
             float t = 1f / (1f + smoothness) * SMOOTHNESS_MODIFIER;
             
             _velocity = Vector3.Lerp(_velocity, newMovement, t);
@@ -51,9 +52,10 @@ namespace ColonizationMobileGame.Player
 
         private void MoveAndRotate()
         {
-            Vector3 newPosition = transform.position + _velocity;
             Quaternion newRotation = Quaternion.LookRotation(-_velocity);
-            transform.SetPositionAndRotation(newPosition, newRotation);
+
+            rigidBody.velocity = _velocity;
+            rigidBody.MoveRotation(newRotation);
         }
 
 
