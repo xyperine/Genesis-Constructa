@@ -31,6 +31,8 @@ namespace ColonizationMobileGame.BuildSystem
         public int LoadingOrder => -100;
         public PermanentGuid Guid => guid;
 
+        public StructureType StructureType => _buildData.Identifier.StructureType;
+
         public event Action Built;
 
 
