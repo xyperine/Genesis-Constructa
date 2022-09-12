@@ -10,10 +10,9 @@ namespace ColonizationMobileGame.UI.ArrowPointers
         [SerializeField] private Sprite onScreenArrow;
 
         private Camera _camera;
-        private ArrowPointerTarget _target;
 
-        public bool Free => _target is not {Valid: true};
-        public ArrowPointerTarget Target => _target;
+        public bool Free => Target is not {Valid: true};
+        public ArrowPointerTarget Target { get; private set; }
 
 
         public void SetCamera(Camera camera)
@@ -24,7 +23,7 @@ namespace ColonizationMobileGame.UI.ArrowPointers
 
         private void Update()
         {
-            if (_target.OnScreen)
+            if (Target.OnScreen)
             {
                 OnScreen();
             }
@@ -35,25 +34,11 @@ namespace ColonizationMobileGame.UI.ArrowPointers
         }
 
 
-        private Vector3 ClampToScreen(Vector3 position)
-        {
-            float screenX = Screen.width;
-            float screenY = Screen.height;
-            const float offset = 60;
-            
-            Vector3 positionOnScreen = Vector3.zero;
-            positionOnScreen.x = Mathf.Clamp(position.x, 0f + offset, screenX - offset);
-            positionOnScreen.y = Mathf.Clamp(position.y, 0f + offset, screenY - offset);
-
-            return positionOnScreen;
-        }
-
-
         private void OnScreen()
         {
             image.sprite = onScreenArrow;
 
-            Vector3 targetScreenPosition = _camera.WorldToScreenPoint(_target.Position);
+            Vector3 targetScreenPosition = _camera.WorldToScreenPoint(Target.Position);
             transform.position = targetScreenPosition + Vector3.up * 50f;
             transform.localEulerAngles = Vector3.zero;
         }
@@ -63,27 +48,42 @@ namespace ColonizationMobileGame.UI.ArrowPointers
         {
             image.sprite = offScreenArrow;
             
-            Vector3 targetScreenPosition = _camera.WorldToScreenPoint(_target.Position);
-            Vector3 centerOfTheScreen = new Vector3(Screen.width, Screen.height, 0f) / 2f;
-            Vector3 direction = (targetScreenPosition - centerOfTheScreen).normalized;
-            transform.localEulerAngles =
-                Vector3.forward * (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f);
+            Vector3 targetPositionInScreenCoords = _camera.WorldToScreenPoint(Target.Position);
             
-            Vector3 positionOnScreen = ClampToScreen(targetScreenPosition);
+            Vector3 positionOnScreen = ClampScreenPosition(targetPositionInScreenCoords);
             transform.position = positionOnScreen;
+            
+            Vector3 centerOfTheScreen = new Vector3(Screen.width, Screen.height, 0f) / 2f;
+            Vector3 direction = (targetPositionInScreenCoords - centerOfTheScreen).normalized;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f;
+            transform.localEulerAngles = Vector3.forward * angle;
         }
 
 
-        public void Draw(ArrowPointerTarget target)
+        private Vector3 ClampScreenPosition(Vector3 position)
+        {
+            const float offset = 60f;
+            
+            float screenWidth = Screen.width;
+            float screenHeight = Screen.height;
+            
+            position.x = Mathf.Clamp(position.x, 0f + offset, screenWidth - offset);
+            position.y = Mathf.Clamp(position.y, 0f + offset, screenHeight - offset);
+
+            return position;
+        }
+
+
+        public void PointTo(ArrowPointerTarget target)
         {
             TrySetTarget(target);
 
-            if (_target == null)
+            if (Target == null)
             {
                 return;
             }
             
-            _target.Invalidated += Disable;
+            Target.Invalidated += Disable;
             
             gameObject.SetActive(true);
         }
@@ -96,14 +96,14 @@ namespace ColonizationMobileGame.UI.ArrowPointers
                 return;
             }
             
-            _target ??= target;
+            Target ??= target;
             
-            if (_target.Valid)
+            if (Target.Valid)
             {
                 return;
             }
             
-            _target = target;
+            Target = target;
         }
 
 

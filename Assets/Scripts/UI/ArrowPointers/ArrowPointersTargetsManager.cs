@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 namespace ColonizationMobileGame.UI.ArrowPointers
 {
-    public class TargetsManager : MonoBehaviour
+    public class ArrowPointersTargetsManager : MonoBehaviour
     {
-        [SerializeField] private ArrowsDrawer arrowsDrawer;
+        [SerializeField] private ArrowPointersManager pointersManager;
         
         private Camera _camera;
 
@@ -17,24 +16,19 @@ namespace ColonizationMobileGame.UI.ArrowPointers
 
         private void Awake()
         {
-            GetCamera();
-            
+            _camera = Camera.main;
+
+            GetTargetProviders();
+        }
+
+
+        private void GetTargetProviders()
+        {
             _targetProviders = FindObjectsOfType<MonoBehaviour>(true).OfType<IArrowPointerTargetProvider>().ToArray();
 
             foreach (IArrowPointerTargetProvider targetProvider in _targetProviders)
             {
                 targetProvider.TargetReady += AddTarget;
-            }
-        }
-        
-        
-        private void GetCamera()
-        {
-            _camera = Camera.main;
-
-            if (!_camera)
-            {
-                throw new NullReferenceException("No main camera found!");
             }
         }
 
@@ -48,7 +42,7 @@ namespace ColonizationMobileGame.UI.ArrowPointers
 
             ArrowPointerTarget target = new ArrowPointerTarget(targetTransform, condition);
             _targets.Add(target);
-            arrowsDrawer.Draw(target);
+            pointersManager.PointTo(target);
 
             target.Invalidated += RemoveTarget;
         }

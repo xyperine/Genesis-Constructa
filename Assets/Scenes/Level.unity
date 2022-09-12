@@ -1530,7 +1530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99750d9bacf4433b9715153417e8be24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowsDrawer: {fileID: 1311284557}
+  pointersManager: {fileID: 1311284557}
 --- !u!1 &1339104411
 GameObject:
   m_ObjectHideFlags: 0
