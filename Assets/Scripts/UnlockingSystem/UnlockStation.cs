@@ -4,7 +4,7 @@ using ColonizationMobileGame.BuildSystem;
 using ColonizationMobileGame.ItemsPlacementsInteractions;
 using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.ScoreSystem;
-using ColonizationMobileGame.UI.ArrowPointers;
+using ColonizationMobileGame.UI.ArrowPointers.Target;
 using ColonizationMobileGame.UI.ItemsAmount.Data;
 using UnityEngine;
 
@@ -22,8 +22,8 @@ namespace ColonizationMobileGame.UnlockingSystem
 
         public int LoadingOrder => -1;
         public PermanentGuid Guid => guid;
-
-        public event Action<Transform, ArrowPointerTargetCondition> TargetReady;
+        
+        public event Action<Transform> TargetReady;
 
 
         private void Start()
@@ -63,7 +63,7 @@ namespace ColonizationMobileGame.UnlockingSystem
             
             foreach (Transform targetTransform in transforms)
             {
-                TargetReady?.Invoke(targetTransform, new ArrowPointerTargetCondition());
+                TargetReady?.Invoke(targetTransform);
             }
         }
 

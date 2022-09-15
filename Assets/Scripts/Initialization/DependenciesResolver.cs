@@ -1,6 +1,8 @@
 ﻿using ColonizationMobileGame.Level;
 using ColonizationMobileGame.ScoreSystem;
 using ColonizationMobileGame.TasksSystem;
+using ColonizationMobileGame.UI.ArrowPointers.Target;
+using ColonizationMobileGame.UI.ArrowPointers.Target.Factories;
 using UnityEngine;
 
 namespace ColonizationMobileGame.Initialization
@@ -15,15 +17,16 @@ namespace ColonizationMobileGame.Initialization
         public void Resolve(GameObject[] rootGameObjects)
         {
             _levelData = FindObjectOfType<LevelData>();
-            ScoreModifier scoreModifier = FindObjectOfType<ScoreModifier>();
             
             foreach (GameObject rootGameObject in rootGameObjects)
             {
                 SetCameraForCanvases(rootGameObject);
                 SetLevelData(rootGameObject);
             }
+
+            SetArrowPointerTargetFactory();
             
-            tasksInitializer.SetScoreCounter(scoreModifier);
+            SetScoreModifier();
         }
         
         
@@ -44,6 +47,22 @@ namespace ColonizationMobileGame.Initialization
             {
                 dataUser.SetLevelData(_levelData);
             }
+        }
+
+
+        private void SetArrowPointerTargetFactory()
+        {
+            RegularTargetsFactory regularTargetsFactory = new RegularTargetsFactory();
+            TutorialTargetsFactory tutorialTargetsFactory = new TutorialTargetsFactory();
+            
+            FindObjectOfType<ArrowPointersTargetsManager>().SetFactory(regularTargetsFactory);
+        }
+
+
+        private void SetScoreModifier()
+        {
+            ScoreModifier scoreModifier = FindObjectOfType<ScoreModifier>();
+            tasksInitializer.SetScoreCounter(scoreModifier);
         }
     }
 }

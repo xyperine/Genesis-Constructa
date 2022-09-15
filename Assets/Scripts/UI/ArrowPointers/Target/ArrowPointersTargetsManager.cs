@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace ColonizationMobileGame.UI.ArrowPointers
+namespace ColonizationMobileGame.UI.ArrowPointers.Target
 {
     public class ArrowPointersTargetsManager : MonoBehaviour
     {
@@ -10,10 +10,17 @@ namespace ColonizationMobileGame.UI.ArrowPointers
         
         private Camera _camera;
 
+        private TargetsFactory _targetsFactory;
         private IArrowPointerTargetProvider[] _targetProviders;
         private readonly List<ArrowPointerTarget> _targets = new List<ArrowPointerTarget>();
 
 
+        public void SetFactory(TargetsFactory targetsFactory)
+        {
+            _targetsFactory = targetsFactory;
+        }
+        
+        
         private void Awake()
         {
             _camera = Camera.main;
@@ -33,14 +40,15 @@ namespace ColonizationMobileGame.UI.ArrowPointers
         }
 
 
-        private void AddTarget(Transform targetTransform, ArrowPointerTargetCondition condition)
+        private void AddTarget(Transform targetTransform)
         {
             if (_targets.Exists(t => t.Position == targetTransform.position))
             {
                 return;
             }
 
-            ArrowPointerTarget target = new ArrowPointerTarget(targetTransform, condition);
+            ArrowPointerTarget target = _targetsFactory.GetTarget(targetTransform);
+
             _targets.Add(target);
             pointersManager.PointTo(target);
 
