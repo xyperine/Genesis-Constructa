@@ -8,5 +8,11 @@ namespace ColonizationMobileGame.UI.ArrowPointers.Target.Conditions
         {
             Debug.Log("Tutorial condition");
         }
+
+
+        public override void Dispose()
+        {
+            Debug.Log("Tutorial condition disposing");
+        }
     }
 }

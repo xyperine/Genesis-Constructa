@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Threading;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace ColonizationMobileGame.UI.ArrowPointers.Target.Conditions
@@ -7,17 +8,19 @@ namespace ColonizationMobileGame.UI.ArrowPointers.Target.Conditions
     {
         private const float REQUIRED_ON_SCREEN_PRESENCE_TIME_IN_SECONDS = 1f;
         
+        private readonly CancellationTokenSource _tokenSource = new CancellationTokenSource();
         private ArrowPointerTarget _target;
 
 
         public override void StartTracking(ArrowPointerTarget target)
         {
             _target = target;
-            Object.FindObjectOfType<ArrowPointersTargetsManager>().StartCoroutine(CheckVisibilityCoroutine());
+            
+            CheckVisibility().Forget();
         }
 
 
-        private IEnumerator CheckVisibilityCoroutine()
+        private async UniTaskVoid CheckVisibility()
         {
             float visibilityDuration = 0f;
 
@@ -32,13 +35,19 @@ namespace ColonizationMobileGame.UI.ArrowPointers.Target.Conditions
                     Debug.Log($"Was on screen for {visibilityDuration}");
                     visibilityDuration = 0f;
                 }
-                
-                yield return null;
+
+                await UniTask.Yield(cancellationToken: _tokenSource.Token);
             }
 
             Debug.Log("Was on screen all the time!");
             
             InvokeSatisfied();
+        }
+
+
+        public override void Dispose()
+        {
+            _tokenSource.Cancel();
         }
     }
 }

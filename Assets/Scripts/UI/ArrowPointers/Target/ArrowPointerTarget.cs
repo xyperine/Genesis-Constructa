@@ -11,7 +11,7 @@ namespace ColonizationMobileGame.UI.ArrowPointers.Target
 
         public Vector3 Position => _targetTransform.position;
 
-        public bool Valid => !_conditions.All(c => c.Met);
+        public bool Valid => !_conditions.Any(c => c.Met);
         public bool OnScreen { get; set; }
         
         public event Action Invalidated;
@@ -32,12 +32,19 @@ namespace ColonizationMobileGame.UI.ArrowPointers.Target
 
         private void InvokeInvalidated()
         {
-            Invalidated?.Invoke();
-
             foreach (ArrowPointerTargetInvalidationCondition condition in _conditions)
             {
                 condition.Satisfied -= InvokeInvalidated;
+                condition.Dispose();
             }
+
+            Invalidated?.Invoke();
+        }
+
+
+        public bool TransformEquals(Transform otherTransform)
+        {
+            return Equals(_targetTransform, otherTransform);
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace ColonizationMobileGame.UI.ArrowPointers.Target
 {
-    public abstract class ArrowPointerTargetInvalidationCondition
+    public abstract class ArrowPointerTargetInvalidationCondition : IDisposable
     {
         public bool Met { get; private set; }
 
@@ -17,5 +17,8 @@ namespace ColonizationMobileGame.UI.ArrowPointers.Target
             Met = true;
             Satisfied?.Invoke();
         }
+
+
+        public abstract void Dispose();
     }
 }

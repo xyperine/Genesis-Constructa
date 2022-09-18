@@ -8,11 +8,12 @@ namespace ColonizationMobileGame.UI.ArrowPointers.Target
     {
         [SerializeField] private ArrowPointersManager pointersManager;
         
+        private readonly List<ArrowPointerTarget> _targets = new List<ArrowPointerTarget>();
+        
         private Camera _camera;
 
         private TargetsFactory _targetsFactory;
         private IArrowPointerTargetProvider[] _targetProviders;
-        private readonly List<ArrowPointerTarget> _targets = new List<ArrowPointerTarget>();
 
 
         public void SetFactory(TargetsFactory targetsFactory)
@@ -42,7 +43,7 @@ namespace ColonizationMobileGame.UI.ArrowPointers.Target
 
         private void AddTarget(Transform targetTransform)
         {
-            if (_targets.Exists(t => t.Position == targetTransform.position))
+            if (_targets.Exists(t => t.TransformEquals(targetTransform)))
             {
                 return;
             }
@@ -53,6 +54,12 @@ namespace ColonizationMobileGame.UI.ArrowPointers.Target
             pointersManager.PointTo(target);
 
             target.Invalidated += RemoveTarget;
+        }
+
+
+        private void RemoveTarget()
+        {
+            _targets.RemoveAll(t => !t.Valid);
         }
 
 
@@ -70,18 +77,12 @@ namespace ColonizationMobileGame.UI.ArrowPointers.Target
         }
 
 
-        private void RemoveTarget()
-        {
-            _targets.RemoveAll(t => !t.Valid);
-        }
-
-
         private void Update()
         {
             foreach (ArrowPointerTarget target in _targets)
             {
                 target.OnScreen = IsOnScreen(target.Position);
-            }   
+            }
         }
         
         

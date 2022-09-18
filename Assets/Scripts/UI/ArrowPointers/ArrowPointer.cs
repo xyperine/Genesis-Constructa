@@ -98,18 +98,13 @@ namespace ColonizationMobileGame.UI.ArrowPointers
             }
             
             Target ??= target;
-            
-            if (Target.Valid)
-            {
-                return;
-            }
-            
-            Target = target;
         }
 
 
         private void Disable()
         {
+            Target = null;
+            
             gameObject.SetActive(false);
             transform.position = Vector3.zero;
         }
