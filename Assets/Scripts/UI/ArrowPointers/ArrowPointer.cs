@@ -103,10 +103,8 @@ namespace ColonizationMobileGame.UI.ArrowPointers
 
         private void Disable()
         {
-            Target = null;
-            
             gameObject.SetActive(false);
-            transform.position = Vector3.zero;
+            Target = null;
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.TasksSystem;
+using ColonizationMobileGame.TutorialSystem;
 using DG.Tweening;
 using UnityEditor;
 using UnityEngine;
@@ -15,6 +16,7 @@ namespace ColonizationMobileGame.Initialization
         [SerializeField] private DependenciesResolver dependenciesResolver;
         [SerializeField] private TasksInitializer tasksInitializer;
         [SerializeField] private SaveLoadManager saveLoadManager;
+        [SerializeField] private TutorialTracker tutorialTracker;
 #if UNITY_EDITOR
         [SerializeField] private List<SceneAsset> scenesToLoad;
 #endif
@@ -55,6 +57,8 @@ namespace ColonizationMobileGame.Initialization
             DOTween.SetTweensCapacity(350, 50);
             dependenciesResolver.Resolve(rootGameObjects);
             tasksInitializer.InitializeTasks();
+            tutorialTracker.Initialize();
+            
             saveLoadManager.Initialize();
         }
     }

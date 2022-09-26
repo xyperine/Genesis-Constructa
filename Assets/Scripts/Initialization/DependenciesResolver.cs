@@ -1,6 +1,7 @@
 ﻿using ColonizationMobileGame.Level;
 using ColonizationMobileGame.ScoreSystem;
 using ColonizationMobileGame.TasksSystem;
+using ColonizationMobileGame.TutorialSystem;
 using ColonizationMobileGame.UI.ArrowPointers.Target;
 using ColonizationMobileGame.UI.ArrowPointers.Target.Factories;
 using UnityEngine;
@@ -10,6 +11,7 @@ namespace ColonizationMobileGame.Initialization
     public class DependenciesResolver : MonoBehaviour
     {
         [SerializeField] private TasksInitializer tasksInitializer;
+        [SerializeField] private TutorialTracker tutorialTracker;
         
         private LevelData _levelData;
         
@@ -25,7 +27,8 @@ namespace ColonizationMobileGame.Initialization
             }
 
             SetArrowPointerTargetFactory();
-            
+            tutorialTracker.Completed += SetArrowPointerTargetFactory;
+
             SetScoreModifier();
         }
         
@@ -52,10 +55,17 @@ namespace ColonizationMobileGame.Initialization
 
         private void SetArrowPointerTargetFactory()
         {
-            RegularTargetsFactory regularTargetsFactory = new RegularTargetsFactory();
-            TutorialTargetsFactory tutorialTargetsFactory = new TutorialTargetsFactory();
-            
-            FindObjectOfType<ArrowPointersTargetsManager>().SetFactory(regularTargetsFactory);
+            TargetsFactory targetsFactory;
+            if (tutorialTracker.Complete)
+            {
+                targetsFactory = new RegularTargetsFactory();
+            }
+            else
+            {
+                targetsFactory = new TutorialTargetsFactory();
+            }
+
+            FindObjectOfType<ArrowPointersTargetsManager>().SetFactory(targetsFactory);
         }
 
 

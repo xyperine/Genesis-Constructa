@@ -10,7 +10,7 @@ namespace ColonizationMobileGame.UI.ArrowPointers.Target
         private readonly ArrowPointerTargetInvalidationCondition[] _conditions;
 
         public Vector3 Position => _targetTransform.position;
-
+        
         public bool Valid => !_conditions.Any(c => c.Met);
         public bool OnScreen { get; set; }
         
