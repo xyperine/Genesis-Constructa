@@ -9,7 +9,7 @@ namespace ColonizationMobileGame.TutorialSystem
 
         public TutorialStep Step => step;
         
-        public event Action<TutorialStep> Completed;
+        public event Action Completed;
 
 
         public void Activate(TutorialItem[] items)
@@ -23,7 +23,7 @@ namespace ColonizationMobileGame.TutorialSystem
 
         protected void InvokeCompleted()
         {
-            Completed?.Invoke(step);
+            Completed?.Invoke();
             enabled = false;
         }
     }

@@ -6,5 +6,6 @@
         BuildMetalFactory,
         PickUpMineral,
         UnlockMineralFactory,
+        Complete,
     }
 }

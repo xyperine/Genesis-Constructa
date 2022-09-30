@@ -12,6 +12,8 @@ namespace ColonizationMobileGame.TutorialSystem
         [SerializeField] private TutorialStep[] order = (TutorialStep[]) Enum.GetValues(typeof(TutorialStep));
 
         [SerializeField, HideInInspector] private PermanentGuid guid;
+
+        private TutorialStepTrackersSequence _trackersSequence;
         
         private List<TutorialStepTracker> _stepTrackers;
         private List<TutorialItem> _tutorialItems;
@@ -23,10 +25,7 @@ namespace ColonizationMobileGame.TutorialSystem
             Helpers.EnumToDictionary<TutorialStep, TutorialItem[]>(default(TutorialItem[]));
 
         private TutorialStep _currentStep;
-        private int _currentStepIndex;
-
-        private int _completedSteps;
-        public bool Complete => _completedSteps >= order.Length;
+        public bool Complete => _currentStep == TutorialStep.Complete;
 
         public PermanentGuid Guid => guid;
         public int LoadingOrder => -101;
@@ -52,40 +51,33 @@ namespace ColonizationMobileGame.TutorialSystem
                 _itemsMappedToSteps[step] = _tutorialItems.Where(i => i.Step == step).ToArray();
             }
 
-            foreach (TutorialStepTracker stepTracker in _stepTrackers)
-            {
-                stepTracker.Completed += InvokeActionsOnStepCompletion;
-            }
+            _trackersSequence = new TutorialStepTrackersSequence(
+                _stepTrackers.OrderBy(t => Array.IndexOf(order, t.Step)).ToArray(), _currentStep);
+            _trackersSequence.ChangingTracker += InvokeActionsOnStepCompletion;
+            _trackersSequence.ChangedTracker += GoToNextStep;
         }
 
 
-        private void InvokeActionsOnStepCompletion(TutorialStep step)
+        private void InvokeActionsOnStepCompletion()
         {
-            Debug.Log(step);
+            Debug.Log(_currentStep);
             
-            _actionsOnStepCompletion[step]?.Invoke();
-            _actionsOnStepCompletion[step] = null;
+            _actionsOnStepCompletion[_currentStep]?.Invoke();
+            _actionsOnStepCompletion[_currentStep] = null;
 
-            _completedSteps = Mathf.Min(_completedSteps + 1, order.Length);
-            
             if (Complete)
             {
                 Completed?.Invoke();
                 enabled = false;
-                return;
             }
-
-            _currentStepIndex = _completedSteps;
-
-            GoToNextStep();
         }
 
 
         private void GoToNextStep()
         {
-            _currentStep = order[_currentStepIndex];
+            _currentStep = _trackersSequence.CurrentStep;
 
-            TutorialItem[] items = _tutorialItems.Where(i => i.Step == _currentStep).ToArray();
+            TutorialItem[] items = _itemsMappedToSteps[_currentStep];
             _stepTrackers.SingleOrDefault(t => t.Step == _currentStep)?.Activate(items);
         }
 
@@ -115,7 +107,7 @@ namespace ColonizationMobileGame.TutorialSystem
         {
             return new SaveData
             {
-                CompletedSteps = _completedSteps,
+                LastStepCompleted = _trackersSequence.CurrentStep,
             };
         }
 
@@ -123,20 +115,15 @@ namespace ColonizationMobileGame.TutorialSystem
         public void Load(object data)
         {
             SaveData saveData = (SaveData) data;
-
-            _completedSteps = saveData.CompletedSteps;
-
-            if (!Complete)
-            {
-                Wire();
-            }
+            
+            _currentStep = saveData.LastStepCompleted;
         }
 
 
         [Serializable]
         private struct SaveData
         {
-            public int CompletedSteps { get; set; }
+            public TutorialStep LastStepCompleted { get; set; }
         }
     }
 }

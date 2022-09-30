@@ -57,9 +57,9 @@ namespace ColonizationMobileGame.Initialization
             DOTween.SetTweensCapacity(350, 50);
             dependenciesResolver.Resolve(rootGameObjects);
             tasksInitializer.InitializeTasks();
-            tutorialTracker.Initialize();
             
             saveLoadManager.Initialize();
+            tutorialTracker.Initialize();
         }
     }
 }
