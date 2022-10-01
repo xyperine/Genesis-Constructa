@@ -5,17 +5,17 @@ namespace ColonizationMobileGame.UI.ArrowPointers.Target.Conditions
 {
     public class TutorialStepCompleteCondition : ArrowPointerTargetInvalidationCondition
     {
-        private static TutorialTracker _tutorialTracker;
+        private static TutorialBuilder _tutorialBuilder;
         
         
         public override void StartTracking(ArrowPointerTarget target)
         {
-            if (!_tutorialTracker)
+            if (!_tutorialBuilder)
             {
-                _tutorialTracker = Object.FindObjectOfType<TutorialTracker>();
+                _tutorialBuilder = Object.FindObjectOfType<TutorialBuilder>();
             }
             
-            _tutorialTracker.SubscribeToCurrentStepCompletion(InvokeSatisfied);
+            _tutorialBuilder.SubscribeToCurrentStepCompletion(InvokeSatisfied);
         }
 
 

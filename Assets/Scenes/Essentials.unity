@@ -645,7 +645,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7137095656433062257, guid: fcb4fbc281730f04a9288188820bb0ae, type: 3}
+      propertyPath: tutorialBuilder
+      value: 
+      objectReference: {fileID: 1542661153}
+    - target: {fileID: 7137095656433062257, guid: fcb4fbc281730f04a9288188820bb0ae, type: 3}
       propertyPath: tutorialTracker
+      value: 
+      objectReference: {fileID: 1542661153}
+    - target: {fileID: 7730718997147459475, guid: fcb4fbc281730f04a9288188820bb0ae, type: 3}
+      propertyPath: tutorialBuilder
       value: 
       objectReference: {fileID: 1542661153}
     - target: {fileID: 7730718997147459475, guid: fcb4fbc281730f04a9288188820bb0ae, type: 3}

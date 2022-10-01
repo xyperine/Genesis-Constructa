@@ -7,14 +7,22 @@ namespace ColonizationMobileGame.TutorialSystem
     {
         [SerializeField] private TutorialStep step;
 
-        public TutorialStep Step => step;
+        private TutorialItem[] _items;
         
+        public TutorialStep Step => step;
+
         public event Action Completed;
 
 
-        public void Activate(TutorialItem[] items)
+        public void SetItems(TutorialItem[] items)
         {
-            foreach (TutorialItem item in items)
+            _items = items;
+        }
+        
+
+        public void Activate()
+        {
+            foreach (TutorialItem item in _items)
             {
                 item.Activate();
             }
@@ -24,6 +32,7 @@ namespace ColonizationMobileGame.TutorialSystem
         protected void InvokeCompleted()
         {
             Completed?.Invoke();
+            
             enabled = false;
         }
     }

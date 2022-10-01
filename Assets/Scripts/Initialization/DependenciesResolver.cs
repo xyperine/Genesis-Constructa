@@ -11,12 +11,12 @@ namespace ColonizationMobileGame.Initialization
     public class DependenciesResolver : MonoBehaviour
     {
         [SerializeField] private TasksInitializer tasksInitializer;
-        [SerializeField] private TutorialTracker tutorialTracker;
+        [SerializeField] private TutorialBuilder tutorialBuilder;
         
         private LevelData _levelData;
         
         
-        public void Resolve(GameObject[] rootGameObjects)
+        public void ResolveBeforeRestoringSave(GameObject[] rootGameObjects)
         {
             _levelData = FindObjectOfType<LevelData>();
             
@@ -25,9 +25,6 @@ namespace ColonizationMobileGame.Initialization
                 SetCameraForCanvases(rootGameObject);
                 SetLevelData(rootGameObject);
             }
-
-            SetArrowPointerTargetFactory();
-            tutorialTracker.Completed += SetArrowPointerTargetFactory;
 
             SetScoreModifier();
         }
@@ -53,10 +50,24 @@ namespace ColonizationMobileGame.Initialization
         }
 
 
+        private void SetScoreModifier()
+        {
+            ScoreModifier scoreModifier = FindObjectOfType<ScoreModifier>();
+            tasksInitializer.SetScoreCounter(scoreModifier);
+        }
+
+
+        public void ResolveAfterRestoringSave()
+        {
+            SetArrowPointerTargetFactory();
+            tutorialBuilder.Completed += SetArrowPointerTargetFactory;
+        }
+
+
         private void SetArrowPointerTargetFactory()
         {
             TargetsFactory targetsFactory;
-            if (tutorialTracker.Complete)
+            if (tutorialBuilder.Complete)
             {
                 targetsFactory = new RegularTargetsFactory();
             }
@@ -66,13 +77,6 @@ namespace ColonizationMobileGame.Initialization
             }
 
             FindObjectOfType<ArrowPointersTargetsManager>().SetFactory(targetsFactory);
-        }
-
-
-        private void SetScoreModifier()
-        {
-            ScoreModifier scoreModifier = FindObjectOfType<ScoreModifier>();
-            tasksInitializer.SetScoreCounter(scoreModifier);
         }
     }
 }

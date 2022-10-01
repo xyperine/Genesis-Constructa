@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace ColonizationMobileGame.UI.ArrowPointers.Target
@@ -43,12 +45,23 @@ namespace ColonizationMobileGame.UI.ArrowPointers.Target
 
         private void AddTarget(Transform targetTransform)
         {
+            AddTargetWhenReady(targetTransform).Forget();
+        }
+
+
+        private async UniTaskVoid AddTargetWhenReady(Transform targetTransform)
+        {
+            if (_targetsFactory == null)
+            {
+                await UniTask.WaitUntil(() => _targetsFactory != null).Timeout(TimeSpan.FromSeconds(2f));
+            }
+            
             if (_targets.Exists(t => t.TransformEquals(targetTransform)))
             {
                 return;
             }
 
-            ArrowPointerTarget target = _targetsFactory.GetTarget(targetTransform);
+            ArrowPointerTarget target = _targetsFactory!.GetTarget(targetTransform);
 
             _targets.Add(target);
             pointersManager.PointTo(target);

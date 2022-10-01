@@ -16,7 +16,7 @@ namespace ColonizationMobileGame.Initialization
         [SerializeField] private DependenciesResolver dependenciesResolver;
         [SerializeField] private TasksInitializer tasksInitializer;
         [SerializeField] private SaveLoadManager saveLoadManager;
-        [SerializeField] private TutorialTracker tutorialTracker;
+        [SerializeField] private TutorialBuilder tutorialBuilder;
 #if UNITY_EDITOR
         [SerializeField] private List<SceneAsset> scenesToLoad;
 #endif
@@ -55,11 +55,14 @@ namespace ColonizationMobileGame.Initialization
             GameObject[] rootGameObjects = SceneManager.GetSceneByName(sceneName).GetRootGameObjects();
             
             DOTween.SetTweensCapacity(350, 50);
-            dependenciesResolver.Resolve(rootGameObjects);
+            dependenciesResolver.ResolveBeforeRestoringSave(rootGameObjects);
             tasksInitializer.InitializeTasks();
             
             saveLoadManager.Initialize();
-            tutorialTracker.Initialize();
+            
+            tutorialBuilder.Initialize();
+            
+            dependenciesResolver.ResolveAfterRestoringSave();
         }
     }
 }
