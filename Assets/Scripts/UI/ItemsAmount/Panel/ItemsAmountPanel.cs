@@ -49,8 +49,22 @@ namespace ColonizationMobileGame.UI.ItemsAmount.Panel
             {
                 entry.SetVisibility(_visible);
             }
-            
-            iconObject.SetVisibility(_visible && showIcon);
+
+            if (iconObject)
+            {
+                iconObject.SetVisibility(_visible && showIcon);
+            }
+
+            Animate();
+        }
+
+
+        private void Animate()
+        {
+            if (!animator)
+            {
+                return;
+            }
 
             if (_visible)
             {

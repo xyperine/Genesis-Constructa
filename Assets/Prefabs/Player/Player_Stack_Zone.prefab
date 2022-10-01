@@ -39,6 +39,10 @@ PrefabInstance:
       propertyPath: acceptableItems.Array.data[5]
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4911857577723964171, guid: 51afa3afedf2883498a3c53d3be2c965, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1737428125317346902}
     - target: {fileID: 6193234852575936344, guid: 51afa3afedf2883498a3c53d3be2c965, type: 3}
       propertyPath: pickUpBehaviour
       value: 
@@ -112,6 +116,7 @@ PrefabInstance:
     - {fileID: 569494700062013428, guid: 51afa3afedf2883498a3c53d3be2c965, type: 3}
     - {fileID: 7120230594952982373, guid: 51afa3afedf2883498a3c53d3be2c965, type: 3}
     - {fileID: 1079558336599220276, guid: 51afa3afedf2883498a3c53d3be2c965, type: 3}
+    - {fileID: 3970569248854470648, guid: 51afa3afedf2883498a3c53d3be2c965, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 51afa3afedf2883498a3c53d3be2c965, type: 3}
 --- !u!1 &1339900851126431372 stripped
 GameObject:
@@ -130,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5427eef971d14f698d8d06e9d024d70a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stackZone: {fileID: 8961453776771878187}
+  stackZone: {fileID: 1737428125317346902}
 --- !u!114 &6394396835517606813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4a95d70cd9c4683a7c2f7c250b37b24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stackZone: {fileID: 8961453776771878187}
+  stackZone: {fileID: 1737428125317346902}
   transferInterval: 0.1
   joystick: {fileID: 0}
 --- !u!1 &2269067801059839743 stripped
@@ -197,7 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactions: {fileID: 11400000, guid: 88d4d2bbd9432f34489ad1e2de55b2f7, type: 2}
-  playerZone: {fileID: 8961453776771878187}
+  playerZone: {fileID: 1737428125317346902}
 --- !u!114 &4317367801288354069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +216,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placementSettings: {fileID: 11400000, guid: d1429cfc6682f2a42990412aeacb519d, type: 2}
+--- !u!114 &1737428125317346902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4341465891043500647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ae74fa652be4a34a0e751eba92d66af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  acceptableItems: 000000000100000002000000030000000400000005000000
+  guid:
+    value: 
+  itemsAmountPanelData: {fileID: 3547616118484974510}
+--- !u!114 &3547616118484974510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4341465891043500647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8866478cda9e4982b4418d7d0ffa40cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6351403301156140253 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1397108390210754062, guid: 51afa3afedf2883498a3c53d3be2c965, type: 3}
@@ -229,14 +262,3 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8961453776771878187 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3970569248854470648, guid: 51afa3afedf2883498a3c53d3be2c965, type: 3}
-  m_PrefabInstance: {fileID: 5424358199666762451}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4341465891043500647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c247c8b4d65e47b5b32b8a68d61270ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -21,6 +21,7 @@ namespace ColonizationMobileGame.ItemsPlacement.Core.Area
         public int Count => itemsCollection?.Count ?? 0;
         public int Capacity => _upgradeableProperties.MaxItems;
         public bool CanFitMore => Count < _upgradeableProperties.MaxItems;
+        public PlacementItem[] Items => itemsCollection.Items.ToArray();
 
 
         private void Awake()

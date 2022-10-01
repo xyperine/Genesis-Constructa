@@ -26,7 +26,7 @@ namespace ColonizationMobileGame.UI.ItemsAmount.Data
         {
             return format switch
             {
-                ItemAmountPanelEntryFormat.In => true,
+                ItemAmountPanelEntryFormat.In => _current > 0,
                 ItemAmountPanelEntryFormat.Left => _current < _max,
                 ItemAmountPanelEntryFormat.Of => _current < _max,
                 _ => throw new ArgumentOutOfRangeException(nameof(format), format, null),
