@@ -25,19 +25,15 @@ namespace ColonizationMobileGame.Player
         {
             base.Add(item);
 
-            _itemsCount[item.Type]++;
-            
+            ModifyItemsCount(item.Type);
+
             SetItemsAmountData();
         }
 
 
-        public override void Remove(StackZoneItem item)
+        private void ModifyItemsCount(ItemType itemType)
         {
-            base.Remove(item);
-
-            _itemsCount[item.Type]--;
-            
-            SetItemsAmountData();
+            _itemsCount[itemType] = placement.Items.Count(i => i.GetComponent<StackZoneItem>().Type == itemType);
         }
 
 
@@ -47,6 +43,16 @@ namespace ColonizationMobileGame.Player
             itemsAmountPanelData.SetData(data);
 
             itemsAmountPanelData.InvokeChanged();
+        }
+
+
+        public override void Remove(StackZoneItem item)
+        {
+            base.Remove(item);
+
+            ModifyItemsCount(item.Type);
+
+            SetItemsAmountData();
         }
     }
 }
