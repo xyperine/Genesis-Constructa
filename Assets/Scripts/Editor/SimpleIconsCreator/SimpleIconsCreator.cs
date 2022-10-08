@@ -1,15 +1,16 @@
 ﻿using System.IO;
 using Sirenix.OdinInspector;
+using Sirenix.OdinInspector.Editor;
 using UnityEditor;
 using UnityEngine;
 
 // ReSharper disable once CheckNamespace
 namespace SimpleIconsCreatorNS
 {
-    public class SimpleIconsCreator : MonoBehaviour
+    public class SimpleIconsCreator : OdinEditorWindow
     {
         [BoxGroup("Camera")]
-        [SerializeField] private new Camera camera;
+        [SerializeField] private Camera camera;
         [BoxGroup("Camera")]
         [SerializeField, Range(0.1f, 10f)] private float zoom = 1f;
         [BoxGroup("Image")]
@@ -27,6 +28,13 @@ namespace SimpleIconsCreatorNS
         private float _cameraDefaultOrthographicSize;
 
 
+        [MenuItem("Tools/Icons Creator")]
+        private static void OpenWindow()
+        {
+            GetWindow<SimpleIconsCreator>().Show();
+        }
+        
+        
         [PropertySpace]
         [Button(ButtonSizes.Medium)]
         public void CreateIcon()
