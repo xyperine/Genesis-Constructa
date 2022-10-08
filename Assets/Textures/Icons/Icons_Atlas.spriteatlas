@@ -44,18 +44,17 @@ SpriteAtlas:
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: 102900000, guid: 5fbbd55fbe926924298fa87512eee9b0, type: 3}
     - {fileID: 102900000, guid: 1becdf387b770e84b80a42e4125cc2f9, type: 3}
-    - {fileID: 102900000, guid: 3327bc5f2412c9b44bd3b1d7b1e587aa, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: 5f8da180af9bbc84c8bd725685d70856, type: 3}
   - {fileID: 21300000, guid: 6e1054217c9bc034b8eddd644a0a8501, type: 3}
   - {fileID: 21300000, guid: 8c04ec12485779d4b89359817debf2d3, type: 3}
   - {fileID: 21300000, guid: 7595e0524c4f995478f47bc5ac96e49f, type: 3}
-  - {fileID: 21300000, guid: 817e7354863bd3e46a796c077c45529a, type: 3}
+  - {fileID: 21300000, guid: c83063e4718e57f4a85303de55f09343, type: 3}
   - {fileID: 21300000, guid: 899c5295aefb9ba4aad43f67f4fcfca8, type: 3}
   - {fileID: -1685903862, guid: 2aeb624a3608ddb469653fe0f6fef115, type: 3}
   - {fileID: -1105316706, guid: 2aeb624a3608ddb469653fe0f6fef115, type: 3}
@@ -64,14 +63,14 @@ SpriteAtlas:
   - {fileID: -2115196342, guid: 2aeb624a3608ddb469653fe0f6fef115, type: 3}
   - {fileID: 879442033, guid: 2aeb624a3608ddb469653fe0f6fef115, type: 3}
   - {fileID: 1444541912, guid: 2aeb624a3608ddb469653fe0f6fef115, type: 3}
-  - {fileID: 21300000, guid: aaa3f8cacd20f174c931138cfe053ffd, type: 3}
   - {fileID: 21300000, guid: 2262327b9f733f9459b50d6da6604f2f, type: 3}
   - {fileID: 21300000, guid: f715f09ccba568e4584b036ef80939b9, type: 3}
   m_PackedSpriteNamesToIndex:
+  - Mineral_Factory_Icon
   - Carbon_Factory_Icon
   - Uranium_Factory_Icon
   - Farm_Icon
-  - Mineral_Factory_Icon
+  - Metal_Factory_Icon
   - Generator_Icon
   - Items_Icons_3
   - Items_Icons_2
@@ -80,7 +79,6 @@ SpriteAtlas:
   - Items_Icons_6
   - Items_Icons_5
   - Items_Icons_4
-  - Metal_Factory_Icon
   - Storage_Icon
   - Carbon_Compressor_Icon
   m_RenderDataMap: {}
