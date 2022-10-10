@@ -183,6 +183,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: -5814614471451523296, guid: ff9cb045043e7f142828dec06a3f01a4, type: 3}
+    - target: {fileID: 6121232107865850087, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: range.m_ConstantMax
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6121232107865850087, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: range.m_ConstantMin
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6527838695505700801, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.375
