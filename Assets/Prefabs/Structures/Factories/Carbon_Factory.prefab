@@ -549,6 +549,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5107874178209283943}
     m_Modifications:
+    - target: {fileID: -9207615611898455747, guid: 5efbfdf288005684aaa8b81c51144526, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 81e254e2b2a60454d88d50cbc0b799a9, type: 2}
     - target: {fileID: -8679921383154817045, guid: 5efbfdf288005684aaa8b81c51144526, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -613,6 +617,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carbon_Factory
       objectReference: {fileID: 0}
+    - target: {fileID: 4223614206126031568, guid: 5efbfdf288005684aaa8b81c51144526, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 81e254e2b2a60454d88d50cbc0b799a9, type: 2}
     - target: {fileID: 8205852655070760885, guid: 5efbfdf288005684aaa8b81c51144526, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
