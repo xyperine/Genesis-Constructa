@@ -24,7 +24,7 @@ MonoBehaviour:
   - type: 4
     icon: {fileID: 21300000, guid: 2396e67861e81b04b91e102ff8c1c9ec, type: 3}
   - type: 5
-    icon: {fileID: 21300000, guid: 8c04ec12485779d4b89359817debf2d3, type: 3}
+    icon: {fileID: 21300000, guid: 2d7357e7e9dbd8c4e97f26def86379b2, type: 3}
   - type: 6
     icon: {fileID: 21300000, guid: f715f09ccba568e4584b036ef80939b9, type: 3}
   - type: 7
