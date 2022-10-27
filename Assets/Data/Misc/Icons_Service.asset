@@ -26,6 +26,6 @@ MonoBehaviour:
   - type: 5
     icon: {fileID: 21300000, guid: 2d7357e7e9dbd8c4e97f26def86379b2, type: 3}
   - type: 6
-    icon: {fileID: 21300000, guid: f715f09ccba568e4584b036ef80939b9, type: 3}
+    icon: {fileID: 21300000, guid: 03823216d22e71a488b88bc592a4fd93, type: 3}
   - type: 7
     icon: {fileID: 21300000, guid: 2262327b9f733f9459b50d6da6604f2f, type: 3}

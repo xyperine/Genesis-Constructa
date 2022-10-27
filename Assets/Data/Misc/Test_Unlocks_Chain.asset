@@ -14,12 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unlocks:
   - identifier:
-      structureType: 0
+      structureType: 6
       level: 3
     price:
       requirements:
-      - type: 5
-        amount: 6
+      - type: 3
+        amount: 1
+  - identifier:
+      structureType: 6
+      level: 4
+    price:
+      requirements:
+      - type: 3
+        amount: 1
   - identifier:
       structureType: 4
       level: 0
@@ -27,13 +34,6 @@ MonoBehaviour:
       requirements:
       - type: 5
         amount: 5
-  - identifier:
-      structureType: 0
-      level: 4
-    price:
-      requirements:
-      - type: 5
-        amount: 14
   builds:
   - {fileID: 11400000, guid: 2ca83240ee4626744831a4a5e35e9ad0, type: 2}
   - {fileID: 11400000, guid: a0fcbbd0a1ad1e74a8ae0ced3c04a14e, type: 2}

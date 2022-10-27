@@ -22,7 +22,7 @@ MonoBehaviour:
       capacity: 18
       itemsPerSecond: 2.76
     identifier:
-      structureType: 0
+      structureType: 6
       level: 1
   - locked: 0
     price:
@@ -35,7 +35,7 @@ MonoBehaviour:
       capacity: 24
       itemsPerSecond: 2
     identifier:
-      structureType: 0
+      structureType: 6
       level: 2
   - locked: 1
     price:
@@ -48,7 +48,7 @@ MonoBehaviour:
       capacity: 30
       itemsPerSecond: 4
     identifier:
-      structureType: 0
+      structureType: 6
       level: 3
   - locked: 1
     price:
@@ -61,6 +61,6 @@ MonoBehaviour:
       capacity: 60
       itemsPerSecond: 8
     identifier:
-      structureType: 0
+      structureType: 6
       level: 4
-  structureType: 0
+  structureType: 6
