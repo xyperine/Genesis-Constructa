@@ -290,6 +290,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Extractor_Conversion_Unit
       objectReference: {fileID: 0}
+    - target: {fileID: 456587900428723472, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
+      propertyPath: m_Radius
+      value: 2.88
+      objectReference: {fileID: 0}
     - target: {fileID: 579075688413032449, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -348,15 +352,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1558102619949006949, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.45
+      value: 4.03
       objectReference: {fileID: 0}
     - target: {fileID: 1558102619949006949, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.08
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 1558102619949006949, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 3.31
+      value: 3.63
       objectReference: {fileID: 0}
     - target: {fileID: 1655345238484333031, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
       propertyPath: placementSettings
@@ -436,11 +440,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7419043135553326562, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.75
+      value: -0.6245491
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419043135553326562, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7419043135553326562, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.89
+      value: 3.47802
       objectReference: {fileID: 0}
     - target: {fileID: 8415577011025387151, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
       propertyPath: conditionsUnit
