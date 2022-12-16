@@ -48,14 +48,31 @@ SpriteAtlas:
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 5f8da180af9bbc84c8bd725685d70856: 21300000
+    - dfee9cb05d88f2c47976aaee208f9abe: 21300000
+    - 7595e0524c4f995478f47bc5ac96e49f: 21300000
+    - c83063e4718e57f4a85303de55f09343: 21300000
+    - be36ec05a02d3f24abdee89875601de7: 21300000
+    - 2d7357e7e9dbd8c4e97f26def86379b2: 21300000
+    - 2396e67861e81b04b91e102ff8c1c9ec: 21300000
+    - 2aeb624a3608ddb469653fe0f6fef115: -1685903862
+    - 2aeb624a3608ddb469653fe0f6fef115: -1105316706
+    - 2aeb624a3608ddb469653fe0f6fef115: 916407697
+    - 2aeb624a3608ddb469653fe0f6fef115: -783879846
+    - 2aeb624a3608ddb469653fe0f6fef115: -2115196342
+    - 2aeb624a3608ddb469653fe0f6fef115: 879442033
+    - 2aeb624a3608ddb469653fe0f6fef115: 1444541912
+    - 2262327b9f733f9459b50d6da6604f2f: 21300000
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 5f8da180af9bbc84c8bd725685d70856, type: 3}
-  - {fileID: 21300000, guid: 6e1054217c9bc034b8eddd644a0a8501, type: 3}
-  - {fileID: 21300000, guid: 8c04ec12485779d4b89359817debf2d3, type: 3}
+  - {fileID: 21300000, guid: dfee9cb05d88f2c47976aaee208f9abe, type: 3}
   - {fileID: 21300000, guid: 7595e0524c4f995478f47bc5ac96e49f, type: 3}
   - {fileID: 21300000, guid: c83063e4718e57f4a85303de55f09343, type: 3}
-  - {fileID: 21300000, guid: 899c5295aefb9ba4aad43f67f4fcfca8, type: 3}
+  - {fileID: 21300000, guid: be36ec05a02d3f24abdee89875601de7, type: 3}
+  - {fileID: 21300000, guid: 2d7357e7e9dbd8c4e97f26def86379b2, type: 3}
+  - {fileID: 21300000, guid: 2396e67861e81b04b91e102ff8c1c9ec, type: 3}
   - {fileID: -1685903862, guid: 2aeb624a3608ddb469653fe0f6fef115, type: 3}
   - {fileID: -1105316706, guid: 2aeb624a3608ddb469653fe0f6fef115, type: 3}
   - {fileID: 916407697, guid: 2aeb624a3608ddb469653fe0f6fef115, type: 3}
@@ -64,14 +81,14 @@ SpriteAtlas:
   - {fileID: 879442033, guid: 2aeb624a3608ddb469653fe0f6fef115, type: 3}
   - {fileID: 1444541912, guid: 2aeb624a3608ddb469653fe0f6fef115, type: 3}
   - {fileID: 21300000, guid: 2262327b9f733f9459b50d6da6604f2f, type: 3}
-  - {fileID: 21300000, guid: f715f09ccba568e4584b036ef80939b9, type: 3}
   m_PackedSpriteNamesToIndex:
   - Mineral_Factory_Icon
-  - Carbon_Factory_Icon
-  - Uranium_Factory_Icon
+  - Generator_Icon
   - Farm_Icon
   - Metal_Factory_Icon
-  - Generator_Icon
+  - Carbon_Compressor_Icon
+  - Uranium_Factory_Icon
+  - Carbon_Factory_Icon
   - Items_Icons_3
   - Items_Icons_2
   - Items_Icons_1
@@ -80,7 +97,6 @@ SpriteAtlas:
   - Items_Icons_5
   - Items_Icons_4
   - Storage_Icon
-  - Carbon_Compressor_Icon
   m_RenderDataMap: {}
   m_Tag: Icons_Atlas
   m_IsVariant: 0

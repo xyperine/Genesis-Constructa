@@ -21,6 +21,9 @@ using UnityEditor.Compilation;
 #if UNITY_2017_2_OR_NEWER
 using UnityEngine.Tilemaps;
 #endif
+#if ASSET_USAGE_ADDRESSABLES
+using UnityEngine.AddressableAssets;
+#endif
 using Object = UnityEngine.Object;
 
 namespace AssetUsageDetectorNamespace
@@ -198,6 +201,12 @@ namespace AssetUsageDetectorNamespace
 		private delegate FieldInfo FieldInfoGetter( SerializedProperty p, out Type t );
 		private FieldInfoGetter fieldInfoGetter;
 
+#if ASSET_USAGE_ADDRESSABLES
+		private delegate Sprite[] SpriteAtlasPackedSpritesGetter( SpriteAtlas atlas );
+		private SpriteAtlasPackedSpritesGetter spriteAtlasPackedSpritesGetter;
+		private PropertyInfo assetReferenceSubObjectTypeGetter;
+#endif
+
 		private void InitializeSearchFunctionsData( Parameters searchParameters )
 		{
 			if( typeToSearchFunction == null )
@@ -216,6 +225,7 @@ namespace AssetUsageDetectorNamespace
 					{ typeof( AnimatorStateTransition ), SearchAnimatorStateTransition },
 					{ typeof( BlendTree ), SearchBlendTree },
 					{ typeof( AnimationClip ), SearchAnimationClip },
+					{ typeof( TerrainData ), SearchTerrainData },
 #if UNITY_2017_1_OR_NEWER
 					{ typeof( SpriteAtlas ), SearchSpriteAtlas },
 #endif
@@ -345,6 +355,12 @@ namespace AssetUsageDetectorNamespace
 			MethodInfo fieldInfoGetterMethod = typeof( Editor ).Assembly.GetType( "UnityEditor.ScriptAttributeUtility" ).GetMethod( "GetFieldInfoFromProperty", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static );
 #endif
 			fieldInfoGetter = (FieldInfoGetter) Delegate.CreateDelegate( typeof( FieldInfoGetter ), fieldInfoGetterMethod );
+
+#if ASSET_USAGE_ADDRESSABLES
+			MethodInfo spriteAtlasPackedSpritesGetterMethod = typeof( SpriteAtlasExtensions ).GetMethod( "GetPackedSprites", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static );
+			spriteAtlasPackedSpritesGetter = (SpriteAtlasPackedSpritesGetter) Delegate.CreateDelegate( typeof( SpriteAtlasPackedSpritesGetter ), spriteAtlasPackedSpritesGetterMethod );
+			assetReferenceSubObjectTypeGetter = typeof( AssetReference ).GetProperty( "SubOjbectType", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance );
+#endif
 		}
 
 		private ReferenceNode SearchGameObject( Object unityObject )
@@ -966,6 +982,14 @@ namespace AssetUsageDetectorNamespace
 			return referenceNode;
 		}
 
+		// TerrainData's properties like tree/detail/layer definitions aren't exposed to SerializedObject so use reflection instead
+		private ReferenceNode SearchTerrainData( Object unityObject )
+		{
+			ReferenceNode referenceNode = PopReferenceNode( unityObject );
+			SearchVariablesWithReflection( referenceNode );
+			return referenceNode;
+		}
+
 #if UNITY_2017_1_OR_NEWER
 		private ReferenceNode SearchSpriteAtlas( Object unityObject )
 		{
@@ -1112,7 +1136,7 @@ namespace AssetUsageDetectorNamespace
 			{
 				// New Shader Graph serialization format is used: https://github.com/Unity-Technologies/Graphics/pull/222
 				// Iterate over all these occurrences:   "guid\": \"GUID_VALUE\" (\" is used instead of " because it is a nested JSON)
-				IterateOverValuesInString( graphJson, "\"guid\\\"", '"', ( guid ) =>
+				IterateOverValuesInString( graphJson, new string[] { "\"guid\\\"" }, '"', ( guid ) =>
 				{
 					if( guid.Length > 1 )
 					{
@@ -1132,7 +1156,7 @@ namespace AssetUsageDetectorNamespace
 				if( shaderIncludesToSearchSet.Count > 0 )
 				{
 					// Iterate over all these occurrences:   "m_FunctionSource": "GUID_VALUE" (this one is not nested JSON)
-					IterateOverValuesInString( graphJson, "\"m_FunctionSource\"", '"', ( guid ) =>
+					IterateOverValuesInString( graphJson, new string[] { "\"m_FunctionSource\"" }, '"', ( guid ) =>
 					{
 						string referencePath = AssetDatabase.GUIDToAssetPath( guid );
 						if( !string.IsNullOrEmpty( referencePath ) && assetsToSearchPathsSet.Contains( referencePath ) )
@@ -1315,8 +1339,8 @@ namespace AssetUsageDetectorNamespace
 		{
 			string shaderPath = AssetDatabase.GetAssetPath( (Object) referenceNode.nodeObject );
 
-			// Iterate over all these occurrences:   #include: "INCLUDE_REFERENCE"
-			IterateOverValuesInString( File.ReadAllText( shaderPath ), "#include ", '"', ( include ) =>
+			// Iterate over all these occurrences:    #include "INCLUDE_REFERENCE"   or   #include_with_pragmas "INCLUDE_REFERENCE"
+			IterateOverValuesInString( File.ReadAllText( shaderPath ), new string[] { "#include ", "#include_with_pragmas " }, '"', ( include ) =>
 			{
 				bool isIncludePotentialReference = shaderIncludesToSearchSet.Contains( include );
 				if( !isIncludePotentialReference )
@@ -1346,6 +1370,12 @@ namespace AssetUsageDetectorNamespace
 		{
 			if( !isInPlayMode || referenceNode.nodeObject.IsAsset() )
 			{
+#if ASSET_USAGE_ADDRESSABLES
+				// See: https://github.com/yasirkula/UnityAssetUsageDetector/issues/29
+				if( searchParameters.addressablesSupport && ( (Object) referenceNode.nodeObject ).name == "Deprecated EditorExtensionImpl" )
+					return;
+#endif
+
 				SerializedObject so = new SerializedObject( (Object) referenceNode.nodeObject );
 				SerializedProperty iterator = so.GetIterator();
 				SerializedProperty iteratorVisible = so.GetIterator();
@@ -1395,9 +1425,22 @@ namespace AssetUsageDetectorNamespace
 								break;
 #endif
 							case SerializedPropertyType.Generic:
-								propertyValue = null;
-								searchResult = null;
-								enterChildren = true;
+#if ASSET_USAGE_ADDRESSABLES
+								AssetReference assetReference;
+								if( searchParameters.addressablesSupport && iterator.type.StartsWithFast( "AssetReference" ) && ( assetReference = GetRawSerializedPropertyValue( iterator ) as AssetReference ) != null )
+								{
+									propertyValue = GetAddressablesAssetReferenceValue( assetReference );
+									searchResult = SearchObject( PreferablyGameObject( propertyValue ) );
+									enterChildren = false;
+								}
+								else
+#endif
+								{
+									propertyValue = null;
+									searchResult = null;
+									enterChildren = true;
+								}
+
 								break;
 							default:
 								propertyValue = null;
@@ -1450,6 +1493,15 @@ namespace AssetUsageDetectorNamespace
 					// no need to have duplicate search entries
 					if( !( variableValue is ICollection ) )
 					{
+#if ASSET_USAGE_ADDRESSABLES
+						if( searchParameters.addressablesSupport && variableValue is AssetReference )
+						{
+							variableValue = GetAddressablesAssetReferenceValue( (AssetReference) variableValue );
+							if( variableValue == null || variableValue.Equals( null ) )
+								continue;
+						}
+#endif
+
 						ReferenceNode searchResult = SearchObject( PreferablyGameObject( variableValue ) );
 						if( searchResult != null && searchResult != referenceNode )
 						{
@@ -1617,6 +1669,10 @@ namespace AssetUsageDetectorNamespace
 #endif
 							typeof( Collider2D ).IsAssignableFrom( currType ) ) )
 							continue;
+						// Ignore certain Material properties that are already searched via SearchMaterial function (also, if a material doesn't have a _Color or _BaseColor
+						// property and its "color" property is called, it logs an error to the console, so this rule helps avoid that scenario, as well)
+						else if( ( propertyName == "color" || propertyName == "mainTexture" ) && typeof( Material ).IsAssignableFrom( currType ) )
+							continue;
 						// Ignore "parameters" property of Animator since it doesn't contain any useful data and logs a warning to the console when Animator is inactive
 						else if( typeof( Animator ).IsAssignableFrom( currType ) && propertyName == "parameters" )
 							continue;
@@ -1625,6 +1681,11 @@ namespace AssetUsageDetectorNamespace
 							continue;
 						// Ignore "meshFilter" property of TextMeshPro and TMP_SubMesh components because this property adds a MeshFilter component to the object if it doesn't exist
 						else if( propertyName == "meshFilter" && ( currType.Name == "TextMeshPro" || currType.Name == "TMP_SubMesh" ) )
+							continue;
+						// Ignore "users" property of TerrainData because it returns the Terrains in the scene that use that TerrainData. This causes issues with callStack because TerrainData
+						// is already in callStack when Terrains are searched via "users" property of it and hence, Terrain->TerrainData references for that TerrainData can't be found in scenes
+						// (this is how callStack works, it prevents searching an object if it's already in callStack to avoid infinite recursion)
+						else if( propertyName == "users" && typeof( TerrainData ).IsAssignableFrom( currType ) )
 							continue;
 						else
 						{
@@ -1723,29 +1784,71 @@ namespace AssetUsageDetectorNamespace
 			return enumerator.Current;
 		}
 
+#if ASSET_USAGE_ADDRESSABLES
+		private Object GetAddressablesAssetReferenceValue( AssetReference assetReference )
+		{
+			Object result = assetReference.editorAsset;
+			if( !result )
+				return null;
+
+			string subObjectName = assetReference.SubObjectName;
+			if( !string.IsNullOrEmpty( subObjectName ) )
+			{
+				if( result is SpriteAtlas )
+				{
+					Sprite[] packedSprites = spriteAtlasPackedSpritesGetter( (SpriteAtlas) result );
+					if( packedSprites != null )
+					{
+						for( int i = 0; i < packedSprites.Length; i++ )
+						{
+							if( packedSprites[i] && packedSprites[i].name == subObjectName )
+								return packedSprites[i];
+						}
+					}
+				}
+				else
+				{
+					Type subObjectType = (Type) assetReferenceSubObjectTypeGetter.GetValue( assetReference, null ) ?? typeof( Object );
+					Object[] subAssets = AssetDatabase.LoadAllAssetRepresentationsAtPath( AssetDatabase.GetAssetPath( result ) );
+					for( int k = 0; k < subAssets.Length; k++ )
+					{
+						if( subAssets[k] && subAssets[k].name == subObjectName && subObjectType.IsAssignableFrom( subAssets[k].GetType() ) )
+							return subAssets[k];
+					}
+				}
+			}
+
+			return result;
+		}
+#endif
+
 		// Iterates over all occurrences of specific key-value pairs in string
 		// Example1: #include "VALUE"  valuePrefix=#include, valueWrapperChar="
 		// Example2: "guid": "VALUE"  valuePrefix="guid", valueWrapperChar="
-		private void IterateOverValuesInString( string str, string valuePrefix, char valueWrapperChar, Action<string> valueAction )
+		private void IterateOverValuesInString( string str, string[] valuePrefixes, char valueWrapperChar, Action<string> valueAction )
 		{
-			int valueStartIndex, valueEndIndex = 0;
-			while( true )
+			for( int i = 0; i < valuePrefixes.Length; i++ )
 			{
-				valueStartIndex = str.IndexOf( valuePrefix, valueEndIndex );
-				if( valueStartIndex < 0 )
-					return;
+				string valuePrefix = valuePrefixes[i];
+				int valueStartIndex, valueEndIndex = 0;
+				while( true )
+				{
+					valueStartIndex = str.IndexOf( valuePrefix, valueEndIndex );
+					if( valueStartIndex < 0 )
+						break;
 
-				valueStartIndex = str.IndexOf( valueWrapperChar, valueStartIndex + valuePrefix.Length );
-				if( valueStartIndex < 0 )
-					return;
+					valueStartIndex = str.IndexOf( valueWrapperChar, valueStartIndex + valuePrefix.Length );
+					if( valueStartIndex < 0 )
+						break;
 
-				valueStartIndex++;
-				valueEndIndex = str.IndexOf( valueWrapperChar, valueStartIndex );
-				if( valueEndIndex < 0 )
-					return;
+					valueStartIndex++;
+					valueEndIndex = str.IndexOf( valueWrapperChar, valueStartIndex );
+					if( valueEndIndex < 0 )
+						break;
 
-				if( valueEndIndex > valueStartIndex )
-					valueAction( str.Substring( valueStartIndex, valueEndIndex - valueStartIndex ) );
+					if( valueEndIndex > valueStartIndex )
+						valueAction( str.Substring( valueStartIndex, valueEndIndex - valueStartIndex ) );
+				}
 			}
 		}
 

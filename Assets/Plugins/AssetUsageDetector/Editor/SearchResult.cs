@@ -371,9 +371,15 @@ namespace AssetUsageDetectorNamespace
 			return scrollPosition;
 		}
 
-		public int IndexOf( SearchResultGroup searchResult )
+		public int IndexOf( SearchResultGroup searchResultGroup )
 		{
-			return result.IndexOf( searchResult );
+			return result.IndexOf( searchResultGroup );
+		}
+
+		public void CollapseAllSearchResultGroups()
+		{
+			for( int i = 0; i < result.Count; i++ )
+				result[i].Collapse();
 		}
 
 		public void CancelDelayedTreeViewTooltip()
@@ -600,6 +606,11 @@ namespace AssetUsageDetectorNamespace
 			treeViewSearchField = null;
 		}
 
+		public void Collapse()
+		{
+			IsExpanded = false;
+		}
+
 		// Initializes commonly used variables of the nodes
 		public void InitializeNodes( HashSet<Object> objectsToSearchSet )
 		{
@@ -725,7 +736,7 @@ namespace AssetUsageDetectorNamespace
 					if( searchResult != null )
 						contextMenu.AddItem( new GUIContent( "Hide" ), false, () => searchResult.RemoveSearchResultGroup( this ) );
 
-					if( references.Count > 0 )
+					if( references.Count > 0 && treeView != null )
 					{
 						if( contextMenu.GetItemCount() > 0 )
 							contextMenu.AddSeparator( "" );
@@ -791,7 +802,7 @@ namespace AssetUsageDetectorNamespace
 						}
 					}
 
-					if( Type == GroupType.Scene && !EditorApplication.isPlaying && EditorSceneManager.loadedSceneCount > 1 )
+					if( Type == GroupType.Scene && !EditorApplication.isPlaying && SceneManager.loadedSceneCount > 1 )
 					{
 						// Show context menu when SearchResultGroup's header is right clicked
 						Scene scene = EditorSceneManager.GetSceneByPath( ScenePath );

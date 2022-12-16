@@ -47,6 +47,9 @@ namespace AssetUsageDetectorNamespace
 			public SearchRefactoring searchRefactoring = null;
 
 			public bool lazySceneSearch = true;
+#if ASSET_USAGE_ADDRESSABLES
+			public bool addressablesSupport = false;
+#endif
 			public bool calculateUnusedObjects = false;
 			public bool hideDuplicateRows = true;
 			public bool hideReduntantPrefabVariantLinks = true;
@@ -286,7 +289,7 @@ namespace AssetUsageDetectorNamespace
 					if( ( searchParameters.searchInScenes & SceneSearchMode.OpenScenes ) == SceneSearchMode.OpenScenes )
 					{
 						// Get all open (and loaded) scenes
-						for( int i = 0; i < EditorSceneManager.loadedSceneCount; i++ )
+						for( int i = 0; i < SceneManager.loadedSceneCount; i++ )
 						{
 							Scene scene = EditorSceneManager.GetSceneAt( i );
 							if( scene.IsValid() )
@@ -311,7 +314,7 @@ namespace AssetUsageDetectorNamespace
 				if( isInPlayMode )
 				{
 					HashSet<string> openScenes = new HashSet<string>();
-					for( int i = 0; i < EditorSceneManager.loadedSceneCount; i++ )
+					for( int i = 0; i < SceneManager.loadedSceneCount; i++ )
 					{
 						Scene scene = EditorSceneManager.GetSceneAt( i );
 						if( scene.IsValid() )
@@ -1103,6 +1106,11 @@ namespace AssetUsageDetectorNamespace
 		// Check if the asset at specified path depends on any of the references
 		private bool AssetHasAnyReference( string assetPath )
 		{
+#if ASSET_USAGE_ADDRESSABLES
+			if( searchParameters.addressablesSupport )
+				return true;
+#endif
+
 			if( assetsToSearchPathsSet.Contains( assetPath ) )
 				return true;
 
