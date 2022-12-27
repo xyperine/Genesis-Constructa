@@ -10,6 +10,6 @@
         UraniumFactory,
         CarbonCompressor,
         Storage,
-        MainDome,
+        Shelter,
     }
 }
