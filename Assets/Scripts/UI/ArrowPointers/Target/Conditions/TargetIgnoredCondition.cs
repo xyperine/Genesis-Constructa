@@ -6,7 +6,7 @@ namespace ColonizationMobileGame.UI.ArrowPointers.Target.Conditions
 {
     public class TargetIgnoredCondition : ArrowPointerTargetInvalidationCondition
     {
-        private const float REQUIRED_OFF_SCREEN_PRESENCE_TIME_IN_SECONDS = 5f;
+        private const float REQUIRED_OFF_SCREEN_PRESENCE_TIME_IN_SECONDS = 15f;
 
         private readonly CancellationTokenSource _tokenSource = new CancellationTokenSource();
         private ArrowPointerTarget _target;
