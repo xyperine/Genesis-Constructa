@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1451960115985491671}
   - component: {fileID: 3729703152850129437}
   - component: {fileID: 4263532363303607152}
+  - component: {fileID: 8596380909563186024}
   m_Layer: 8
   m_Name: Shelter
   m_TagString: Untagged
@@ -101,3 +102,15 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4504483009448330700, guid: b1e0c14468e9fd84d8a910dc0b08ab0e, type: 3}
+--- !u!114 &8596380909563186024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2937029966399206344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e2c8fe79f474819bfdf78b1b477ac5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
