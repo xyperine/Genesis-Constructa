@@ -57,6 +57,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: be36ec05a02d3f24abdee89875601de7, type: 3}
   - {fileID: 21300000, guid: 2d7357e7e9dbd8c4e97f26def86379b2, type: 3}
   - {fileID: 21300000, guid: 2396e67861e81b04b91e102ff8c1c9ec, type: 3}
+  - {fileID: 21300000, guid: b7bc0889451eefc418e2354bb7ad972f, type: 3}
   - {fileID: -1685903862, guid: 2aeb624a3608ddb469653fe0f6fef115, type: 3}
   - {fileID: -1105316706, guid: 2aeb624a3608ddb469653fe0f6fef115, type: 3}
   - {fileID: 916407697, guid: 2aeb624a3608ddb469653fe0f6fef115, type: 3}
@@ -73,6 +74,7 @@ SpriteAtlas:
   - Carbon_Compressor_Icon
   - Uranium_Factory_Icon
   - Carbon_Factory_Icon
+  - Shelter_Icon
   - Items_Icons_3
   - Items_Icons_2
   - Items_Icons_1
