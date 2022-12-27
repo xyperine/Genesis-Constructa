@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a7ecfe09dc24e369f08457327906887, type: 3}
-  m_Name: Main_Dome_Build_Data
+  m_Name: Shelter_Build_Data
   m_EditorClassIdentifier: 
   data:
     locked: 0
-    structurePrefab: {fileID: 2920291407718612179, guid: 51abc518fd58ff942a43ff64bb89ad26, type: 3}
+    structurePrefab: {fileID: 2937029966399206344, guid: 128ae699539f0b54f992530835794834, type: 3}
     price:
       requirements:
       - type: 1
@@ -27,6 +27,6 @@ MonoBehaviour:
         amount: 25
     maxLevel: 0
     identifier:
-      structureType: 9
+      structureType: 8
       level: 0
-  structureType: 9
+  structureType: 8
