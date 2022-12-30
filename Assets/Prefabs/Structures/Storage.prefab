@@ -47,6 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemsAmountPanelData: {fileID: 1938124735954949807}
+  scoreModifier: {fileID: 0}
+  guid:
+    value: 
 --- !u!114 &1938124735954949807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,7 +73,7 @@ GameObject:
   - component: {fileID: 4325849789603522452}
   - component: {fileID: 3996879957099898381}
   - component: {fileID: 8947056862070502470}
-  - component: {fileID: 664641116806035895}
+  - component: {fileID: 8810302558862501436}
   m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
@@ -87,7 +90,7 @@ Transform:
   m_GameObject: {fileID: 4457130356076871926}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.5, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3960112230862569784}
@@ -100,7 +103,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4457130356076871926}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 7015685756936656978, guid: 98f1a01e7183f0f4db9578386bc92abb, type: 3}
 --- !u!23 &8947056862070502470
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -121,7 +124,11 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ddd4d982804eaa24f9790affb869c63a, type: 2}
+  - {fileID: 2100000, guid: 8124a3b21727755448f9b7a9f6561f34, type: 2}
+  - {fileID: 2100000, guid: d2056ca786ad4454cb0fa54b4e47bbae, type: 2}
+  - {fileID: 2100000, guid: ed4e133e63d810745beef3839db4f94a, type: 2}
+  - {fileID: 2100000, guid: b0ca8e5c3e2ffc44bba3c8735ecb9838, type: 2}
+  - {fileID: 2100000, guid: 75a557af5126b5c4e8dbbc6970fae8a4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -143,7 +150,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &664641116806035895
+--- !u!65 &8810302558862501436
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,8 +161,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3.047307, y: 3, z: 5.4833837}
+  m_Center: {x: 0, y: 0, z: -1.2180383}
 --- !u!1 &5779524828523221240
 GameObject:
   m_ObjectHideFlags: 0
