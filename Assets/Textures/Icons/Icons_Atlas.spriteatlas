@@ -65,7 +65,7 @@ SpriteAtlas:
   - {fileID: 879442033, guid: 2aeb624a3608ddb469653fe0f6fef115, type: 3}
   - {fileID: 1444541912, guid: 2aeb624a3608ddb469653fe0f6fef115, type: 3}
   - {fileID: 21300000, guid: 7993954bde0d23c499587111fe63f11b, type: 3}
-  - {fileID: 21300000, guid: 2262327b9f733f9459b50d6da6604f2f, type: 3}
+  - {fileID: 21300000, guid: 0abffc0ee2c9c1a48b4633a8d59a08b5, type: 3}
   m_PackedSpriteNamesToIndex:
   - Mineral_Factory_Icon
   - Generator_Icon
