@@ -14,13 +14,22 @@ namespace ColonizationMobileGame.Player
         [SerializeField, HideInInspector] private PermanentGuid guid;
         
         private const float SMOOTHNESS_MODIFIER = 1f / 8f;
+
+        private float _smoothnessT;
         
         private Vector3 _velocity;
+        private Vector3 _newVelocity;
 
         public float RelativeVelocity => Mathf.Clamp01(_velocity.magnitude / Time.fixedDeltaTime / speed);
 
         public int LoadingOrder => 0;
         public PermanentGuid Guid => guid;
+
+
+        private void Awake()
+        {
+            _smoothnessT = 1f / (1f + smoothness) * SMOOTHNESS_MODIFIER;
+        }
 
 
         private void Update()
@@ -29,8 +38,17 @@ namespace ColonizationMobileGame.Player
         }
 
 
+        private void GetMovementThisFrame()
+        {
+            Vector3 input = new Vector3(joystick.Horizontal, 0f, joystick.Vertical);
+            _newVelocity = speed * input;
+        }
+
+
         private void FixedUpdate()
         {
+            _velocity = Vector3.Lerp(_velocity, _newVelocity, _smoothnessT);
+
             if (_velocity == Vector3.zero)
             {
                 return;
@@ -40,20 +58,10 @@ namespace ColonizationMobileGame.Player
         }
 
 
-        private void GetMovementThisFrame()
-        {
-            Vector3 input = new Vector3(joystick.Horizontal, 0f, joystick.Vertical);
-            Vector3 newMovement = speed * input;
-            float t = 1f / (1f + smoothness) * SMOOTHNESS_MODIFIER;
-            
-            _velocity = Vector3.Lerp(_velocity, newMovement, t);
-        }
-
-
         private void MoveAndRotate()
         {
             Quaternion newRotation = Quaternion.LookRotation(-_velocity);
-
+            
             rigidBody.velocity = _velocity;
             rigidBody.MoveRotation(newRotation);
         }
