@@ -20,7 +20,7 @@ namespace ColonizationMobileGame.Player
         private Vector3 _velocity;
         private Vector3 _newVelocity;
 
-        public float RelativeVelocity => Mathf.Clamp01(_velocity.magnitude / Time.fixedDeltaTime / speed);
+        public float RelativeVelocity => Mathf.Clamp01(_velocity.magnitude / speed);
 
         public int LoadingOrder => 0;
         public PermanentGuid Guid => guid;
