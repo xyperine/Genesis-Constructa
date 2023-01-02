@@ -151,6 +151,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2391991664797801544, guid: 8929d54c2bda9cf4eb2c62520fbaf897, type: 3}
+      propertyPath: scanRadius
+      value: 2.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2717646040496654294, guid: 8929d54c2bda9cf4eb2c62520fbaf897, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
