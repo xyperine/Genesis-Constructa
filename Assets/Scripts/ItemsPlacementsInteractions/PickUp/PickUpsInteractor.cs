@@ -8,7 +8,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.PickUp
     {
         [SerializeField] private PickUpStackZoneBehaviour pickUpBehaviour;
 
-        protected override bool Valid => pickUpBehaviour.EnoughSpace;
+        protected override bool CanScan => pickUpBehaviour.EnoughSpace;
 
 
         public void Setup(InteractionsEstablisher establisher, PickUpStackZoneBehaviour pickUpBehaviour)
@@ -18,20 +18,8 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.PickUp
         }
 
 
-        protected override void InteractWith(int objID)
+        protected override void InteractWith(StackZoneItem item)
         {
-            if (!Interactables.IDsToObjectsMap.TryGetValue(objID, out MonoBehaviour value))
-            {
-                return;
-            }
-
-            if (value is not StackZoneItem)
-            {
-                return;
-            }
-            
-            StackZoneItem item = (StackZoneItem) Interactables.IDsToObjectsMap[objID];
-            
             if (item.Zone != null && !establisher.CanPickUpFrom(item.Zone))
             {
                 return;

@@ -9,7 +9,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.Transfer
     {
         [SerializeField] private TransferStackZoneBehaviour transferBehaviour;
 
-        protected override bool Valid => transferBehaviour.CanGive;
+        protected override bool CanScan => transferBehaviour.CanGive;
 
         
         public void Setup(InteractionsEstablisher establisher, TransferStackZoneBehaviour transferBehaviour)
@@ -19,20 +19,8 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.Transfer
         }
 
 
-        protected override void InteractWith(int objID)
-        {
-            if (!Interactables.IDsToObjectsMap.TryGetValue(objID, out MonoBehaviour value))
-            {
-                return;
-            }
-
-            if (value is not InteractionTargetReference)
-            {
-                return;
-            }
-            
-            InteractionTargetReference reference = (InteractionTargetReference) Interactables.IDsToObjectsMap[objID];
-
+        protected override void InteractWith(InteractionTargetReference reference)
+        { 
             if (!establisher.CanTransferTo(reference.Target))
             {
                 return;

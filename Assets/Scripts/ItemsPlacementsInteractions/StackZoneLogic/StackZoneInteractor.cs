@@ -4,16 +4,23 @@ using UnityEngine;
 namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
 {
     public abstract class StackZoneInteractor<TObject> : MonoBehaviour
+        where TObject : MonoBehaviour
     {
         [SerializeField] protected InteractionsEstablisher establisher;
         [SerializeField, Range(0f, 10f)] private float scanRadius = 1f;
 
-        protected abstract bool Valid { get; }
+        protected abstract bool CanScan { get; }
 
         
         private void Update()
+        { 
+            Scan();
+        }
+
+
+        private void Scan()
         {
-            if (!CanScan())
+            if (!CanScan)
             {
                 return;
             }
@@ -22,18 +29,30 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
 
             for (int i = 0; i < objectIDsInRadius.Length; i++)
             {
-                InteractWith(objectIDsInRadius[i]);
+                TryToInteractWith(objectIDsInRadius[i]);
             }
         }
 
 
-        private bool CanScan()
+        private void TryToInteractWith(int objID)
         {
-            return Valid;
+            if (!Interactables.IDsToObjectsMap.TryGetValue(objID, out MonoBehaviour value))
+            {
+                return;
+            }
+
+            if (value is not TObject)
+            {
+                return;
+            }
+            
+            TObject obj = (TObject) Interactables.IDsToObjectsMap[objID];
+            
+            InteractWith(obj);
         }
 
 
-        protected abstract void InteractWith(int objID);
+        protected abstract void InteractWith(TObject obj);
 
 
         private void OnDrawGizmosSelected()
