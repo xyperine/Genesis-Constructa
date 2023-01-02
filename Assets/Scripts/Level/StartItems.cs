@@ -26,6 +26,15 @@ namespace ColonizationMobileGame.Level
         }
 
 
+        private void Start()
+        {
+            for (int i = 0; i < _items.Count; i++)
+            {
+                Interactables.RegisterObject(_items[i]);
+            }
+        }
+
+
         public object Save()
         {
             _items.RemoveAll(i => i == null);

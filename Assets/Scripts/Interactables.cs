@@ -22,10 +22,17 @@ namespace ColonizationMobileGame
 
         public static int[] GetObjectIDsInRadiusAround(Vector3 center, float radius)
         {
-            int[] ids = IDsToObjectsMap.Where(kvp =>
-                    Vector3.Distance(center, kvp.Value.transform.position) <= radius && kvp.Value.isActiveAndEnabled)
+            int[] ids = IDsToObjectsMap.Where(kvp => IsObjectInRadius(kvp.Value, center, radius))
                 .Select(kvp => kvp.Key).ToArray();
             return ids;
+        }
+
+
+        private static bool IsObjectInRadius(MonoBehaviour obj, Vector3 center, float radius)
+        {
+            return obj &&
+                   obj.isActiveAndEnabled &&
+                   Vector3.Distance(center, obj.transform.position) <= radius;
         }
     }
 }
