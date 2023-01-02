@@ -34,7 +34,7 @@ namespace ColonizationMobileGame.UI.ArrowPointers.Target.Conditions
                 await UniTask.Yield(cancellationToken: _tokenSource.Token);
             }
 
-            Debug.Log($"Was off screen for {offScreenDuration}!");
+            //Debug.Log($"Was off screen for {offScreenDuration}!");
             
             InvokeSatisfied();
         }

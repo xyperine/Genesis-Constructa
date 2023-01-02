@@ -245,10 +245,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4470139894301367613, guid: a545d628fac155a4c93d7d1d591f0d32, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: -8839368762345780380, guid: 493f176968577534088d5abc7bbb0007, type: 3}
     - target: {fileID: 5654864078016059290, guid: a545d628fac155a4c93d7d1d591f0d32, type: 3}
       propertyPath: joystick
       value: 
@@ -638,7 +634,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2545771812066715108, guid: fcb4fbc281730f04a9288188820bb0ae, type: 3}
       propertyPath: active
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7730718997147459474, guid: fcb4fbc281730f04a9288188820bb0ae, type: 3}
       propertyPath: workInEditor

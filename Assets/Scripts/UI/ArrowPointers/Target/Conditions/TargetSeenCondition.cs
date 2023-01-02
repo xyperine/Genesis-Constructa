@@ -32,14 +32,14 @@ namespace ColonizationMobileGame.UI.ArrowPointers.Target.Conditions
                 }
                 else
                 {
-                    Debug.Log($"Was on screen for {visibilityDuration}");
+                    //Debug.Log($"Was on screen for {visibilityDuration}");
                     visibilityDuration = 0f;
                 }
 
                 await UniTask.Yield(cancellationToken: _tokenSource.Token);
             }
 
-            Debug.Log("Was on screen all the time!");
+            //Debug.Log("Was on screen all the time!");
             
             InvokeSatisfied();
         }

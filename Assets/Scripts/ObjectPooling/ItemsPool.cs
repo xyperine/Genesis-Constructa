@@ -69,6 +69,8 @@ namespace ColonizationMobileGame.ObjectPooling
             
             _allItems.Add(obj);
             AddObject(obj);
+            
+            Interactables.RegisterObject(obj);
         }
 
 

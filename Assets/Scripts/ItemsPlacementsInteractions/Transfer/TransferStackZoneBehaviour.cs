@@ -16,6 +16,8 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.Transfer
         private readonly Dictionary<InteractionTarget, IEnumerator> _transferCoroutines =
             new Dictionary<InteractionTarget, IEnumerator>();
 
+        public bool CanGive => stackZone.HasItems;
+
 
         public void Setup(StackZone zone)
         {

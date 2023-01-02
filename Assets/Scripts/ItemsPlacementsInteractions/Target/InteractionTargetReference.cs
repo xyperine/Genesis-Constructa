@@ -13,5 +13,11 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.Target
         {
             this.target = target;
         }
+
+
+        private void Awake()
+        {
+            Interactables.RegisterObject(this);
+        }
     }
 }

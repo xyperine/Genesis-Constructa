@@ -7,6 +7,8 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.PickUp
     {
         [Header("Dependencies")]
         [SerializeField] private StackZone stackZone;
+        
+        public bool EnoughSpace => stackZone.CanTakeMore;
 
 
         public void Setup(StackZone zone)

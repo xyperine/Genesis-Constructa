@@ -6,32 +6,40 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
     public abstract class StackZoneInteractor<TObject> : MonoBehaviour
     {
         [SerializeField] protected InteractionsEstablisher establisher;
+        [SerializeField, Range(0f, 10f)] private float scanRadius = 1f;
 
+        protected abstract bool Valid { get; }
 
-        private void OnTriggerEnter(Collider other)
+        
+        private void Update()
         {
-            TObject obj;
-            if (!other.TryGetComponent(out obj))
+            if (!CanScan())
             {
                 return;
             }
             
-            InteractWith(obj);
-        }
-        
-        
-        private void OnTriggerStay(Collider other)
-        {
-            TObject obj;
-            if (!other.TryGetComponent(out obj))
+            int[] objectIDsInRadius = Interactables.GetObjectIDsInRadiusAround(transform.position, scanRadius);
+
+            for (int i = 0; i < objectIDsInRadius.Length; i++)
             {
-                return;
+                InteractWith(objectIDsInRadius[i]);
             }
-
-            InteractWith(obj);
         }
 
 
-        protected abstract void InteractWith(TObject obj);
+        private bool CanScan()
+        {
+            return Valid;
+        }
+
+
+        protected abstract void InteractWith(int objID);
+
+
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(transform.position, scanRadius);
+        }
     }
 }

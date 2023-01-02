@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   establisher: {fileID: 5092285449688425343}
+  scanRadius: 2
   transferBehaviour: {fileID: 4280818355748549182}
 --- !u!54 &3584562505362586504
 Rigidbody:
@@ -265,6 +266,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acceptableItems: 
+  guid:
+    value: 
   itemsAmountPanelData: {fileID: 5146125360456783342}
 --- !u!114 &1655345238484333031
 MonoBehaviour:
