@@ -97,15 +97,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7993948333658973445, guid: 51afa3afedf2883498a3c53d3be2c965, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7993948333658973445, guid: 51afa3afedf2883498a3c53d3be2c965, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7993948333658973445, guid: 51afa3afedf2883498a3c53d3be2c965, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8608856305999937716, guid: 51afa3afedf2883498a3c53d3be2c965, type: 3}
       propertyPath: m_Name
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   establisher: {fileID: -661783056724191373}
-  scanRadius: 2
+  scanRadius: 3
   transferBehaviour: {fileID: 6394396835517606813}
 --- !u!114 &8357550616653878366
 MonoBehaviour:
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   establisher: {fileID: -661783056724191373}
-  scanRadius: 2
+  scanRadius: 3
   pickUpBehaviour: {fileID: 1095571597798889887}
 --- !u!1 &4341465891043500647 stripped
 GameObject:
