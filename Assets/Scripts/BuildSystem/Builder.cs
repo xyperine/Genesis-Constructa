@@ -81,7 +81,7 @@ namespace ColonizationMobileGame.BuildSystem
             GameObject structureObject = Instantiate(_buildData.StructurePrefab, transform.position,
                 Quaternion.identity, structuresParent);
             IInteractablesTrackerUser[] interactablesTrackerUsers =
-                structureObject.GetComponentsInChildren<IInteractablesTrackerUser>();
+                structureObject.GetComponentsInChildren<IInteractablesTrackerUser>(true);
             ExtractorProductionUnit productionUnit = structureObject.GetComponentInChildren<ExtractorProductionUnit>();
 
             if (structureObject.TryGetComponent(out Structure structure))
