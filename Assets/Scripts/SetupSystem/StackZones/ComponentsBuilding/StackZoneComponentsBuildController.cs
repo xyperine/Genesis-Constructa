@@ -15,7 +15,6 @@ namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
 
         private readonly IStackZoneComponentsBuilder _interactionsWithOthersBuilder;
         private readonly IStackZoneComponentsBuilder _interactionsWithPlayerBuilder;
-        private readonly IStackZoneComponentsBuilder _colliderBuilder;
         private readonly IStackZoneComponentsBuilder _upgradingBuilder;
         
         private StackZoneSetupData _data;
@@ -29,7 +28,6 @@ namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
         {
             nameof(_data.Interactions),
             nameof(_data.PlayerInteractionsSO),
-            nameof(_data.ColliderData),
             nameof(_data.UpgradesChain),
         };
 
@@ -40,7 +38,6 @@ namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
 
             _interactionsWithOthersBuilder = new StackZoneInteractionsWithOthersComponentsBuilder(_rootGameObject, zoneSchemePrefab);
             _interactionsWithPlayerBuilder = new StackZoneInteractionWithPlayerComponentsBuilder(_rootGameObject, zoneSchemePrefab);
-            _colliderBuilder = new StackZoneMainColliderBuilder(_rootGameObject, zoneSchemePrefab);
             _upgradingBuilder = new StackZoneUpgradingComponentsBuilder(_rootGameObject, zoneSchemePrefab);
             
             InitializeActionsMap();
@@ -67,15 +64,10 @@ namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
                     nameof(_data.PlayerInteractionsSO),
                     nameof(_data.InteractionWithPlayerType),
                 },
-                [BuildCollider] = new []
-                {
-                    nameof(_data.ColliderData),
-                },
                 [BuildUpgrading] = new []
                 {
                     nameof(_data.UpgradeableOnItsOwn),
                     nameof(_data.UpgradesChain),
-                    nameof(_data.UpgraderColliderRadius),
                 },
             };
         }
@@ -142,12 +134,6 @@ namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
             }
             
             _interactionsWithPlayerBuilder?.Build(_data, _zone);
-        }
-
-
-        private void BuildCollider()
-        {
-            _colliderBuilder?.Build(_data, _zone);
         }
 
 

@@ -14,7 +14,6 @@ namespace ColonizationMobileGame.SetupSystem.Upgrader
     {
         [SerializeField, HideInInspector] private TUpgradesChain chainSO;
         [SerializeField, HideInInspector] private List<TUpgradeable> upgradeables;
-        [SerializeField, HideInInspector] private float colliderRadius;
 
         private UpgradesChain<TUpgradeData> _chain;
 
@@ -29,14 +28,11 @@ namespace ColonizationMobileGame.SetupSystem.Upgrader
 
         public List<TUpgradeable> Upgradeables => upgradeables;
 
-        public float ColliderRadius => colliderRadius;
 
-
-        protected UpgraderSetupData(TUpgradesChain chainSO, IEnumerable<TUpgradeable> upgradeables, float colliderRadius)
+        protected UpgraderSetupData(TUpgradesChain chainSO, IEnumerable<TUpgradeable> upgradeables)
         {
             this.chainSO = chainSO;
             this.upgradeables = upgradeables.ToList();
-            this.colliderRadius = colliderRadius;
         }
     }
 }

@@ -1,22 +1,11 @@
-﻿using ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup.Establisher;
-using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
+﻿using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
 using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
-using UnityEngine;
 
 namespace ColonizationMobileGame.ItemsPlacementsInteractions.Transfer
 {
-    public class TransfersInteractor : StackZoneInteractor<InteractionTargetReference>
+    public class TransfersInteractor : StackZoneInteractor<InteractionTargetReference, TransferStackZoneBehaviour>
     {
-        [SerializeField] private TransferStackZoneBehaviour transferBehaviour;
-
-        protected override bool CanScan => transferBehaviour.CanGive;
-
-        
-        public void Setup(InteractionsEstablisher establisher, TransferStackZoneBehaviour transferBehaviour)
-        {
-            this.establisher = establisher;
-            this.transferBehaviour = transferBehaviour;
-        }
+        protected override bool CanScan => behaviour.CanGive;
 
 
         protected override void InteractWith(InteractionTargetReference reference)
@@ -26,7 +15,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.Transfer
                 return;
             }
             
-            transferBehaviour.TransferTo(reference.Target);
+            behaviour.TransferTo(reference.Target);
         }
     }
 }

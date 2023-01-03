@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: placementSettings
       value: 
       objectReference: {fileID: 11400000, guid: d1429cfc6682f2a42990412aeacb519d, type: 2}
+    - target: {fileID: 2871194862869421419, guid: 51afa3afedf2883498a3c53d3be2c965, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1737428125317346902}
     - target: {fileID: 3970569248854470648, guid: 51afa3afedf2883498a3c53d3be2c965, type: 3}
       propertyPath: acceptableItems.Array.size
       value: 6
@@ -169,8 +173,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   establisher: {fileID: -661783056724191373}
+  behaviour: {fileID: 6394396835517606813}
   scanRadius: 3
-  transferBehaviour: {fileID: 6394396835517606813}
 --- !u!114 &8357550616653878366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,8 +188,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   establisher: {fileID: -661783056724191373}
+  behaviour: {fileID: 1095571597798889887}
   scanRadius: 3
-  pickUpBehaviour: {fileID: 1095571597798889887}
 --- !u!1 &4341465891043500647 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8608856305999937716, guid: 51afa3afedf2883498a3c53d3be2c965, type: 3}
@@ -246,21 +250,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placementSettings: {fileID: 11400000, guid: d1429cfc6682f2a42990412aeacb519d, type: 2}
---- !u!1 &6351403301156140253 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1397108390210754062, guid: 51afa3afedf2883498a3c53d3be2c965, type: 3}
-  m_PrefabInstance: {fileID: 5424358199666762451}
-  m_PrefabAsset: {fileID: 0}
---- !u!135 &6598656659585090025
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6351403301156140253}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2
-  m_Center: {x: 0, y: 0, z: 0}

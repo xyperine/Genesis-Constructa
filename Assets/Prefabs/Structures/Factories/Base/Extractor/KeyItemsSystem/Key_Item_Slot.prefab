@@ -216,6 +216,10 @@ PrefabInstance:
       propertyPath: acceptableItems.Array.data[0]
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6073362848563204875, guid: 7eeca783324f41a438b5c4e74510994c, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 444404547620285531}
     - target: {fileID: 6094623028839469024, guid: 7eeca783324f41a438b5c4e74510994c, type: 3}
       propertyPath: placementSettings
       value: 
@@ -228,24 +232,6 @@ PrefabInstance:
     - {fileID: 4938804365099491736, guid: 7eeca783324f41a438b5c4e74510994c, type: 3}
     - {fileID: 7375568765460743689, guid: 7eeca783324f41a438b5c4e74510994c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7eeca783324f41a438b5c4e74510994c, type: 3}
---- !u!1 &3161612701553697033 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6986179765200935022, guid: 7eeca783324f41a438b5c4e74510994c, type: 3}
-  m_PrefabInstance: {fileID: 5409856122719467879}
-  m_PrefabAsset: {fileID: 0}
---- !u!135 &1101425497016662232
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3161612701553697033}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5763206329409763251 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 353724865282969300, guid: 7eeca783324f41a438b5c4e74510994c, type: 3}
@@ -264,6 +250,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acceptableItems: 00000000
+  guid:
+    value: 
   itemsAmountPanelData: {fileID: 3430916215857730030}
 --- !u!114 &3430916215857730030
 MonoBehaviour:

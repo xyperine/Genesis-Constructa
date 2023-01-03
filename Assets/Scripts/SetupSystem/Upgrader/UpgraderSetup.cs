@@ -13,8 +13,7 @@ namespace ColonizationMobileGame.SetupSystem.Upgrader
         public void SetData(TUpgraderSetupData setupData)
         {
             builder.SetData(setupData);
-            builder.SetupCollider();
-            
+
 #if UNITY_EDITOR
             EditorUtility.SetDirty(gameObject);
 #endif

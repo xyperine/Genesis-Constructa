@@ -9,12 +9,6 @@ namespace ColonizationMobileGame.SetupSystem.Upgrader.StackZones
     {
         [SerializeField] private StackZoneUpgrader upgrader;
         
-        
-        public override void SetupCollider()
-        {
-            collider.radius = setupData.ColliderRadius;
-        }
-
 
         protected override void SetupItemsConsumer()
         {

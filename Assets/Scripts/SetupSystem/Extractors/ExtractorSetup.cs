@@ -15,9 +15,8 @@ namespace ColonizationMobileGame.SetupSystem.Extractors
         [SerializeField] private bool upgradeable;
         [SerializeField, ShowIf(nameof(upgradeable))] private ExtractorUpgraderSetup upgraderSetup;
         [SerializeField, ShowIf(nameof(upgradeable))] private ExtractorUpgradesChainSO upgradesChain;
-        [SerializeField, ShowIf(nameof(upgradeable)), Range(1f, 10f)] private float upgraderColliderRadius;
-        
-        
+
+
         private void OnEnable()
         {
             if (!upgradeable)
@@ -26,7 +25,7 @@ namespace ColonizationMobileGame.SetupSystem.Extractors
             }
 
             ExtractorUpgraderSetupData data = new ExtractorUpgraderSetupData(upgradesChain,
-                new IUpgradeable<ExtractorUpgradeData>[] {productionZone, productionUnit}, upgraderColliderRadius);
+                new IUpgradeable<ExtractorUpgradeData>[] {productionZone, productionUnit});
             
             upgraderSetup.SetData(data);
         }

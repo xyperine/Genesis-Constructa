@@ -28,6 +28,12 @@ namespace ColonizationMobileGame.SetupSystem.StackZones
         [Indent]
         [PropertySpace(SpaceBefore = 0, SpaceAfter = 8)]
         private InteractionsList interactions;
+        
+        [SerializeField]
+        [ShowIf(nameof(interactWithOthers))]
+        [PropertySpace(SpaceBefore = 0, SpaceAfter = 8)]
+        [Range(0.1f, 10f)]
+        private float scanRadius;
 
         [SerializeField]
         [LabelWidth(300f)]
@@ -44,11 +50,6 @@ namespace ColonizationMobileGame.SetupSystem.StackZones
         [PropertySpace(SpaceBefore = 0, SpaceAfter = 8)]
         private InteractionType interactionWithPlayerType;
 
-        [SerializeField] 
-        [HideReferenceObjectPicker]
-        [PropertySpace(SpaceBefore = 0, SpaceAfter = 8)]
-        private StackZoneColliderPicker colliderData;
-
         [SerializeField]
         [LabelWidth(300f)]
         private bool upgradeableOnItsOwn;
@@ -57,30 +58,21 @@ namespace ColonizationMobileGame.SetupSystem.StackZones
         [ShowIf(nameof(upgradeableOnItsOwn))]
         [Indent]
         private StackZoneUpgradesChainSO upgradesChain;
-        
-        [SerializeField] 
-        [ShowIf(nameof(upgradeableOnItsOwn))]
-        [Indent]
-        [Range(1f, 10f)]
-        private float upgraderColliderRadius;
-        
+
         public PlacementAreaSettingsSO PlacementSettings => placementSettings;
         
         public ItemType[] AcceptableItems => acceptableItems;
 
         public bool InteractWithOthers => interactWithOthers;
         public InteractionsList Interactions => interactions;
+        public float ScanRadius => scanRadius;
 
         public bool InteractWithPlayer => interactWithPlayer;
         public PlayerInteractionsSO PlayerInteractionsSO => playerInteractionsSO;
         public InteractionType InteractionWithPlayerType => interactionWithPlayerType;
         
-        public StackZoneColliderPicker ColliderData => colliderData;
-
         public bool UpgradeableOnItsOwn => upgradeableOnItsOwn;
         public StackZoneUpgradesChainSO UpgradesChain => upgradesChain;
-
-        public float UpgraderColliderRadius => upgraderColliderRadius;
 
 
         public StackZoneSetupData()
@@ -95,13 +87,12 @@ namespace ColonizationMobileGame.SetupSystem.StackZones
             acceptableItems = data.acceptableItems;
             interactWithOthers = data.interactWithOthers;
             interactions = data.interactions;
+            scanRadius = data.scanRadius;
             interactWithPlayer = data.interactWithPlayer;
             playerInteractionsSO = data.playerInteractionsSO;
             interactionWithPlayerType = data.interactionWithPlayerType;
-            colliderData = data.colliderData;
             upgradeableOnItsOwn = data.upgradeableOnItsOwn;
             upgradesChain = data.upgradesChain;
-            upgraderColliderRadius = data.upgraderColliderRadius;
         }
     }
 }

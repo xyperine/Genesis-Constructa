@@ -9,12 +9,6 @@ namespace ColonizationMobileGame.SetupSystem.Upgrader.Extractors
     {
         [SerializeField] private ExtractorUpgrader upgrader;
 
-        
-        public override void SetupCollider()
-        {
-            collider.radius = setupData.ColliderRadius;
-        }
-
 
         protected override void SetupItemsConsumer()
         {

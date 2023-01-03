@@ -315,6 +315,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 665097496027264593, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
+      propertyPath: data.scanRadius
+      value: 3.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 665097496027264593, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
+      propertyPath: savedData.scanRadius
+      value: 3.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 665097496027264593, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
       propertyPath: data.placementSettings
       value: 
       objectReference: {fileID: 11400000, guid: 9334772f76f99c4439f9e92f525ca582, type: 2}
@@ -323,12 +331,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 9334772f76f99c4439f9e92f525ca582, type: 2}
     - target: {fileID: 665097496027264593, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
+      propertyPath: buildController.data.scanRadius
+      value: 3.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 665097496027264593, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
       propertyPath: data.acceptableItems.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 665097496027264593, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
       propertyPath: data.acceptableItems.Array.data[0]
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 665097496027264593, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
       propertyPath: savedData.acceptableItems.Array.size
@@ -340,7 +352,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 9334772f76f99c4439f9e92f525ca582, type: 2}
     - target: {fileID: 665097496027264593, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
       propertyPath: savedData.acceptableItems.Array.data[0]
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 665097496027264593, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
       propertyPath: buildController.data.acceptableItems.Array.size
@@ -348,7 +360,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 665097496027264593, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
       propertyPath: buildController.data.acceptableItems.Array.data[0]
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1558102619949006949, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -368,7 +380,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 9334772f76f99c4439f9e92f525ca582, type: 2}
     - target: {fileID: 2799176387269271418, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.07
+      value: -0.221
       objectReference: {fileID: 0}
     - target: {fileID: 2799176387269271418, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -376,7 +388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2799176387269271418, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.22
+      value: 1.52
       objectReference: {fileID: 0}
     - target: {fileID: 3188430943453929338, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
       propertyPath: acceptableItems.Array.size
@@ -385,6 +397,10 @@ PrefabInstance:
     - target: {fileID: 3188430943453929338, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
       propertyPath: acceptableItems.Array.data[0]
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101665617071659480, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
+      propertyPath: scanRadius
+      value: 3.55
       objectReference: {fileID: 0}
     - target: {fileID: 5332051562272080925, guid: 01d3781630fe4b24fb23bb2ac17534d7, type: 3}
       propertyPath: m_SizeDelta.x

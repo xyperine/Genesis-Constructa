@@ -1,22 +1,11 @@
-﻿using ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup.Establisher;
-using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
-using UnityEngine;
+﻿using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
 
 namespace ColonizationMobileGame.ItemsPlacementsInteractions.PickUp
 {
-    public class PickUpsInteractor : StackZoneInteractor<StackZoneItem>
+    public class PickUpsInteractor : StackZoneInteractor<StackZoneItem, PickUpStackZoneBehaviour>
     {
-        [SerializeField] private PickUpStackZoneBehaviour pickUpBehaviour;
-
-        protected override bool CanScan => pickUpBehaviour.EnoughSpace;
-
-
-        public void Setup(InteractionsEstablisher establisher, PickUpStackZoneBehaviour pickUpBehaviour)
-        {
-            this.establisher = establisher;
-            this.pickUpBehaviour = pickUpBehaviour;
-        }
-
+        protected override bool CanScan => behaviour.EnoughSpace;
+        
 
         protected override void InteractWith(StackZoneItem item)
         {
@@ -36,7 +25,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.PickUp
                 return;
             }
 
-            pickUpBehaviour.PickUpItem(item);
+            behaviour.PickUpItem(item);
         }
     }
 }

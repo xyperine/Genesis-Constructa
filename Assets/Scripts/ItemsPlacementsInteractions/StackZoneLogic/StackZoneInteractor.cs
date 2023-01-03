@@ -3,11 +3,13 @@ using UnityEngine;
 
 namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
 {
-    public abstract class StackZoneInteractor<TObject> : MonoBehaviour, IInteractablesTrackerUser
+    public abstract class StackZoneInteractor<TObject, TBehaviour> : MonoBehaviour, IInteractablesTrackerUser
         where TObject : MonoBehaviour
+        where TBehaviour : MonoBehaviour
     {
         [SerializeField] protected InteractionsEstablisher establisher;
-        [SerializeField, Range(0f, 10f)] private float scanRadius = 1f;
+        [SerializeField] protected TBehaviour behaviour;
+        [SerializeField, Range(0f, 10f)] protected float scanRadius = 1f;
 
         private InteractablesTracker _interactablesTracker;
         
@@ -17,6 +19,14 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
         public void SetInteractablesTracker(InteractablesTracker interactablesTracker)
         {
             _interactablesTracker = interactablesTracker;
+        }
+        
+        
+        public void Setup(InteractionsEstablisher establisher, TBehaviour behaviour, float scanRadius)
+        {
+            this.establisher = establisher;
+            this.behaviour = behaviour;
+            this.scanRadius = scanRadius;
         }
 
 

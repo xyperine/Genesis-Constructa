@@ -9,7 +9,6 @@ namespace ColonizationMobileGame.SetupSystem.Upgrader
         where TSetupData : UpgraderSetupData
     {
         [SerializeField] protected ItemsConsumer consumer;
-        [SerializeField] protected SphereCollider collider;
 
         [SerializeField, HideInInspector] protected TSetupData setupData;
 
@@ -32,10 +31,7 @@ namespace ColonizationMobileGame.SetupSystem.Upgrader
 
             SetupUpgrader();
         }
-
-
-        public abstract void SetupCollider();
-
+        
 
         protected abstract void SetupItemsConsumer();
 

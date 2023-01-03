@@ -8,8 +8,8 @@ namespace ColonizationMobileGame.SetupSystem.Upgrader.Extractors
     [Serializable]
     public class ExtractorUpgraderSetupData : UpgraderSetupData<IUpgradeable<ExtractorUpgradeData>, ExtractorUpgradesChainSO, ExtractorUpgradeData>
     {
-        public ExtractorUpgraderSetupData(ExtractorUpgradesChainSO chainSO, IEnumerable<IUpgradeable<ExtractorUpgradeData>> upgradeables, float colliderRadius) 
-            : base(chainSO, upgradeables, colliderRadius)
+        public ExtractorUpgraderSetupData(ExtractorUpgradesChainSO chainSO, IEnumerable<IUpgradeable<ExtractorUpgradeData>> upgradeables) 
+            : base(chainSO, upgradeables)
         {
         }
     }

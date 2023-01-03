@@ -4,6 +4,7 @@ using ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup;
 using ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup.Establisher;
 using ColonizationMobileGame.ItemsPlacementsInteractions.PickUp;
 using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
+using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
 using ColonizationMobileGame.ItemsPlacementsInteractions.Transfer;
 using ColonizationMobileGame.SetupSystem.StackZones.Markers;
 using ColonizationMobileGame.Utility;
@@ -65,11 +66,12 @@ namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
                 rootGameObject.GetChildByMarker(typeof(InteractionsWithOthersSetupMarker));
 
             _establisher = objForInteractionsWithOthers.GetComponent<DefaultInteractionsEstablisher>();
-            Rigidbody rigidBody = objForInteractionsWithOthers.GetComponent<Rigidbody>();
-            
+            InteractionTargetReference targetReference =
+                objForInteractionsWithOthers.GetComponent<InteractionTargetReference>();
+
             data.Interactions.SetHolder(zone);
             _establisher.Setup(data.Interactions);
-            rigidBody.useGravity = false;
+            targetReference.Setup(zone);
         }
 
 
@@ -94,7 +96,7 @@ namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
             if (data.Interactions.InteractionTypes.Contains(InteractionType.Transfer))
             {
                 transferBehaviour.Setup(zone);
-                transfersInteractor.Setup(_establisher, transferBehaviour);
+                transfersInteractor.Setup(_establisher, transferBehaviour, data.ScanRadius);
                 
                 return;
             }
@@ -112,7 +114,7 @@ namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
             if (data.Interactions.InteractionTypes.Contains(InteractionType.PickUp))
             {
                 pickupBehaviour.Setup(zone);
-                pickUpsInteractor.Setup(_establisher, pickupBehaviour);
+                pickUpsInteractor.Setup(_establisher, pickupBehaviour, data.ScanRadius);
                 
                 return;
             }
