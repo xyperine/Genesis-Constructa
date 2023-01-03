@@ -54,7 +54,8 @@ namespace ColonizationMobileGame.Initialization
 
             GameObject[] rootGameObjects = SceneManager.GetSceneByName(sceneName).GetRootGameObjects();
             
-            DOTween.SetTweensCapacity(350, 50);
+            DOTween.SetTweensCapacity(875, 50);
+            
             dependenciesResolver.ResolveBeforeRestoringSave(rootGameObjects);
             tasksInitializer.InitializeTasks();
             
