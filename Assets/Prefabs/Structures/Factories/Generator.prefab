@@ -245,6 +245,19 @@ MonoBehaviour:
   meshRenderer: {fileID: 9025889438870475046}
   lightMaterial: {fileID: 2100000, guid: 75a557af5126b5c4e8dbbc6970fae8a4, type: 2}
   lightLevel: 1
+--- !u!65 &590085982600674253
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927339914064175206}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.25, y: 2.79, z: 3.25}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &9025889438870475046 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 5381584988023018117, guid: b3134d23e164987449c78b0f4fca2986, type: 3}

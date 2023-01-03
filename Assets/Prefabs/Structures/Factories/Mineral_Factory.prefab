@@ -243,6 +243,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyItemsSet: {fileID: 3010825706350174294}
+--- !u!1 &7452216469721855333 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7327208882872705989, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+  m_PrefabInstance: {fileID: 199546848445257376}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &396300457245239242
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7452216469721855333}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.2500014, y: 2.9, z: 4.6680994}
+  m_Center: {x: 0, y: 0, z: -0.021549106}
 --- !u!4 &9178262467743909618 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9050920066875248722, guid: b3134d23e164987449c78b0f4fca2986, type: 3}

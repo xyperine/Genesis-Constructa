@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8598214156470909945}
   - component: {fileID: 1362742253373044893}
   - component: {fileID: 2410065957580381516}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cable_Port.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,8 @@ GameObject:
   - component: {fileID: 2046669078126346439}
   - component: {fileID: 6742898584209938507}
   - component: {fileID: 6817026360709496646}
-  m_Layer: 0
+  - component: {fileID: 5035507493500058508}
+  m_Layer: 8
   m_Name: Key_Item_Slot.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,6 +170,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5035507493500058508
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80800538029923357}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2551856, y: 2.2343283, z: 1.2551856}
+  m_Center: {x: 0, y: 0.48226118, z: 0}
 --- !u!1 &317324359492482248
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,7 +194,7 @@ GameObject:
   - component: {fileID: 944417306968048131}
   - component: {fileID: 300558987034980497}
   - component: {fileID: 3378349333911775062}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cable.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +277,7 @@ GameObject:
   - component: {fileID: 7026997228947231889}
   - component: {fileID: 4465897680220685185}
   - component: {fileID: 9060683299307885553}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cable.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +360,8 @@ GameObject:
   - component: {fileID: 7883531112078053656}
   - component: {fileID: 8872525888864219527}
   - component: {fileID: 8847265749143389334}
-  m_Layer: 0
+  - component: {fileID: 3460257011976820774}
+  m_Layer: 8
   m_Name: Carbon_Compressor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -422,6 +437,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3460257011976820774
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694430745877052369}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.966703, y: 3.28, z: 4.9795446}
+  m_Center: {x: -0.14036632, y: 0, z: -0.04996741}
 --- !u!1 &2320440951227682665
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,7 +461,8 @@ GameObject:
   - component: {fileID: 5077330251009252305}
   - component: {fileID: 5027787291652595209}
   - component: {fileID: 4217494486282930420}
-  m_Layer: 0
+  - component: {fileID: 2376491583094382088}
+  m_Layer: 8
   m_Name: Key_Item_Slot.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,6 +537,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2376491583094382088
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2320440951227682665}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2551856, y: 2.2343283, z: 1.2551856}
+  m_Center: {x: 0, y: 0.48226118, z: 0}
 --- !u!1 &2775563560488139300
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,7 +561,7 @@ GameObject:
   - component: {fileID: 7996894154408411926}
   - component: {fileID: 6176857217999860115}
   - component: {fileID: 7385666533987570778}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cable.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -602,7 +644,7 @@ GameObject:
   - component: {fileID: 6375017327910649800}
   - component: {fileID: 6935531418222347380}
   - component: {fileID: 6029450506678409117}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cable_Port.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -685,7 +727,7 @@ GameObject:
   - component: {fileID: 8373813180756958935}
   - component: {fileID: 5371136709008669331}
   - component: {fileID: 1142973826728608235}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Generator_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -770,7 +812,7 @@ GameObject:
   - component: {fileID: 2826797197127420708}
   - component: {fileID: 8149607635324366004}
   - component: {fileID: 7526007334120300370}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cable_Port.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -853,7 +895,7 @@ GameObject:
   - component: {fileID: 663096550635752272}
   - component: {fileID: 1671716703655887295}
   - component: {fileID: 999014296432671520}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cable_Port.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -934,7 +976,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5673705564690604563}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Carbon_Compressor_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -985,7 +1027,7 @@ GameObject:
   - component: {fileID: 8748769921995761323}
   - component: {fileID: 4263277458023949632}
   - component: {fileID: 9215724018517477053}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cable.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1068,7 +1110,8 @@ GameObject:
   - component: {fileID: 4924900999583152799}
   - component: {fileID: 9137349976711795141}
   - component: {fileID: 6671224651257045046}
-  m_Layer: 0
+  - component: {fileID: 2261062131970704510}
+  m_Layer: 8
   m_Name: Conversion_Items_Plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1142,6 +1185,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2261062131970704510
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5387370515021672367}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2256429, y: 0.21216542, z: 1.7194674}
+  m_Center: {x: -0.0000002682209, y: 0.024875116, z: 0}
 --- !u!1 &5661827416388887346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,7 +1209,8 @@ GameObject:
   - component: {fileID: 7428559569505198344}
   - component: {fileID: 4315914267991124189}
   - component: {fileID: 4519022819023307631}
-  m_Layer: 0
+  - component: {fileID: 4621130537301692719}
+  m_Layer: 8
   m_Name: Key_Item_Slot.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1228,6 +1285,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4621130537301692719
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5661827416388887346}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2551856, y: 2.2343283, z: 1.2551856}
+  m_Center: {x: 0, y: 0.48226118, z: 0}
 --- !u!1 &6360582172911221438
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,7 +1309,7 @@ GameObject:
   - component: {fileID: 6368996945031982540}
   - component: {fileID: 2242958110133042882}
   - component: {fileID: 4983121129867501684}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cable.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1322,7 +1392,7 @@ GameObject:
   - component: {fileID: 7198209320918999804}
   - component: {fileID: 8444822032376246483}
   - component: {fileID: 9199875451149107775}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cable_Port.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1405,7 +1475,7 @@ GameObject:
   - component: {fileID: 1506374588936304005}
   - component: {fileID: 3387073978232100669}
   - component: {fileID: 1957042059011370574}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cable_Port.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1488,7 +1558,8 @@ GameObject:
   - component: {fileID: 6300461676529604079}
   - component: {fileID: 3694406619978397027}
   - component: {fileID: 3352261987480500026}
-  m_Layer: 0
+  - component: {fileID: 2833110230070988376}
+  m_Layer: 8
   m_Name: Key_Item_Slot.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1563,3 +1634,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2833110230070988376
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8101614959303309419}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2551856, y: 2.2343283, z: 1.2551856}
+  m_Center: {x: 0, y: 0.48226118, z: 0}

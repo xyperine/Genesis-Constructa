@@ -760,7 +760,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5041460418153429161, guid: dfbd8ff7a3df67b45bd6eeeb7891502d, type: 3}
       propertyPath: m_Name
-      value: Carbon_Compressor_Model
+      value: Model
       objectReference: {fileID: 0}
     - target: {fileID: 5673705564690604563, guid: dfbd8ff7a3df67b45bd6eeeb7891502d, type: 3}
       propertyPath: m_RootOrder
