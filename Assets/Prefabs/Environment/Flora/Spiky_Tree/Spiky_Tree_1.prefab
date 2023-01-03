@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7702317212807810616}
   - component: {fileID: 6722743013950767517}
   - component: {fileID: 8840298263976785239}
+  - component: {fileID: 2933261956877652788}
   m_Layer: 7
   m_Name: Spiky_Tree_1
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &2933261956877652788
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7039108757774210178}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.64
+  m_Height: 4.1320915
+  m_Direction: 1
+  m_Center: {x: -0.09740242, y: 2.0660458, z: -0.043280065}

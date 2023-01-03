@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5723597315298813037}
   - component: {fileID: 7681559968008724294}
   - component: {fileID: 1176767212307850795}
+  - component: {fileID: 2624868341559358811}
   m_Layer: 7
   m_Name: Fruit_Tree_Big
   m_TagString: Untagged
@@ -85,3 +86,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &2624868341559358811
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4910504427237129943}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.29
+  m_Height: 7.85
+  m_Direction: 1
+  m_Center: {x: 0.13508262, y: 2.5662653, z: -0.25168517}

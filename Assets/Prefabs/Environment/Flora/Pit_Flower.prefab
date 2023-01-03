@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1512379787234190813}
   - component: {fileID: 5355086111939253782}
   - component: {fileID: 4848152402416975501}
+  - component: {fileID: 3507500460667064843}
   m_Layer: 7
   m_Name: Pit_Flower
   m_TagString: Untagged
@@ -86,3 +87,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &3507500460667064843
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2285257728461078375}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 1, z: 0}
