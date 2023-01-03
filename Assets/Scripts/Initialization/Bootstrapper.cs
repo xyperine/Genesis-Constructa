@@ -52,11 +52,9 @@ namespace ColonizationMobileGame.Initialization
             AsyncOperation loading = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
             yield return new WaitUntil(() => loading.isDone);
 
-            GameObject[] rootGameObjects = SceneManager.GetSceneByName(sceneName).GetRootGameObjects();
-            
             DOTween.SetTweensCapacity(875, 50);
             
-            dependenciesResolver.ResolveBeforeRestoringSave(rootGameObjects);
+            dependenciesResolver.ResolveBeforeRestoringSave();
             tasksInitializer.InitializeTasks();
             
             saveLoadManager.Initialize();

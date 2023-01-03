@@ -15,49 +15,66 @@ namespace ColonizationMobileGame.Initialization
         [SerializeField] private TutorialBuilder tutorialBuilder;
         
         private LevelData _levelData;
-        
-        
-        public void ResolveBeforeRestoringSave(GameObject[] rootGameObjects)
+        private InteractablesTracker _interactablesTracker;
+        private ScoreModifier _scoreModifier;
+        private ArrowPointersTargetsManager _arrowPointersTargetsManager;
+
+        private Component[] _allComponents;
+
+
+        public void ResolveBeforeRestoringSave()
         {
-            _levelData = FindObjectOfType<LevelData>();
+            GetObjects();
             
+            SetDependencies();
+        }
+
+
+        private void GetObjects()
+        {
+            _allComponents = FindObjectsOfType<Component>(true);
+            
+            _levelData = FindObjectOfType<LevelData>();
+            _interactablesTracker = FindObjectOfType<InteractablesTracker>();
+            _scoreModifier = FindObjectOfType<ScoreModifier>();
+            _arrowPointersTargetsManager = FindObjectOfType<ArrowPointersTargetsManager>();
+        }
+
+
+        private void SetDependencies()
+        {
             SetInteractablesTracker();
 
-            foreach (GameObject rootGameObject in rootGameObjects)
-            {
-                SetCameraForCanvases(rootGameObject);
-                SetLevelData(rootGameObject);
-            }
+            SetCameraForCanvases(); 
+            SetLevelData();
 
             SetScoreModifier();
         }
 
 
-        private static void SetInteractablesTracker()
+        private void SetInteractablesTracker()
         {
-            InteractablesTracker interactablesTracker = FindObjectOfType<InteractablesTracker>();
-            foreach (IInteractablesTrackerUser dataUser in FindObjectsOfType<MonoBehaviour>(true)
-                         .OfType<IInteractablesTrackerUser>())
+            foreach (IInteractablesTrackerUser dataUser in _allComponents.OfType<IInteractablesTrackerUser>())
             {
-                dataUser.SetInteractablesTracker(interactablesTracker);
+                dataUser.SetInteractablesTracker(_interactablesTracker);
             }
         }
 
 
-        private void SetCameraForCanvases(GameObject rootGameObject)
+        private void SetCameraForCanvases()
         {
-            foreach (Canvas canvas in rootGameObject.GetComponentsInChildren<Canvas>(true))
+            foreach (Canvas canvas in _allComponents.OfType<Canvas>())
             {
                 canvas.worldCamera = Camera.main;
             }
         }
 
 
-        private void SetLevelData(GameObject rootGameObject)
+        private void SetLevelData()
         {
             tasksInitializer.SetLevelData(_levelData);
             
-            foreach (ILevelDataUser dataUser in rootGameObject.GetComponentsInChildren<ILevelDataUser>(true))
+            foreach (ILevelDataUser dataUser in _allComponents.OfType<ILevelDataUser>())
             {
                 dataUser.SetLevelData(_levelData);
             }
@@ -66,14 +83,14 @@ namespace ColonizationMobileGame.Initialization
 
         private void SetScoreModifier()
         {
-            ScoreModifier scoreModifier = FindObjectOfType<ScoreModifier>();
-            tasksInitializer.SetScoreCounter(scoreModifier);
+            tasksInitializer.SetScoreCounter(_scoreModifier);
         }
 
 
         public void ResolveAfterRestoringSave()
         {
             SetArrowPointerTargetFactory();
+            
             tutorialBuilder.Completed += SetArrowPointerTargetFactory;
         }
 
@@ -90,7 +107,7 @@ namespace ColonizationMobileGame.Initialization
                 targetsFactory = new TutorialTargetsFactory();
             }
 
-            FindObjectOfType<ArrowPointersTargetsManager>().SetFactory(targetsFactory);
+            _arrowPointersTargetsManager.SetFactory(targetsFactory);
         }
     }
 }
