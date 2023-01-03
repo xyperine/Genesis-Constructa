@@ -14,7 +14,7 @@ namespace ColonizationMobileGame.Level
         private Dictionary<ItemType, int> _itemsInStorage = Helpers.EnumToDictionary<ItemType, int>(0);
 
         public IReadOnlyList<Structure> Structures => _structures;
-        public ReadOnlyDictionary<ItemType, int> ItemsInStorage => new ReadOnlyDictionary<ItemType, int>(_itemsInStorage);
+        public IReadOnlyDictionary<ItemType, int> ItemsInStorage => _itemsInStorage;
 
         public event Action Changed;
 
