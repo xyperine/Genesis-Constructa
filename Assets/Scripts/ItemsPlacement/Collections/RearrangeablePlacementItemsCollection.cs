@@ -12,7 +12,7 @@ namespace ColonizationMobileGame.ItemsPlacement.Collections
         public int FirstNullIndex => LastNonNullIndex + 1;
         public int Count => _items.Count(i => i != null);
 
-        public IEnumerable<PlacementItem> Items => new List<PlacementItem>(_items);
+        public IReadOnlyList<PlacementItem> Items => _items;
 
 
         public RearrangeablePlacementItemsCollection(int count)

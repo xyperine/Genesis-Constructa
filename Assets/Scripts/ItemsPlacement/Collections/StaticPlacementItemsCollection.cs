@@ -11,7 +11,7 @@ namespace ColonizationMobileGame.ItemsPlacement.Collections
         public int FirstNullIndex => Array.IndexOf(_items, null);
         public int Count => _items.Count(i => i != null);
         
-        public IEnumerable<PlacementItem> Items => (IEnumerable<PlacementItem>)_items.Clone();
+        public IReadOnlyList<PlacementItem> Items => _items;
 
 
         public StaticPlacementItemsCollection(int size)

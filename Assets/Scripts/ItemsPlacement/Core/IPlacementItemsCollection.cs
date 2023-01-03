@@ -6,7 +6,7 @@ namespace ColonizationMobileGame.ItemsPlacement.Core
     {
         int FirstNullIndex { get; }
         int Count { get; }
-        IEnumerable<PlacementItem> Items { get; }
+        IReadOnlyList<PlacementItem> Items { get; }
 
         void Add(PlacementItem item);
         void Remove(PlacementItem item);
