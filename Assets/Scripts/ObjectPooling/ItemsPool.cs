@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace ColonizationMobileGame.ObjectPooling
 {
-    public class ItemsPool : MonoBehaviour, ISceneSaveable
+    public class ItemsPool : MonoBehaviour, ISceneSaveable, IInteractablesTrackerUser
     {
         [SerializeField] private ItemPoolEntry[] prefabs;
         [SerializeField, Range(100, 500)] private int initialCount = 100;
@@ -22,11 +22,25 @@ namespace ColonizationMobileGame.ObjectPooling
 
         private Dictionary<string, ItemType[]> _itemsInZones;
         private PoolItemsDistributor _itemsDistributor;
+
+        private InteractablesTracker _interactablesTracker;
         
         public int LoadingOrder => 15;
+
         public PermanentGuid Guid => guid;
 
-        
+
+        public void SetInteractablesTracker(InteractablesTracker interactablesTracker)
+        {
+            _interactablesTracker = interactablesTracker;
+
+            for (int i = 0; i < _allItems.Count; i++)
+            {
+                _interactablesTracker.RegisterObject(_allItems[i]);
+            }
+        }
+
+
         private void Awake()
         {
             _itemsDistributor = new PoolItemsDistributor(this);
@@ -69,8 +83,13 @@ namespace ColonizationMobileGame.ObjectPooling
             
             _allItems.Add(obj);
             AddObject(obj);
+
+            if (!_interactablesTracker)
+            {
+                return;
+            }
             
-            Interactables.RegisterObject(obj);
+            _interactablesTracker.RegisterObject(obj);
         }
 
 

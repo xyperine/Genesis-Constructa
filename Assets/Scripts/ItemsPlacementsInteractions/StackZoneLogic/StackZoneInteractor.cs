@@ -3,15 +3,23 @@ using UnityEngine;
 
 namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
 {
-    public abstract class StackZoneInteractor<TObject> : MonoBehaviour
+    public abstract class StackZoneInteractor<TObject> : MonoBehaviour, IInteractablesTrackerUser
         where TObject : MonoBehaviour
     {
         [SerializeField] protected InteractionsEstablisher establisher;
         [SerializeField, Range(0f, 10f)] private float scanRadius = 1f;
 
+        private InteractablesTracker _interactablesTracker;
+        
         protected abstract bool CanScan { get; }
 
-        
+
+        public void SetInteractablesTracker(InteractablesTracker interactablesTracker)
+        {
+            _interactablesTracker = interactablesTracker;
+        }
+
+
         private void Update()
         { 
             Scan();
@@ -24,8 +32,13 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
             {
                 return;
             }
+
+            if (!_interactablesTracker)
+            {
+                return;
+            }
             
-            int[] objectIDsInRadius = Interactables.GetObjectIDsInRadiusAround(transform.position, scanRadius);
+            int[] objectIDsInRadius = _interactablesTracker.GetObjectIDsInRadiusAround(transform.position, scanRadius);
 
             for (int i = 0; i < objectIDsInRadius.Length; i++)
             {
@@ -36,7 +49,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
 
         private void TryToInteractWith(int objID)
         {
-            if (!Interactables.IDsToObjectsMap.TryGetValue(objID, out MonoBehaviour value))
+            if (!_interactablesTracker.IDsToObjectsMap.TryGetValue(objID, out MonoBehaviour value))
             {
                 return;
             }
@@ -46,7 +59,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
                 return;
             }
             
-            TObject obj = (TObject) Interactables.IDsToObjectsMap[objID];
+            TObject obj = (TObject) _interactablesTracker.IDsToObjectsMap[objID];
             
             InteractWith(obj);
         }

@@ -1,4 +1,5 @@
-﻿using ColonizationMobileGame.Level;
+﻿using System.Linq;
+using ColonizationMobileGame.Level;
 using ColonizationMobileGame.ScoreSystem;
 using ColonizationMobileGame.TasksSystem;
 using ColonizationMobileGame.TutorialSystem;
@@ -20,6 +21,8 @@ namespace ColonizationMobileGame.Initialization
         {
             _levelData = FindObjectOfType<LevelData>();
             
+            SetInteractablesTracker();
+
             foreach (GameObject rootGameObject in rootGameObjects)
             {
                 SetCameraForCanvases(rootGameObject);
@@ -28,8 +31,19 @@ namespace ColonizationMobileGame.Initialization
 
             SetScoreModifier();
         }
-        
-        
+
+
+        private static void SetInteractablesTracker()
+        {
+            InteractablesTracker interactablesTracker = FindObjectOfType<InteractablesTracker>();
+            foreach (IInteractablesTrackerUser dataUser in FindObjectsOfType<MonoBehaviour>(true)
+                         .OfType<IInteractablesTrackerUser>())
+            {
+                dataUser.SetInteractablesTracker(interactablesTracker);
+            }
+        }
+
+
         private void SetCameraForCanvases(GameObject rootGameObject)
         {
             foreach (Canvas canvas in rootGameObject.GetComponentsInChildren<Canvas>(true))

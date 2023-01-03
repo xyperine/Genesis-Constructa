@@ -6,11 +6,12 @@ using ColonizationMobileGame.ObjectPooling;
 using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.Structures;
 using ColonizationMobileGame.UI.ItemsAmount.Data;
+using ColonizationMobileGame.Utility;
 using UnityEngine;
 
 namespace ColonizationMobileGame.BuildSystem
 {
-    public sealed class Builder : MonoBehaviour, IItemsAmountDataProvider, ILevelDataUser, ISceneSaveable
+    public sealed class Builder : MonoBehaviour, IItemsAmountDataProvider, ILevelDataUser, ISceneSaveable, IInteractablesTrackerUser
     {
         [SerializeField] private BuildDataSO buildDataSO;
         [SerializeField] private Transform structuresParent;
@@ -21,6 +22,7 @@ namespace ColonizationMobileGame.BuildSystem
         [SerializeField, HideInInspector] private PermanentGuid guid;
         
         private LevelData _levelData;
+        private InteractablesTracker _interactablesTracker;
 
         private BuildData _buildData;
 
@@ -40,7 +42,13 @@ namespace ColonizationMobileGame.BuildSystem
         {
             _levelData = levelData;
         }
-        
+
+
+        public void SetInteractablesTracker(InteractablesTracker interactablesTracker)
+        {
+            _interactablesTracker = interactablesTracker;
+        }
+
 
         private void Awake()
         {
@@ -59,8 +67,8 @@ namespace ColonizationMobileGame.BuildSystem
             _buildData.Unlocked += OnUnlocked;
             gameObject.SetActive(false);
         }
-        
-        
+
+
         private void SetupPrice()
         {
             consumer.Setup(_buildData.Price);
@@ -70,12 +78,23 @@ namespace ColonizationMobileGame.BuildSystem
 
         private void Build()
         {
-            GameObject structureObject = Instantiate(_buildData.StructurePrefab, transform.position, Quaternion.identity, structuresParent);
+            GameObject structureObject = Instantiate(_buildData.StructurePrefab, transform.position,
+                Quaternion.identity, structuresParent);
+            IInteractablesTrackerUser[] interactablesTrackerUsers =
+                structureObject.GetComponentsInChildren<IInteractablesTrackerUser>();
             ExtractorProductionUnit productionUnit = structureObject.GetComponentInChildren<ExtractorProductionUnit>();
 
             if (structureObject.TryGetComponent(out Structure structure))
             {
                 structure.Setup(_buildData.Identifier.StructureType, _buildData.MaxLevel);
+            }
+
+            if (!interactablesTrackerUsers.IsNullOrEmpty())
+            {
+                for (int i = 0; i < interactablesTrackerUsers.Length; i++)
+                {
+                    interactablesTrackerUsers[i]?.SetInteractablesTracker(_interactablesTracker);
+                }
             }
 
             if (structureObject.TryGetComponent(out _structureSaveResolver))
@@ -122,8 +141,8 @@ namespace ColonizationMobileGame.BuildSystem
             
             SetItemsAmountData();
         }
-        
-        
+
+
         public void SetItemsAmountData()
         {
             itemsAmountPanelData.SetData(_buildData.Price.ToItemsAmount());
@@ -157,7 +176,7 @@ namespace ColonizationMobileGame.BuildSystem
             SetItemsAmountData();
         }
 
-        
+
         [Serializable]
         private struct SaveData
         {

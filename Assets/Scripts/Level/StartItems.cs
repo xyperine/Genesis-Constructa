@@ -8,15 +8,34 @@ using UnityEngine;
 
 namespace ColonizationMobileGame.Level
 {
-    public class StartItems : MonoBehaviour, ISceneSaveable
+    public class StartItems : MonoBehaviour, ISceneSaveable, IInteractablesTrackerUser
     {
         [SerializeField, HideInInspector] private PermanentGuid guid;
 
         private StartItemsDistributor _itemsDistributor;
         private List<StackZoneItem> _items;
 
+        private InteractablesTracker _interactablesTracker;
+        
         public int LoadingOrder => 10;
         public PermanentGuid Guid => guid;
+
+
+        public void SetInteractablesTracker(InteractablesTracker interactablesTracker)
+        {
+            _interactablesTracker = interactablesTracker;
+
+            RegisterItemsInInteractablesTracker();
+        }
+
+
+        private void RegisterItemsInInteractablesTracker()
+        {
+            for (int i = 0; i < _items.Count; i++)
+            {
+                _interactablesTracker.RegisterObject(_items[i]);
+            }
+        }
 
 
         private void Awake()
@@ -28,10 +47,12 @@ namespace ColonizationMobileGame.Level
 
         private void Start()
         {
-            for (int i = 0; i < _items.Count; i++)
+            if (!_interactablesTracker)
             {
-                Interactables.RegisterObject(_items[i]);
+                return;
             }
+            
+            RegisterItemsInInteractablesTracker();
         }
 
 
