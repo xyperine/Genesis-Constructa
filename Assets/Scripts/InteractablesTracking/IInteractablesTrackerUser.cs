@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame
+﻿namespace ColonizationMobileGame.InteractablesTracking
 {
     public interface IInteractablesTrackerUser
     {

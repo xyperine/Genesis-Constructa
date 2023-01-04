@@ -1,3 +1,4 @@
+using ColonizationMobileGame.InteractablesTracking;
 using UnityEngine;
 
 namespace ColonizationMobileGame.ItemsPlacementsInteractions.Target

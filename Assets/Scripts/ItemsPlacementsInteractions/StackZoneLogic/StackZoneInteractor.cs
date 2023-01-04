@@ -1,4 +1,5 @@
-﻿using ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup.Establisher;
+﻿using ColonizationMobileGame.InteractablesTracking;
+using ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup.Establisher;
 using UnityEngine;
 
 namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic

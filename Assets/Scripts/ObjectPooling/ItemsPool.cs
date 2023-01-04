@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using ColonizationMobileGame.InteractablesTracking;
 using ColonizationMobileGame.ItemsPlacementsInteractions;
 using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.Utility;
