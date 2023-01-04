@@ -13,8 +13,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.Transfer
         [SerializeField] private StackZone stackZone;
         [SerializeField, Range(0.02f, 0.2f)] private float transferInterval = 0.1f;
 
-        private readonly Dictionary<InteractionTarget, IEnumerator> _transferCoroutines =
-            new Dictionary<InteractionTarget, IEnumerator>();
+        private readonly List<InteractionTarget> _activeTransferTargets = new List<InteractionTarget>();
 
         public bool CanGive => stackZone.HasItems;
 
@@ -32,12 +31,12 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.Transfer
                 return;
             }
             
-            if (!_transferCoroutines.TryAdd(target, TransferItemsCoroutine(target)))
+            if (_activeTransferTargets.Contains(target))
             {
                 return;
             }
 
-            StartCoroutine(_transferCoroutines[target]);
+            StartCoroutine(TransferItemsCoroutine(target));
         }
         
         
@@ -52,6 +51,8 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.Transfer
         
         private IEnumerator TransferItemsCoroutine(InteractionTarget target)
         {
+            _activeTransferTargets.Add(target);
+            
             StackZoneItem item = stackZone.GetLast(target.AcceptableItems);
             
             while (item)
@@ -68,7 +69,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.Transfer
                 item = stackZone.GetLast(target.AcceptableItems);
             }
 
-            _transferCoroutines.Remove(target);
+            _activeTransferTargets.Remove(target);
         }
 
 
