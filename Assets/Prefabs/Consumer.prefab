@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Items_Count_Panel_Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6868450524629169128, guid: 6be09f9a9d3e3ce46a5cfe765b850bd9, type: 3}
+      propertyPath: targetTransform
+      value: 
+      objectReference: {fileID: 1260649218493187665}
     - target: {fileID: 7769053575235950027, guid: 6be09f9a9d3e3ce46a5cfe765b850bd9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

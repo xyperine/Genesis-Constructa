@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6802171628359469539}
   - component: {fileID: 2200018172024291756}
   m_Layer: 5
-  m_Name: Item_Count_Panel_entry
+  m_Name: Item_Count_Panel_Entry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

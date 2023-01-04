@@ -35,6 +35,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Items_Count_Panel_Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6868450524629169128, guid: 6be09f9a9d3e3ce46a5cfe765b850bd9, type: 3}
+      propertyPath: targetTransform
+      value: 
+      objectReference: {fileID: 5039382451268954918}
     - target: {fileID: 7769053575235950027, guid: 6be09f9a9d3e3ce46a5cfe765b850bd9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -232,6 +236,11 @@ PrefabInstance:
     - {fileID: 4938804365099491736, guid: 7eeca783324f41a438b5c4e74510994c, type: 3}
     - {fileID: 7375568765460743689, guid: 7eeca783324f41a438b5c4e74510994c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7eeca783324f41a438b5c4e74510994c, type: 3}
+--- !u!4 &5039382451268954918 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1079967639470821953, guid: 7eeca783324f41a438b5c4e74510994c, type: 3}
+  m_PrefabInstance: {fileID: 5409856122719467879}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5763206329409763251 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 353724865282969300, guid: 7eeca783324f41a438b5c4e74510994c, type: 3}

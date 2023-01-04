@@ -69,8 +69,9 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    m_ConstantMin: 2
-    m_ConstantMax: 3
+    m_ConstantMin: 3
+    m_ConstantMax: 4.5
+  targetTransform: {fileID: 0}
 --- !u!1 &5584068359739908655
 GameObject:
   m_ObjectHideFlags: 0

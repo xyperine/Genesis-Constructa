@@ -3,13 +3,14 @@ using UnityEngine;
 
 namespace ColonizationMobileGame.UI.ItemsAmount.Panel
 {
-    public class ItemsAmountPanelProximityScaler : MonoBehaviour
+    public class ItemsAmountPanelPlayerProximityScaler : MonoBehaviour
     {
         [SerializeField] private RectTransform rectTransform;
         [SerializeField] private LayerMask playerLayer;
         [SerializeField] private ParticleSystem.MinMaxCurve range;
-        
-        private float _proximityFactor;
+        [SerializeField] private Transform targetTransform;
+
+        private float _playerProximityFactor;
 
         private readonly Collider[] _colliders = new Collider[4];
         
@@ -23,7 +24,7 @@ namespace ColonizationMobileGame.UI.ItemsAmount.Panel
 
         private void GetProximity()
         {
-            int numberOfColliders = Physics.OverlapSphereNonAlloc(rectTransform.position, range.constantMax, _colliders, playerLayer);
+            int numberOfColliders = Physics.OverlapSphereNonAlloc(targetTransform.position, range.constantMax, _colliders, playerLayer);
 
             if (numberOfColliders < 1)
             {
@@ -37,20 +38,21 @@ namespace ColonizationMobileGame.UI.ItemsAmount.Panel
                 return;
             }
 
-            Vector3 closestPoint = collider.ClosestPoint(rectTransform.position);
-            float distance = Vector3.Distance(rectTransform.position, closestPoint);
-            _proximityFactor = Mathf.InverseLerp(range.constantMax, range.constantMin, distance);
+            Vector3 colliderCenter = collider.transform.position;
+            float distance = Vector3.Distance(targetTransform.position, colliderCenter);
+            _playerProximityFactor = Mathf.InverseLerp(range.constantMax, range.constantMin, distance);
         }
         
 
         private void SetScale()
         {
-            if (_proximityFactor <= 0)
+            if (_playerProximityFactor <= 0)
             {
                 return;
             }
-            
-            Vector3 newScale = Vector3.Lerp(Vector3.one, Vector3.one * 1.3f, _proximityFactor);
+
+            float t = _playerProximityFactor * _playerProximityFactor;
+            Vector3 newScale = Vector3.Lerp(Vector3.one, Vector3.one * 1.3f, t);
             rectTransform.localScale = newScale;
         }
     }
