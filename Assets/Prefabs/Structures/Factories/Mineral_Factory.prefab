@@ -60,6 +60,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 5ba6cb937421aa54cb83efa95d3e73d5, type: 2}
     - target: {fileID: 2158360499411592640, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: mirror
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2158360499411592640, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: placementSettings
       value: 
       objectReference: {fileID: 11400000, guid: c5d79f7aea8f98b468258346c27cf1c3, type: 2}
@@ -113,7 +117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5168069486656559090, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 5344834311106849449, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: m_RootOrder

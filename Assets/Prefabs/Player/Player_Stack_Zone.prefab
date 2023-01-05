@@ -262,3 +262,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placementSettings: {fileID: 11400000, guid: d1429cfc6682f2a42990412aeacb519d, type: 2}
+  mirror: 0

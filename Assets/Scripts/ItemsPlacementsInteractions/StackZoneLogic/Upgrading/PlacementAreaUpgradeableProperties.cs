@@ -1,4 +1,5 @@
 ﻿using ColonizationMobileGame.ItemsPlacement.Core.Area;
+using ColonizationMobileGame.Utility.Extensions;
 using UnityEngine;
 
 namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgrading
@@ -7,9 +8,11 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgr
     {
         private readonly Vector3 _alignedItemSize;
         
+        private Vector3 _mirroredAreaSize;
+        
         public int MaxItems { get; private set; }
         public Vector3 AreaSize { get; private set; }
-        public Vector3 ScaledAreaSize { get; private set; }
+        public Vector3 ScaledAreaSize => Vector3.Scale(_mirroredAreaSize, _alignedItemSize).Abs();
 
 
         public PlacementAreaUpgradeableProperties(PlacementAreaSettingsSO areaSettings)
@@ -23,7 +26,8 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgr
 
             MaxItems = areaSettings.MaxItems;
             AreaSize = areaSettings.AreaSize;
-            ScaledAreaSize = areaSettings.ScaledAreaSize;
+            
+            _mirroredAreaSize = -AreaSize.XZPlane() + Vector3.up * AreaSize.y;
         }
 
 
@@ -34,7 +38,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgr
             float itemsPerY = AreaSize.x * AreaSize.z;
             AreaSize = new Vector3(AreaSize.x, Mathf.Ceil(newMaxItems / itemsPerY), AreaSize.z);
             
-            ScaledAreaSize = Vector3.Scale(AreaSize, _alignedItemSize);
+            _mirroredAreaSize = -AreaSize.XZPlane() - Vector3.up * AreaSize.y;
         }
     }
 }

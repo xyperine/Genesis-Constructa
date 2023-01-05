@@ -20,5 +20,11 @@ namespace ColonizationMobileGame.Utility.Extensions
         {
             return new Vector3(a.x, y, a.y);
         }
+
+
+        public static Vector3 Abs(this Vector3 a)
+        {
+            return new Vector3(Mathf.Abs(a.x), Mathf.Abs(a.y), Mathf.Abs(a.z));
+        }
     }
 }

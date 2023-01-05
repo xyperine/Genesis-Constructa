@@ -10,6 +10,7 @@ namespace ColonizationMobileGame.ItemsPlacement.Core.Area
     public abstract class PlacementArea : MonoBehaviour
     { 
         [SerializeField] protected PlacementAreaSettingsSO placementSettings;
+        [SerializeField] private bool mirror = true;
 
         private PlacementAreaUpgradeableProperties _upgradeableProperties;
         
@@ -36,7 +37,7 @@ namespace ColonizationMobileGame.ItemsPlacement.Core.Area
 
         private void InitializePositionCalculator()
         {
-            itemPositionCalculator = new PlacementItemPositionCalculator(placementSettings, _upgradeableProperties);
+            itemPositionCalculator = new PlacementItemPositionCalculator(placementSettings, _upgradeableProperties, mirror);
         }
         
         

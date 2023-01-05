@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placementSettings: {fileID: 0}
+  mirror: 1
 --- !u!114 &6985501866559349306
 MonoBehaviour:
   m_ObjectHideFlags: 0
