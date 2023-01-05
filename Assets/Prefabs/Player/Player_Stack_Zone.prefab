@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: placementSettings
       value: 
       objectReference: {fileID: 11400000, guid: d1429cfc6682f2a42990412aeacb519d, type: 2}
+    - target: {fileID: 745699416996662825, guid: 51afa3afedf2883498a3c53d3be2c965, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2811390262864789888, guid: 51afa3afedf2883498a3c53d3be2c965, type: 3}
       propertyPath: placementSettings
       value: 
@@ -19,6 +23,14 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1737428125317346902}
+    - target: {fileID: 3144530012210737403, guid: 51afa3afedf2883498a3c53d3be2c965, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144530012210737403, guid: 51afa3afedf2883498a3c53d3be2c965, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3970569248854470648, guid: 51afa3afedf2883498a3c53d3be2c965, type: 3}
       propertyPath: acceptableItems.Array.size
       value: 6

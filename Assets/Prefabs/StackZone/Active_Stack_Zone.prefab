@@ -82,9 +82,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2056142848635040800, guid: c85ca864afb5dd647a315607f1a288dd, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3498629856824353550, guid: c85ca864afb5dd647a315607f1a288dd, type: 3}
       propertyPath: m_Name
       value: Active_Stack_Zone
+      objectReference: {fileID: 0}
+    - target: {fileID: 7806691991134491457, guid: c85ca864afb5dd647a315607f1a288dd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 278941783434021041, guid: c85ca864afb5dd647a315607f1a288dd, type: 3}

@@ -127,6 +127,10 @@ PrefabInstance:
       propertyPath: acceptableItems.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3726601039852225278, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4328619848421188284, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -230,6 +234,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7327208882872705989, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
   m_PrefabInstance: {fileID: 4029980145669161891}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &590085982600674253
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927339914064175206}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.25, y: 2.79, z: 3.25}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1531309924492689900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,19 +262,6 @@ MonoBehaviour:
   meshRenderer: {fileID: 9025889438870475046}
   lightMaterial: {fileID: 2100000, guid: 75a557af5126b5c4e8dbbc6970fae8a4, type: 2}
   lightLevel: 1
---- !u!65 &590085982600674253
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5927339914064175206}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.25, y: 2.79, z: 3.25}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &9025889438870475046 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 5381584988023018117, guid: b3134d23e164987449c78b0f4fca2986, type: 3}

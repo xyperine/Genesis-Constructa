@@ -49,11 +49,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1589782babc649a6b0f0507ed84e1bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgraderSetup: {fileID: 5580551951003196726}
-  upgradesChain: {fileID: 0}
   productionZone: {fileID: 6884291654872460048}
   productionUnit: {fileID: 8222662993459415900}
-  upgraderColliderRadius: 1
+  upgradeable: 0
+  upgraderSetup: {fileID: 5580551951003196726}
+  upgradesChain: {fileID: 0}
 --- !u!114 &8222662993459415900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,6 +73,8 @@ MonoBehaviour:
   itemsPool: {fileID: 0}
   produce: 1
   workflow: 1
+  guid:
+    value: 
 --- !u!114 &4031503893637625853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +296,10 @@ PrefabInstance:
     - target: {fileID: 3187667294063258519, guid: 7eeca783324f41a438b5c4e74510994c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6355703550035115675, guid: 7eeca783324f41a438b5c4e74510994c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7eeca783324f41a438b5c4e74510994c, type: 3}

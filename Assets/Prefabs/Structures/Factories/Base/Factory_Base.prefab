@@ -59,9 +59,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86c7f2565354e34ba5c9fc4fdc9e7ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: 1
-  guid:
-    value: 
 --- !u!1 &7327208882872705989
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,6 +265,10 @@ PrefabInstance:
     - target: {fileID: 4031503893637625853, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841435682926015507, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5518579897323443281, guid: 1e1a9fe4ec365a64cb700e8bab856dea, type: 3}
       propertyPath: m_SizeDelta.x
