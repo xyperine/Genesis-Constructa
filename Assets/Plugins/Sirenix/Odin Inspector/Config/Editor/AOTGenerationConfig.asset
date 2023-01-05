@@ -16,7 +16,7 @@ MonoBehaviour:
   deleteDllAfterBuilds: 1
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0d000000
-  lastScan: 638085531231555336
+  lastScan: 638085618855720901
   supportSerializedTypes:
   - TypeName: ColonizationMobileGame.TasksSystem.Requirements.BuildTaskRequirement,
       Assembly-CSharp

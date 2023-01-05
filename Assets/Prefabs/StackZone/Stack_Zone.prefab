@@ -316,5 +316,5 @@ MonoBehaviour:
     proportionalPadding: 0.2
   placementArea: {fileID: 4761839277504115839}
   builder: {fileID: 0}
-  itemsHolder: {fileID: 0}
+  itemsHolderObject: {fileID: 0}
   areaRectangle: {fileID: 2683207417008777888}

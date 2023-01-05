@@ -161,7 +161,7 @@ MonoBehaviour:
     proportionalPadding: 0.2
   placementArea: {fileID: 0}
   builder: {fileID: 0}
-  itemsHolder: {fileID: 2176752423761788831}
+  itemsHolderObject: {fileID: 2176752423761788830}
   areaRectangle: {fileID: 7671614454819758790}
 --- !u!1 &2176752422072621459
 GameObject:
@@ -521,7 +521,7 @@ MonoBehaviour:
     proportionalPadding: 0.2
   placementArea: {fileID: 0}
   builder: {fileID: 0}
-  itemsHolder: {fileID: 2176752422499043277}
+  itemsHolderObject: {fileID: 2176752422499043276}
   areaRectangle: {fileID: 1060590285706641344}
 --- !u!1001 &2176752422059139629
 PrefabInstance:

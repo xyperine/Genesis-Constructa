@@ -1,8 +1,7 @@
 ﻿using System;
-using ColonizationMobileGame.AreaVisualizationNS.Transformers;
+using ColonizationMobileGame.AreaVisualizationNS.TargetFitters;
 using ColonizationMobileGame.BuildSystem;
 using ColonizationMobileGame.ItemsPlacement.Core.Area;
-using ColonizationMobileGame.ItemsPlacementsInteractions;
 using Shapes;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -21,13 +20,13 @@ namespace ColonizationMobileGame.AreaVisualizationNS
         [PropertySpace]
         [SerializeField, ShowIf(nameof(TargetIsPlacementArea))] private PlacementArea placementArea;
         [SerializeField, ShowIf(nameof(TargetIsBuilder))] private Builder builder;
-        [SerializeField, ShowIf(nameof(TargetIsStartItems))] private Transform itemsHolder;
+        [SerializeField, ShowIf(nameof(TargetIsStartItems))] private GameObject itemsHolderObject;
         
         [SerializeField] private Rectangle areaRectangle;
         
         private AreaVisualizationSettingsData _settings;
 
-        private AreaVisualizationTransformer _transformer;
+        private AreaVisualizationTargetFitter _targetFitter;
 
         private bool TargetIsPlacementArea => _settings.Target == AreaVisualizationTarget.PlacementArea;
         private bool TargetIsBuilder => _settings.Target == AreaVisualizationTarget.Builder;
@@ -70,14 +69,14 @@ namespace ColonizationMobileGame.AreaVisualizationNS
 
         private void CreateTransformer()
         {
-            _transformer = _settings.Target switch
+            _targetFitter = _settings.Target switch
             {
-                AreaVisualizationTarget.PlacementArea => new PlacementAreaVisualizationTransformer(areaRectangle,
+                AreaVisualizationTarget.PlacementArea => new PlacementAreaVisualizationTargetFitter(areaRectangle,
                     _settings, placementArea),
-                AreaVisualizationTarget.Builder => new BuilderAreaVisualizationTransformer(areaRectangle, _settings,
+                AreaVisualizationTarget.Builder => new BuilderAreaVisualizationTargetFitter(areaRectangle, _settings,
                     builder),
-                AreaVisualizationTarget.StartItems => new StartItemsAreaVisualizationTransformer(areaRectangle,
-                    _settings, itemsHolder),
+                AreaVisualizationTarget.StartItems => new StartItemsAreaVisualizationTargetFitter(areaRectangle,
+                    _settings, itemsHolderObject),
                 _ => throw new ArgumentOutOfRangeException(),
             };
         }
@@ -85,9 +84,7 @@ namespace ColonizationMobileGame.AreaVisualizationNS
 
         private void Start()
         {
-            _transformer.PerformTransformations(transform);
-            
-            _transformer.SetSize();
+            _targetFitter.Fit(transform);
         }
     }
 }

@@ -17,4 +17,4 @@ MonoBehaviour:
     depthOffsetFactor: -20
     color: {r: 0.13, g: 0.13, b: 0.13, a: 0.34901962}
     cornerRadius: 0.15
-    proportionalPadding: 0.2
+    proportionalPadding: 0
