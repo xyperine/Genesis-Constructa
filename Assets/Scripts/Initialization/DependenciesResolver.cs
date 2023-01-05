@@ -66,7 +66,7 @@ namespace ColonizationMobileGame.Initialization
         {
             foreach (Canvas canvas in _allComponents.OfType<Canvas>())
             {
-                canvas.worldCamera = Camera.main;
+                canvas.worldCamera ??= Camera.main;
             }
         }
 

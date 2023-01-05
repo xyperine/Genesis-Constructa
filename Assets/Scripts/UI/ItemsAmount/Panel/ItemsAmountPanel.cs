@@ -66,6 +66,8 @@ namespace ColonizationMobileGame.UI.ItemsAmount.Panel
                 return;
             }
 
+            animator.ResizeBackground();
+            
             if (_visible)
             {
                 animator.ScaleUp();

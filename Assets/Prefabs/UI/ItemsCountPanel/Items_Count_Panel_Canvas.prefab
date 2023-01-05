@@ -398,5 +398,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a349d35683b34636b99f6c41363ad5df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mode: 0
   rectTransform: {fileID: 4012997154054017459}
+  rectangle: {fileID: 0}
   duration: 0.2
+  entryHeight: 0
+  verticalPadding: 0
