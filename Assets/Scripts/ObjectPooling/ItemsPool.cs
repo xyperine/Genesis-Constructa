@@ -6,6 +6,8 @@ using ColonizationMobileGame.InteractablesTracking;
 using ColonizationMobileGame.ItemsPlacementsInteractions;
 using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.Utility;
+using ColonizationMobileGame.Utility.Extensions;
+using ColonizationMobileGame.Utility.Helpers;
 using UnityEngine;
 
 namespace ColonizationMobileGame.ObjectPooling
@@ -103,7 +105,7 @@ namespace ColonizationMobileGame.ObjectPooling
 
         private IEnumerator Start()
         {
-            yield return Helpers.GetWaitForSeconds(0.5f);
+            yield return YieldInstructionsHelpers.GetWaitForSeconds(0.5f);
             
             _itemsDistributor.Distribute(_itemsInZones);
         }

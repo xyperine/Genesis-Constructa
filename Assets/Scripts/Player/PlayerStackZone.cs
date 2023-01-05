@@ -4,6 +4,7 @@ using ColonizationMobileGame.ItemsPlacementsInteractions;
 using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
 using ColonizationMobileGame.UI.ItemsAmount.Data;
 using ColonizationMobileGame.Utility;
+using ColonizationMobileGame.Utility.Helpers;
 using UnityEngine;
 
 namespace ColonizationMobileGame.Player
@@ -12,7 +13,7 @@ namespace ColonizationMobileGame.Player
     {
         [SerializeField] private ItemsAmountPanelData itemsAmountPanelData;
         
-        private readonly Dictionary<ItemType, int> _itemsCount = Helpers.EnumToDictionary<ItemType, int>(0);
+        private readonly Dictionary<ItemType, int> _itemsCount = EnumHelpers.EnumToDictionary<ItemType, int>(0);
 
 
         private void Start()

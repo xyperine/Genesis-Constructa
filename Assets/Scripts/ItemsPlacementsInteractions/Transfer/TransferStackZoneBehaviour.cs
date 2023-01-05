@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
 using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
 using ColonizationMobileGame.Utility;
+using ColonizationMobileGame.Utility.Helpers;
 using UnityEngine;
 
 namespace ColonizationMobileGame.ItemsPlacementsInteractions.Transfer
@@ -64,7 +65,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.Transfer
 
                 TransferSingleItemTo(target, item);
 
-                yield return Helpers.GetWaitForSeconds(transferInterval);
+                yield return YieldInstructionsHelpers.GetWaitForSeconds(transferInterval);
 
                 item = stackZone.GetLast(target.AcceptableItems);
             }

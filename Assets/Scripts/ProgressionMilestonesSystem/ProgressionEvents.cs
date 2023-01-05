@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using ColonizationMobileGame.Utility;
+using ColonizationMobileGame.Utility.Helpers;
 using UnityEngine;
 
 namespace ColonizationMobileGame.ProgressionMilestonesSystem
@@ -9,10 +10,10 @@ namespace ColonizationMobileGame.ProgressionMilestonesSystem
     public class ProgressionEvents : MonoBehaviour
     {
         private readonly Dictionary<ProgressionMilestoneType, Action> _progressionEvents =
-            Helpers.EnumToDictionary<ProgressionMilestoneType, Action>(default(Action));
+            EnumHelpers.EnumToDictionary<ProgressionMilestoneType, Action>(default(Action));
         
         private readonly Dictionary<ProgressionMilestoneType, bool> _achievedMilestones =
-            Helpers.EnumToDictionary<ProgressionMilestoneType, bool>(false);
+            EnumHelpers.EnumToDictionary<ProgressionMilestoneType, bool>(false);
 
         private IProgressionMilestone[] _milestones;
 

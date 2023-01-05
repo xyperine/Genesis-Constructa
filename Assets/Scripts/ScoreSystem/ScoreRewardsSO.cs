@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using ColonizationMobileGame.Structures;
 using ColonizationMobileGame.Utility;
+using ColonizationMobileGame.Utility.Helpers;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ namespace ColonizationMobileGame.ScoreSystem
         // ReSharper disable FieldCanBeMadeReadOnly.Local
         // ReSharper disable InconsistentNaming
         [SerializeField] private Dictionary<ItemType, int> scoreForEachItemInStorage =
-            Helpers.EnumToDictionary<ItemType, int>(0);
+            EnumHelpers.EnumToDictionary<ItemType, int>(0);
 
         // ReSharper disable once CollectionNeverUpdated.Local
         [SerializeField] private Dictionary<StructureType, int> scoreForUnlockingStructures =

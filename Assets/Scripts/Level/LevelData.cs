@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using ColonizationMobileGame.Structures;
 using ColonizationMobileGame.Utility;
+using ColonizationMobileGame.Utility.Helpers;
 using UnityEngine;
 
 namespace ColonizationMobileGame.Level
@@ -10,7 +11,7 @@ namespace ColonizationMobileGame.Level
     public sealed class LevelData : MonoBehaviour
     {
         private readonly List<Structure> _structures = new List<Structure>();
-        private Dictionary<ItemType, int> _itemsInStorage = Helpers.EnumToDictionary<ItemType, int>(0);
+        private Dictionary<ItemType, int> _itemsInStorage = EnumHelpers.EnumToDictionary<ItemType, int>(0);
 
         public IReadOnlyList<Structure> Structures => _structures;
         public IReadOnlyDictionary<ItemType, int> ItemsInStorage => _itemsInStorage;

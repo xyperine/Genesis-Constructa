@@ -2,12 +2,13 @@
 using System.Linq;
 using ColonizationMobileGame.ItemsPlacementsInteractions;
 using ColonizationMobileGame.Utility;
+using ColonizationMobileGame.Utility.Helpers;
 
 namespace ColonizationMobileGame.Level
 {
     public class StartItemsDistributor : ItemsDistributor<List<StackZoneItem>>
     {
-        private readonly Dictionary<ItemType, int> _indicesForEachTypeOfItemsInZone = Helpers.EnumToDictionary<ItemType, int>(-1);
+        private readonly Dictionary<ItemType, int> _indicesForEachTypeOfItemsInZone = EnumHelpers.EnumToDictionary<ItemType, int>(-1);
 
 
         public StartItemsDistributor(List<StackZoneItem> itemsSource) : base(itemsSource)

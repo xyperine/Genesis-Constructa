@@ -1,27 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
-namespace ColonizationMobileGame.Utility
+namespace ColonizationMobileGame.Utility.Helpers
 {
-    public static class Helpers
+    public static class EnumHelpers
     {
-        private static readonly Dictionary<float, WaitForSeconds> WaitForSecondsDictionary = new Dictionary<float, WaitForSeconds>();
-
-
-        public static WaitForSeconds GetWaitForSeconds(float time)
-        {
-            if (WaitForSecondsDictionary.TryGetValue(time, out WaitForSeconds waitForSeconds))
-            {
-                return waitForSeconds;
-            }
-            
-            WaitForSecondsDictionary[time] = new WaitForSeconds(time);
-            return WaitForSecondsDictionary[time];
-        }
-        
-        
         public static Dictionary<TEnum, TValue> EnumToDictionary<TEnum, TValue>(TValue[] values)
             where TEnum : Enum
         {
