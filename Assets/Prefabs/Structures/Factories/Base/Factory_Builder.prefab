@@ -161,6 +161,7 @@ MonoBehaviour:
     proportionalPadding: 0.2
   placementArea: {fileID: 0}
   builder: {fileID: 2772615054218884544}
+  itemsHolder: {fileID: 0}
   areaRectangle: {fileID: 3645075303086774346}
 --- !u!1 &2772615054218884546
 GameObject:

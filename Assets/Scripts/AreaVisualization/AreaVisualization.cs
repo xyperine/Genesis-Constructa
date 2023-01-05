@@ -2,6 +2,7 @@
 using ColonizationMobileGame.AreaVisualizationNS.Transformers;
 using ColonizationMobileGame.BuildSystem;
 using ColonizationMobileGame.ItemsPlacement.Core.Area;
+using ColonizationMobileGame.ItemsPlacementsInteractions;
 using Shapes;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -20,6 +21,7 @@ namespace ColonizationMobileGame.AreaVisualizationNS
         [PropertySpace]
         [SerializeField, ShowIf(nameof(TargetIsPlacementArea))] private PlacementArea placementArea;
         [SerializeField, ShowIf(nameof(TargetIsBuilder))] private Builder builder;
+        [SerializeField, ShowIf(nameof(TargetIsStartItems))] private Transform itemsHolder;
         
         [SerializeField] private Rectangle areaRectangle;
         
@@ -29,6 +31,7 @@ namespace ColonizationMobileGame.AreaVisualizationNS
 
         private bool TargetIsPlacementArea => _settings.Target == AreaVisualizationTarget.PlacementArea;
         private bool TargetIsBuilder => _settings.Target == AreaVisualizationTarget.Builder;
+        private bool TargetIsStartItems => _settings.Target == AreaVisualizationTarget.StartItems;
 
 
 #if UNITY_EDITOR
@@ -73,6 +76,8 @@ namespace ColonizationMobileGame.AreaVisualizationNS
                     _settings, placementArea),
                 AreaVisualizationTarget.Builder => new BuilderAreaVisualizationTransformer(areaRectangle, _settings,
                     builder),
+                AreaVisualizationTarget.StartItems => new StartItemsAreaVisualizationTransformer(areaRectangle,
+                    _settings, itemsHolder),
                 _ => throw new ArgumentOutOfRangeException(),
             };
         }

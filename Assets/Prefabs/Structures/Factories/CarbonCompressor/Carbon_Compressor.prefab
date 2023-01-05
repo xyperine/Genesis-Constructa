@@ -161,6 +161,7 @@ MonoBehaviour:
     proportionalPadding: 0
   placementArea: {fileID: 6255592739409643315}
   builder: {fileID: 0}
+  itemsHolder: {fileID: 0}
   areaRectangle: {fileID: 4575593201392745111}
 --- !u!1001 &1630830316886646253
 PrefabInstance:
