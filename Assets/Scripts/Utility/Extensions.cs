@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ColonizationMobileGame.ItemsPlacementsInteractions;
 using ColonizationMobileGame.SetupSystem;
+using Shapes;
 using UnityEngine;
 
 namespace ColonizationMobileGame.Utility
@@ -54,6 +55,42 @@ namespace ColonizationMobileGame.Utility
         public static Vector3 XZPlaneToVector3(this Vector2 a, float y = 0f)
         {
             return new Vector3(a.x, y, a.y);
+        }
+
+
+        public static Bounds GetGameObjectBounds(this GameObject gameObject)
+        {
+            Transform referenceTransform = gameObject.transform;
+            Bounds b = new Bounds(Vector3.zero, Vector3.zero);
+            RecurseEncapsulate(referenceTransform, ref b);
+            return b;
+                       
+            void RecurseEncapsulate(Transform child, ref Bounds bounds)
+            {
+                if (child.GetComponent<Canvas>())
+                {
+                    return;
+                }
+
+                if (child.GetComponent<Rectangle>())
+                {
+                    return;
+                }
+                
+                MeshFilter mesh = child.GetComponent<MeshFilter>();
+                if (mesh)
+                {
+                    Bounds lsBounds = mesh.sharedMesh.bounds;
+                    Vector3 wsMin = child.TransformPoint(lsBounds.center - lsBounds.extents);
+                    Vector3 wsMax = child.TransformPoint(lsBounds.center + lsBounds.extents);
+                    bounds.Encapsulate(referenceTransform.InverseTransformPoint(wsMin));
+                    bounds.Encapsulate(referenceTransform.InverseTransformPoint(wsMax));
+                }
+                foreach (Transform grandChild in child.transform)
+                {
+                    RecurseEncapsulate(grandChild, ref bounds);
+                }
+            }
         }
     }
 }

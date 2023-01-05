@@ -154,6 +154,12 @@ namespace ColonizationMobileGame.BuildSystem
         }
 
 
+        public Vector2 GetStructureArea()
+        {
+            return _buildData.StructurePrefab.GetGameObjectBounds().size.XZPlaneVector2();
+        }
+
+
         public object Save()
         {
             return new SaveData

@@ -308,9 +308,11 @@ MonoBehaviour:
   settingsSO: {fileID: 11400000, guid: 33dabfc2ae244e548a91fc617ea50fa2, type: 2}
   overrideSettings: 0
   customSettings:
+    target: 0
     depthOffsetFactor: -20
     color: {r: 0, g: 0, b: 0, a: 0}
     cornerRadius: 0.15
     proportionalPadding: 0.2
   placementArea: {fileID: 4761839277504115839}
+  builder: {fileID: 0}
   areaRectangle: {fileID: 2683207417008777888}

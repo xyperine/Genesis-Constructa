@@ -154,11 +154,13 @@ MonoBehaviour:
   settingsSO: {fileID: 11400000, guid: 33dabfc2ae244e548a91fc617ea50fa2, type: 2}
   overrideSettings: 1
   customSettings:
+    target: 0
     depthOffsetFactor: -20
     color: {r: 0.13, g: 0.13, b: 0.13, a: 0.34901962}
     cornerRadius: 0.15
     proportionalPadding: 0
   placementArea: {fileID: 6255592739409643315}
+  builder: {fileID: 0}
   areaRectangle: {fileID: 4575593201392745111}
 --- !u!1001 &1630830316886646253
 PrefabInstance:

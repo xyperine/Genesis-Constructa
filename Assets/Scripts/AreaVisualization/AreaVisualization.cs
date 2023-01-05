@@ -1,6 +1,7 @@
-﻿using ColonizationMobileGame.ItemsPlacement.Core.Area;
-using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
-using ColonizationMobileGame.Utility;
+﻿using System;
+using ColonizationMobileGame.AreaVisualizationNS.Transformers;
+using ColonizationMobileGame.BuildSystem;
+using ColonizationMobileGame.ItemsPlacement.Core.Area;
 using Shapes;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -11,21 +12,25 @@ namespace ColonizationMobileGame.AreaVisualizationNS
     [RequireComponent(typeof(Rectangle))]
     public class AreaVisualization : MonoBehaviour
     {
-        [BoxGroup("Settings")][SerializeField] private AreaVisualizationSettingsSO settingsSO;
-        [BoxGroup("Settings")][SerializeField] private bool overrideSettings;
+        [BoxGroup("Settings")] [SerializeField] private AreaVisualizationSettingsSO settingsSO;
+        [BoxGroup("Settings")] [SerializeField] private bool overrideSettings;
         [BoxGroup("Settings")] [SerializeField, ShowIf(nameof(overrideSettings)), HideLabel]
         private AreaVisualizationSettingsData customSettings;
         
         [PropertySpace]
-        [SerializeField] private PlacementArea placementArea;
+        [SerializeField, ShowIf(nameof(TargetIsPlacementArea))] private PlacementArea placementArea;
+        [SerializeField, ShowIf(nameof(TargetIsBuilder))] private Builder builder;
+        
         [SerializeField] private Rectangle areaRectangle;
         
         private AreaVisualizationSettingsData _settings;
 
-        private PlacementAreaUpgradeableProperties _upgradeableProperties;
-        private float _padding;
+        private AreaVisualizationTransformer _transformer;
 
-        
+        private bool TargetIsPlacementArea => _settings.Target == AreaVisualizationTarget.PlacementArea;
+        private bool TargetIsBuilder => _settings.Target == AreaVisualizationTarget.Builder;
+
+
 #if UNITY_EDITOR
         private void OnValidate()
         {
@@ -40,6 +45,8 @@ namespace ColonizationMobileGame.AreaVisualizationNS
             SetSettings();
             
             ApplySettingsToRectangle();
+            
+            CreateTransformer();
         }
 
 
@@ -53,53 +60,29 @@ namespace ColonizationMobileGame.AreaVisualizationNS
         {
             areaRectangle.ZOffsetFactor = _settings.DepthOffsetFactor;
             areaRectangle.Color = _settings.Color;
+
+            areaRectangle.Type = Rectangle.RectangleType.RoundedSolid;
+        }
+
+
+        private void CreateTransformer()
+        {
+            _transformer = _settings.Target switch
+            {
+                AreaVisualizationTarget.PlacementArea => new PlacementAreaVisualizationTransformer(areaRectangle,
+                    _settings, placementArea),
+                AreaVisualizationTarget.Builder => new BuilderAreaVisualizationTransformer(areaRectangle, _settings,
+                    builder),
+                _ => throw new ArgumentOutOfRangeException(),
+            };
         }
 
 
         private void Start()
         {
-            SetData();
-            SetPositionAndRotation();
-        }
-
-
-        private void SetData()
-        {
-            _padding = 1 + _settings.ProportionalPadding;
-            _upgradeableProperties = placementArea.GetUpgradeableData();
-        }
-
-
-        private void SetPositionAndRotation()
-        {
-            Vector2 areaSize = _upgradeableProperties.ScaledAreaSize.XZPlaneVector2();
+            _transformer.PerformTransformations(transform);
             
-            transform.localPosition = areaSize.XZPlaneToVector3() * 0.5f;
-            
-            if (areaSize.x <= areaSize.y)
-            {
-                return;
-            }
-
-            Vector3 localRotation = transform.localRotation.eulerAngles;
-            transform.localRotation = Quaternion.Euler(localRotation.x, localRotation.y, 90f);
-        }
-
-
-        private void Update()
-        {
-            SetSize();
-        }
-
-
-        private void SetSize()
-        {
-            Vector2 areaSize = _upgradeableProperties.ScaledAreaSize.XZPlaneVector2();
-            
-            areaRectangle.Height = areaSize.x * _padding;
-            areaRectangle.Width = areaSize.y * _padding;
-
-            areaRectangle.CornerRadius = Mathf.Min(areaSize.x, areaSize.y) * _settings.CornerRadius;
+            _transformer.SetSize();
         }
     }
 }
