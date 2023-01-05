@@ -203,7 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blendMode: 1
   scaleMode: 0
-  color: {r: 0.13333334, g: 0.13333334, b: 0.13333334, a: 0.34901962}
+  color: {r: 0.13, g: 0.13, b: 0.13, a: 0.34901962}
   detailLevel: 2
   renderQueue: -1
   zTest: 4
@@ -305,6 +305,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a806288e9cf4025ae2fdaa02780e5bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings: {fileID: 11400000, guid: 33dabfc2ae244e548a91fc617ea50fa2, type: 2}
+  settingsSO: {fileID: 11400000, guid: 33dabfc2ae244e548a91fc617ea50fa2, type: 2}
+  overrideSettings: 0
+  customSettings:
+    depthOffsetFactor: -20
+    color: {r: 0, g: 0, b: 0, a: 0}
+    cornerRadius: 0.15
+    proportionalPadding: 0.2
   placementArea: {fileID: 4761839277504115839}
   areaRectangle: {fileID: 2683207417008777888}

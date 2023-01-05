@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f4de69cd95c4171965f03397327717c, type: 3}
   m_Name: Area_Visualization_Settings
   m_EditorClassIdentifier: 
-  depthOffsetFactor: -20
-  color: {r: 0.13333334, g: 0.13333334, b: 0.13333334, a: 0.34901962}
-  cornerRadius: 0.15
-  proportionalPadding: 0.2
+  data:
+    depthOffsetFactor: -20
+    color: {r: 0.13, g: 0.13, b: 0.13, a: 0.34901962}
+    cornerRadius: 0.15
+    proportionalPadding: 0.2

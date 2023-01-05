@@ -2,6 +2,7 @@
 using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
 using ColonizationMobileGame.Utility;
 using Shapes;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 // ReSharper disable once CheckNamespace
@@ -10,9 +11,16 @@ namespace ColonizationMobileGame.AreaVisualizationNS
     [RequireComponent(typeof(Rectangle))]
     public class AreaVisualization : MonoBehaviour
     {
-        [SerializeField] private AreaVisualizationSettingsSO settings;
+        [BoxGroup("Settings")][SerializeField] private AreaVisualizationSettingsSO settingsSO;
+        [BoxGroup("Settings")][SerializeField] private bool overrideSettings;
+        [BoxGroup("Settings")] [SerializeField, ShowIf(nameof(overrideSettings)), HideLabel]
+        private AreaVisualizationSettingsData customSettings;
+        
+        [PropertySpace]
         [SerializeField] private PlacementArea placementArea;
         [SerializeField] private Rectangle areaRectangle;
+        
+        private AreaVisualizationSettingsData _settings;
 
         private PlacementAreaUpgradeableProperties _upgradeableProperties;
         private float _padding;
@@ -20,18 +28,31 @@ namespace ColonizationMobileGame.AreaVisualizationNS
         
 #if UNITY_EDITOR
         private void OnValidate()
-#else
-        private void Awake()
-#endif
         {
+            SetSettings();
+            
             ApplySettingsToRectangle();
+        }
+#endif
+
+        private void Awake()
+        {
+            SetSettings();
+            
+            ApplySettingsToRectangle();
+        }
+
+
+        private void SetSettings()
+        {
+            _settings = overrideSettings ? customSettings : settingsSO.Data;
         }
 
 
         private void ApplySettingsToRectangle()
         {
-            areaRectangle.ZOffsetFactor = settings.DepthOffsetFactor;
-            areaRectangle.Color = settings.Color;
+            areaRectangle.ZOffsetFactor = _settings.DepthOffsetFactor;
+            areaRectangle.Color = _settings.Color;
         }
 
 
@@ -44,7 +65,7 @@ namespace ColonizationMobileGame.AreaVisualizationNS
 
         private void SetData()
         {
-            _padding = 1 + settings.ProportionalPadding;
+            _padding = 1 + _settings.ProportionalPadding;
             _upgradeableProperties = placementArea.GetUpgradeableData();
         }
 
@@ -78,7 +99,7 @@ namespace ColonizationMobileGame.AreaVisualizationNS
             areaRectangle.Height = areaSize.x * _padding;
             areaRectangle.Width = areaSize.y * _padding;
 
-            areaRectangle.CornerRadius = Mathf.Min(areaSize.x, areaSize.y) * settings.CornerRadius;
+            areaRectangle.CornerRadius = Mathf.Min(areaSize.x, areaSize.y) * _settings.CornerRadius;
         }
     }
 }
