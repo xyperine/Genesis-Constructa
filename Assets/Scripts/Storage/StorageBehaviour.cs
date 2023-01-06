@@ -9,7 +9,6 @@ using ColonizationMobileGame.Level;
 using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.ScoreSystem;
 using ColonizationMobileGame.UI.ItemsAmount.Data;
-using ColonizationMobileGame.Utility;
 using ColonizationMobileGame.Utility.Helpers;
 using UnityEngine;
 

@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -40}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1730795434
@@ -179,7 +179,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -130, y: -350}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 260, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3027638154659418208
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 3027638155228488595}
   - component: {fileID: 3027638155228488592}
   - component: {fileID: 3027638155228488593}
-  - component: {fileID: 1185834554}
+  - component: {fileID: 537218624164509949}
   m_Layer: 5
   m_Name: Items_List
   m_TagString: Untagged
@@ -230,7 +230,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3027638155228488594}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.2278178e-10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -239,8 +239,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -177.95157, y: -360.59174}
-  m_SizeDelta: {x: 355.92, y: 721.2}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 300, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3027638155228488592
 MonoBehaviour:
@@ -256,7 +256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding:
     m_Left: 0
-    m_Right: 10
+    m_Right: 15
     m_Top: 40
     m_Bottom: 0
   m_ChildAlignment: 2
@@ -287,8 +287,11 @@ MonoBehaviour:
   alwaysVisible: 0
   dataObject: {fileID: 0}
   entryPrefab: {fileID: 9002301915873902368, guid: a4ba6c8c593c07f44aa572be7548f26a, type: 3}
-  animator: {fileID: 1185834554}
---- !u!114 &1185834554
+  animate: 0
+  animator: {fileID: 0}
+  usingShapes: 1
+  shapesContentFitter: {fileID: 537218624164509949}
+--- !u!114 &537218624164509949
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -297,11 +300,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3027638155228488594}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a349d35683b34636b99f6c41363ad5df, type: 3}
+  m_Script: {fileID: 11500000, guid: 60c4dc267f7b441ea357468d694de597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 1
-  rectTransform: {fileID: 0}
   rectangle: {fileID: 1730795434}
   duration: 0.2
   entryHeight: 100

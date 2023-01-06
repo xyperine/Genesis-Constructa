@@ -19,7 +19,10 @@ namespace ColonizationMobileGame.UI.ItemsAmount.Panel
         [SerializeField] private bool alwaysVisible;
         [SerializeField] private ItemsAmountPanelData dataObject;
         [SerializeField] private ItemAmountPanelEntry entryPrefab;
-        [SerializeField] private ItemsAmountPanelAnimator animator;
+        [Header("Visuals")] 
+        [SerializeField] private bool animate = true;
+        [SerializeField, ShowIf(nameof(animate))] private ItemsAmountPanelAnimator animator;
+        [SerializeField] private ItemsAmountPanelShapesContentFitter shapesContentFitter;
         
         private readonly Dictionary<ItemType, ItemAmountPanelEntry> _entries =
             new Dictionary<ItemType, ItemAmountPanelEntry>();
@@ -29,8 +32,15 @@ namespace ColonizationMobileGame.UI.ItemsAmount.Panel
 
         private void Awake()
         {
+            Initialize();
+        }
+
+
+        private void Initialize()
+        {
             CalculateVisibility();
             ApplyVisibility();
+            FitContent();
         }
 
 
@@ -55,7 +65,12 @@ namespace ColonizationMobileGame.UI.ItemsAmount.Panel
                 iconObject.SetVisibility(_visible && showIcon);
             }
 
-            Animate();
+            shapesContentFitter.SetVisibility(_visible);
+
+            if (animate)
+            {
+                Animate();
+            }
         }
 
 
@@ -65,8 +80,6 @@ namespace ColonizationMobileGame.UI.ItemsAmount.Panel
             {
                 return;
             }
-
-            animator.ResizeBackground();
             
             if (_visible)
             {
@@ -76,6 +89,12 @@ namespace ColonizationMobileGame.UI.ItemsAmount.Panel
             {
                 animator.ScaleDown();
             }
+        }
+
+
+        private void FitContent()
+        {
+            shapesContentFitter.ResizeBackground();
         }
 
 
@@ -103,13 +122,14 @@ namespace ColonizationMobileGame.UI.ItemsAmount.Panel
             SetText();
             
             ApplyVisibility();
+            
+            FitContent();
         }
 
 
         private void OnUnlocked()
         {
-            CalculateVisibility();
-            ApplyVisibility();
+            Initialize();
         }
 
 

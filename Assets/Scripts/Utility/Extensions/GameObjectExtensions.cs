@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 using ColonizationMobileGame.SetupSystem;
 using Shapes;
 using UnityEngine;
@@ -57,5 +58,16 @@ namespace ColonizationMobileGame.Utility.Extensions
             }
         }
 
+        
+        public static string GetFullName (this GameObject gameObject) {
+            StringBuilder nameBuilder = new StringBuilder(gameObject.name);
+            
+            while (gameObject.transform.parent != null) {
+                gameObject = gameObject.transform.parent.gameObject;
+                nameBuilder.AppendJoin('/', gameObject.name);
+            }
+            
+            return nameBuilder.ToString();
+        }
     }
 }

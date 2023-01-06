@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using ColonizationMobileGame.Structures;
-using ColonizationMobileGame.Utility;
 using ColonizationMobileGame.Utility.Helpers;
 using UnityEngine;
 
