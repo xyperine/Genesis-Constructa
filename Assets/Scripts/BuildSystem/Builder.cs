@@ -59,6 +59,7 @@ namespace ColonizationMobileGame.BuildSystem
             SetupPrice();
             SetItemsAmountData();
 
+            consumer.transform.localPosition = GetStructureBounds().center.XZPlane();
             consumer.Consumed += SetItemsAmountData;
 
             if (!_buildData.Locked)
@@ -155,9 +156,15 @@ namespace ColonizationMobileGame.BuildSystem
         }
 
 
+        public Bounds GetStructureBounds()
+        {
+            return _buildData.StructurePrefab.GetGameObjectBounds();
+        }
+        
+        
         public Vector2 GetStructureArea()
         {
-            return _buildData.StructurePrefab.GetGameObjectBounds().size.XZPlaneVector2();
+            return GetStructureBounds().size.XZPlaneVector2();
         }
 
 
