@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Text;
 using ColonizationMobileGame.SetupSystem;
-using Shapes;
 using UnityEngine;
 
 namespace ColonizationMobileGame.Utility.Extensions
@@ -22,43 +21,42 @@ namespace ColonizationMobileGame.Utility.Extensions
             return obj;
         }
         
-        
+
         public static Bounds GetGameObjectBounds(this GameObject gameObject)
         {
-            Transform referenceTransform = gameObject.transform;
-            Bounds b = new Bounds(Vector3.zero, Vector3.zero);
-            RecurseEncapsulate(referenceTransform, ref b);
-            return b;
-                       
-            void RecurseEncapsulate(Transform child, ref Bounds bounds)
-            {
-                if (child.GetComponent<Canvas>())
-                {
-                    return;
-                }
+            MeshFilter[] meshFilters = gameObject.GetComponentsInChildren<MeshFilter>();
 
-                if (child.GetComponent<Rectangle>())
+            Vector3 min = Vector3.positiveInfinity;
+            Vector3 max = Vector3.negativeInfinity;
+            
+            foreach (MeshFilter meshFilter in meshFilters)
+            {
+                if (!meshFilter.sharedMesh)
                 {
-                    return;
+                    continue;
                 }
                 
-                MeshFilter mesh = child.GetComponent<MeshFilter>();
-                if (mesh)
+                Vector3[] vertices = meshFilter.sharedMesh.vertices;
+
+                foreach (Vector3 vertex in vertices)
                 {
-                    Bounds lsBounds = mesh.sharedMesh.bounds;
-                    Vector3 wsMin = child.TransformPoint(lsBounds.center - lsBounds.extents);
-                    Vector3 wsMax = child.TransformPoint(lsBounds.center + lsBounds.extents);
-                    bounds.Encapsulate(referenceTransform.InverseTransformPoint(wsMin));
-                    bounds.Encapsulate(referenceTransform.InverseTransformPoint(wsMax));
-                }
-                foreach (Transform grandChild in child.transform)
-                {
-                    RecurseEncapsulate(grandChild, ref bounds);
+                    Vector3 wsVertexPosition = meshFilter.transform.TransformPoint(vertex);
+                    
+                    for (int n = 0; n < 3; n++)
+                    {
+                        min[n] = Mathf.Min(min[n], wsVertexPosition[n]);
+                        max[n] = Mathf.Max(max[n], wsVertexPosition[n]);
+                    }
                 }
             }
+            
+            Bounds bounds = new Bounds();
+            bounds.SetMinMax(min, max);
+
+            return bounds;
         }
 
-        
+
         public static string GetFullName (this GameObject gameObject) {
             StringBuilder nameBuilder = new StringBuilder(gameObject.name);
             

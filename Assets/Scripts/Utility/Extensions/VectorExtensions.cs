@@ -12,7 +12,7 @@ namespace ColonizationMobileGame.Utility.Extensions
         
         public static Vector3 XZPlane(this Vector3 a)
         {
-            return new Vector3(a.x, 0f, a.z);
+            return a.WithY(0f);
         }
 
 
@@ -24,13 +24,21 @@ namespace ColonizationMobileGame.Utility.Extensions
 
         public static Vector3 Abs(this Vector3 a)
         {
-            return new Vector3(Mathf.Abs(a.x), Mathf.Abs(a.y), Mathf.Abs(a.z));
+            a.Set(Mathf.Abs(a.x), Mathf.Abs(a.y), Mathf.Abs(a.z));
+            return a;
         }
 
 
         public static Vector3 WithY(this Vector3 a, float y)
         {
-            return new Vector3(a.x, y, a.z);
+            a.Set(a.x, y, a.z);
+            return a;
+        }
+
+
+        public static float BiggestComponentValue(this Vector3 a)
+        {
+            return Mathf.Max(a.x, a.y, a.z);
         }
     }
 }
