@@ -8,8 +8,7 @@ namespace IconsCreatorNS
 {
     public class IconsCreatorWindow : EditorWindow
     {
-        [SerializeField] private float zoom = 1f;
-        [SerializeField] private new string name;
+        [SerializeField] private new string name = "Icon";
         [SerializeField] private int resolution = 512;
 
         [SerializeField] private GameObject targetObject;
@@ -24,7 +23,17 @@ namespace IconsCreatorNS
 
         private Texture2D _previewTexture;
 
-        #region ---Serialized properties---
+        #region --- Window name ---
+
+        private const string MENU_NAME = "Tools/Icons Creator";
+        private const string HOTKEYS = "%#I";
+        private const string FULL_MENU_NAME = MENU_NAME + " " + HOTKEYS;
+        
+        private const string TITLE = "Icons Creator";
+
+        #endregion
+        
+        #region --- Serialized properties ---
         
         private SerializedObject _serializedObject;
 
@@ -68,10 +77,10 @@ namespace IconsCreatorNS
         #endregion
 
 
-        [MenuItem("Tools/Icons Creator")]
+        [MenuItem(FULL_MENU_NAME)]
         private static void OpenWindow()
         {
-            GetWindow<IconsCreatorWindow>().Show();
+            GetWindow<IconsCreatorWindow>(TITLE);
             
             AddIconsCreationCameraTag();
         }
@@ -88,12 +97,23 @@ namespace IconsCreatorNS
 
         private void OnEnable()
         {
+            Load();
+            
             SetupSerializedProperties();
             
             _iconsCreator.SetData(name, compression, filterMode);
             CameraUtility.SetData(targetObject, resolution);
             
             CameraUtility.RetrieveCamera();
+        }
+
+
+        private void Load()
+        {
+            name = EditorPrefs.GetString(nameof(name));
+            resolution = EditorPrefs.GetInt(nameof(resolution));
+            compression = (TextureImporterCompression) EditorPrefs.GetInt(nameof(compression));
+            filterMode = (FilterMode) EditorPrefs.GetInt(nameof(filterMode));
         }
 
 
@@ -109,8 +129,28 @@ namespace IconsCreatorNS
         }
 
 
+        private void OnDisable()
+        {
+            Save();
+        }
+
+
+        private void Save()
+        {
+            EditorPrefs.SetString(nameof(name), name);
+            EditorPrefs.SetInt(nameof(resolution), resolution);
+            EditorPrefs.SetInt(nameof(compression), (int) compression);
+            EditorPrefs.SetInt(nameof(filterMode), (int) filterMode);
+        }
+
+
         private void OnValidate()
         {
+            if (!targetObject)
+            {
+                return;
+            }
+            
             _iconsCreator.SetData(name, compression, filterMode);
             CameraUtility.SetData(targetObject, resolution);
 
@@ -187,28 +227,31 @@ namespace IconsCreatorNS
 
         private void DrawButtons()
         {
-            using (new GUILayout.VerticalScope(EditorStyles.helpBox))
+            using (new EditorGUI.DisabledScope(!targetObject))
             {
-                GUILayout.Label("Actions", EditorStyles.boldLabel);
-                GUILayout.Space(4f);
-
-                using (new GUILayout.HorizontalScope())
+                using (new GUILayout.VerticalScope(EditorStyles.helpBox))
                 {
-                    if (GUILayout.Button("Adjust Camera"))
-                    {
-                        CameraUtility.CenterCamera();
-                        CameraUtility.SetCameraSize();
-            
-                        _previewTexture = CameraUtility.CaptureCameraView();
-                    }
+                    GUILayout.Label("Actions", EditorStyles.boldLabel);
+                    GUILayout.Space(4f);
 
-                    if (GUILayout.Button("Create Icon"))
+                    using (new GUILayout.HorizontalScope())
                     {
-                        CameraUtility.CenterCamera();
-                        CameraUtility.SetCameraSize();
+                        if (GUILayout.Button("Adjust Camera"))
+                        {
+                            CameraUtility.CenterCamera();
+                            CameraUtility.SetCameraSize();
+            
+                            _previewTexture = CameraUtility.CaptureCameraView();
+                        }
+
+                        if (GUILayout.Button("Create Icon"))
+                        {
+                            CameraUtility.CenterCamera();
+                            CameraUtility.SetCameraSize();
                     
-                        _iconsCreator.CreateIcon();
-                        _previewTexture = CameraUtility.CaptureCameraView();
+                            _iconsCreator.CreateIcon();
+                            _previewTexture = CameraUtility.CaptureCameraView();
+                        }
                     }
                 }
             }
@@ -217,6 +260,11 @@ namespace IconsCreatorNS
 
         private void DrawPreview()
         {
+            if (!targetObject)
+            {
+                return;
+            }
+            
             if (!_previewTexture)
             {
                 return;
