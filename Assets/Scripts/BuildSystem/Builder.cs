@@ -157,7 +157,7 @@ namespace ColonizationMobileGame.BuildSystem
 
         public Bounds GetStructureBounds()
         {
-            return _buildData.StructurePrefab.GetGameObjectBounds();
+            return _buildData.StructurePrefab.GetBounds();
         }
         
         

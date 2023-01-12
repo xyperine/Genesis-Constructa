@@ -38,7 +38,7 @@ namespace IconsCreatorNS
                 throw new InvalidDataException("Camera has to be in orthographic mode!");
             }
 
-            _cameraUtility.SetCameraSize();
+            _cameraUtility.AdjustCamera();
 
             Texture2D icon = _cameraUtility.CaptureCameraView();
 

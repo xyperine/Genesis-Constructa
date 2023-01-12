@@ -10,7 +10,7 @@ namespace ColonizationMobileGame.AreaVisualizationNS.TargetFitters
         private readonly GameObject _itemsHolderObject;
         
         protected override bool RotationCondition => areaSize.x <= areaSize.y;
-        protected override Vector2 AreaSize => _itemsHolderObject.GetGameObjectBounds().size.XZPlaneVector2();
+        protected override Vector2 AreaSize => _itemsHolderObject.GetBounds().size.XZPlaneVector2();
 
 
         public StartItemsAreaVisualizationTargetFitter(Rectangle areaRectangle, AreaVisualizationSettingsData settings,

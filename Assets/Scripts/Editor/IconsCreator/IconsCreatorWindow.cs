@@ -45,36 +45,28 @@ namespace IconsCreatorNS
         
         #endregion
         
-        #region --- Gizmos ---
-        
-        private static Vector3 _t;
-        private static Vector3 _c;
-        private static Vector3 _d;
-        private static Vector3 _s;
-        private static Bounds _targetBounds;
-        private static Transform _camT;
 
-
-        //[DrawGizmo(GizmoType.Active)]
-        private static void DrawGizmos(Transform component, GizmoType gizmoType)
+        [DrawGizmo(GizmoType.Active)]
+        private static void DrawDebugGizmos(Transform component, GizmoType gizmoType)
         {
-            Gizmos.color = Color.blue;
-            Gizmos.DrawSphere(_t, 0.5f);
+            Color centerColor = new Color(0.93f, 0.19f, 0.51f);
+            Color minColor = new Color(0.04f, 0.35f, 0.77f);
+            Color maxColor = new Color(1f, 0.42f, 0.18f);
             
-            Gizmos.color = Color.blue;
-            Gizmos.DrawRay(_camT.position, _camT.forward * 100);
+            Handles.color = centerColor;
+            Vector3 normal = -SceneView.currentDrawingSceneView.camera.transform.forward;
+            Handles.DrawSolidDisc(CameraUtility.TargetBoundsCenter, normal, 0.25f);
             
-            Gizmos.color = Color.red;
-            Gizmos.DrawSphere(_c, 0.5f);
-            
-            Gizmos.DrawRay(_camT.position, _d);
-            
-            Handles.DrawWireCube(_targetBounds.center, _targetBounds.size);
-            Gizmos.DrawSphere(_targetBounds.min, 0.2f);
-            Gizmos.DrawSphere(_targetBounds.max, 0.2f);
+            Handles.DrawLine(CameraUtility.CameraTransform.position, CameraUtility.TargetBoundsCenter);
+
+            Bounds targetBounds = CameraUtility.TargetBounds;
+            Handles.color = minColor;
+            Handles.DrawSolidDisc(targetBounds.min, normal, 0.2f);
+            Handles.color = maxColor;
+            Handles.DrawSolidDisc(targetBounds.max, normal, 0.2f);
+            Handles.color = Color.white;
+            Handles.DrawWireCube(targetBounds.center, targetBounds.size);
         }
-        
-        #endregion
 
 
         [MenuItem(FULL_MENU_NAME)]
@@ -155,8 +147,7 @@ namespace IconsCreatorNS
             CameraUtility.SetData(targetObject, resolution);
 
             CameraUtility.RetrieveCamera();
-            CameraUtility.PositionCamera();
-            CameraUtility.SetCameraSize();
+            CameraUtility.AdjustCamera();
         }
 
 
@@ -238,19 +229,17 @@ namespace IconsCreatorNS
                     {
                         if (GUILayout.Button("Adjust Camera"))
                         {
-                            CameraUtility.CenterCamera();
-                            CameraUtility.SetCameraSize();
+                            CameraUtility.AdjustCamera();
             
                             _previewTexture = CameraUtility.CaptureCameraView();
                         }
 
                         if (GUILayout.Button("Create Icon"))
                         {
-                            CameraUtility.CenterCamera();
-                            CameraUtility.SetCameraSize();
+                            CameraUtility.AdjustCamera();
                     
-                            _iconsCreator.CreateIcon();
                             _previewTexture = CameraUtility.CaptureCameraView();
+                            _iconsCreator.CreateIcon();
                         }
                     }
                 }

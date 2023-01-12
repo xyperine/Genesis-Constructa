@@ -10,16 +10,20 @@ namespace IconsCreatorNS
 
         private Camera _camera;
         private GameObject _targetObject;
+        private Bounds _targetOrthographicBounds;
 
         private int _resolution;
         private float _distanceToTarget = 10f;
-        private Texture2D _cameraViewTexture;
 
         private Vector3 CameraOffset => -_camera.transform.forward * _distanceToTarget;
-        private float RenderTexturePixelToWorldUnits => _camera.orthographicSize / _resolution;
-        
+
         public string IconsCreationCameraTag => ICONS_CREATION_CAMERA_TAG;
         public bool Orthographic => _camera.orthographic;
+        
+        // Debug gizmos information
+        public Transform CameraTransform => _camera.transform;
+        public Bounds TargetBounds => _targetObject.GetOrthographicBounds(_camera);
+        public Vector3 TargetBoundsCenter => TargetBounds.center;
 
 
         public void RetrieveCamera()
@@ -57,37 +61,49 @@ namespace IconsCreatorNS
         }
 
 
-        public void PositionCamera()
+        public void AdjustCamera()
         {
-            Transform cameraTransform = _camera.transform;
             if (!_targetObject)
             {
                 Debug.LogWarning("No target found!");
                 return;
             }
-
-            cameraTransform.rotation = Quaternion.AngleAxis(45, Vector3.right);
             
-            Bounds targetBounds = _targetObject.GetGameObjectBounds();
-            
-            _distanceToTarget = targetBounds.size.z / 2 + 10;
-            Vector3 targetCenter = targetBounds.center;
-            cameraTransform.position = targetCenter + CameraOffset;
+            _targetOrthographicBounds = _targetObject.GetOrthographicBounds(_camera);
 
-            _camera.orthographicSize = targetBounds.size.BiggestComponentValue() * 0.5f;
+            SetRotation();
+            SetPosition();
+            SetOrthographicSize();
         }
 
 
-        public void SetCameraSize()
+        private void SetRotation()
         {
-            float lengthBounds = _targetObject.GetGameObjectBounds().size.BiggestComponentValue() * 0.5f;
-            _camera.orthographicSize = lengthBounds;
+            _camera.transform.rotation = Quaternion.AngleAxis(45, Vector3.right);
         }
         
 
+        private void SetPosition()
+        {
+            _distanceToTarget = _targetOrthographicBounds.size.z / 2 + 10;
+            Vector3 targetCenter = _targetOrthographicBounds.center;
+            _camera.transform.position = targetCenter + CameraOffset;
+        }
+
+
+        private void SetOrthographicSize()
+        {
+            Vector2 minVertexPositionOnCameraPlane = _camera.transform.InverseTransformPoint(_targetOrthographicBounds.min);
+            Vector2 maxVertexPositionOnCameraPlane = _camera.transform.InverseTransformPoint(_targetOrthographicBounds.max);
+            Vector2 distance = maxVertexPositionOnCameraPlane - minVertexPositionOnCameraPlane;
+
+            _camera.orthographicSize = distance.Abs().BiggestComponentValue() * 0.5f;
+        }
+
+
         public Texture2D CaptureCameraView()
         {
-            SetCameraTargetTexture();
+            _camera.targetTexture = RenderTexture.GetTemporary(_resolution, _resolution);
             RenderTexture.active = _camera.targetTexture;
 
             _camera.Render();
@@ -100,29 +116,6 @@ namespace IconsCreatorNS
             RenderTexture.active = null;
 
             return image;
-        }
-
-
-        private void SetCameraTargetTexture()
-        {
-            _camera.targetTexture = RenderTexture.GetTemporary(_resolution, _resolution);
-        }
-
-
-        public void CenterCamera()
-        {
-            _cameraViewTexture = CaptureCameraView();
-
-            Transform cameraTransform = _camera.transform;
-            
-            Vector2 contentCenter = _cameraViewTexture.NonTransparentContentCenter();
-            
-            Vector2 difference = Vector2.one * (_resolution * 0.5f) - contentCenter;
-            Vector2 differenceWorldUnits = difference * RenderTexturePixelToWorldUnits;
-            Vector3 differenceAlongTheCameraPlane = cameraTransform.rotation *differenceWorldUnits;
-
-            Vector3 targetCenter = _targetObject.GetGameObjectBounds().center - differenceAlongTheCameraPlane;
-            cameraTransform.position = targetCenter + CameraOffset;
         }
     }
 }
