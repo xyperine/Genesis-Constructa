@@ -10,6 +10,7 @@ namespace IconsCreatorNS
     {
         [SerializeField] private new string name = "Icon";
         [SerializeField] private int resolution = 512;
+        [SerializeField] private float padding;
 
         [SerializeField] private GameObject targetObject;
 
@@ -39,6 +40,7 @@ namespace IconsCreatorNS
 
         private SerializedProperty _nameSerializedProperty;
         private SerializedProperty _resolutionSerializedProperty;
+        private SerializedProperty _paddingSerializedProperty;
         private SerializedProperty _targetObjectSerializedProperty;
         private SerializedProperty _compressionSerializedProperty;
         private SerializedProperty _filterModeSerializedProperty;
@@ -109,7 +111,7 @@ namespace IconsCreatorNS
             SetupSerializedProperties();
             
             _iconsCreator.SetData(name, compression, filterMode);
-            CameraUtility.SetData(targetObject, resolution);
+            CameraUtility.SetData(targetObject, resolution, padding);
             
             CameraUtility.RetrieveCamera();
         }
@@ -119,6 +121,7 @@ namespace IconsCreatorNS
         {
             name = EditorPrefs.GetString(nameof(name));
             resolution = EditorPrefs.GetInt(nameof(resolution));
+            padding = EditorPrefs.GetFloat(nameof(padding));
             compression = (TextureImporterCompression) EditorPrefs.GetInt(nameof(compression));
             filterMode = (FilterMode) EditorPrefs.GetInt(nameof(filterMode));
         }
@@ -130,6 +133,7 @@ namespace IconsCreatorNS
             
             _nameSerializedProperty = _serializedObject.FindProperty(nameof(name));
             _resolutionSerializedProperty = _serializedObject.FindProperty(nameof(resolution));
+            _paddingSerializedProperty = _serializedObject.FindProperty(nameof(padding));
             _targetObjectSerializedProperty = _serializedObject.FindProperty(nameof(targetObject));
             _compressionSerializedProperty = _serializedObject.FindProperty(nameof(compression));
             _filterModeSerializedProperty = _serializedObject.FindProperty(nameof(filterMode));
@@ -146,6 +150,7 @@ namespace IconsCreatorNS
         {
             EditorPrefs.SetString(nameof(name), name);
             EditorPrefs.SetInt(nameof(resolution), resolution);
+            EditorPrefs.SetFloat(nameof(padding), padding);
             EditorPrefs.SetInt(nameof(compression), (int) compression);
             EditorPrefs.SetInt(nameof(filterMode), (int) filterMode);
         }
@@ -159,7 +164,7 @@ namespace IconsCreatorNS
             }
             
             _iconsCreator.SetData(name, compression, filterMode);
-            CameraUtility.SetData(targetObject, resolution);
+            CameraUtility.SetData(targetObject, resolution, padding);
 
             CameraUtility.RetrieveCamera();
             CameraUtility.AdjustCamera();
@@ -207,6 +212,7 @@ namespace IconsCreatorNS
         {
             EditorGUILayout.PropertyField(_nameSerializedProperty);
             EditorGUILayout.IntSlider(_resolutionSerializedProperty, 1, 1024);
+            EditorGUILayout.Slider(_paddingSerializedProperty, 0f, 0.9f);
             EditorGUILayout.PropertyField(_targetObjectSerializedProperty);
         }
 

@@ -13,6 +13,8 @@ namespace IconsCreatorNS
         private Bounds _targetOrthographicBounds;
 
         private int _resolution;
+        private float _padding;
+        
         private float _distanceToTarget = 10f;
 
         private Vector3 CameraOffset => -_camera.transform.forward * _distanceToTarget;
@@ -49,10 +51,11 @@ namespace IconsCreatorNS
         }
 
 
-        public void SetData(GameObject targetObject, int resolution)
+        public void SetData(GameObject targetObject, int resolution, float padding)
         {
             _targetObject = targetObject;
             _resolution = resolution;
+            _padding = padding;
         }
 
 
@@ -92,7 +95,7 @@ namespace IconsCreatorNS
             Vector2 maxVertexPositionOnCameraPlane = _camera.transform.InverseTransformPoint(_targetOrthographicBounds.max);
             Vector2 distance = maxVertexPositionOnCameraPlane - minVertexPositionOnCameraPlane;
 
-            _camera.orthographicSize = distance.Abs().BiggestComponentValue() * 0.5f;
+            _camera.orthographicSize = distance.Abs().BiggestComponentValue() * 0.5f / (1 - _padding);
         }
 
 
