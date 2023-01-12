@@ -44,22 +44,35 @@ namespace IconsCreatorNS
         private SerializedProperty _filterModeSerializedProperty;
         
         #endregion
-        
+
+        #region --- Debug Gizmos ---
 
         [DrawGizmo(GizmoType.Active)]
         private static void DrawDebugGizmos(Transform component, GizmoType gizmoType)
         {
+            if (CameraUtility == null)
+            {
+                return;
+            }
+
+            IconsCreatorCameraUtilityDebugData debugData = CameraUtility.GetDebugData();
+
+            if (!debugData.Ready)
+            {
+                return;
+            }
+            
             Color centerColor = new Color(0.93f, 0.19f, 0.51f);
             Color minColor = new Color(0.04f, 0.35f, 0.77f);
             Color maxColor = new Color(1f, 0.42f, 0.18f);
             
             Handles.color = centerColor;
             Vector3 normal = -SceneView.currentDrawingSceneView.camera.transform.forward;
-            Handles.DrawSolidDisc(CameraUtility.TargetBoundsCenter, normal, 0.25f);
+            Handles.DrawSolidDisc(debugData.TargetBoundsCenter, normal, 0.25f);
             
-            Handles.DrawLine(CameraUtility.CameraTransform.position, CameraUtility.TargetBoundsCenter);
+            Handles.DrawLine(debugData.CameraPosition, debugData.TargetBoundsCenter);
 
-            Bounds targetBounds = CameraUtility.TargetBounds;
+            Bounds targetBounds = debugData.TargetBounds;
             Handles.color = minColor;
             Handles.DrawSolidDisc(targetBounds.min, normal, 0.2f);
             Handles.color = maxColor;
@@ -67,6 +80,8 @@ namespace IconsCreatorNS
             Handles.color = Color.white;
             Handles.DrawWireCube(targetBounds.center, targetBounds.size);
         }
+
+        #endregion
 
 
         [MenuItem(FULL_MENU_NAME)]
@@ -90,7 +105,7 @@ namespace IconsCreatorNS
         private void OnEnable()
         {
             Load();
-            
+
             SetupSerializedProperties();
             
             _iconsCreator.SetData(name, compression, filterMode);

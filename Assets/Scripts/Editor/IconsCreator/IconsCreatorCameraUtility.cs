@@ -16,14 +16,9 @@ namespace IconsCreatorNS
         private float _distanceToTarget = 10f;
 
         private Vector3 CameraOffset => -_camera.transform.forward * _distanceToTarget;
-
-        public string IconsCreationCameraTag => ICONS_CREATION_CAMERA_TAG;
-        public bool Orthographic => _camera.orthographic;
         
-        // Debug gizmos information
-        public Transform CameraTransform => _camera.transform;
-        public Bounds TargetBounds => _targetObject.GetOrthographicBounds(_camera);
-        public Vector3 TargetBoundsCenter => TargetBounds.center;
+        public bool Orthographic => _camera.orthographic;
+        public string IconsCreationCameraTag => ICONS_CREATION_CAMERA_TAG;
 
 
         public void RetrieveCamera()
@@ -116,6 +111,16 @@ namespace IconsCreatorNS
             RenderTexture.active = null;
 
             return image;
+        }
+
+
+        public IconsCreatorCameraUtilityDebugData GetDebugData()
+        {
+            return new IconsCreatorCameraUtilityDebugData(
+                _targetObject,
+                _camera.transform.position,
+                _targetOrthographicBounds,
+                _targetOrthographicBounds.center);
         }
     }
 }
