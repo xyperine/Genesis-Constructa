@@ -158,9 +158,9 @@ namespace IconsCreatorNS
             DrawSettings();
             
             GUILayout.Space(8f);
-            
+
             DrawButtons();
-            
+                
             GUILayout.Space(8f);
 
             if (_serializedObject.ApplyModifiedProperties())
@@ -223,8 +223,9 @@ namespace IconsCreatorNS
                 using (new GUILayout.VerticalScope(EditorStyles.helpBox))
                 {
                     GUILayout.Label("Actions", EditorStyles.boldLabel);
+                    
                     GUILayout.Space(4f);
-
+                    
                     using (new GUILayout.HorizontalScope())
                     {
                         if (GUILayout.Button("Adjust Camera"))
@@ -262,8 +263,12 @@ namespace IconsCreatorNS
             using (new GUILayout.VerticalScope(EditorStyles.helpBox))
             {
                 GUILayout.Label("Preview", EditorStyles.boldLabel);
+                
                 GUILayout.Space(4f);
-                GUILayout.Box(_previewTexture);
+
+                GUIStyle boxStyle = new GUIStyle(GUI.skin.box) {margin = new RectOffset(32, 32, 32, 32)};
+                GUILayoutOption[] boxOptions = {GUILayout.Width(256f), GUILayout.Height(256f)};
+                GUILayout.Box(_previewTexture, boxStyle, boxOptions);
             }
         }
     }
