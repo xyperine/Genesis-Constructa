@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using ColonizationMobileGame.SetupSystem;
+using Shapes;
 using UnityEngine;
 
 namespace ColonizationMobileGame.Utility.Extensions
@@ -24,30 +25,33 @@ namespace ColonizationMobileGame.Utility.Extensions
 
         public static Bounds GetBounds(this GameObject gameObject)
         {
-            MeshFilter[] meshFilters = gameObject.GetComponentsInChildren<MeshFilter>();
+            MeshRenderer[] meshRenderers = gameObject.GetComponentsInChildren<MeshRenderer>();
 
             Vector3 min = Vector3.positiveInfinity;
             Vector3 max = Vector3.negativeInfinity;
             
-            foreach (MeshFilter meshFilter in meshFilters)
+            foreach (MeshRenderer meshRenderer in meshRenderers)
             {
-                if (!meshFilter.sharedMesh)
+                if (meshRenderer.GetComponent<ShapeRenderer>())
                 {
                     continue;
                 }
                 
-                Vector3[] vertices = meshFilter.sharedMesh.vertices;
+                Bounds meshRendererBounds = meshRenderer.bounds;
 
-                foreach (Vector3 vertex in vertices)
+                for (int n = 0; n < 3; n++)
                 {
-                    Vector3 wsVertexPosition = meshFilter.transform.TransformPoint(vertex);
-                    
-                    for (int n = 0; n < 3; n++)
-                    {
-                        min[n] = Mathf.Min(min[n], wsVertexPosition[n]);
-                        max[n] = Mathf.Max(max[n], wsVertexPosition[n]);
-                    }
+                    min[n] = Mathf.Min(min[n], meshRendererBounds.min[n]);
+                    max[n] = Mathf.Max(max[n], meshRendererBounds.max[n]);
                 }
+            }
+
+            if (min == Vector3.positiveInfinity || max == Vector3.negativeInfinity)
+            {
+                min = Vector3.zero;
+                max = Vector3.zero;
+                
+                Debug.LogWarning("No mesh renderers found or their bounds are too big!");
             }
             
             Bounds bounds = new Bounds();
