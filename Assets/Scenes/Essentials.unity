@@ -316,6 +316,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f0713331a5f07041a9787d7d76987a4, type: 3}
+--- !u!21 &518029441
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Rect Transparent [CORNER_RADIUS] (instance)
+  m_Shader: {fileID: 4800000, guid: 616a25aec4b286744b9fa8a7c081c531, type: 3}
+  m_ShaderKeywords: CORNER_RADIUS
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _StencilComp: 8
+    - _StencilID: 0
+    - _StencilOp: 0
+    - _StencilOpPass: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _ZOffsetFactor: -20
+    - _ZOffsetUnits: 0
+    - _ZTest: 4
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!20 &599143671 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 498578006, guid: 78f4a369ac89c704e8331188466a3f93, type: 3}
@@ -510,7 +543,7 @@ PrefabInstance:
     - target: {fileID: 7931743841053526155, guid: a545d628fac155a4c93d7d1d591f0d32, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1769836689}
+      objectReference: {fileID: 1402653232}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a545d628fac155a4c93d7d1d591f0d32, type: 3}
 --- !u!4 &1039094242 stripped
@@ -518,7 +551,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6753569587692771540, guid: a545d628fac155a4c93d7d1d591f0d32, type: 3}
   m_PrefabInstance: {fileID: 1039094241}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1387917518
+--- !u!21 &1402653232
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -748,39 +781,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1769836689
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Rect Transparent [CORNER_RADIUS] (instance)
-  m_Shader: {fileID: 4800000, guid: 616a25aec4b286744b9fa8a7c081c531, type: 3}
-  m_ShaderKeywords: CORNER_RADIUS
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _StencilComp: 8
-    - _StencilID: 0
-    - _StencilOp: 0
-    - _StencilOpPass: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _ZOffsetFactor: -20
-    - _ZOffsetUnits: 0
-    - _ZTest: 4
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!114 &1928252496 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4597102672529662221, guid: a545d628fac155a4c93d7d1d591f0d32, type: 3}
@@ -819,14 +819,6 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 1039094242}
-    - target: {fileID: 5388296829812027934, guid: 78f4a369ac89c704e8331188466a3f93, type: 3}
-      propertyPath: m_Lens.FarClipPlane
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5388296829985713990, guid: 78f4a369ac89c704e8331188466a3f93, type: 3}
-      propertyPath: m_CameraDistance
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 5388296830719125954, guid: 78f4a369ac89c704e8331188466a3f93, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -886,30 +878,6 @@ PrefabInstance:
     - target: {fileID: 5388296831370594732, guid: 78f4a369ac89c704e8331188466a3f93, type: 3}
       propertyPath: m_LocalPosition.z
       value: -43.910004
-      objectReference: {fileID: 0}
-    - target: {fileID: 5388296831370594733, guid: 78f4a369ac89c704e8331188466a3f93, type: 3}
-      propertyPath: orthographic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5388296831370594733, guid: 78f4a369ac89c704e8331188466a3f93, type: 3}
-      propertyPath: far clip plane
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5388296831370594735, guid: 78f4a369ac89c704e8331188466a3f93, type: 3}
-      propertyPath: m_RenderShadows
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5388296831370594735, guid: 78f4a369ac89c704e8331188466a3f93, type: 3}
-      propertyPath: m_Cameras.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5388296831370594735, guid: 78f4a369ac89c704e8331188466a3f93, type: 3}
-      propertyPath: m_RenderPostProcessing
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5388296831370594735, guid: 78f4a369ac89c704e8331188466a3f93, type: 3}
-      propertyPath: m_Cameras.Array.data[0]
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5388296831370594735, guid: 78f4a369ac89c704e8331188466a3f93, type: 3}
       propertyPath: m_Cameras.Array.data[1]
