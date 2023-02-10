@@ -41,17 +41,5 @@ namespace ColonizationMobileGame.Utility.Extensions
             a.Set(a.x, y, a.z);
             return a;
         }
-
-
-        public static float BiggestComponentValue(this Vector2 a)
-        {
-            return Mathf.Max(a.x, a.y);
-        }
-        
-        
-        public static float BiggestComponentValue(this Vector3 a)
-        {
-            return Mathf.Max(a.x, a.y, a.z);
-        }
     }
 }
