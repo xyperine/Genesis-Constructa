@@ -19,3 +19,13 @@ Hope you will find something useful or at least interesting! :purple_heart:
 
 - Some assets and code depend on [Shapes](https://assetstore.unity.com/packages/tools/particles-effects/shapes-173167), and if you want to use them, you will run into problems, because Shapes Scripts and Shaders folders are not included in the repository since Shapes license prohibits exposing Shapes code. If you have Shapes - you can simply [import](https://docs.unity3d.com/Manual/upm-ui-import.html) Scripts and Shaders folders.
 - There is no documentation for the code in the project :flushed::point_right::point_left:. You can contact me [here] if you **really** need help and you can't figure it out on your own. I will make a reasonable effort to respond to such requests in a timely manner, and provide help to the best of my ability. However, I do not guarantee any specific results or outcomes from my services.
+
+## Support me 💚
+Please help me im gonna die
+
+Coin | Address
+:--- | :---:
+BTC | bc1qtw2akv8ftzx0glczlghh8k328srfv2eqs08hyh
+DASH | XhvpMB9T5jdHNHWDpnmyzqCoJh9Q8YjtZS
+ATOM | cosmos1uw2a87sdmx0ee0lag6e7e2py566vyl8mcumksl
+ETH | 0x119C025a5129954418675cc5C4Dd07E968E9B5C8
