@@ -21,7 +21,8 @@ Hope you will find something useful or at least interesting! :purple_heart:
 - There is no documentation for the code in the project :flushed::point_right::point_left:. You can contact me [here] if you **really** need help and you can't figure it out on your own. I will make a reasonable effort to respond to such requests in a timely manner, and provide help to the best of my ability. However, I do not guarantee any specific results or outcomes from my services.
 
 ## Support me :gift_heart:
-If you find my work helpful, you can donate me some crypto, so I can make more handy things with better quality and in a less time :blush:
+If you find my work helpful, you can donate me some crypto, so I can make more handy things with better quality and in a less time.  
+Thank you! :blush:
 
 Coin | Address
 :--- | :---:
