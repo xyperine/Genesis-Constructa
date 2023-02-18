@@ -15,13 +15,13 @@ The code and assets in this project are, for the most part, done by me and they 
 
 Hope you will find something useful or at least interesting! :purple_heart:
 
-## Notes
+## Notes :memo:
 
 - Some assets and code depend on [Shapes](https://assetstore.unity.com/packages/tools/particles-effects/shapes-173167), and if you want to use them, you will run into problems, because Shapes Scripts and Shaders folders are not included in the repository since Shapes license prohibits exposing Shapes code. If you have Shapes - you can simply [import](https://docs.unity3d.com/Manual/upm-ui-import.html) Scripts and Shaders folders.
 - There is no documentation for the code in the project :flushed::point_right::point_left:. You can contact me [here] if you **really** need help and you can't figure it out on your own. I will make a reasonable effort to respond to such requests in a timely manner, and provide help to the best of my ability. However, I do not guarantee any specific results or outcomes from my services.
 
-## Support me 💚
-Please help me im gonna die
+## Support me :gift_heart:
+If you find my work helpful, you can donate me some crypto, so I can make more handy things with better quality and in a less time :blush:
 
 Coin | Address
 :--- | :---:
