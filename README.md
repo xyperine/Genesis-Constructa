@@ -7,8 +7,6 @@
 
 This is a pet project that I wanted to do to learn more about making games in Unity for mobile platforms, specifically Android.
 
-[smth here]
-
 Hope you will find something useful in here! :purple_heart:
 
 ## If you want to use my assets or code :memo:
