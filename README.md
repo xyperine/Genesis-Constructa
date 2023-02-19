@@ -21,8 +21,8 @@ Hope you will find something useful in here! :purple_heart:
 
 ## Support me :gift_heart:
 
-If you find my work helpful, you can help me by donating some crypto, so I can make more tools and games, improve quality of my creations and speed up their development.  
-Thank you! :blush:
+If this material helped you, you can help me by donating some crypto, so I can make more tools and games, improve quality of my creations and speed up their development.  
+Thank you! I would really appreciate it! :blush:
 
 BTC:
 ```
