@@ -9,7 +9,7 @@ This is a pet project that I wanted to do to learn more about making games in Un
 
 You are playing as a robot, you were sent to a distant planet to build some infrastructure for future colonists. Main mechanic and some other features are based on a game called [Moon Pioneer](https://play.google.com/store/apps/details?id=com.norwichsidegames.tothemoon).
 
-Since it is work in progress, it is not really playable at the moment. It lacks some models, feature, effects, audio, etc. You can kind of "finish" the game by building a main hub in the center of the map - that's considered the end of the game. If you want to download the entire project and play it - please, read a point about Shapes in [Using my assets/entire project :memo:](#using-my-assetsentire-project-memo) section. However, I made the repository public not for people to play the game, but because I got bored of making it in private, and maybe you will be interested in looking at the game's insides.
+Since it is work in progress, it is not really playable at the moment. It lacks some models, features, effects, audio, etc. You can kind of "finish" the game by building a main hub in the center of the map - that's considered the end of the game. If you want to download the entire project and play it - please, read a point about Shapes in [Using my assets/entire project :memo:](#using-my-assetsentire-project-memo) section. However, I made the repository public not for people to play the game, but because I got bored of making it in private, and maybe you will be interested in looking at the game's insides.
 
 Hope you will find something useful in here! :purple_heart:
 
