@@ -11,7 +11,7 @@ namespace ColonizationMobileGame.AreaVisualizationNS.TargetFitters
         private readonly PlacementArea _placementArea;
 
         protected override bool RotationCondition => areaSize.x <= areaSize.y;
-        protected override Vector2 AreaSize => _placementArea.GetUpgradeableData().ScaledAreaSize.XZPlaneVector2();
+        protected override Vector2 AreaSize => _placementArea.GetUpgradeableData().MirroredAreaDimensions.XZPlaneVector2();
 
 
         public PlacementAreaVisualizationTargetFitter(Rectangle areaRectangle, AreaVisualizationSettingsData settings,

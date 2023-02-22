@@ -9,7 +9,7 @@ namespace ColonizationMobileGame.ItemsPlacement.Core.Area
     [CreateAssetMenu(fileName = "Placement_Area_Settings", menuName = "Items Placement/Placement Area Settings")]
     public sealed class PlacementAreaSettingsSO : ScriptableObject
     {
-        [SerializeField] private Vector3 itemSize = new Vector3(1f, 0.5f, 0.5f);
+        [SerializeField] private Vector3 itemDimensions = new Vector3(0.5f, 1f, 0.5f);
 
         [Header("Filling")] 
         [SerializeField] private bool useCustomFillingOrder;
@@ -27,7 +27,7 @@ namespace ColonizationMobileGame.ItemsPlacement.Core.Area
             fillingOrder = DefaultFillingOrder.ToArray();
         }
         
-        [SerializeField] private ItemsAlignment itemsAlignment;
+        [SerializeField] private PlacementAlignment alignment;
         [SerializeField] private Vector3Int areaSize;
 
         private static readonly HashSet<Axes> DefaultFillingOrder =
@@ -42,9 +42,10 @@ namespace ColonizationMobileGame.ItemsPlacement.Core.Area
         public int MaxItems { get; private set; }
         
         public Vector3 AreaSize { get; private set; }
-        public Vector3 ScaledAreaSize { get; private set; }
         public Quaternion ItemRotation { get; private set; }
-        public Vector3 AlignedItemSize { get; private set; }
+
+        public Vector3 ItemDimensions => itemDimensions;
+        public PlacementAlignment Alignment => alignment;
 
         
         private void OnValidate()
@@ -68,8 +69,6 @@ namespace ColonizationMobileGame.ItemsPlacement.Core.Area
             SetFillingOrder();
             SetMaxItems();
             SetRotation();
-            SetAlignedItemSize();
-            SetScaledAreaSize();
         }
 
 
@@ -88,29 +87,13 @@ namespace ColonizationMobileGame.ItemsPlacement.Core.Area
 
         private void SetRotation()
         {
-            ItemRotation = itemsAlignment switch
+            ItemRotation = alignment switch
             {
-                ItemsAlignment.Horizontal => Quaternion.identity,
-                ItemsAlignment.Vertical => Quaternion.AngleAxis(90f, Vector3.forward),
+                PlacementAlignment.Origin => Quaternion.identity,
+                PlacementAlignment.ForceHorizontal => Quaternion.AngleAxis(-90f, Vector3.forward),
+                PlacementAlignment.ForceVertical => Quaternion.AngleAxis(90f, Vector3.forward),
                 _ => throw new ArgumentOutOfRangeException(),
             };
-        }
-
-
-        private void SetAlignedItemSize()
-        {
-            AlignedItemSize = itemsAlignment switch
-            {
-                ItemsAlignment.Horizontal => itemSize,
-                ItemsAlignment.Vertical => new Vector3(itemSize.y, itemSize.x, itemSize.z),
-                _ => throw new ArgumentOutOfRangeException(),
-            };
-        }
-        
-        
-        private void SetScaledAreaSize()
-        {
-            ScaledAreaSize = Vector3.Scale(AreaSize, AlignedItemSize);
         }
     }
 }

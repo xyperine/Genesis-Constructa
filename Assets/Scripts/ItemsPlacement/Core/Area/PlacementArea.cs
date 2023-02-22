@@ -64,9 +64,32 @@ namespace ColonizationMobileGame.ItemsPlacement.Core.Area
 
         private void MoveItemInside(PlacementItem item)
         {
+            MoveItem(item);
+            RotateItem(item);
+        }
+
+
+        private void MoveItem(PlacementItem item)
+        {
             Vector3 position = itemPositionCalculator.Calculate(itemsCollection.FirstNullIndex);
-            _itemsMover.MoveItem(item, position);
-            item.Rotate(placementSettings.ItemRotation);
+            _itemsMover.MoveItem(item, position);   
+        }
+        
+
+        private void RotateItem(PlacementItem item)
+        {
+            switch (placementSettings.Alignment)
+            {
+                case PlacementAlignment.Origin:
+                case PlacementAlignment.ForceHorizontal when item.Alignment == ItemAlignment.Horizontal:
+                case PlacementAlignment.ForceVertical when item.Alignment == ItemAlignment.Vertical:
+                    item.Rotate(Quaternion.identity);
+                    return;
+                
+                default:
+                    item.Rotate(placementSettings.ItemRotation);
+                    return;
+            }
         }
 
 

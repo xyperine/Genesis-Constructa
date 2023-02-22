@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 365f271953504ae28ff8c8c69205bd16, type: 3}
-  m_Name: Uranium_Factory_Placemenet_Settings
+  m_Name: Uranium_Factory_Placement_Settings
   m_EditorClassIdentifier: 
-  itemSize: {x: 1, y: 0.5, z: 0.5}
+  itemDimensions: {x: 0.5, y: 1, z: 0.5}
   useCustomFillingOrder: 0
   fillingOrder: 000000000200000001000000
-  itemsAlignment: 1
+  alignment: 0
   areaSize: {x: 2, y: 1, z: 2}

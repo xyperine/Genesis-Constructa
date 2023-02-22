@@ -184,6 +184,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1776461894091211861, guid: afb3e9ec722efd846bfe9ae587ff32bf, type: 3}
+      propertyPath: alignment
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5599520861547934253, guid: afb3e9ec722efd846bfe9ae587ff32bf, type: 3}
       propertyPath: m_Name
       value: Mineral

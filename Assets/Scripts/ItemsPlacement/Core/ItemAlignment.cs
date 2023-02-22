@@ -1,6 +1,6 @@
 ﻿namespace ColonizationMobileGame.ItemsPlacement.Core
 {
-    public enum ItemsAlignment
+    public enum ItemAlignment
     {
         Horizontal,
         Vertical,

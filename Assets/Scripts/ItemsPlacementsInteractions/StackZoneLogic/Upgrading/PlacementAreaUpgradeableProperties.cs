@@ -6,13 +6,13 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgr
 {
     public class PlacementAreaUpgradeableProperties
     {
-        private readonly Vector3 _alignedItemSize;
+        private readonly Vector3 _itemDimensions;
         
         private Vector3 _mirroredAreaSize;
         
         public int MaxItems { get; private set; }
         public Vector3 AreaSize { get; private set; }
-        public Vector3 ScaledAreaSize => Vector3.Scale(_mirroredAreaSize, _alignedItemSize).Abs();
+        public Vector3 MirroredAreaDimensions => Vector3.Scale(_mirroredAreaSize, _itemDimensions).Abs();
 
 
         public PlacementAreaUpgradeableProperties(PlacementAreaSettingsSO areaSettings)
@@ -22,7 +22,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgr
                 return;
             }
             
-            _alignedItemSize = areaSettings.AlignedItemSize;
+            _itemDimensions = areaSettings.ItemDimensions;
 
             MaxItems = areaSettings.MaxItems;
             AreaSize = areaSettings.AreaSize;

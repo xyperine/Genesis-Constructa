@@ -51,12 +51,12 @@ namespace ColonizationMobileGame.ItemsPlacement.Core.Area
                 return;
             }
             
-            if (_upgradeableProperties.ScaledAreaSize == _size)
+            if (_upgradeableProperties.MirroredAreaDimensions == _size)
             {
                 return;
             }
             
-            _size = _upgradeableProperties.ScaledAreaSize;
+            _size = _upgradeableProperties.MirroredAreaDimensions;
             _center = _size * 0.5f;
         }
         

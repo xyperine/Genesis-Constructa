@@ -9,11 +9,14 @@ namespace ColonizationMobileGame.ItemsPlacement.Core
     {
         [SerializeField] private AnimationCurve easingCurve;
         [SerializeField] private float tweenDuration = 0.1f;
+        [SerializeField] private ItemAlignment alignment;
 
         private Tween _movingTween;
         private IPoolable _poolable;
 
-        public bool Moving => _movingTween is {active: true,};
+        public bool Moving => _movingTween is {active: true};
+
+        public ItemAlignment Alignment => alignment;
 
 
         private void Awake()

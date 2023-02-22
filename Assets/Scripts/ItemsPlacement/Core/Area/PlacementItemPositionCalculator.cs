@@ -6,7 +6,7 @@ namespace ColonizationMobileGame.ItemsPlacement.Core.Area
     public sealed class PlacementItemPositionCalculator
     {
         private readonly int[] _fillingOrderAxes = new int[3];
-        private readonly Vector3 _alignedItemSize;
+        private readonly Vector3 _itemDimensions;
         
         private readonly PlacementAreaUpgradeableProperties _upgradeableProperties;
 
@@ -15,7 +15,7 @@ namespace ColonizationMobileGame.ItemsPlacement.Core.Area
 
         public PlacementItemPositionCalculator(PlacementAreaSettingsSO placementSettings, PlacementAreaUpgradeableProperties upgradeableProperties, bool mirror)
         {
-            _alignedItemSize = placementSettings.AlignedItemSize;
+            _itemDimensions = placementSettings.ItemDimensions;
             
             for (int i = 0; i < 3; i++)
             {
@@ -60,13 +60,13 @@ namespace ColonizationMobileGame.ItemsPlacement.Core.Area
 
         private Vector3 CalculateFinalPosition(Vector3 axesRawPositions)
         {
-            Vector3 padding = _alignedItemSize * 0.5f;
+            Vector3 padding = _itemDimensions * 0.5f;
             Vector3 position = padding;
             
             for (int i = 0; i < 3; i++)
             {
                 int axisIndex = _fillingOrderAxes[i];
-                position[axisIndex] = padding[axisIndex] + _alignedItemSize[axisIndex] * axesRawPositions[i];
+                position[axisIndex] = padding[axisIndex] + _itemDimensions[axisIndex] * axesRawPositions[i];
             }
 
             return position;
