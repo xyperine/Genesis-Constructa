@@ -48,7 +48,7 @@ namespace ColonizationMobileGame.AreaVisualizationNS
             
             ApplySettingsToRectangle();
             
-            CreateTransformer();
+            CreateFitter();
         }
 
 
@@ -67,7 +67,7 @@ namespace ColonizationMobileGame.AreaVisualizationNS
         }
 
 
-        private void CreateTransformer()
+        private void CreateFitter()
         {
             _targetFitter = _settings.Target switch
             {

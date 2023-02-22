@@ -436,7 +436,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 47.63, y: -13.1, z: 0}
---- !u!21 &977580516
+--- !u!21 &1005729964
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0

@@ -8,8 +8,7 @@ namespace ColonizationMobileGame.AreaVisualizationNS.TargetFitters
     public class StartItemsAreaVisualizationTargetFitter : AreaVisualizationTargetFitter
     {
         private readonly GameObject _itemsHolderObject;
-        
-        protected override bool RotationCondition => areaSize.x <= areaSize.y;
+
         protected override Vector2 AreaSize => _itemsHolderObject.GetBounds().size.XZPlaneVector2();
 
 
@@ -17,6 +16,12 @@ namespace ColonizationMobileGame.AreaVisualizationNS.TargetFitters
             GameObject itemsHolderObject) : base(areaRectangle, settings)
         {
             _itemsHolderObject = itemsHolderObject;
+        }
+
+
+        protected override void PerformTransformations(Transform transform)
+        {
+            transform.position = _itemsHolderObject.GetBounds().center.XZPlane();
         }
     }
 }

@@ -10,7 +10,6 @@ namespace ColonizationMobileGame.AreaVisualizationNS.TargetFitters
     {
         private readonly PlacementArea _placementArea;
 
-        protected override bool RotationCondition => areaSize.x <= areaSize.y;
         protected override Vector2 AreaSize => _placementArea.GetUpgradeableData().MirroredAreaDimensions.XZPlaneVector2();
 
 
@@ -23,9 +22,15 @@ namespace ColonizationMobileGame.AreaVisualizationNS.TargetFitters
 
         protected override void PerformTransformations(Transform transform)
         {
-            base.PerformTransformations(transform);
-            
             transform.localPosition = areaSize.XZPlaneToVector3() * 0.5f;
+            
+            if (areaSize.x > areaSize.y)
+            {
+                return;
+            }
+
+            Vector3 localRotation = transform.localRotation.eulerAngles;
+            transform.localRotation = Quaternion.Euler(localRotation.x, localRotation.y, 90f);
         }
     }
 }

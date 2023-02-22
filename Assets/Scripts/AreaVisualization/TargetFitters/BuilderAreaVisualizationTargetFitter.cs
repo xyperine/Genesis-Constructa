@@ -10,7 +10,6 @@ namespace ColonizationMobileGame.AreaVisualizationNS.TargetFitters
     {
         private readonly Builder _builder;
 
-        protected override bool RotationCondition => false;
         protected override Vector2 AreaSize => _builder.GetStructureArea();
 
 
@@ -23,8 +22,6 @@ namespace ColonizationMobileGame.AreaVisualizationNS.TargetFitters
 
         protected override void PerformTransformations(Transform transform)
         {
-            base.PerformTransformations(transform);
-            
             transform.position = _builder.transform.position + _builder.GetStructureBounds().center.XZPlane();
         }
     }

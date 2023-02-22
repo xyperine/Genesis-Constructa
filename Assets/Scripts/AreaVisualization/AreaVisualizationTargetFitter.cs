@@ -10,8 +10,7 @@ namespace ColonizationMobileGame.AreaVisualizationNS
         private readonly AreaVisualizationSettingsData _settings;
 
         protected Vector2 areaSize;
-        
-        protected abstract bool RotationCondition { get; }
+
         protected abstract Vector2 AreaSize { get; }
 
 
@@ -24,24 +23,15 @@ namespace ColonizationMobileGame.AreaVisualizationNS
 
         public void Fit(Transform visualizerTransform)
         {
+            areaSize = AreaSize;
+
             PerformTransformations(visualizerTransform);
             
             SetSize();
         }
-        
-        
-        protected virtual void PerformTransformations(Transform transform)
-        {
-            areaSize = AreaSize;
 
-            if (!RotationCondition)
-            {
-                return;
-            }
 
-            Vector3 localRotation = transform.localRotation.eulerAngles;
-            transform.localRotation = Quaternion.Euler(localRotation.x, localRotation.y, 90f);
-        }
+        protected abstract void PerformTransformations(Transform transform);
 
 
         private void SetSize()
