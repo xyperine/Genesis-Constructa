@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 365f271953504ae28ff8c8c69205bd16, type: 3}
   m_Name: Player_Placement_Settings
   m_EditorClassIdentifier: 
-  itemSize: {x: 1, y: 0.5, z: 0.5}
+  itemDimensions: {x: 1, y: 0.5, z: 0.5}
   useCustomFillingOrder: 1
   fillingOrder: 010000000200000000000000
   alignment: 1
