@@ -20,17 +20,9 @@ namespace ColonizationMobileGame.AreaVisualizationNS.TargetFitters
         }
 
 
-        protected override void PerformTransformations(Transform transform)
+        protected override void SetPosition(Transform transform)
         {
             transform.localPosition = areaSize.XZPlaneToVector3() * 0.5f;
-            
-            if (areaSize.x > areaSize.y)
-            {
-                return;
-            }
-
-            Vector3 localRotation = transform.localRotation.eulerAngles;
-            transform.localRotation = Quaternion.Euler(localRotation.x, localRotation.y, 90f);
         }
     }
 }

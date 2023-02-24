@@ -25,13 +25,13 @@ namespace ColonizationMobileGame.AreaVisualizationNS
         {
             areaSize = AreaSize;
 
-            PerformTransformations(visualizerTransform);
+            SetPosition(visualizerTransform);
             
             SetSize();
         }
 
 
-        protected abstract void PerformTransformations(Transform transform);
+        protected abstract void SetPosition(Transform transform);
 
 
         private void SetSize()

@@ -19,7 +19,7 @@ namespace ColonizationMobileGame.AreaVisualizationNS.TargetFitters
         }
 
 
-        protected override void PerformTransformations(Transform transform)
+        protected override void SetPosition(Transform transform)
         {
             transform.position = _itemsHolderObject.GetBounds().center.XZPlane();
         }
