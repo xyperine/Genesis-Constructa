@@ -748,7 +748,18 @@ Material:
     - _ZTest: 4
     m_Colors: []
   m_BuildTextureStacks: []
---- !u!21 &1870091536
+--- !u!114 &1928252496 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4597102672529662221, guid: a545d628fac155a4c93d7d1d591f0d32, type: 3}
+  m_PrefabInstance: {fileID: 1039094241}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8866478cda9e4982b4418d7d0ffa40cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!21 &1952596642
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -781,17 +792,6 @@ Material:
     - _ZTest: 4
     m_Colors: []
   m_BuildTextureStacks: []
---- !u!114 &1928252496 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4597102672529662221, guid: a545d628fac155a4c93d7d1d591f0d32, type: 3}
-  m_PrefabInstance: {fileID: 1039094241}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8866478cda9e4982b4418d7d0ffa40cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2043227351
 PrefabInstance:
   m_ObjectHideFlags: 0
