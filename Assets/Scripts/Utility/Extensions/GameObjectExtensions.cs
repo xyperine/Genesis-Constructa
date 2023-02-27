@@ -62,12 +62,13 @@ namespace ColonizationMobileGame.Utility.Extensions
 
 
         // For debugging purposes
-        public static string GetFullName (this GameObject gameObject) {
+        public static string GetFullName (this GameObject gameObject)
+        {
             StringBuilder nameBuilder = new StringBuilder(gameObject.name);
             
             while (gameObject.transform.parent != null) {
                 gameObject = gameObject.transform.parent.gameObject;
-                nameBuilder.AppendJoin('/', gameObject.name);
+                nameBuilder.Insert(0, gameObject.name + "/");
             }
             
             return nameBuilder.ToString();
