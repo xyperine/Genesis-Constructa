@@ -293,6 +293,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   step: 0
+  guid:
+    value: 1e748318-c199-406a-902c-0cd95418dd14
 --- !u!1 &2176752423761788830
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,6 +362,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   step: 2
+  guid:
+    value: 692e2de6-3219-4f94-90b1-295f5d337db8
 --- !u!1 &7555294471087058133
 GameObject:
   m_ObjectHideFlags: 0
