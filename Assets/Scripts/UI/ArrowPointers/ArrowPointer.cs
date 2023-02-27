@@ -1,4 +1,5 @@
 ﻿using ColonizationMobileGame.UI.ArrowPointers.Target;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,10 +7,10 @@ namespace ColonizationMobileGame.UI.ArrowPointers
 {
     public class ArrowPointer : MonoBehaviour
     {
-        [SerializeField] private Image image;
-        [SerializeField] private Sprite offScreenArrow;
-        [SerializeField] private Sprite onScreenArrow;
-
+        [SerializeField, Range(0.5f, 10f)] private float animationSpeed = 3f;
+        [SerializeField, Range(0f, 50f)] private float minYOffset;
+        [SerializeField, Range(50f, 100f)] private float maxYOffset;
+        
         private Camera _camera;
 
         public bool Free => Target is not {Valid: true};
@@ -37,18 +38,29 @@ namespace ColonizationMobileGame.UI.ArrowPointers
 
         private void OnScreen()
         {
-            image.sprite = onScreenArrow;
-
             Vector3 targetScreenPosition = _camera.WorldToScreenPoint(Target.Position);
-            transform.position = targetScreenPosition + Vector3.up * 50f;
+
+            float yOffset = GetVerticalOffset();
+            transform.position = targetScreenPosition + Vector3.up * yOffset;
+            
             transform.localEulerAngles = Vector3.zero;
+        }
+
+
+        private float GetVerticalOffset()
+        {
+            float t = Mathf.Sin(Time.time * animationSpeed);
+            t += 1;
+            t /= 2f;
+            
+            float yOffset = Mathf.Lerp(minYOffset, maxYOffset, t);
+
+            return yOffset;
         }
 
 
         private void OffScreen()
         {
-            image.sprite = offScreenArrow;
-            
             Vector3 targetPositionInScreenCoords = _camera.WorldToScreenPoint(Target.Position);
             
             Vector3 positionOnScreen = ClampScreenPosition(targetPositionInScreenCoords);

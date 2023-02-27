@@ -551,7 +551,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6753569587692771540, guid: a545d628fac155a4c93d7d1d591f0d32, type: 3}
   m_PrefabInstance: {fileID: 1039094241}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1391658010
+--- !u!21 &1433945183
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -898,7 +898,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2545771812066715108, guid: fcb4fbc281730f04a9288188820bb0ae, type: 3}
       propertyPath: active
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7730718997147459500, guid: fcb4fbc281730f04a9288188820bb0ae, type: 3}
       propertyPath: m_RootOrder
