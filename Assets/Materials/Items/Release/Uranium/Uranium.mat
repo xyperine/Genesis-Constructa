@@ -9,16 +9,14 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Uranium
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ShaderKeywords: _EMISSION _SPECULAR_SETUP _SURFACE_TYPE_TRANSPARENT
+  m_ShaderKeywords: _EMISSION _SPECULAR_SETUP
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: 2000
   stringTagMap:
-    RenderType: Transparent
-  disabledShaderPasses:
-  - DepthOnly
-  - SHADOWCASTER
+    RenderType: Opaque
+  disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -89,7 +87,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DstBlend: 10
+    - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
@@ -102,13 +100,13 @@ Material:
     - _Smoothness: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SrcBlend: 5
-    - _Surface: 1
+    - _SrcBlend: 1
+    - _Surface: 0
     - _WorkflowMode: 0
-    - _ZWrite: 0
+    - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.18022427, g: 0.8490566, b: 0.24765295, a: 0.9098039}
-    - _Color: {r: 0.18022424, g: 0.8490566, b: 0.24765292, a: 0.9098039}
+    - _BaseColor: {r: 0.18022424, g: 0.8490566, b: 0.24765292, a: 1}
+    - _Color: {r: 0.18022421, g: 0.8490566, b: 0.24765289, a: 1}
     - _EmissionColor: {r: 0.047657844, g: 13.589277, b: 0, a: 1}
     - _SpecColor: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
   m_BuildTextureStacks: []
