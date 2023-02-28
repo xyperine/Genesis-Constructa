@@ -171,6 +171,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4692311695116217594, guid: 8929d54c2bda9cf4eb2c62520fbaf897, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6351403301156140253, guid: 8929d54c2bda9cf4eb2c62520fbaf897, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -256,6 +260,10 @@ PrefabInstance:
     - target: {fileID: 8954522668601795763, guid: 8e08b93d5c04193419ff24ffe1756e39, type: 3}
       propertyPath: m_Name
       value: Robot_Whole
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954522668601795763, guid: 8e08b93d5c04193419ff24ffe1756e39, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e08b93d5c04193419ff24ffe1756e39, type: 3}

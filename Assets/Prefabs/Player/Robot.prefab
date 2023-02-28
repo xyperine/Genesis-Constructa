@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2146232344946146442}
   - component: {fileID: 6951160100894842254}
   - component: {fileID: 3947461105132970425}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6828023599574852467}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 868616999988511940}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 4535376981829806361}
   - component: {fileID: 3195328967809513626}
   - component: {fileID: 6224675694156809239}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3234099742774209140}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 2421346995710672610}
   - component: {fileID: 2591988906332248932}
   - component: {fileID: 6747480294851033822}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Right_Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5232147133600386202}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Right_Arm_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 4490007033347353225}
   - component: {fileID: 6625410679886755555}
   - component: {fileID: 5359025046153826072}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Left_Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,7 +443,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2316878932406421325}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Left_Arm_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 5282886175816930264}
   - component: {fileID: 2340015074711877120}
   - component: {fileID: 5992450907081256644}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
