@@ -30,21 +30,4 @@ MonoBehaviour:
     identifier:
       structureType: 6
       level: 1
-  - locked: 1
-    price:
-      requirements:
-      - type: 1
-        amount: 60
-      - type: 2
-        amount: 30
-      - type: 3
-        amount: 20
-      - type: 5
-        amount: 10
-    data:
-      capacity: 12
-      itemsPerSecond: 0.3
-    identifier:
-      structureType: 6
-      level: 2
   structureType: 6
