@@ -42,6 +42,8 @@ namespace ColonizationMobileGame.BuildSystem
         {
             Locked = false;
             Unlocked?.Invoke();
+            
+            Debug.Log($"Build data for {identifier.StructureType} was unlocked!");
         }
 
 

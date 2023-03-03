@@ -59,6 +59,12 @@ namespace ColonizationMobileGame.UnlockingSystem
         }
 
 
+        private void InvokeUnlocked()
+        {
+            Unlocked?.Invoke(chainSO.Current.Identifier);
+        }
+
+
         private void InvokeTargetReady()
         {
             Transform[] transforms = FindObjectsOfType<Builder>()
@@ -68,12 +74,6 @@ namespace ColonizationMobileGame.UnlockingSystem
             {
                 TargetReady?.Invoke(targetTransform);
             }
-        }
-
-
-        private void InvokeUnlocked()
-        {
-            Unlocked?.Invoke(chainSO.Current.Identifier);
         }
 
 

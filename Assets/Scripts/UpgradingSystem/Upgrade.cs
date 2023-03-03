@@ -67,6 +67,8 @@ namespace ColonizationMobileGame.UpgradingSystem
             price.Locked = false;
             
             Unlocked?.Invoke();
+            
+            Debug.Log($"Upgrade for {identifier.StructureType} structure was unlocked!");
         }
 
 

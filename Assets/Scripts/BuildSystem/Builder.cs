@@ -7,12 +7,13 @@ using ColonizationMobileGame.ObjectPooling;
 using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.Structures;
 using ColonizationMobileGame.UI.ItemsAmount.Data;
+using ColonizationMobileGame.UnlockingSystem;
 using ColonizationMobileGame.Utility.Extensions;
 using UnityEngine;
 
 namespace ColonizationMobileGame.BuildSystem
 {
-    public sealed class Builder : MonoBehaviour, IItemsAmountDataProvider, ILevelDataUser, ISceneSaveable, IInteractablesTrackerUser
+    public sealed class Builder : MonoBehaviour, IItemsAmountDataProvider, ILevelDataUser, ISceneSaveable, IInteractablesTrackerUser, IIdentifiable
     {
         [SerializeField] private BuildDataSO buildDataSO;
         [SerializeField] private Transform structuresParent;
@@ -33,6 +34,8 @@ namespace ColonizationMobileGame.BuildSystem
 
         public int LoadingOrder => -100;
         public PermanentGuid Guid => guid;
+        
+        public StructureIdentifier Identifier => _buildData.Identifier;
 
         public StructureType StructureType => _buildData.Identifier.StructureType;
 
@@ -78,7 +81,7 @@ namespace ColonizationMobileGame.BuildSystem
         }
 
 
-        private void Build()
+        public void Build()
         {
             GameObject structureObject = Instantiate(_buildData.StructurePrefab, transform.position,
                 Quaternion.identity, structuresParent);

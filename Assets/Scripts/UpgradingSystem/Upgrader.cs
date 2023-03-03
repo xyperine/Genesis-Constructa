@@ -25,11 +25,13 @@ namespace ColonizationMobileGame.UpgradingSystem
         public int LoadingOrder => 0;
         public PermanentGuid Guid => guid;
 
+        public UpgradesChain<TUpgradeData> Chain => chain;
+
 
         public abstract void Construct(IConstructData data);
 
 
-        protected void Upgrade(TUpgradeData data)
+        public void Upgrade(TUpgradeData data)
         {
             foreach (IUpgradeable<TUpgradeData> upgradeable in upgradeables)
             {

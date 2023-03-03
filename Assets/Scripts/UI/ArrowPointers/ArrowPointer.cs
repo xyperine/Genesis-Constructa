@@ -1,7 +1,5 @@
 ﻿using ColonizationMobileGame.UI.ArrowPointers.Target;
-using DG.Tweening;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace ColonizationMobileGame.UI.ArrowPointers
 {

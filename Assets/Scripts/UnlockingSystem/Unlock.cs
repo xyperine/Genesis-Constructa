@@ -14,7 +14,9 @@ namespace ColonizationMobileGame.UnlockingSystem
         [HideLabel]
         [PropertySpace(16)]
         [SerializeField] private ItemRequirementsBlock price = new ItemRequirementsBlock();
-        
+
+        private IUnlockable _unlockable;
+
         public StructureIdentifier Identifier => identifier;
         public ItemRequirementsBlock Price => price;
         
@@ -31,8 +33,21 @@ namespace ColonizationMobileGame.UnlockingSystem
             {
                 return;
             }
+
+            _unlockable = unlockable;
             
-            price.Fulfilled += unlockable.Unlock;
+            price.Fulfilled += _unlockable.Unlock;
+        }
+
+
+        public void ForceUnlock()
+        {
+            if (_unlockable == null)
+            {
+                Debug.Log("No unlockable!");
+            }
+            
+            _unlockable?.Unlock();
         }
     }
 }
