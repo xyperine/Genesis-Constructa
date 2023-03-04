@@ -52,6 +52,41 @@ MonoBehaviour:
         amount: 15
       - type: 3
         amount: 5
+  - identifier:
+      structureType: 0
+      level: 3
+    price:
+      requirements:
+      - type: 5
+        amount: 2
+  - identifier:
+      structureType: 2
+      level: 3
+    price:
+      requirements:
+      - type: 5
+        amount: 3
+  - identifier:
+      structureType: 3
+      level: 3
+    price:
+      requirements:
+      - type: 5
+        amount: 3
+  - identifier:
+      structureType: 4
+      level: 3
+    price:
+      requirements:
+      - type: 5
+        amount: 5
+  - identifier:
+      structureType: 6
+      level: 2
+    price:
+      requirements:
+      - type: 5
+        amount: 10
   builds:
   - {fileID: 11400000, guid: 86247803b29ddd549a61c89caea94d37, type: 2}
   - {fileID: 11400000, guid: dbc8933d21c275a4ab39fc2c77d557c8, type: 2}
@@ -59,8 +94,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8ac315a8f8d9fdd41b993443671dda76, type: 2}
   - {fileID: 11400000, guid: ef89be32cea4e254caac890e93214b42, type: 2}
   upgrades:
-  - {fileID: 11400000, guid: 28d4a1ec0591f014d8ffbbf36082de78, type: 2}
   - {fileID: 11400000, guid: 168837725ad506e4291812d696d7de17, type: 2}
+  - {fileID: 11400000, guid: 28d4a1ec0591f014d8ffbbf36082de78, type: 2}
   - {fileID: 11400000, guid: 5ba6cb937421aa54cb83efa95d3e73d5, type: 2}
   - {fileID: 11400000, guid: 63e02c61f45283442aa91f09c36f23f7, type: 2}
   - {fileID: 11400000, guid: 0be3d86c9892ec145931f8dcd0c19b3b, type: 2}
