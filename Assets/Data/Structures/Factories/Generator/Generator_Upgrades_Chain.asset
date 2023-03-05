@@ -45,7 +45,7 @@ MonoBehaviour:
     price:
       requirements:
       - type: 5
-        amount: 4
+        amount: 2
     data:
       capacity: 16
       itemsPerSecond: 0.06

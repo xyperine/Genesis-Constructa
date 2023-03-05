@@ -61,7 +61,7 @@ namespace ColonizationMobileGame.Timer
 
         private void OnDisable()
         {
-            Debug.LogWarning($"Time left: {TimeSpan.FromSeconds(SecondsLeft):mm\\:ss}");
+            Debug.LogWarning($"Time left: {TimeSpan.FromSeconds(SecondsLeft):mm\\:ss\\:fff}");
         }
 
 

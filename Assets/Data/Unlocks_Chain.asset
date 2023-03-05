@@ -58,35 +58,35 @@ MonoBehaviour:
     price:
       requirements:
       - type: 5
-        amount: 2
+        amount: 1
   - identifier:
       structureType: 2
       level: 3
     price:
       requirements:
       - type: 5
-        amount: 3
+        amount: 2
   - identifier:
       structureType: 3
       level: 3
     price:
       requirements:
       - type: 5
-        amount: 3
+        amount: 2
   - identifier:
       structureType: 4
       level: 3
     price:
       requirements:
       - type: 5
-        amount: 5
+        amount: 3
   - identifier:
       structureType: 6
       level: 2
     price:
       requirements:
       - type: 5
-        amount: 10
+        amount: 5
   builds:
   - {fileID: 11400000, guid: 86247803b29ddd549a61c89caea94d37, type: 2}
   - {fileID: 11400000, guid: dbc8933d21c275a4ab39fc2c77d557c8, type: 2}
