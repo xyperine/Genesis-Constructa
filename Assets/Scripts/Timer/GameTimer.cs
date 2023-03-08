@@ -1,11 +1,14 @@
 ﻿using System;
 using ColonizationMobileGame.SaveLoadSystem;
+using ColonizationMobileGame.TutorialSystem;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace ColonizationMobileGame.Timer
 {
     public class GameTimer : MonoBehaviour, ISceneSaveable
     {
+        [SerializeField] private TutorialBuilder tutorialBuilder;
         [SerializeField, Range(10, 30)] private int minutes = 20;
         
         [SerializeField, HideInInspector] private PermanentGuid guid;
@@ -19,18 +22,33 @@ namespace ColonizationMobileGame.Timer
 
         public float NormalizedTimeLeft => SecondsLeft / 60f / minutes;
 
+        public event Action Elapsed;
+
+        
+        private void Awake()
+        {
+            SecondsLeft += minutes * 60f;
+        }
+
 
         private void Start()
         {
-            SecondsLeft += minutes * 60;
-            
-            Activate();
+            if (tutorialBuilder.Complete)
+            {
+                Activate();
+            }
+            else
+            {
+                tutorialBuilder.Completed += Activate;
+            }
         }
 
 
         public void Activate()
         {
             _active = true;
+
+            tutorialBuilder.Completed -= Activate;
         }
 
 
@@ -43,14 +61,22 @@ namespace ColonizationMobileGame.Timer
 
             SecondsLeft -= Time.deltaTime;
 
-            if (!(SecondsLeft <= 0f))
+            if (SecondsLeft <= 0f)
             {
-                return;
+                OnTimeIsUp();
             }
+        }
+
+
+        private void OnTimeIsUp()
+        {
+            SecondsLeft = 0f;
+            
+            Elapsed?.Invoke();
 
             Deactivate();
 
-            Time.timeScale = 0f;
+            //Time.timeScale = 0f;
             Debug.LogWarning("The time is out!");
         }
 
@@ -64,6 +90,8 @@ namespace ColonizationMobileGame.Timer
         private void OnDisable()
         {
             Debug.LogWarning($"Time left: {TimeSpan.FromSeconds(SecondsLeft):mm\\:ss\\:fff}");
+
+            tutorialBuilder.Completed -= Activate;
         }
 
 
@@ -71,7 +99,7 @@ namespace ColonizationMobileGame.Timer
         {
             return new SaveData
             {
-                ElapsedTimeInSeconds = SecondsLeft,
+                SecondsLeft = SecondsLeft,
             };
         }
 
@@ -80,13 +108,13 @@ namespace ColonizationMobileGame.Timer
         {
             SaveData saveData = (SaveData) data;
 
-            SecondsLeft = saveData.ElapsedTimeInSeconds;
+            SecondsLeft = saveData.SecondsLeft;
         }
         
         
         private struct SaveData
         {
-            public float ElapsedTimeInSeconds { get; set; }
+            public float SecondsLeft { get; set; }
         }
     }
 }
