@@ -29,14 +29,14 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3027638154659418221}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -20, y: -20}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1730795434
@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blendMode: 1
   scaleMode: 0
-  color: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 0.34117648}
+  color: {r: 0.13333334, g: 0.13333334, b: 0.13333334, a: 0.34901962}
   detailLevel: 2
   renderQueue: -1
   zTest: 4
@@ -66,11 +66,11 @@ MonoBehaviour:
   stencilReadMask: 255
   stencilWriteMask: 255
   pivot: 0
-  width: 281.1
-  height: 354
+  width: 195
+  height: 265.5
   type: 1
   cornerRadiusMode: 0
-  cornerRadii: {x: 0.25, y: 0.25, z: 0.25, w: 0.25}
+  cornerRadii: {x: 30, y: 30, z: 30, w: 30}
   thickness: 0.1
   thicknessSpace: 0
   matchDashSpacingToSize: 1
@@ -169,8 +169,8 @@ RectTransform:
   m_GameObject: {fileID: 3027638154659418220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3027638155228488595}
   - {fileID: 1730795431}
@@ -180,7 +180,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 260, y: 700}
+  m_SizeDelta: {x: 195, y: 525}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3027638154659418208
 Canvas:
@@ -232,7 +232,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3027638154659418221}
   m_RootOrder: 0
@@ -240,8 +240,8 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 700}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 262.5, y: 525}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &3027638155228488592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,11 +256,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding:
     m_Left: 0
-    m_Right: 15
-    m_Top: 40
+    m_Right: 0
+    m_Top: 20
     m_Bottom: 0
   m_ChildAlignment: 2
-  m_Spacing: 10
+  m_Spacing: 7.5
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -289,7 +289,6 @@ MonoBehaviour:
   entryPrefab: {fileID: 9002301915873902368, guid: a4ba6c8c593c07f44aa572be7548f26a, type: 3}
   animate: 0
   animator: {fileID: 0}
-  usingShapes: 1
   shapesContentFitter: {fileID: 537218624164509949}
 --- !u!114 &537218624164509949
 MonoBehaviour:
@@ -304,6 +303,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rectangle: {fileID: 1730795434}
+  layoutGroup: {fileID: 3027638155228488592}
   duration: 0.2
-  entryHeight: 100
-  spacing: 10
+  entryHeight: 75
+  spacing: 7.5
+  isCameraSpace: 0
