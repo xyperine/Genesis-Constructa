@@ -17,6 +17,8 @@ namespace ColonizationMobileGame.Timer
 
         public float SecondsLeft { get; private set; }
 
+        public float NormalizedTimeLeft => SecondsLeft / 60f / minutes;
+
 
         private void Start()
         {
