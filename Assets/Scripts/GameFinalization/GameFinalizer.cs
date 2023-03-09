@@ -31,6 +31,8 @@ namespace ColonizationMobileGame.GameFinalization
             {
                 trigger.Triggered -= End;
             }
+
+            Time.timeScale = 0f;
         }
     }
 }

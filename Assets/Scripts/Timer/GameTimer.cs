@@ -83,8 +83,7 @@ namespace ColonizationMobileGame.Timer
             Elapsed?.Invoke();
 
             Deactivate();
-
-            //Time.timeScale = 0f;
+            
             Debug.LogWarning("The time is out!");
         }
 
