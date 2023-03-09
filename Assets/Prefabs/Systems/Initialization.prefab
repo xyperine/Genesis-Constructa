@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 7730718997147459474}
   - component: {fileID: 2545771812066715108}
   - component: {fileID: 1542661153}
-  - component: {fileID: 1944123200}
   m_Layer: 0
   m_Name: Initialization
   m_TagString: Untagged
@@ -72,6 +71,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tasksInitializer: {fileID: 8533756249926470206}
   tutorialBuilder: {fileID: 1542661153}
+  gameOverManager: {fileID: 0}
 --- !u!114 &8533756249926470206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,16 +127,3 @@ MonoBehaviour:
   order: 00000000010000000200000003000000
   guid:
     value: 518cbbab-1cbd-4a74-b5a1-ccb63cb9f9bc
---- !u!114 &1944123200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7730718997147459501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4558c81552b24ec2b90d2216505dcb03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 0
