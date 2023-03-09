@@ -1,16 +1,16 @@
-﻿using ColonizationMobileGame.GameOver;
+﻿using ColonizationMobileGame.GameFinalization;
 using UnityEngine;
 
 namespace ColonizationMobileGame.UI.GameOver
 {
-    public class GameOverScreen : MonoBehaviour, IGameOverTarget
+    public class GameOverScreen : MonoBehaviour, IGameFinalizationTarget
     {
         [SerializeField] private GameOverText gameOverText;
 
 
-        public void SubscribeToGameOver(GameOverManager gameOverManager)
+        public void SubscribeToGameOver(GameFinalizer gameFinalizer)
         {
-            gameOverManager.OverWithOutcome += Show;
+            gameFinalizer.GameFinishedWithOutcome += Show;
         }
 
 

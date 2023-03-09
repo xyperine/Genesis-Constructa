@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.Timer
+﻿namespace ColonizationMobileGame.UI.Timer
 {
     public enum GameTimerDisplayPrecision
     {

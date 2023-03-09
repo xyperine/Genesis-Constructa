@@ -1,14 +1,14 @@
 ﻿using ColonizationMobileGame.BuildSystem;
 using UnityEngine;
 
-namespace ColonizationMobileGame.GameOver
+namespace ColonizationMobileGame.GameFinalization.Triggers
 {
-    public class ShelterBuiltGameOverTrigger : GameOverTrigger
+    public class ShelterBuiltGameFinalizationTrigger : GameFinalizationTrigger
     {
         [SerializeField] private Builder shelterBuilder;
 
 
-        private void Start()
+        private void Awake()
         {
             shelterBuilder.Built += Trigger;
         }

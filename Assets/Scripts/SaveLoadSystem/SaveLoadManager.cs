@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using ColonizationMobileGame.GameFinalization;
 using UnityEngine;
 
 namespace ColonizationMobileGame.SaveLoadSystem
 {
-    public class SaveLoadManager : MonoBehaviour
+    public class SaveLoadManager : MonoBehaviour, IGameFinalizationTarget
     {
         [SerializeField] private bool active = true;
         
@@ -88,6 +89,19 @@ namespace ColonizationMobileGame.SaveLoadSystem
             {
                 _gameState[saveable.Guid.Value] = saveable.Save();
             }
+        }
+
+
+        public void SubscribeToGameOver(GameFinalizer gameFinalizer)
+        {
+            gameFinalizer.GameFinished += OnGameFinished;
+        }
+
+
+        private void OnGameFinished()
+        {
+            active = false;
+            _saveSerializer.DeleteFile();
         }
     }
 }

@@ -1,9 +1,9 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ColonizationMobileGame.GameOver
+namespace ColonizationMobileGame.GameFinalization
 {
-    public abstract class GameOverTrigger : MonoBehaviour
+    public abstract class GameFinalizationTrigger : MonoBehaviour
     {
         [SerializeField] private GameOutcome outcome;
 

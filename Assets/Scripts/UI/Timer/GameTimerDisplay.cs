@@ -3,13 +3,13 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Timer
+namespace ColonizationMobileGame.UI.Timer
 {
     public class GameTimerDisplay : MonoBehaviour
     {
         [Header("References")]
         [SerializeField] private TMP_Text text;
-        [SerializeField] private GameTimer gameTimer;
+        [SerializeField] private ColonizationMobileGame.Timer.GameTimer gameTimer;
 
         [Header("Critical Time")]
         [SerializeField] private Color criticalTimeColor;

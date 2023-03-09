@@ -1,5 +1,5 @@
 ﻿using System;
-using ColonizationMobileGame.GameOver;
+using ColonizationMobileGame.GameFinalization;
 using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.TutorialSystem;
 using Sirenix.OdinInspector;
@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace ColonizationMobileGame.Timer
 {
-    public class GameTimer : MonoBehaviour, ISceneSaveable, IGameOverTarget
+    public class GameTimer : MonoBehaviour, ISceneSaveable, IGameFinalizationTarget
     {
         [SerializeField] private TutorialBuilder tutorialBuilder;
         [SerializeField, Range(10, 30)] private int minutes = 20;
@@ -125,9 +125,9 @@ namespace ColonizationMobileGame.Timer
             public float SecondsLeft { get; set; }
         }
 
-        public void SubscribeToGameOver(GameOverManager gameOverManager)
+        public void SubscribeToGameOver(GameFinalizer gameFinalizer)
         {
-            gameOverManager.Over += Deactivate;
+            gameFinalizer.GameFinished += Deactivate;
         }
     }
 }

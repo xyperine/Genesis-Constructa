@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.GameOver
+﻿namespace ColonizationMobileGame.GameFinalization
 {
     public enum GameOutcome
     {

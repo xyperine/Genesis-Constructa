@@ -44,5 +44,14 @@ namespace ColonizationMobileGame.SaveLoadSystem
             string json = JsonConvert.SerializeObject(gameState, _serializerSettings);
             File.WriteAllText(_fullPath, json);
         }
+
+
+        public void DeleteFile()
+        {
+            if (File.Exists(_fullPath))
+            {
+                File.Delete(_fullPath);
+            }
+        }
     }
 }

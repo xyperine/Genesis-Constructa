@@ -1,5 +1,5 @@
 ﻿using System;
-using ColonizationMobileGame.GameOver;
+using ColonizationMobileGame.GameFinalization;
 using TMPro;
 using UnityEngine;
 
