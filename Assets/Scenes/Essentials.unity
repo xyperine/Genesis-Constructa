@@ -134,7 +134,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4098ea58eda74056aa1c64ee914dc320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!21 &422100868
+--- !u!20 &599143671 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 498578006, guid: 78f4a369ac89c704e8331188466a3f93, type: 3}
+  m_PrefabInstance: {fileID: 2043227351}
+  m_PrefabAsset: {fileID: 0}
+--- !u!21 &679422784
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -167,11 +172,6 @@ Material:
     - _ZTest: 4
     m_Colors: []
   m_BuildTextureStacks: []
---- !u!20 &599143671 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 498578006, guid: 78f4a369ac89c704e8331188466a3f93, type: 3}
-  m_PrefabInstance: {fileID: 2043227351}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &724940215
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@ using System.Linq;
 using ColonizationMobileGame.ItemsPlacementsInteractions;
 using ColonizationMobileGame.Utility.Helpers;
 
-namespace ColonizationMobileGame.Level
+namespace ColonizationMobileGame.Items
 {
     public class StartItemsDistributor : ItemsDistributor<List<StackZoneItem>>
     {

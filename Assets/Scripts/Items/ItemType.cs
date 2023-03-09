@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame
+﻿namespace ColonizationMobileGame.Items
 {
     public enum ItemType
     {

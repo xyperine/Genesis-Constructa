@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using ColonizationMobileGame.GameFinalization;
 using ColonizationMobileGame.InteractablesTracking;
-using ColonizationMobileGame.Level;
 using ColonizationMobileGame.TutorialSystem;
 using ColonizationMobileGame.UI.ArrowPointers.Target;
 using ColonizationMobileGame.UI.ArrowPointers.Target.Factories;
@@ -14,7 +13,6 @@ namespace ColonizationMobileGame.Initialization
         [SerializeField] private TutorialBuilder tutorialBuilder;
         [SerializeField] private GameFinalizer gameFinalizer;
         
-        private LevelData _levelData;
         private InteractablesTracker _interactablesTracker;
         private ArrowPointersTargetsManager _arrowPointersTargetsManager;
         
@@ -35,7 +33,6 @@ namespace ColonizationMobileGame.Initialization
         {
             _allComponents = FindObjectsOfType<Component>(true);
             
-            _levelData = FindObjectOfType<LevelData>();
             _interactablesTracker = FindObjectOfType<InteractablesTracker>();
             _arrowPointersTargetsManager = FindObjectOfType<ArrowPointersTargetsManager>();
 
@@ -47,8 +44,7 @@ namespace ColonizationMobileGame.Initialization
         {
             SetInteractablesTracker();
 
-            SetCameraForCanvases(); 
-            SetLevelData();
+            SetCameraForCanvases();
 
             SetGameOverTriggers();
             SetGameOverTargets();
@@ -69,15 +65,6 @@ namespace ColonizationMobileGame.Initialization
             foreach (Canvas canvas in _allComponents.OfType<Canvas>())
             {
                 canvas.worldCamera ??= Camera.main;
-            }
-        }
-
-
-        private void SetLevelData()
-        {
-            foreach (ILevelDataUser dataUser in _allComponents.OfType<ILevelDataUser>())
-            {
-                dataUser.SetLevelData(_levelData);
             }
         }
 

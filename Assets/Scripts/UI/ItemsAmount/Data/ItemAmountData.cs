@@ -1,4 +1,5 @@
 ﻿using System;
+using ColonizationMobileGame.Items;
 
 namespace ColonizationMobileGame.UI.ItemsAmount.Data
 {

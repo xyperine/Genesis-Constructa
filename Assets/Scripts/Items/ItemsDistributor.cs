@@ -5,7 +5,7 @@ using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
 using ColonizationMobileGame.Utility.Extensions;
 using UnityEngine;
 
-namespace ColonizationMobileGame
+namespace ColonizationMobileGame.Items
 {
     public abstract class ItemsDistributor<TItemsSource>
     {

@@ -3,7 +3,6 @@ using System.Linq;
 using ColonizationMobileGame.BuildSystem;
 using ColonizationMobileGame.ItemsPlacementsInteractions;
 using ColonizationMobileGame.SaveLoadSystem;
-using ColonizationMobileGame.ScoreSystem;
 using ColonizationMobileGame.Structures;
 using ColonizationMobileGame.UI.ArrowPointers.Target;
 using ColonizationMobileGame.UI.ItemsAmount.Data;
@@ -16,8 +15,6 @@ namespace ColonizationMobileGame.UnlockingSystem
         [SerializeField] private ItemsAmountPanelData itemsAmountPanelData;
         [SerializeField] private ItemsConsumer consumer;
         [SerializeField] private UnlocksChainSO chainSO;
-
-        [SerializeField] private ScoreModifier scoreModifier;
 
         [SerializeField, HideInInspector] private PermanentGuid guid;
 
@@ -34,7 +31,6 @@ namespace ColonizationMobileGame.UnlockingSystem
             consumer.Consumed += SetItemsAmountData;
             
             chainSO.RequirementsChain.ChangingBlock += SetItemsAmountData;
-            chainSO.RequirementsChain.ChangingBlock += AddScore;
             chainSO.RequirementsChain.ChangingBlock += InvokeUnlocked;
             chainSO.RequirementsChain.ChangingBlock += InvokeTargetReady;
 
@@ -50,12 +46,6 @@ namespace ColonizationMobileGame.UnlockingSystem
             itemsAmountPanelData.SetIdentifier(current?.Identifier);
 
             itemsAmountPanelData.InvokeChanged();
-        }
-
-
-        private void AddScore()
-        {
-            scoreModifier.Add(chainSO.Current.Identifier.StructureType);
         }
 
 

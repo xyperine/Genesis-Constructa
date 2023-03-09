@@ -2,7 +2,6 @@
 using ColonizationMobileGame.InteractablesTracking;
 using ColonizationMobileGame.ItemsExtraction;
 using ColonizationMobileGame.ItemsPlacementsInteractions;
-using ColonizationMobileGame.Level;
 using ColonizationMobileGame.ObjectPooling;
 using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.Structures;
@@ -13,7 +12,7 @@ using UnityEngine;
 
 namespace ColonizationMobileGame.BuildSystem
 {
-    public sealed class Builder : MonoBehaviour, IItemsAmountDataProvider, ILevelDataUser, ISceneSaveable, IInteractablesTrackerUser, IIdentifiable
+    public sealed class Builder : MonoBehaviour, IItemsAmountDataProvider, ISceneSaveable, IInteractablesTrackerUser, IIdentifiable
     {
         [SerializeField] private BuildDataSO buildDataSO;
         [SerializeField] private Transform structuresParent;
@@ -23,7 +22,6 @@ namespace ColonizationMobileGame.BuildSystem
 
         [SerializeField, HideInInspector] private PermanentGuid guid;
         
-        private LevelData _levelData;
         private InteractablesTracker _interactablesTracker;
 
         private BuildData _buildData;
@@ -40,12 +38,6 @@ namespace ColonizationMobileGame.BuildSystem
         public StructureType StructureType => _buildData.Identifier.StructureType;
 
         public event Action Built;
-
-
-        public void SetLevelData(LevelData levelData)
-        {
-            _levelData = levelData;
-        }
 
 
         public void SetInteractablesTracker(InteractablesTracker interactablesTracker)
@@ -113,8 +105,6 @@ namespace ColonizationMobileGame.BuildSystem
             }
             
             Built?.Invoke();
-            
-            _levelData.SetStructure(structure);
 
             Invoke(nameof(Deactivate), 1f);
         }

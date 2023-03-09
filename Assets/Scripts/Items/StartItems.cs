@@ -7,7 +7,7 @@ using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.Utility.Extensions;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Level
+namespace ColonizationMobileGame.Items
 {
     public class StartItems : MonoBehaviour, ISceneSaveable, IInteractablesTrackerUser
     {
