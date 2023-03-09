@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using ColonizationMobileGame.SaveLoadSystem;
-using ColonizationMobileGame.TasksSystem;
 using ColonizationMobileGame.TutorialSystem;
 using DG.Tweening;
 using UnityEditor;
@@ -14,7 +13,6 @@ namespace ColonizationMobileGame.Initialization
     public class Bootstrapper : MonoBehaviour
     {
         [SerializeField] private DependenciesResolver dependenciesResolver;
-        [SerializeField] private TasksInitializer tasksInitializer;
         [SerializeField] private SaveLoadManager saveLoadManager;
         [SerializeField] private TutorialBuilder tutorialBuilder;
 #if UNITY_EDITOR
@@ -55,8 +53,7 @@ namespace ColonizationMobileGame.Initialization
             DOTween.SetTweensCapacity(875, 50);
             
             dependenciesResolver.ResolveBeforeRestoringSave();
-            tasksInitializer.InitializeTasks();
-            
+
             saveLoadManager.Initialize();
             
             tutorialBuilder.Initialize();

@@ -2,8 +2,6 @@
 using ColonizationMobileGame.GameFinalization;
 using ColonizationMobileGame.InteractablesTracking;
 using ColonizationMobileGame.Level;
-using ColonizationMobileGame.ScoreSystem;
-using ColonizationMobileGame.TasksSystem;
 using ColonizationMobileGame.TutorialSystem;
 using ColonizationMobileGame.UI.ArrowPointers.Target;
 using ColonizationMobileGame.UI.ArrowPointers.Target.Factories;
@@ -13,13 +11,11 @@ namespace ColonizationMobileGame.Initialization
 {
     public class DependenciesResolver : MonoBehaviour
     {
-        [SerializeField] private TasksInitializer tasksInitializer;
         [SerializeField] private TutorialBuilder tutorialBuilder;
         [SerializeField] private GameFinalizer gameFinalizer;
         
         private LevelData _levelData;
         private InteractablesTracker _interactablesTracker;
-        private ScoreModifier _scoreModifier;
         private ArrowPointersTargetsManager _arrowPointersTargetsManager;
         
         private GameFinalizationTrigger[] _gameOverTriggers;
@@ -41,7 +37,6 @@ namespace ColonizationMobileGame.Initialization
             
             _levelData = FindObjectOfType<LevelData>();
             _interactablesTracker = FindObjectOfType<InteractablesTracker>();
-            _scoreModifier = FindObjectOfType<ScoreModifier>();
             _arrowPointersTargetsManager = FindObjectOfType<ArrowPointersTargetsManager>();
 
             _gameOverTriggers = FindObjectsOfType<GameFinalizationTrigger>(true);
@@ -55,8 +50,6 @@ namespace ColonizationMobileGame.Initialization
             SetCameraForCanvases(); 
             SetLevelData();
 
-            SetScoreModifier();
-            
             SetGameOverTriggers();
             SetGameOverTargets();
         }
@@ -82,18 +75,10 @@ namespace ColonizationMobileGame.Initialization
 
         private void SetLevelData()
         {
-            tasksInitializer.SetLevelData(_levelData);
-            
             foreach (ILevelDataUser dataUser in _allComponents.OfType<ILevelDataUser>())
             {
                 dataUser.SetLevelData(_levelData);
             }
-        }
-
-
-        private void SetScoreModifier()
-        {
-            tasksInitializer.SetScoreCounter(_scoreModifier);
         }
 
 
