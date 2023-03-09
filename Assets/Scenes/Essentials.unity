@@ -134,6 +134,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4098ea58eda74056aa1c64ee914dc320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!21 &422100868
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Rect Transparent [CORNER_RADIUS] (instance)
+  m_Shader: {fileID: 4800000, guid: 616a25aec4b286744b9fa8a7c081c531, type: 3}
+  m_ShaderKeywords: CORNER_RADIUS
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _StencilComp: 8
+    - _StencilID: 0
+    - _StencilOp: 0
+    - _StencilOpPass: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _ZOffsetFactor: -20
+    - _ZOffsetUnits: 0
+    - _ZTest: 4
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!20 &599143671 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 498578006, guid: 78f4a369ac89c704e8331188466a3f93, type: 3}
@@ -254,7 +287,7 @@ Transform:
   m_Father: {fileID: 1884405498}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 47.63, y: -13.1, z: 0}
---- !u!21 &935821601
+--- !u!21 &917431140
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -468,13 +501,18 @@ PrefabInstance:
     - target: {fileID: 7931743841053526155, guid: a545d628fac155a4c93d7d1d591f0d32, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1665585633}
+      objectReference: {fileID: 917431140}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a545d628fac155a4c93d7d1d591f0d32, type: 3}
 --- !u!4 &1039094242 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6753569587692771540, guid: a545d628fac155a4c93d7d1d591f0d32, type: 3}
   m_PrefabInstance: {fileID: 1039094241}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &1411034012 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 9170210779398225954, guid: 3e5b5bbf78feab74aa1d3d90c37d8efe, type: 3}
+  m_PrefabInstance: {fileID: 9170210778721575418}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1442285551 stripped
 MonoBehaviour:
@@ -487,39 +525,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!21 &1665585633
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Rect Transparent [CORNER_RADIUS] (instance)
-  m_Shader: {fileID: 4800000, guid: 616a25aec4b286744b9fa8a7c081c531, type: 3}
-  m_ShaderKeywords: CORNER_RADIUS
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _StencilComp: 8
-    - _StencilID: 0
-    - _StencilOp: 0
-    - _StencilOpPass: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _ZOffsetFactor: -20
-    - _ZOffsetUnits: 0
-    - _ZTest: 4
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1 &1884405497
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,6 +641,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2003511613918885646, guid: a22df1e1834d15f41bfaa78221fc3d48, type: 3}
+      propertyPath: ignoredCanvases.Array.data[0]
+      value: 
+      objectReference: {fileID: 1411034012}
     - target: {fileID: 5543172827528580752, guid: a22df1e1834d15f41bfaa78221fc3d48, type: 3}
       propertyPath: m_Name
       value: Systems

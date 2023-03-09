@@ -275,6 +275,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5543172827528580753}
     m_Modifications:
+    - target: {fileID: 3486869194291324484, guid: 62001cfa9b91b774abd8a6f877578050, type: 3}
+      propertyPath: ignoredCanvases.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7440914624846423642, guid: 62001cfa9b91b774abd8a6f877578050, type: 3}
       propertyPath: m_Name
       value: Finalization

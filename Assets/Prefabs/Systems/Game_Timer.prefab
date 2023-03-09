@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6004789128823323019}
   - component: {fileID: 6004789128823323018}
   - component: {fileID: 6004789128823323012}
+  - component: {fileID: 8672160909803146518}
   m_Layer: 0
   m_Name: Game_Timer
   m_TagString: Untagged
@@ -63,3 +64,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outcome: 1
   timer: {fileID: 6004789128823323018}
+--- !u!114 &8672160909803146518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6004789128823323017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e8140f375294efdad115e73a6f84517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
