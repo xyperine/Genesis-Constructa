@@ -1,4 +1,5 @@
 ﻿using System;
+using ColonizationMobileGame.GameOver;
 using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.TutorialSystem;
 using Sirenix.OdinInspector;
@@ -6,7 +7,7 @@ using UnityEngine;
 
 namespace ColonizationMobileGame.Timer
 {
-    public class GameTimer : MonoBehaviour, ISceneSaveable
+    public class GameTimer : MonoBehaviour, ISceneSaveable, IGameOverTarget
     {
         [SerializeField] private TutorialBuilder tutorialBuilder;
         [SerializeField, Range(10, 30)] private int minutes = 20;
@@ -24,6 +25,13 @@ namespace ColonizationMobileGame.Timer
 
         public event Action Elapsed;
 
+
+        [Button]
+        public void Stop()
+        {
+            SecondsLeft = 1f;
+        }
+        
         
         private void Awake()
         {
@@ -115,6 +123,11 @@ namespace ColonizationMobileGame.Timer
         private struct SaveData
         {
             public float SecondsLeft { get; set; }
+        }
+
+        public void SubscribeToGameOver(GameOverManager gameOverManager)
+        {
+            gameOverManager.Over += Deactivate;
         }
     }
 }

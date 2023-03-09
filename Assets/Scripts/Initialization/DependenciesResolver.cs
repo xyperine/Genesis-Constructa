@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using ColonizationMobileGame.GameOver;
 using ColonizationMobileGame.InteractablesTracking;
 using ColonizationMobileGame.Level;
 using ColonizationMobileGame.ScoreSystem;
@@ -14,11 +15,14 @@ namespace ColonizationMobileGame.Initialization
     {
         [SerializeField] private TasksInitializer tasksInitializer;
         [SerializeField] private TutorialBuilder tutorialBuilder;
+        [SerializeField] private GameOverManager gameOverManager;
         
         private LevelData _levelData;
         private InteractablesTracker _interactablesTracker;
         private ScoreModifier _scoreModifier;
         private ArrowPointersTargetsManager _arrowPointersTargetsManager;
+        
+        private GameOverTrigger[] _gameOverTriggers;
 
         private Component[] _allComponents;
 
@@ -39,6 +43,8 @@ namespace ColonizationMobileGame.Initialization
             _interactablesTracker = FindObjectOfType<InteractablesTracker>();
             _scoreModifier = FindObjectOfType<ScoreModifier>();
             _arrowPointersTargetsManager = FindObjectOfType<ArrowPointersTargetsManager>();
+
+            _gameOverTriggers = FindObjectsOfType<GameOverTrigger>(true);
         }
 
 
@@ -50,6 +56,9 @@ namespace ColonizationMobileGame.Initialization
             SetLevelData();
 
             SetScoreModifier();
+            
+            SetGameOverTriggers();
+            SetGameOverTargets();
         }
 
 
@@ -85,6 +94,21 @@ namespace ColonizationMobileGame.Initialization
         private void SetScoreModifier()
         {
             tasksInitializer.SetScoreCounter(_scoreModifier);
+        }
+
+
+        private void SetGameOverTriggers()
+        {
+            gameOverManager.SetTriggers(_gameOverTriggers);
+        }
+
+
+        private void SetGameOverTargets()
+        {
+            foreach (IGameOverTarget target in _allComponents.OfType<IGameOverTarget>())
+            {
+                target.SubscribeToGameOver(gameOverManager);
+            }
         }
 
 
