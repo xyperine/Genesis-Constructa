@@ -7,7 +7,7 @@
 
 This is a pet project that I wanted to do to learn more about making games in Unity for mobile platforms, specifically Android.
 
-You are a robot sent to a distant planet to build some infrastructure for future colonists. Main mechanic and some other features are based on a game called [Moon Pioneer](https://play.google.com/store/apps/details?id=com.norwichsidegames.tothemoon).
+It is a 3D idle arcade mobile game. You are a robot sent to a distant planet to build some infrastructure for future colonists. Main mechanic and some other features are based on a game called [Moon Pioneer](https://play.google.com/store/apps/details?id=com.norwichsidegames.tothemoon).
 
 Since it is a work in progress, it lacks some key features and is not really playable at the moment. If you want to download the project and do something with it - please, read [Using my assets/entire project :memo:](#using-my-assetsentire-project-memo) section, especially the point about [Shapes](https://assetstore.unity.com/packages/tools/particles-effects/shapes-173167).
 
