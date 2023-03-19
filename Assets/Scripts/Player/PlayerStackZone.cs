@@ -12,6 +12,7 @@ namespace ColonizationMobileGame.Player
     public class PlayerStackZone : StackZone, IItemsAmountDataProvider
     {
         [SerializeField] private ItemsAmountPanelData itemsAmountPanelData;
+        [SerializeField] private PlayerZoneSoundEffect soundEffect;
         
         private readonly Dictionary<ItemType, int> _itemsCount = EnumHelpers.EnumToDictionary<ItemType, int>(0);
 
@@ -29,6 +30,8 @@ namespace ColonizationMobileGame.Player
             ModifyItemsCount(item.Type);
 
             SetItemsAmountData();
+            
+            soundEffect.Play();
         }
 
 
@@ -54,6 +57,8 @@ namespace ColonizationMobileGame.Player
             ModifyItemsCount(item.Type);
 
             SetItemsAmountData();
+            
+            soundEffect.Play();
         }
     }
 }

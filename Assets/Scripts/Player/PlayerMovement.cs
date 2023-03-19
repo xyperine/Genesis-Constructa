@@ -51,6 +51,7 @@ namespace ColonizationMobileGame.Player
 
             if (_velocity == Vector3.zero)
             {
+                _velocity = Vector3.zero;
                 return;
             }
             
