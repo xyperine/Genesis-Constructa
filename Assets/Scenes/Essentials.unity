@@ -184,7 +184,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -382,6 +382,39 @@ Transform:
   m_Father: {fileID: 1884405498}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 47.63, y: -13.1, z: 0}
+--- !u!21 &957917890
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Rect Transparent [CORNER_RADIUS] (instance)
+  m_Shader: {fileID: 4800000, guid: 616a25aec4b286744b9fa8a7c081c531, type: 3}
+  m_ShaderKeywords: CORNER_RADIUS
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _StencilComp: 8
+    - _StencilID: 0
+    - _StencilOp: 0
+    - _StencilOpPass: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _ZOffsetFactor: -20
+    - _ZOffsetUnits: 0
+    - _ZTest: 4
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1 &963502836
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,10 +537,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1651430433462562037, guid: a545d628fac155a4c93d7d1d591f0d32, type: 3}
-      propertyPath: soundEffect
-      value: 
-      objectReference: {fileID: 1928252502}
     - target: {fileID: 5654864078016059290, guid: a545d628fac155a4c93d7d1d591f0d32, type: 3}
       propertyPath: joystick
       value: 
@@ -567,7 +596,7 @@ PrefabInstance:
     - target: {fileID: 7931743841053526155, guid: a545d628fac155a4c93d7d1d591f0d32, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1804716974}
+      objectReference: {fileID: 1303841531}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a545d628fac155a4c93d7d1d591f0d32, type: 3}
 --- !u!4 &1039094242 stripped
@@ -575,23 +604,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6753569587692771540, guid: a545d628fac155a4c93d7d1d591f0d32, type: 3}
   m_PrefabInstance: {fileID: 1039094241}
   m_PrefabAsset: {fileID: 0}
---- !u!223 &1411034012 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 9170210779398225954, guid: 3e5b5bbf78feab74aa1d3d90c37d8efe, type: 3}
-  m_PrefabInstance: {fileID: 9170210778721575418}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1442285551 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7328276948091429712, guid: 3e5b5bbf78feab74aa1d3d90c37d8efe, type: 3}
-  m_PrefabInstance: {fileID: 9170210778721575418}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!21 &1804716974
+--- !u!21 &1303841531
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -624,6 +637,22 @@ Material:
     - _ZTest: 4
     m_Colors: []
   m_BuildTextureStacks: []
+--- !u!223 &1411034012 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 9170210779398225954, guid: 3e5b5bbf78feab74aa1d3d90c37d8efe, type: 3}
+  m_PrefabInstance: {fileID: 9170210778721575418}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1442285551 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7328276948091429712, guid: 3e5b5bbf78feab74aa1d3d90c37d8efe, type: 3}
+  m_PrefabInstance: {fileID: 9170210778721575418}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1884405497
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,17 +695,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8866478cda9e4982b4418d7d0ffa40cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1928252502 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1646120274818902456, guid: a545d628fac155a4c93d7d1d591f0d32, type: 3}
-  m_PrefabInstance: {fileID: 1039094241}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e37a06caf1645b1898f3a36222930be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2043227351
@@ -751,10 +769,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 355833096024714411, guid: a22df1e1834d15f41bfaa78221fc3d48, type: 3}
+      propertyPath: active
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2003511613918885646, guid: a22df1e1834d15f41bfaa78221fc3d48, type: 3}
       propertyPath: ignoredCanvases.Array.data[0]
       value: 
       objectReference: {fileID: 1411034012}
+    - target: {fileID: 5543172826725218058, guid: a22df1e1834d15f41bfaa78221fc3d48, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 5543172826725218058, guid: a22df1e1834d15f41bfaa78221fc3d48, type: 3}
     - target: {fileID: 5543172827528580752, guid: a22df1e1834d15f41bfaa78221fc3d48, type: 3}
       propertyPath: m_Name
       value: Systems
@@ -832,6 +858,38 @@ PrefabInstance:
       propertyPath: gameTimer
       value: 
       objectReference: {fileID: 241474614}
+    - target: {fileID: 9170210779708871494, guid: 3e5b5bbf78feab74aa1d3d90c37d8efe, type: 3}
+      propertyPath: dangerousColor.a
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170210779708871494, guid: 3e5b5bbf78feab74aa1d3d90c37d8efe, type: 3}
+      propertyPath: dangerousColor.b
+      value: 0.07800001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170210779708871494, guid: 3e5b5bbf78feab74aa1d3d90c37d8efe, type: 3}
+      propertyPath: dangerousColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170210779708871494, guid: 3e5b5bbf78feab74aa1d3d90c37d8efe, type: 3}
+      propertyPath: dangerousColor.r
+      value: 0.98553723
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170210779708871494, guid: 3e5b5bbf78feab74aa1d3d90c37d8efe, type: 3}
+      propertyPath: criticalTimeColor.b
+      value: 0.32334432
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170210779708871494, guid: 3e5b5bbf78feab74aa1d3d90c37d8efe, type: 3}
+      propertyPath: criticalTimeColor.g
+      value: 0.07843137
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170210779708871494, guid: 3e5b5bbf78feab74aa1d3d90c37d8efe, type: 3}
+      propertyPath: criticalTimeColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170210779708871494, guid: 3e5b5bbf78feab74aa1d3d90c37d8efe, type: 3}
+      propertyPath: criticalTimeAnimationDuration
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9170210780185157674, guid: 3e5b5bbf78feab74aa1d3d90c37d8efe, type: 3}
       propertyPath: m_Name
       value: UI

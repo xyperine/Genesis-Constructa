@@ -1,7 +1,7 @@
 ﻿using ColonizationMobileGame.Utility;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Player
+namespace ColonizationMobileGame.Audio
 {
     public class PlayerZoneSoundEffect : MonoBehaviour
     {

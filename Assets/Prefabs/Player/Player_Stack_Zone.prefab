@@ -338,7 +338,7 @@ MonoBehaviour:
   guid:
     value: 
   itemsAmountPanelData: {fileID: 3547616118484974510}
-  soundEffect: {fileID: 0}
+  soundEffect: {fileID: 1742799860970042139}
 --- !u!114 &1742799860970042139
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,7 +1,9 @@
 ﻿using System;
+using ColonizationMobileGame.Timer;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using GameTimer = ColonizationMobileGame.Timer.GameTimer;
 
 namespace ColonizationMobileGame.UI.Timer
 {
@@ -9,15 +11,19 @@ namespace ColonizationMobileGame.UI.Timer
     {
         [Header("References")]
         [SerializeField] private TMP_Text text;
-        [SerializeField] private ColonizationMobileGame.Timer.GameTimer gameTimer;
+        [SerializeField] private GameTimer gameTimer;
 
-        [Header("Critical Time")]
+        [Header("Time Phases")]
+        [SerializeField] private Color dangerousColor;
+        [SerializeField, Min(0.1f)] private float dangerousTimeAnimationDuration = 1f;
+        
         [SerializeField] private Color criticalTimeColor;
-        [SerializeField, Range(0f, 1f)] private float criticalTimeThreshold = 0.2f;
-        [SerializeField, Min(0.1f)] private float criticalTimeAnimationDuration = 1f;
-
+        [SerializeField, Min(0.1f)] private float criticalTimeAnimationDuration = 0.5f;
+        
         [Header("Other")]
         [SerializeField] private GameTimerDisplayPrecision precision;
+
+        private GameTimerPhase _phase = GameTimerPhase.Normal;
 
         private Tween _colorTween;
         private Color _normalColor;
@@ -59,20 +65,51 @@ namespace ColonizationMobileGame.UI.Timer
 
         private void SetColor()
         {
-            if (gameTimer.NormalizedTimeLeft > criticalTimeThreshold)
+            GameTimerPhase phase = gameTimer.GetPhase();
+            
+            if (phase == _phase)
             {
                 return;
             }
 
+            _phase = phase;
+            
+            (Color color, float animationDuration) = GetResult();
+
             if (_colorTween is {active: true})
             {
-                return;
+                _colorTween.Kill();
             }
             
             _colorTween = DOTween.Sequence()
-                .Append(text.DOColor(criticalTimeColor, criticalTimeAnimationDuration))
-                .Append(text.DOColor(_normalColor, criticalTimeAnimationDuration))
+                .Append(text.DOColor(color, animationDuration))
+                .Append(text.DOColor(_normalColor, animationDuration))
                 .SetLoops(-1);
+        }
+        
+        
+        private (Color, float) GetResult()
+        {
+            Color resultColor = default;
+            float resultDuration = default;
+            
+            switch (_phase)
+            {
+                case GameTimerPhase.Normal:
+                    break;
+                case GameTimerPhase.Dangerous:
+                    resultColor = dangerousColor;
+                    resultDuration = dangerousTimeAnimationDuration;
+                    break;
+                case GameTimerPhase.Critical:
+                    resultColor = criticalTimeColor;
+                    resultDuration = criticalTimeAnimationDuration;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(_phase), _phase, null);
+            }
+
+            return (resultColor, resultDuration);
         }
     }
 }

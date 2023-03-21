@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using ColonizationMobileGame.GameFinalization;
 using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.TutorialSystem;
@@ -11,17 +13,15 @@ namespace ColonizationMobileGame.Timer
     {
         [SerializeField] private TutorialBuilder tutorialBuilder;
         [SerializeField, Range(10, 30)] private int minutes = 20;
-        
+
         [SerializeField, HideInInspector] private PermanentGuid guid;
-        
+
         private bool _active;
 
         public PermanentGuid Guid => guid;
         public int LoadingOrder => 10;
 
         public float SecondsLeft { get; private set; }
-
-        public float NormalizedTimeLeft => SecondsLeft / 60f / minutes;
 
         public event Action Elapsed;
 
@@ -57,6 +57,21 @@ namespace ColonizationMobileGame.Timer
             _active = true;
 
             tutorialBuilder.Completed -= Activate;
+        }
+        
+        
+        public GameTimerPhase GetPhase()
+        {
+            IEnumerable<int> values = Enum.GetValues(typeof(GameTimerPhase)).Cast<int>();
+            foreach (int value in values)
+            {
+                if (SecondsLeft <= value)
+                {
+                    return (GameTimerPhase) value;
+                }
+            }
+
+            return default;
         }
 
 

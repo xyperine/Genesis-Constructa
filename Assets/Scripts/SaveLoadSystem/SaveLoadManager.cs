@@ -100,6 +100,11 @@ namespace ColonizationMobileGame.SaveLoadSystem
 
         private void OnGameFinished()
         {
+            if (!active)
+            {
+                return;
+            }
+
             active = false;
             _saveSerializer.DeleteFile();
         }

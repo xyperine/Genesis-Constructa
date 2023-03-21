@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using ColonizationMobileGame.Player;
+using UnityEngine;
 
-namespace ColonizationMobileGame.Player
+namespace ColonizationMobileGame.Audio
 {
     public class PlayerMovementSoundEffect : MonoBehaviour
     {

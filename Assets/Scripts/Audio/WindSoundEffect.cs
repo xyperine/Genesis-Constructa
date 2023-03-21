@@ -2,7 +2,7 @@
 using ColonizationMobileGame.Utility.Helpers;
 using UnityEngine;
 
-namespace ColonizationMobileGame
+namespace ColonizationMobileGame.Audio
 {
     public class WindSoundEffect : MonoBehaviour
     {

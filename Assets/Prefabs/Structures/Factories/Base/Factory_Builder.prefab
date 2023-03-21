@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d27d0e051a814f46ba453cf3836cad9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildDataSO: {fileID: 11400000, guid: ef89be32cea4e254caac890e93214b42, type: 2}
+  buildDataSO: {fileID: 0}
   structuresParent: {fileID: 0}
   itemsPool: {fileID: 0}
   consumer: {fileID: 3085145056519502151}
