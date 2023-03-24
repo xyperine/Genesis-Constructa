@@ -8,6 +8,7 @@ namespace ColonizationMobileGame.Hibernation.Area
         [Header("References")]
         [SerializeField] private HibernationAreaDrawer areaDrawer;
         [SerializeField] private HibernationAreaCollider areaCollider;
+        [SerializeField] private HibernationAreaIndicator areaIndicator;
         
         [Header("Misc")]
         [SerializeField, Range(1f, 4f)] private float size = 2f;
@@ -25,16 +26,22 @@ namespace ColonizationMobileGame.Hibernation.Area
         }
 
 
-        private void FixedUpdate()
+        private void Update()
         {
             if (!areaCollider.ObjectInside)
             {
                 _secondsBeingInside = 0f;
+                areaIndicator.UpdateFill(_secondsBeingInside, goingIntoHibernationDuration);
                 return;
             }
 
-            _secondsBeingInside += Time.fixedUnscaledDeltaTime;
+            _secondsBeingInside += Time.deltaTime;
+            areaIndicator.UpdateFill(_secondsBeingInside, goingIntoHibernationDuration);
+        }
 
+
+        private void LateUpdate()
+        {
             if (_secondsBeingInside < goingIntoHibernationDuration)
             {
                 return;
