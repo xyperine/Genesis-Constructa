@@ -5,6 +5,8 @@ using ColonizationMobileGame.ItemsPlacementsInteractions;
 using ColonizationMobileGame.ObjectPooling;
 using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.Structures;
+using ColonizationMobileGame.UI.ArrowPointers;
+using ColonizationMobileGame.UI.ArrowPointers.TargetGroupValidators.Regular;
 using ColonizationMobileGame.UI.ItemsAmount.Data;
 using ColonizationMobileGame.UnlockingSystem;
 using ColonizationMobileGame.Utility.Extensions;
@@ -12,7 +14,7 @@ using UnityEngine;
 
 namespace ColonizationMobileGame.BuildSystem
 {
-    public sealed class Builder : MonoBehaviour, IItemsAmountDataProvider, ISceneSaveable, IInteractablesTrackerUser, IIdentifiable
+    public sealed class Builder : MonoBehaviour, IItemsAmountDataProvider, ISceneSaveable, IInteractablesTrackerUser, IIdentifiable, IArrowPointerTarget
     {
         [SerializeField] private BuildDataSO buildDataSO;
         [SerializeField] private Transform structuresParent;
@@ -37,6 +39,8 @@ namespace ColonizationMobileGame.BuildSystem
 
         public StructureType StructureType => _buildData.Identifier.StructureType;
 
+        public bool RequiresPointing { get; private set; }
+        
         public event Action Built;
 
 
@@ -73,6 +77,12 @@ namespace ColonizationMobileGame.BuildSystem
         }
 
 
+        private void Start()
+        {
+            FindObjectOfType<RegularArrowPointerTargetGroupValidator>().RegisterTarget(this);
+        }
+
+
         public void Build()
         {
             GameObject structureObject = Instantiate(_buildData.StructurePrefab, transform.position,
@@ -105,7 +115,7 @@ namespace ColonizationMobileGame.BuildSystem
             }
             
             Built?.Invoke();
-
+            
             Invoke(nameof(Deactivate), 1f);
         }
 
@@ -132,6 +142,7 @@ namespace ColonizationMobileGame.BuildSystem
 
         private void OnUnlocked()
         {
+            RequiresPointing = true;
             gameObject.SetActive(true);
             
             SetItemsAmountData();
@@ -152,8 +163,8 @@ namespace ColonizationMobileGame.BuildSystem
         {
             return _buildData.StructurePrefab.GetBounds();
         }
-        
-        
+
+
         public Vector2 GetStructureArea()
         {
             return GetStructureBounds().size.XZPlaneVector2();

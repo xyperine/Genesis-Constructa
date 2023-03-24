@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 6753569587692771540}
   - component: {fileID: 6753569587692771545}
   - component: {fileID: 6753569587692771541}
-  - component: {fileID: 5654864078016059290}
   - component: {fileID: 7999500342954749020}
   - component: {fileID: 2312535761613652662}
+  - component: {fileID: 5654864078016059290}
   - component: {fileID: 597178256281781004}
+  - component: {fileID: 7218556812693203299}
   m_Layer: 6
   m_Name: Player
   m_TagString: PlayerCollider
@@ -69,24 +70,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
---- !u!114 &5654864078016059290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6753569587692771544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc19c4daf51074945a2efa36cc949e7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidBody: {fileID: 6753569587692771541}
-  joystick: {fileID: 0}
-  speed: 12
-  smoothness: 1.8
-  guid:
-    value: e4f27d00-cd3b-4d2d-8912-ce7b56c4646c
 --- !u!82 &7999500342954749020
 AudioSource:
   m_ObjectHideFlags: 0
@@ -191,6 +174,24 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6753569587692771544}
   m_Enabled: 1
+--- !u!114 &5654864078016059290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6753569587692771544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc19c4daf51074945a2efa36cc949e7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidBody: {fileID: 6753569587692771541}
+  joystick: {fileID: 0}
+  speed: 12
+  smoothness: 1.8
+  guid:
+    value: e4f27d00-cd3b-4d2d-8912-ce7b56c4646c
 --- !u!114 &597178256281781004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +206,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 5654864078016059290}
   audioSource: {fileID: 7999500342954749020}
+--- !u!114 &7218556812693203299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6753569587692771544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f541a638504beaa8fc7139a0092d72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1078500606921808547
 PrefabInstance:
   m_ObjectHideFlags: 0

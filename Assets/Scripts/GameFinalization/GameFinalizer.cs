@@ -5,20 +5,15 @@ namespace ColonizationMobileGame.GameFinalization
 {
     public class GameFinalizer : MonoBehaviour
     {
-        private GameFinalizationTrigger[] _triggers;
+        [SerializeField] private GameFinalizationEventSO finalizationEventSO;
 
         public event Action GameFinished;
-        public event Action<GameOutcome> GameFinishedWithOutcome; 
+        public event Action<GameOutcome> GameFinishedWithOutcome;
 
 
-        public void Initialize(GameFinalizationTrigger[] triggers)
+        private void OnEnable()
         {
-            _triggers = triggers;
-            
-            foreach (GameFinalizationTrigger trigger in _triggers)
-            {
-                trigger.Triggered += End;
-            }
+            finalizationEventSO.Triggered += End;
         }
 
 
@@ -26,11 +21,12 @@ namespace ColonizationMobileGame.GameFinalization
         {
             GameFinished?.Invoke();
             GameFinishedWithOutcome?.Invoke(outcome);
-            
-            foreach (GameFinalizationTrigger trigger in _triggers)
-            {
-                trigger.Triggered -= End;
-            }
+        }
+
+
+        private void OnDisable()
+        {
+            finalizationEventSO.Triggered -= End;
         }
     }
 }

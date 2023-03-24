@@ -1,5 +1,4 @@
-﻿using ColonizationMobileGame.UI.ArrowPointers.Target;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ColonizationMobileGame.UI.ArrowPointers
 {
@@ -10,9 +9,9 @@ namespace ColonizationMobileGame.UI.ArrowPointers
         [SerializeField, Range(50f, 100f)] private float maxYOffset;
         
         private Camera _camera;
+        private ArrowPointerTarget _target;
 
-        public bool Free => Target is not {Valid: true};
-        public ArrowPointerTarget Target { get; private set; }
+        public bool Free => _target == null;
 
 
         public void SetCamera(Camera camera)
@@ -21,9 +20,28 @@ namespace ColonizationMobileGame.UI.ArrowPointers
         }
 
 
+        public bool IsAlreadyPointingTo(ArrowPointerTarget target)
+        {
+            return _target == target;
+        }
+        
+        
+        public void PointTo(ArrowPointerTarget target)
+        {
+            _target = target;
+            gameObject.SetActive(true);
+        }
+        
+        
         private void Update()
         {
-            if (Target.OnScreen)
+            if (!_target.RequiresPointing)
+            {
+                Disable();
+                return;
+            }
+            
+            if (IsOnScreen())
             {
                 OnScreen();
             }
@@ -34,9 +52,25 @@ namespace ColonizationMobileGame.UI.ArrowPointers
         }
 
 
+        public void Disable()
+        {
+            _target = null;
+            gameObject.SetActive(false);
+        }
+
+
+        private bool IsOnScreen()
+        {
+            Vector3 viewportPosition = _camera.WorldToViewportPoint(_target.Transform.position);
+            bool onScreen = viewportPosition.x is > 0f and < 1f &&
+                            viewportPosition.y is > 0f and < 1f;
+            return onScreen;
+        }
+
+
         private void OnScreen()
         {
-            Vector3 targetScreenPosition = _camera.WorldToScreenPoint(Target.Position);
+            Vector3 targetScreenPosition = _camera.WorldToScreenPoint(_target.Transform.position);
 
             float yOffset = GetVerticalOffset();
             transform.position = targetScreenPosition + Vector3.up * yOffset;
@@ -59,7 +93,7 @@ namespace ColonizationMobileGame.UI.ArrowPointers
 
         private void OffScreen()
         {
-            Vector3 targetPositionInScreenCoords = _camera.WorldToScreenPoint(Target.Position);
+            Vector3 targetPositionInScreenCoords = _camera.WorldToScreenPoint(_target.Transform.position);
             
             Vector3 positionOnScreen = ClampScreenPosition(targetPositionInScreenCoords);
             transform.position = positionOnScreen;
@@ -82,39 +116,6 @@ namespace ColonizationMobileGame.UI.ArrowPointers
             position.y = Mathf.Clamp(position.y, 0f + offset, screenHeight - offset);
 
             return position;
-        }
-
-
-        public void PointTo(ArrowPointerTarget target)
-        {
-            TrySetTarget(target);
-
-            if (Target == null)
-            {
-                return;
-            }
-            
-            Target.Invalidated += Disable;
-            
-            gameObject.SetActive(true);
-        }
-
-
-        private void TrySetTarget(ArrowPointerTarget target)
-        {
-            if (target == null)
-            {
-                return;
-            }
-            
-            Target ??= target;
-        }
-
-
-        private void Disable()
-        {
-            gameObject.SetActive(false);
-            Target = null;
         }
     }
 }

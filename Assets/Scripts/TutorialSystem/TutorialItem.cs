@@ -1,11 +1,11 @@
-﻿using System;
-using ColonizationMobileGame.SaveLoadSystem;
-using ColonizationMobileGame.UI.ArrowPointers.Target;
+﻿using ColonizationMobileGame.SaveLoadSystem;
+using ColonizationMobileGame.UI.ArrowPointers;
+using ColonizationMobileGame.UI.ArrowPointers.TargetGroupValidators;
 using UnityEngine;
 
 namespace ColonizationMobileGame.TutorialSystem
 {
-    public class TutorialItem : MonoBehaviour, IArrowPointerTargetProvider, IPermanentGuidIdentifiable
+    public class TutorialItem : MonoBehaviour, IPermanentGuidIdentifiable, IArrowPointerTarget
     {
         [SerializeField] private TutorialStep step;
 
@@ -14,12 +14,14 @@ namespace ColonizationMobileGame.TutorialSystem
         public TutorialStep Step => step;
         public PermanentGuid Guid => guid;
 
-        public event Action<Transform> TargetReady;
+        public bool RequiresPointing { get; private set; }
 
 
         public void Activate()
         {
-            TargetReady?.Invoke(transform);
+            RequiresPointing = true;
+            
+            FindObjectOfType<TutorialArrowPointerTargetGroupValidator>().RegisterTarget(this);
         }
     }
 }

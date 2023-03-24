@@ -66,7 +66,8 @@ namespace ColonizationMobileGame.Utility.Extensions
         {
             StringBuilder nameBuilder = new StringBuilder(gameObject.name);
             
-            while (gameObject.transform.parent != null) {
+            while (gameObject.transform.parent != null) 
+            {
                 gameObject = gameObject.transform.parent.gameObject;
                 nameBuilder.Insert(0, gameObject.name + "/");
             }

@@ -11,7 +11,9 @@ namespace ColonizationMobileGame.Timer
 {
     public class GameTimer : MonoBehaviour, ISceneSaveable, IGameFinalizationTarget
     {
+        [SerializeField] private ShelterBuiltEventSO shelterBuiltEventSO;
         [SerializeField] private TutorialBuilder tutorialBuilder;
+        
         [SerializeField, Range(10, 30)] private int minutes = 20;
 
         [SerializeField, HideInInspector] private PermanentGuid guid;
@@ -26,16 +28,15 @@ namespace ColonizationMobileGame.Timer
         public event Action Elapsed;
 
 
-        [Button]
-        public void Stop()
-        {
-            SecondsLeft = 1f;
-        }
-        
-        
         private void Awake()
         {
             SecondsLeft += minutes * 60f;
+        }
+
+
+        private void OnEnable()
+        {
+            shelterBuiltEventSO.Built += Deactivate;
         }
 
 
@@ -58,8 +59,8 @@ namespace ColonizationMobileGame.Timer
 
             tutorialBuilder.Completed -= Activate;
         }
-        
-        
+
+
         public GameTimerPhase GetPhase()
         {
             IEnumerable<int> values = Enum.GetValues(typeof(GameTimerPhase)).Cast<int>();
@@ -114,6 +115,7 @@ namespace ColonizationMobileGame.Timer
             Debug.LogWarning($"Time left: {TimeSpan.FromSeconds(SecondsLeft):mm\\:ss\\:fff}");
 
             tutorialBuilder.Completed -= Activate;
+            shelterBuiltEventSO.Built -= Deactivate;
         }
 
 
@@ -132,16 +134,24 @@ namespace ColonizationMobileGame.Timer
 
             SecondsLeft = saveData.SecondsLeft;
         }
-        
-        
+
+
         private struct SaveData
         {
             public float SecondsLeft { get; set; }
         }
 
+
         public void SubscribeToGameOver(GameFinalizer gameFinalizer)
         {
             gameFinalizer.GameFinished += Deactivate;
+        }
+
+
+        [Button]
+        private void Stop()
+        {
+            SecondsLeft = 1f;
         }
     }
 }
