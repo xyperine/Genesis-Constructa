@@ -46,7 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b37e019c64c4d7e88bd71601a35027f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  area: {fileID: 7878898993375151886}
   fill: {fileID: 4934768592438427233}
+  background: {fileID: 7004800281019594621}
 --- !u!1 &5648156564001299337
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +427,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   areaDrawer: {fileID: 7878898993638575881}
   areaCollider: {fileID: 7878898993218723513}
-  areaIndicator: {fileID: 2705265318934675409}
   size: 2
   goingIntoHibernationDuration: 3
 --- !u!114 &7878898993375151875
