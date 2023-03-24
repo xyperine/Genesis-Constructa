@@ -9,13 +9,20 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
         [SerializeField, Range(5f, 180f)] private float lifetime;
         
         private float _elapsedTime;
+
         public bool Exhausted => _elapsedTime >= lifetime;
-        public bool WillBeExhausted => _elapsedTime + Time.deltaTime >= lifetime;
+        public float Lifetime => lifetime;
 
 
         public void Tick()
         {
             _elapsedTime += Time.deltaTime;
+        }
+
+
+        public void Adjust(float n)
+        {
+            _elapsedTime = Mathf.Round(_elapsedTime / n) * n;
         }
 
 

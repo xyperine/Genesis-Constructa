@@ -31,22 +31,21 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
 
         private void UpdateEverySlot()
         {
+            float minLifetime = float.MaxValue;
             foreach (KeyItemSlot slot in slots)
             {
+                minLifetime = Mathf.Min(minLifetime, slot.Lifetime);
                 slot.Tick();
             }
-
-            if (slots.All(s => s.Filled))
+            
+            if (Filled)
             {
                 return;
             }
 
             foreach (KeyItemSlot slot in slots)
             {
-                if (slot.WillBeEmpty)
-                {
-                    slot.Tick();
-                }
+                slot.Adjust(minLifetime);
             }
         }
     }

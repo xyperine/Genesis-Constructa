@@ -10,12 +10,12 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
     public class KeyItemSlot : StackZone, IItemsAmountDataProvider, ISaveable
     {
         [SerializeField] private ItemsAmountPanelData itemsAmountPanelData;
-        
+
         private KeyItem _item;
         private object _itemSaveData;
         
         public bool Filled => HasItems;
-        public bool WillBeEmpty => Filled && _item.WillBeExhausted;
+        public float Lifetime => _item.Lifetime;
 
 
         private void Start()
@@ -54,6 +54,17 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
         }
 
 
+        public void Adjust(float l)
+        {
+            if (!_item)
+            {
+                return;
+            }
+            
+            _item.Adjust(l);
+        }
+
+
         private void Clear()
         {
             _item.Clear();
@@ -61,7 +72,7 @@ namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
             StackZoneItem zoneItem = _item.GetComponent<StackZoneItem>();
             Remove(zoneItem);
             zoneItem.Return();
-            
+
             _item = null;
             _itemSaveData = null;
 
