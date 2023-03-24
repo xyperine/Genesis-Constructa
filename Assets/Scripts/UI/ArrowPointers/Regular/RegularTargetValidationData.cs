@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.UI.ArrowPointers.TargetGroupValidators.Regular
+﻿namespace ColonizationMobileGame.UI.ArrowPointers.Regular
 {
     public record RegularTargetValidationData
     {

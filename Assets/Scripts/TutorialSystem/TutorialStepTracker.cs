@@ -12,6 +12,7 @@ namespace ColonizationMobileGame.TutorialSystem
         public bool Complete { get; private set; }
         public TutorialStep Step => step;
 
+        public event Action Activated;
         public event Action Completed;
 
 
@@ -27,6 +28,8 @@ namespace ColonizationMobileGame.TutorialSystem
             {
                 item.Activate();
             }
+            
+            Activated?.Invoke();
         }
 
 

@@ -237,6 +237,7 @@ GameObject:
   - component: {fileID: 2176752422499043277}
   - component: {fileID: 2176752423002198345}
   - component: {fileID: 2176752423002198349}
+  - component: {fileID: 5424192094594521993}
   m_Layer: 0
   m_Name: For_Metal_Factory
   m_TagString: Untagged
@@ -295,6 +296,20 @@ MonoBehaviour:
   step: 0
   guid:
     value: 1e748318-c199-406a-902c-0cd95418dd14
+--- !u!114 &5424192094594521993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2176752422499043276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 307205b2a413468a90ca0e4f2f9d7ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformToPointAt: {fileID: 2176752422499043277}
+  stepTracker: {fileID: 2176752423002198345}
 --- !u!1 &2176752423761788830
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,6 +321,7 @@ GameObject:
   - component: {fileID: 2176752423761788831}
   - component: {fileID: 2176752423002198348}
   - component: {fileID: 2176752423002198350}
+  - component: {fileID: 8135482723981028550}
   m_Layer: 0
   m_Name: For_Mineral_Factory
   m_TagString: Untagged
@@ -364,6 +380,20 @@ MonoBehaviour:
   step: 2
   guid:
     value: 692e2de6-3219-4f94-90b1-295f5d337db8
+--- !u!114 &8135482723981028550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2176752423761788830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 307205b2a413468a90ca0e4f2f9d7ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformToPointAt: {fileID: 2176752423761788831}
+  stepTracker: {fileID: 2176752423002198348}
 --- !u!1 &7555294471087058133
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,6 @@ using ColonizationMobileGame.ObjectPooling;
 using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.Structures;
 using ColonizationMobileGame.UI.ArrowPointers;
-using ColonizationMobileGame.UI.ArrowPointers.TargetGroupValidators.Regular;
 using ColonizationMobileGame.UI.ItemsAmount.Data;
 using ColonizationMobileGame.UnlockingSystem;
 using ColonizationMobileGame.Utility.Extensions;
@@ -14,7 +13,7 @@ using UnityEngine;
 
 namespace ColonizationMobileGame.BuildSystem
 {
-    public sealed class Builder : MonoBehaviour, IItemsAmountDataProvider, ISceneSaveable, IInteractablesTrackerUser, IIdentifiable, IArrowPointerTarget
+    public sealed class Builder : MonoBehaviour, IItemsAmountDataProvider, ISceneSaveable, IInteractablesTrackerUser, IIdentifiable
     {
         [SerializeField] private BuildDataSO buildDataSO;
         [SerializeField] private Transform structuresParent;
@@ -37,11 +36,8 @@ namespace ColonizationMobileGame.BuildSystem
         
         public StructureIdentifier Identifier => _buildData.Identifier;
 
-        public StructureType StructureType => _buildData.Identifier.StructureType;
-
-        public bool RequiresPointing { get; private set; }
-        
         public event Action Built;
+        public event Action Unlocked;
 
 
         public void SetInteractablesTracker(InteractablesTracker interactablesTracker)
@@ -74,12 +70,6 @@ namespace ColonizationMobileGame.BuildSystem
         {
             consumer.Setup(_buildData.Price);
             _buildData.Price.Fulfilled += Build;
-        }
-
-
-        private void Start()
-        {
-            FindObjectOfType<RegularArrowPointerTargetGroupValidator>().RegisterTarget(this);
         }
 
 
@@ -142,8 +132,8 @@ namespace ColonizationMobileGame.BuildSystem
 
         private void OnUnlocked()
         {
-            RequiresPointing = true;
             gameObject.SetActive(true);
+            Unlocked?.Invoke();
             
             SetItemsAmountData();
         }

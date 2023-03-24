@@ -385,6 +385,7 @@ GameObject:
   - component: {fileID: 7878898993375151874}
   - component: {fileID: 7878898993375151886}
   - component: {fileID: 7878898993375151875}
+  - component: {fileID: 2910247344362886409}
   m_Layer: 8
   m_Name: Hibernation_Area
   m_TagString: Untagged
@@ -442,6 +443,20 @@ MonoBehaviour:
   finalizationEventSO: {fileID: 11400000, guid: d6f9ef784e3d14b45af07a36a6950e9f, type: 2}
   outcome: 0
   hibernationArea: {fileID: 7878898993375151886}
+--- !u!114 &2910247344362886409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7878898993375151877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 131ed25fcda94fa4b6454d039dd4e17b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformToPointAt: {fileID: 7878898993375151874}
+  areaCollider: {fileID: 7878898993218723513}
 --- !u!1 &7878898993638575884
 GameObject:
   m_ObjectHideFlags: 0

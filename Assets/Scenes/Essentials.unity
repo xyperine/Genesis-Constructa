@@ -387,7 +387,7 @@ Transform:
   m_Father: {fileID: 1884405498}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 47.63, y: -13.1, z: 0}
---- !u!21 &825914914
+--- !u!21 &918569399
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0

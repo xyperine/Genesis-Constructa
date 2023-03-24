@@ -10,13 +10,11 @@ namespace ColonizationMobileGame.UI.ArrowPointers
         protected readonly List<ArrowPointerTarget> targets = new List<ArrowPointerTarget>();
 
 
-        public void RegisterTarget<T>(T target)
-            where T : MonoBehaviour, IArrowPointerTarget
+        public void RegisterTarget(ArrowPointerTarget target)
         {
-            ArrowPointerTarget t = new ArrowPointerTarget(target, target.transform);
-            if (!targets.Contains(t))
+            if (!targets.Contains(target))
             {
-                targets.Add(t);
+                targets.Add(target);
             }
             
             Debug.Log(targets.Count);

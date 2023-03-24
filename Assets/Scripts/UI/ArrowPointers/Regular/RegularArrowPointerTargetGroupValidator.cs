@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace ColonizationMobileGame.UI.ArrowPointers.TargetGroupValidators.Regular
+namespace ColonizationMobileGame.UI.ArrowPointers.Regular
 {
-    public class RegularArrowPointerTargetGroupValidator : ArrowPointerTargetGroupValidator
+    public sealed class RegularArrowPointerTargetGroupValidator : ArrowPointerTargetGroupValidator
     {
         [SerializeField] private new Camera camera;
 
