@@ -5,6 +5,7 @@ namespace ColonizationMobileGame.Hibernation.Area
 {
     public class HibernationAreaCollider : MonoBehaviour
     {
+        [SerializeField] private HibernationAreaEventSO eventSO;
         [SerializeField] private new BoxCollider collider;
 
         public bool ObjectInside { get; private set; }
@@ -21,6 +22,7 @@ namespace ColonizationMobileGame.Hibernation.Area
             if (other.GetComponent<HibernationObject>())
             {
                 ObjectInside = true;
+                eventSO.Raise(ObjectInside);
             }
         }
 
@@ -30,6 +32,7 @@ namespace ColonizationMobileGame.Hibernation.Area
             if (other.GetComponent<HibernationObject>())
             {
                 ObjectInside = false;
+                eventSO.Raise(ObjectInside);
             }
         }
     }

@@ -375,6 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0cbcf764c2642dabf822555217e25ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventSO: {fileID: 11400000, guid: 76533d65a92ffd742bcda5d98206ce1a, type: 2}
   collider: {fileID: 7878898993218723398}
 --- !u!1 &7878898993375151877
 GameObject:

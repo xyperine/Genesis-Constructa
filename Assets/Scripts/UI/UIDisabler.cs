@@ -5,18 +5,12 @@ using UnityEngine.EventSystems;
 
 namespace ColonizationMobileGame.UI
 {
-    public class UIDisabler : MonoBehaviour, IGameFinalizationTarget
+    public class UIDisabler : MonoBehaviour
     {
         [SerializeField] private Canvas[] ignoredCanvases;
-        
-        
-        public void SubscribeToGameOver(GameFinalizer gameFinalizer)
-        {
-            gameFinalizer.GameFinished += OnGameFinished;
-        }
 
 
-        private void OnGameFinished()
+        public void DisableUI()
         {
             GameObject[] allCanvasesGameObjects = FindObjectsOfType<Canvas>().Select(c => c.gameObject).ToArray();
             GameObject[] ignoredCanvasesGameObjects = ignoredCanvases.Select(c => c.gameObject).ToArray();

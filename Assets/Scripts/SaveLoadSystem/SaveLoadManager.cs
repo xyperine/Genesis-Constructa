@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ColonizationMobileGame.SaveLoadSystem
 {
-    public class SaveLoadManager : MonoBehaviour, IGameFinalizationTarget
+    public class SaveLoadManager : MonoBehaviour
     {
         [SerializeField] private bool active = true;
         
@@ -92,13 +92,7 @@ namespace ColonizationMobileGame.SaveLoadSystem
         }
 
 
-        public void SubscribeToGameOver(GameFinalizer gameFinalizer)
-        {
-            gameFinalizer.GameFinished += OnGameFinished;
-        }
-
-
-        private void OnGameFinished()
+        public void DisableSavingForThisSession()
         {
             if (!active)
             {

@@ -7,8 +7,6 @@ namespace ColonizationMobileGame.Initialization
 {
     public class DependenciesResolver : MonoBehaviour
     {
-        [SerializeField] private GameFinalizer gameFinalizer;
-        
         private InteractablesTracker _interactablesTracker;
 
         private Component[] _allComponents;
@@ -35,8 +33,6 @@ namespace ColonizationMobileGame.Initialization
             SetInteractablesTracker();
 
             SetCameraForCanvases();
-            
-            SetGameOverTargets();
         }
 
 
@@ -54,15 +50,6 @@ namespace ColonizationMobileGame.Initialization
             foreach (Canvas canvas in _allComponents.OfType<Canvas>())
             {
                 canvas.worldCamera ??= Camera.main;
-            }
-        }
-
-
-        private void SetGameOverTargets()
-        {
-            foreach (IGameFinalizationTarget target in _allComponents.OfType<IGameFinalizationTarget>())
-            {
-                target.SubscribeToGameOver(gameFinalizer);
             }
         }
 

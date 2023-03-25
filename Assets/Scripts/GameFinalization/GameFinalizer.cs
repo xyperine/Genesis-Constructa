@@ -1,14 +1,11 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ColonizationMobileGame.GameFinalization
 {
     public class GameFinalizer : MonoBehaviour
     {
         [SerializeField] private GameFinalizationEventSO finalizationEventSO;
-
-        public event Action GameFinished;
-        public event Action<GameOutcome> GameFinishedWithOutcome;
+        [SerializeField] private GameFinalizationSequence finalizationSequence;
 
 
         private void OnEnable()
@@ -19,8 +16,7 @@ namespace ColonizationMobileGame.GameFinalization
 
         private void End(GameOutcome outcome)
         {
-            GameFinished?.Invoke();
-            GameFinishedWithOutcome?.Invoke(outcome);
+            finalizationSequence.Begin(outcome);
         }
 
 

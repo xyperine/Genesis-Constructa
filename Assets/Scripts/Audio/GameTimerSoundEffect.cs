@@ -12,17 +12,43 @@ namespace ColonizationMobileGame.Audio
 
         private bool _active;
 
+        private Coroutine _playRoutine;
+
 
         private void Update()
         {
             if (_active)
             {
+                StopPlayingAfterTimeIsOut();
+                
                 return;
             }
+
+            StartPlayingCriticalSound();
+        }
+
+
+        private void StopPlayingAfterTimeIsOut()
+        {
+            if (gameTimer.GetPhase() != GameTimerPhase.Over)
+            {
+                return;
+            }
+
+            if (_playRoutine != null)
+            {
+                StopCoroutine(_playRoutine);
+            }
             
+            _active = false;
+        }
+
+
+        private void StartPlayingCriticalSound()
+        {
             if (gameTimer.GetPhase() == GameTimerPhase.Critical)
             {
-                StartCoroutine(PlayRoutine());
+                _playRoutine = StartCoroutine(PlayRoutine());
             }
         }
 
@@ -31,7 +57,7 @@ namespace ColonizationMobileGame.Audio
         {
             _active = true;
             
-            while (true)
+            while (_active)
             {
                 audioSource.Play();
 

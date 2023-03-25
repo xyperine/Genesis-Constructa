@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ColonizationMobileGame.GameFinalization;
 using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.TutorialSystem;
 using Sirenix.OdinInspector;
@@ -9,7 +8,7 @@ using UnityEngine;
 
 namespace ColonizationMobileGame.Timer
 {
-    public class GameTimer : MonoBehaviour, ISceneSaveable, IGameFinalizationTarget
+    public class GameTimer : MonoBehaviour, ISceneSaveable
     {
         [SerializeField] private ShelterBuiltEventSO shelterBuiltEventSO;
         [SerializeField] private TutorialBuilder tutorialBuilder;
@@ -40,6 +39,12 @@ namespace ColonizationMobileGame.Timer
         }
 
 
+        private void Deactivate()
+        {
+            _active = false;
+        }
+
+
         private void Start()
         {
             if (tutorialBuilder.Complete)
@@ -53,7 +58,7 @@ namespace ColonizationMobileGame.Timer
         }
 
 
-        public void Activate()
+        private void Activate()
         {
             _active = true;
 
@@ -104,12 +109,6 @@ namespace ColonizationMobileGame.Timer
         }
 
 
-        public void Deactivate()
-        {
-            _active = false;
-        }
-
-
         private void OnDisable()
         {
             Debug.LogWarning($"Time left: {TimeSpan.FromSeconds(SecondsLeft):mm\\:ss\\:fff}");
@@ -140,14 +139,9 @@ namespace ColonizationMobileGame.Timer
         {
             public float SecondsLeft { get; set; }
         }
+        
 
-
-        public void SubscribeToGameOver(GameFinalizer gameFinalizer)
-        {
-            gameFinalizer.GameFinished += Deactivate;
-        }
-
-
+        // For debugging
         [Button]
         private void Stop()
         {

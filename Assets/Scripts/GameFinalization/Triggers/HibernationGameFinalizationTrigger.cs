@@ -1,5 +1,4 @@
-﻿using ColonizationMobileGame.Hibernation;
-using ColonizationMobileGame.Hibernation.Area;
+﻿using ColonizationMobileGame.Hibernation.Area;
 using UnityEngine;
 
 namespace ColonizationMobileGame.GameFinalization.Triggers

@@ -34,7 +34,7 @@ namespace ColonizationMobileGame.Hibernation.Area
                 return;
             }
 
-            _secondsBeingInside += Time.deltaTime;
+            _secondsBeingInside += Time.unscaledDeltaTime;
         }
 
 
