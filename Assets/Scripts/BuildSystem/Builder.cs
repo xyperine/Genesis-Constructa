@@ -5,7 +5,6 @@ using ColonizationMobileGame.ItemsPlacementsInteractions;
 using ColonizationMobileGame.ObjectPooling;
 using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.Structures;
-using ColonizationMobileGame.UI.ArrowPointers;
 using ColonizationMobileGame.UI.ItemsAmount.Data;
 using ColonizationMobileGame.UnlockingSystem;
 using ColonizationMobileGame.Utility.Extensions;

@@ -2,16 +2,16 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ColonizationMobileGame.UI
+namespace ColonizationMobileGame.GameFading
 {
     public class ImageFader : MonoBehaviour
     {
         [SerializeField] private Image image;
 
 
-        private void LateUpdate()
+        public void SetAlpha(float alpha)
         {
-            image.color = image.color.WithAlpha(1f - Time.timeScale);
+            image.color = image.color.WithAlpha(alpha);
         }
     }
 }

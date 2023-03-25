@@ -1,7 +1,8 @@
 ﻿using System;
+using ColonizationMobileGame.GameFinalization;
 using UnityEngine;
 
-namespace ColonizationMobileGame.GameFinalization
+namespace ColonizationMobileGame.GameEvents
 {
     [CreateAssetMenu(fileName = "Game_Finalization_Event", menuName = "Game Events/Game Finalization Event", order = 0)]
     public class GameFinalizationEventSO : ScriptableObject

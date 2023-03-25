@@ -1,7 +1,7 @@
 ﻿using ColonizationMobileGame.BuildSystem;
 using UnityEngine;
 
-namespace ColonizationMobileGame
+namespace ColonizationMobileGame.GameEvents
 {
     public class ShelterBuiltEvent : MonoBehaviour
     {

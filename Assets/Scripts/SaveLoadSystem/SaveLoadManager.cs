@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using ColonizationMobileGame.GameFinalization;
 using UnityEngine;
 
 namespace ColonizationMobileGame.SaveLoadSystem

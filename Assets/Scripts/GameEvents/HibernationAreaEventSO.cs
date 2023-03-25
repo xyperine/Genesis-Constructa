@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Hibernation
+namespace ColonizationMobileGame.GameEvents
 {
     [CreateAssetMenu(fileName = "Hibernation_Area_Event", menuName = "Game Events/Hibernation Area Event", order = 0)]
     public class HibernationAreaEventSO : ScriptableObject

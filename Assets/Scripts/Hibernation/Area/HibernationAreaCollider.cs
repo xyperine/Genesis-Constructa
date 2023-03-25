@@ -1,4 +1,5 @@
-﻿using ColonizationMobileGame.Utility.Extensions;
+﻿using ColonizationMobileGame.GameEvents;
+using ColonizationMobileGame.Utility.Extensions;
 using UnityEngine;
 
 namespace ColonizationMobileGame.Hibernation.Area

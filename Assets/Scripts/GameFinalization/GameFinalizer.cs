@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using ColonizationMobileGame.GameEvents;
+using UnityEngine;
 
 namespace ColonizationMobileGame.GameFinalization
 {

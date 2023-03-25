@@ -1,4 +1,5 @@
-﻿using ColonizationMobileGame.SaveLoadSystem;
+﻿using ColonizationMobileGame.GameFading;
+using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.UI;
 using ColonizationMobileGame.UI.GameOver;
 using UnityEngine;
@@ -9,7 +10,7 @@ namespace ColonizationMobileGame.GameFinalization
     {
         [SerializeField] private UIDisabler uiDisabler;
         [SerializeField] private GameOverScreen gameOverScreen;
-        [SerializeField] private TimeScaler timeScaler;
+        [SerializeField] private GameFader gameFader;
         [SerializeField] private SaveLoadManager saveLoadManager;
 
 
@@ -28,7 +29,7 @@ namespace ColonizationMobileGame.GameFinalization
 
         private void OnWin()
         {
-            timeScaler.StopTime();
+            gameFader.FadeOutImmediately(FadeFlags.Time);
 
             uiDisabler.DisableUI();
             gameOverScreen.Show(GameOutcome.Win);
@@ -40,9 +41,9 @@ namespace ColonizationMobileGame.GameFinalization
         private void OnLose()
         {
             uiDisabler.DisableUI();
-
-            timeScaler.TimeStopped += OnTimeStopped;
-            timeScaler.BeginSlowDown();
+            
+            gameFader.FadedOut += OnTimeStopped;
+            gameFader.BeginFadeOut(3f, FadeFlags.All);
         }
         
         

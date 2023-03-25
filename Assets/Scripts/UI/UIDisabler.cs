@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using ColonizationMobileGame.GameFinalization;
 using UnityEngine;
 using UnityEngine.EventSystems;
 

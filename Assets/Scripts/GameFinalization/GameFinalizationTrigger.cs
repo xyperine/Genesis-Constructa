@@ -1,4 +1,4 @@
-﻿using System;
+﻿using ColonizationMobileGame.GameEvents;
 using UnityEngine;
 
 namespace ColonizationMobileGame.GameFinalization
