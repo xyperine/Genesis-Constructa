@@ -40,8 +40,6 @@ namespace ColonizationMobileGame.GameFinalization
 
         private void OnLose()
         {
-            uiDisabler.DisableUI();
-            
             gameFader.FadedOut += OnTimeStopped;
             gameFader.BeginFadeOut(3f, FadeFlags.All);
         }
@@ -49,6 +47,7 @@ namespace ColonizationMobileGame.GameFinalization
         
         private void OnTimeStopped()
         {
+            uiDisabler.DisableUI();
             gameOverScreen.Show(GameOutcome.Lose);
             
             saveLoadManager.DisableSavingForThisSession();

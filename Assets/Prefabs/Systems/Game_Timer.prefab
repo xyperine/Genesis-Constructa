@@ -9,10 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6004789128823323019}
+  - component: {fileID: 1641532879112559916}
   - component: {fileID: 6004789128823323018}
   - component: {fileID: 6004789128823323012}
-  - component: {fileID: 8672160909803146518}
-  - component: {fileID: 1641532879112559916}
   - component: {fileID: 436017529079955301}
   m_Layer: 0
   m_Name: Game_Timer
@@ -28,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6004789128823323017}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -36,48 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6004789128823323018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6004789128823323017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4098ea58eda74056aa1c64ee914dc320, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tutorialBuilder: {fileID: 0}
-  minutes: 20
-  guid:
-    value: 3689b53c-3991-4bf0-9701-e7eea6040072
---- !u!114 &6004789128823323012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6004789128823323017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9cfe59ca857467b9e4e1e8689676ca2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outcome: 1
-  timer: {fileID: 6004789128823323018}
---- !u!114 &8672160909803146518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6004789128823323017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e8140f375294efdad115e73a6f84517, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &1641532879112559916
 AudioSource:
   m_ObjectHideFlags: 0
@@ -174,6 +131,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6004789128823323018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6004789128823323017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4098ea58eda74056aa1c64ee914dc320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shelterBuiltEventSO: {fileID: 11400000, guid: f135f964bfcbc8d4395d94aafacaaa5c, type: 2}
+  tutorialBuilder: {fileID: 0}
+  minutes: 20
+  guid:
+    value: 3689b53c-3991-4bf0-9701-e7eea6040072
+--- !u!114 &6004789128823323012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6004789128823323017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9cfe59ca857467b9e4e1e8689676ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finalizationEventSO: {fileID: 11400000, guid: d6f9ef784e3d14b45af07a36a6950e9f, type: 2}
+  outcome: 1
+  timer: {fileID: 6004789128823323018}
 --- !u!114 &436017529079955301
 MonoBehaviour:
   m_ObjectHideFlags: 0

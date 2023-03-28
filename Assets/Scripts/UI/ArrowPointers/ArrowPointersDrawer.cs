@@ -6,6 +6,7 @@ namespace ColonizationMobileGame.UI.ArrowPointers
 {
     public class ArrowPointersDrawer : MonoBehaviour
     {
+        [SerializeField] private Canvas canvas;
         [SerializeField] private ArrowPointer arrowPointerPrefab;
 
         private readonly List<ArrowPointer> _arrowPointers = new List<ArrowPointer>();
@@ -22,7 +23,7 @@ namespace ColonizationMobileGame.UI.ArrowPointers
             for (int i = 0; i < 10; i++)
             {
                 _arrowPointers.Add(Instantiate(arrowPointerPrefab, transform));
-                _arrowPointers[i].SetCamera(Camera.main);
+                _arrowPointers[i].SetCanvas(canvas);
                 _arrowPointers[i].Disable();
             }
         }

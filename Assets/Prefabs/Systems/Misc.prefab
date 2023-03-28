@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7730718997147459501
+--- !u!1 &6279583196591014269
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,25 +8,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7730718997147459500}
-  - component: {fileID: 7730718997147459475}
-  - component: {fileID: 7137095656433062257}
-  - component: {fileID: 7730718997147459474}
-  - component: {fileID: 1542661153}
+  - component: {fileID: 6279583196591014270}
+  - component: {fileID: 6279583196591014271}
+  - component: {fileID: 6279583196591014241}
+  - component: {fileID: 6279583196591014240}
+  - component: {fileID: 6279583196591014242}
   m_Layer: 0
-  m_Name: Initialization
+  m_Name: Misc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7730718997147459500
+--- !u!4 &6279583196591014270
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7730718997147459501}
+  m_GameObject: {fileID: 6279583196591014269}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -35,64 +35,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7730718997147459475
+--- !u!114 &6279583196591014271
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7730718997147459501}
+  m_GameObject: {fileID: 6279583196591014269}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f5dc1bdc1ec4675b9ca2c2978795601, type: 3}
+  m_Script: {fileID: 11500000, guid: 29840726cfc94643af42d6db229680f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dependenciesResolver: {fileID: 7137095656433062257}
-  saveLoadManager: {fileID: 0}
-  tutorialBuilder: {fileID: 1542661153}
-  gameFader: {fileID: 0}
-  scenesToLoad:
-  - {fileID: 102900000, guid: 10cfb378149f57b4788d488bbf4004f6, type: 3}
-  scenesNames:
-  - Level
---- !u!114 &7137095656433062257
+  active: 0
+--- !u!114 &6279583196591014241
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7730718997147459501}
+  m_GameObject: {fileID: 6279583196591014269}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f3988e3064143859424d7ac615348f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c0911e6297e455883e3fa0d5eaf0430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7730718997147459474
+  hibernationAreaEventSO: {fileID: 11400000, guid: 76533d65a92ffd742bcda5d98206ce1a, type: 2}
+  timeScaler: {fileID: 6279583196591014242}
+  audioController: {fileID: 6279583196591014240}
+  imageFader: {fileID: 0}
+--- !u!114 &6279583196591014240
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7730718997147459501}
+  m_GameObject: {fileID: 6279583196591014269}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7178953a287fd54e8cdf16f146d39fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 174bd38350524e70b1f871f482b42699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  workInEditor: 0
-  targetFramerate: 60
---- !u!114 &1542661153
+--- !u!114 &6279583196591014242
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7730718997147459501}
+  m_GameObject: {fileID: 6279583196591014269}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f66fed4a0184790baac36fe9e948502, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e8140f375294efdad115e73a6f84517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  order: 00000000010000000200000003000000
-  guid:
-    value: 518cbbab-1cbd-4a74-b5a1-ccb63cb9f9bc

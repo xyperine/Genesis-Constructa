@@ -105,6 +105,8 @@ namespace ColonizationMobileGame.UI.Timer
                     resultColor = criticalTimeColor;
                     resultDuration = criticalTimeAnimationDuration;
                     break;
+                case GameTimerPhase.Over:
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(_phase), _phase, null);
             }

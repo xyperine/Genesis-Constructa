@@ -8,15 +8,25 @@ namespace ColonizationMobileGame.UI.ArrowPointers
         [SerializeField, Range(0f, 50f)] private float minYOffset;
         [SerializeField, Range(50f, 100f)] private float maxYOffset;
         
+        private Canvas _canvas;
         private Camera _camera;
         private ArrowPointerTarget _target;
+
+        private RectTransform _rectTransform;
 
         public bool Free => _target == null;
 
 
-        public void SetCamera(Camera camera)
+        private void Awake()
         {
-            _camera = camera;
+            _rectTransform = GetComponent<RectTransform>();
+        }
+
+
+        public void SetCanvas(Canvas canvas)
+        {
+            _canvas = canvas;
+            _camera = _canvas.worldCamera;
         }
 
 
@@ -71,11 +81,13 @@ namespace ColonizationMobileGame.UI.ArrowPointers
         private void OnScreen()
         {
             Vector3 targetScreenPosition = _camera.WorldToScreenPoint(_target.Transform.position);
+            
+            Debug.Log($"W point: {_target.Transform.position}, WSSW point: {_camera.ScreenToWorldPoint(targetScreenPosition)}");
 
             float yOffset = GetVerticalOffset();
-            transform.position = targetScreenPosition + Vector3.up * yOffset;
+            _rectTransform.anchoredPosition = (targetScreenPosition + Vector3.up * yOffset) / _canvas.scaleFactor;
             
-            transform.localEulerAngles = Vector3.zero;
+            _rectTransform.localEulerAngles = Vector3.zero;
         }
 
 
@@ -96,12 +108,12 @@ namespace ColonizationMobileGame.UI.ArrowPointers
             Vector3 targetPositionInScreenCoords = _camera.WorldToScreenPoint(_target.Transform.position);
             
             Vector3 positionOnScreen = ClampScreenPosition(targetPositionInScreenCoords);
-            transform.position = positionOnScreen;
+            _rectTransform.anchoredPosition = positionOnScreen;
             
             Vector3 centerOfTheScreen = new Vector3(Screen.width, Screen.height, 0f) / 2f;
             Vector3 direction = (targetPositionInScreenCoords - centerOfTheScreen).normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f;
-            transform.localEulerAngles = Vector3.forward * angle;
+            _rectTransform.localEulerAngles = Vector3.forward * angle;
         }
 
 
