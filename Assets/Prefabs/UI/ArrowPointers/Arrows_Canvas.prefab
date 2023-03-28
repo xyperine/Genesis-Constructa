@@ -98,7 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 629fafccd90c426f8abf84a64b88863c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowPointerPrefab: {fileID: 2641984075490072788, guid: 4c12ec4c3dda7fc458df9b906fbb3414, type: 3}
+  canvasCamera: {fileID: 0}
+  arrowPointerPrefab: {fileID: 3455790333104488887, guid: 17077c47042507a4597c0d8ae8784eaf, type: 3}
 --- !u!114 &1409867606
 MonoBehaviour:
   m_ObjectHideFlags: 0

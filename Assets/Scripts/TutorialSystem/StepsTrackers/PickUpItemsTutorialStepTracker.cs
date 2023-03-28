@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using ColonizationMobileGame.ItemsPlacementsInteractions;
+using ColonizationMobileGame.Utility.Extensions;
 using UnityEngine;
 
 namespace ColonizationMobileGame.TutorialSystem.StepsTrackers
@@ -8,18 +9,26 @@ namespace ColonizationMobileGame.TutorialSystem.StepsTrackers
     {
         [SerializeField] private Transform itemsParent;
 
-        private int _nonItemsChildrenCount;
+        private Transform[] _items;
 
 
         private void Start()
         {
-            _nonItemsChildrenCount = transform.Cast<Transform>().Count(t => !t.GetComponent<StackZoneItem>());
+            _items = itemsParent.GetComponentsInChildren<StackZoneItem>().Select(i => i.transform).ToArray();
         }
 
 
         private void Update()
         {
-            if (transform.childCount <= _nonItemsChildrenCount)
+            if (_items.IsNullOrEmpty())
+            {
+                InvokeCompleted();
+                itemsParent.gameObject.SetActive(false);
+                
+                return;
+            }
+            
+            if (_items.All(t => !t || t.parent != itemsParent))
             {
                 InvokeCompleted();
                 itemsParent.gameObject.SetActive(false);

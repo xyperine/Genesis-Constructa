@@ -4,29 +4,18 @@ namespace ColonizationMobileGame.UI.ArrowPointers
 {
     public class ArrowPointer : MonoBehaviour
     {
-        [SerializeField, Range(0.5f, 10f)] private float animationSpeed = 3f;
-        [SerializeField, Range(0f, 50f)] private float minYOffset;
-        [SerializeField, Range(50f, 100f)] private float maxYOffset;
+        [SerializeField] private OnScreenArrowPointer onScreenArrowPointer;
+        [SerializeField] private OffScreenArrowPointer offScreenArrowPointer;
         
-        private Canvas _canvas;
         private Camera _camera;
         private ArrowPointerTarget _target;
-
-        private RectTransform _rectTransform;
 
         public bool Free => _target == null;
 
 
-        private void Awake()
+        public void SetCamera(Camera camera)
         {
-            _rectTransform = GetComponent<RectTransform>();
-        }
-
-
-        public void SetCanvas(Canvas canvas)
-        {
-            _canvas = canvas;
-            _camera = _canvas.worldCamera;
+            _camera = camera;
         }
 
 
@@ -53,11 +42,17 @@ namespace ColonizationMobileGame.UI.ArrowPointers
             
             if (IsOnScreen())
             {
-                OnScreen();
+                offScreenArrowPointer.gameObject.SetActive(false);
+                onScreenArrowPointer.gameObject.SetActive(true);
+
+                onScreenArrowPointer.PointTo(_target.Transform);
             }
             else
             {
-                OffScreen();
+                onScreenArrowPointer.gameObject.SetActive(false);
+                offScreenArrowPointer.gameObject.SetActive(true);
+
+                offScreenArrowPointer.PointTo(_target.Transform, _camera);
             }
         }
 
@@ -65,6 +60,7 @@ namespace ColonizationMobileGame.UI.ArrowPointers
         public void Disable()
         {
             _target = null;
+            onScreenArrowPointer.transform.SetParent(transform);
             gameObject.SetActive(false);
         }
 
@@ -75,59 +71,6 @@ namespace ColonizationMobileGame.UI.ArrowPointers
             bool onScreen = viewportPosition.x is > 0f and < 1f &&
                             viewportPosition.y is > 0f and < 1f;
             return onScreen;
-        }
-
-
-        private void OnScreen()
-        {
-            Vector3 targetScreenPosition = _camera.WorldToScreenPoint(_target.Transform.position);
-            
-            Debug.Log($"W point: {_target.Transform.position}, WSSW point: {_camera.ScreenToWorldPoint(targetScreenPosition)}");
-
-            float yOffset = GetVerticalOffset();
-            _rectTransform.anchoredPosition = (targetScreenPosition + Vector3.up * yOffset) / _canvas.scaleFactor;
-            
-            _rectTransform.localEulerAngles = Vector3.zero;
-        }
-
-
-        private float GetVerticalOffset()
-        {
-            float t = Mathf.Sin(Time.time * animationSpeed);
-            t += 1;
-            t /= 2f;
-            
-            float yOffset = Mathf.Lerp(minYOffset, maxYOffset, t);
-
-            return yOffset;
-        }
-
-
-        private void OffScreen()
-        {
-            Vector3 targetPositionInScreenCoords = _camera.WorldToScreenPoint(_target.Transform.position);
-            
-            Vector3 positionOnScreen = ClampScreenPosition(targetPositionInScreenCoords);
-            _rectTransform.anchoredPosition = positionOnScreen;
-            
-            Vector3 centerOfTheScreen = new Vector3(Screen.width, Screen.height, 0f) / 2f;
-            Vector3 direction = (targetPositionInScreenCoords - centerOfTheScreen).normalized;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f;
-            _rectTransform.localEulerAngles = Vector3.forward * angle;
-        }
-
-
-        private Vector3 ClampScreenPosition(Vector3 position)
-        {
-            const float offset = 60f;
-            
-            float screenWidth = Screen.width;
-            float screenHeight = Screen.height;
-            
-            position.x = Mathf.Clamp(position.x, 0f + offset, screenWidth - offset);
-            position.y = Mathf.Clamp(position.y, 0f + offset, screenHeight - offset);
-
-            return position;
         }
     }
 }
