@@ -15,6 +15,19 @@ I made the repository public because I got tired of making this game in private 
 
 Hope you will find something useful in here! :purple_heart:
 
+## Screenshots
+
+Some screenshots may be out of date and do not represent current state of the game. I will try to upload relevant screenshots as soon as something changes.
+
+<img src=https://github.com/xyperine/Colonization-Mobile-Game/blob/main/Screenshots/Colonization%20Mobile%20Game_001.jpg width=200> &nbsp;
+<img src=https://github.com/xyperine/Colonization-Mobile-Game/blob/main/Screenshots/Colonization%20Mobile%20Game_002.jpg width=200> &nbsp;
+<img src=https://github.com/xyperine/Colonization-Mobile-Game/blob/main/Screenshots/Colonization%20Mobile%20Game_003.jpg width=200> &nbsp;
+<img src=https://github.com/xyperine/Colonization-Mobile-Game/blob/main/Screenshots/Colonization%20Mobile%20Game_004.jpg width=200> &nbsp;
+
+<img src=https://github.com/xyperine/Colonization-Mobile-Game/blob/main/Screenshots/Colonization%20Mobile%20Game_005.jpg width=200> &nbsp;
+<img src=https://github.com/xyperine/Colonization-Mobile-Game/blob/main/Screenshots/Colonization%20Mobile%20Game_006.jpg width=200> &nbsp;
+<img src=https://github.com/xyperine/Colonization-Mobile-Game/blob/main/Screenshots/Colonization%20Mobile%20Game_007.jpg width=200>
+
 ## Using my assets/entire project :memo:
 
 - The code and assets in this project are, for the most part, done by me, except for those:
