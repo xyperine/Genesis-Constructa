@@ -5,14 +5,14 @@ namespace ColonizationMobileGame.UI.GameOver
 {
     public class GameOverScreen : MonoBehaviour
     {
-        [SerializeField] private GameOverText gameOverText;
+        [SerializeField] private GameOverOutcomeText outcomeText;
 
 
         public void Show(GameOutcome outcome)
         {
             gameObject.SetActive(true);
             
-            gameOverText.SetText(outcome);
+            outcomeText.SetText(outcome);
         }
     }
 }

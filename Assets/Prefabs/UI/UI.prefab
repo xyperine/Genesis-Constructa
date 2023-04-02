@@ -686,6 +686,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arrows_Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3728210081666527954, guid: 31f4f14734a448044bde62aefc207ff4, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3728210081666527955, guid: 31f4f14734a448044bde62aefc207ff4, type: 3}
       propertyPath: m_PlaneDistance
       value: 6

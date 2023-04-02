@@ -1,11 +1,12 @@
 ﻿using System;
 using ColonizationMobileGame.GameFinalization;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
 namespace ColonizationMobileGame.UI.GameOver
 {
-    public class GameOverText : MonoBehaviour
+    public class GameOverOutcomeText : MonoBehaviour
     {
         [Header("References")]
         [SerializeField] private TextMeshProUGUI text;
@@ -18,6 +19,9 @@ namespace ColonizationMobileGame.UI.GameOver
         [SerializeField] private string loseText = "Fail!";
         [SerializeField] private Color loseTextColor;
 
+        [Header("Misc")]
+        [SerializeField, Min(0f)] private float fadeInDurationInSeconds = 2f;
+
 
         public void SetText(GameOutcome outcome)
         {
@@ -25,6 +29,9 @@ namespace ColonizationMobileGame.UI.GameOver
 
             text.text = resultText;
             text.color = resultColor;
+
+            text.alpha = 0f;
+            text.DOFade(1f, fadeInDurationInSeconds).SetUpdate(true);
         }
 
 
