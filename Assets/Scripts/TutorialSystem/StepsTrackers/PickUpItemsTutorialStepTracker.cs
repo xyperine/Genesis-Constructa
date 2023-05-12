@@ -9,18 +9,18 @@ namespace ColonizationMobileGame.TutorialSystem.StepsTrackers
     {
         [SerializeField] private Transform itemsParent;
 
-        private Transform[] _items;
+        private Transform[] _itemsTransforms;
 
 
         private void Start()
         {
-            _items = itemsParent.GetComponentsInChildren<StackZoneItem>().Select(i => i.transform).ToArray();
+            _itemsTransforms = itemsParent.GetComponentsInChildren<StackZoneItem>().Select(i => i.transform).ToArray();
         }
 
 
         private void Update()
         {
-            if (_items.IsNullOrEmpty())
+            if (_itemsTransforms.IsNullOrEmpty())
             {
                 InvokeCompleted();
                 itemsParent.gameObject.SetActive(false);
@@ -28,7 +28,7 @@ namespace ColonizationMobileGame.TutorialSystem.StepsTrackers
                 return;
             }
             
-            if (_items.All(t => !t || t.parent != itemsParent))
+            if (_itemsTransforms.All(t => !t || t.parent != itemsParent))
             {
                 InvokeCompleted();
                 itemsParent.gameObject.SetActive(false);
