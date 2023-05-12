@@ -5,15 +5,21 @@ using ColonizationMobileGame.GameFading;
 using ColonizationMobileGame.SaveLoadSystem;
 using ColonizationMobileGame.TutorialSystem;
 using ColonizationMobileGame.Utility.Helpers;
-using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+#if UNITY_EDITOR
+using UnityEditor;
+using UnityEditor.SceneManagement;
+#endif
 
 namespace ColonizationMobileGame.Initialization
 {
     public class Bootstrapper : MonoBehaviour
+#if UNITY_EDITOR
+        , ISerializationCallbackReceiver
+#endif
     {
         [SerializeField] private DependenciesResolver dependenciesResolver;
         [SerializeField] private SaveLoadManager saveLoadManager;
@@ -69,5 +75,35 @@ namespace ColonizationMobileGame.Initialization
             
             gameFader.BeginFadeIn(2f, FadeFlags.Audio | FadeFlags.Visuals);
         }
+
+
+#if UNITY_EDITOR
+        public void OnBeforeSerialize()
+        {
+            if (EditorApplication.isPlayingOrWillChangePlaymode)
+            {
+                UnloadScenes();
+            }
+        }
+
+
+        private void UnloadScenes()
+        {
+            foreach (SceneAsset sceneAsset in scenesToLoad)
+            {
+                Scene scene = EditorSceneManager.GetSceneByName(sceneAsset.name);
+                if (scene.isLoaded)
+                {
+                    EditorSceneManager.CloseScene(scene, false);
+                }
+            }
+        }
+
+
+        public void OnAfterDeserialize()
+        {
+            
+        }
+#endif
     }
 }
