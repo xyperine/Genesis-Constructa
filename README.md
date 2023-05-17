@@ -17,7 +17,7 @@ Hope you will find something useful in here! :purple_heart:
 
 ## Screenshots 🖼️
 
-Some screenshots may be out of date and may not represent the current state of the game. I will try to upload relevant screenshots as soon as something changes.
+Some screenshots may be out of date and may not represent the current state of the game. I will try to upload relevant screenshots as soon as something visual changes.
 
 <img src=Screenshots/Colonization%20Mobile%20Game_001.jpg width=200> &nbsp;
 <img src=Screenshots/Colonization%20Mobile%20Game_002.jpg width=200> &nbsp;
