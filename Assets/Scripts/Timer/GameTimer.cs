@@ -24,6 +24,7 @@ namespace ColonizationMobileGame.Timer
         public int LoadingOrder => 10;
 
         public float SecondsLeft { get; private set; }
+        public float SecondsSpent => minutes * 60f - SecondsLeft;
 
         public event Action Elapsed;
 

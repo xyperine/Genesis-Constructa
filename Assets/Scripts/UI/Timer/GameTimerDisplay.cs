@@ -21,7 +21,9 @@ namespace ColonizationMobileGame.UI.Timer
         [SerializeField, Min(0.1f)] private float criticalTimeAnimationDuration = 0.5f;
         
         [Header("Other")]
-        [SerializeField] private GameTimerDisplayPrecision precision;
+        [SerializeField] private TimePrecision precision;
+
+        private readonly TimeFormatter _timeFormatter = new TimeFormatter();
 
         private GameTimerPhase _phase = GameTimerPhase.Normal;
 
@@ -43,23 +45,9 @@ namespace ColonizationMobileGame.UI.Timer
 
         private void SetText()
         {
-            string format = GetFormat();
-            string timeText = TimeSpan.FromSeconds(gameTimer.SecondsLeft).ToString(format);
-
-            text.text = timeText;
+            text.text = _timeFormatter.GetFormattedTime(gameTimer.SecondsLeft, precision);
 
             SetColor();
-        }
-
-
-        private string GetFormat()
-        {
-            return precision switch
-            {
-                GameTimerDisplayPrecision.Seconds => @"mm\:ss",
-                GameTimerDisplayPrecision.Milliseconds => @"mm\:ss\:fff",
-                _ => throw new ArgumentOutOfRangeException(),
-            };
         }
 
 
