@@ -1,10 +1,13 @@
 ﻿using ColonizationMobileGame.ItemsExtraction.Upgrading;
+using DG.Tweening;
 using UnityEngine;
 
 namespace ColonizationMobileGame.Structures
 {
     public class Structure : MonoBehaviour
     {
+        [SerializeField] private Transform modelTransform;
+
         private ExtractorUpgrader _upgrader;
 
         public int Level => _upgrader? _upgrader.Level : 0;
@@ -18,6 +21,13 @@ namespace ColonizationMobileGame.Structures
             MaxLevel = maxLevel;
 
             _upgrader = GetComponentInChildren<ExtractorUpgrader>();
+        }
+
+
+        public void Appear(float duration, AnimationCurve easingCurve)
+        {
+            modelTransform.localScale = Vector3.up;
+            modelTransform.DOScale(Vector3.one, duration).SetEase(easingCurve);
         }
     }
 }

@@ -8,6 +8,7 @@ namespace ColonizationMobileGame.ItemsPlacement.Movers
         public override void MoveItem(PlacementItem item, Vector3 position)
         {
             base.MoveItem(item, position);
+            item.Shrink();
             item.Kill();
         }
     }

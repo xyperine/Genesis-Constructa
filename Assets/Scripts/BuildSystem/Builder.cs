@@ -15,6 +15,7 @@ namespace ColonizationMobileGame.BuildSystem
     public sealed class Builder : MonoBehaviour, IItemsAmountDataProvider, ISceneSaveable, IInteractablesTrackerUser, IIdentifiable
     {
         [SerializeField] private BuildDataSO buildDataSO;
+        [SerializeField] private BuildEffectSO buildEffectSO;
         [SerializeField] private Transform structuresParent;
         [SerializeField] private ItemsPool itemsPool;
         [SerializeField] private ItemsConsumer consumer;
@@ -83,6 +84,7 @@ namespace ColonizationMobileGame.BuildSystem
             if (structureObject.TryGetComponent(out Structure structure))
             {
                 structure.Setup(_buildData.Identifier.StructureType, _buildData.MaxLevel);
+                structure.Appear(buildEffectSO.Duration, buildEffectSO.EasingCurve);
             }
 
             if (!interactablesTrackerUsers.IsNullOrEmpty())

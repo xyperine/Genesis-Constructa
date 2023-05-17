@@ -154,6 +154,7 @@ namespace ColonizationMobileGame.ObjectPooling
             itemTransform.SetParent(transform);
             itemTransform.localPosition = prefabTransform.localPosition;
             itemTransform.localRotation = prefabTransform.localRotation;
+            itemTransform.localScale = prefabTransform.localScale;
         }
 
 

@@ -43,6 +43,12 @@ namespace ColonizationMobileGame.ItemsPlacement.Core
         }
 
 
+        public void Shrink()
+        {
+            transform.DOScale(0.3f, tweenDuration).SetEase(easingCurve);
+        }
+
+
         public void Discard()
         {
             transform.SetParent(null);
