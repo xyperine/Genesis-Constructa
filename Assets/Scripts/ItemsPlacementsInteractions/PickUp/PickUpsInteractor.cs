@@ -9,7 +9,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.PickUp
 
         protected override void InteractWith(StackZoneItem item)
         {
-            if (item.Zone != null && !establisher.CanPickUpFrom(item.Zone))
+            if (item.LockedForPlayer || item.Zone != null && !establisher.CanPickUpFrom(item.Zone))
             {
                 return;
             }

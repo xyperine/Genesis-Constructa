@@ -20,6 +20,7 @@ namespace ColonizationMobileGame.ItemsExtraction
         [SerializeField] private ItemType itemType;
 
         [SerializeField] private StackZone productionStackZone;
+        [SerializeField] private Conveyor conveyor;
         [SerializeField] private ItemsPool itemsPool;
 
         [SerializeField] private bool produce = true;
@@ -99,7 +100,7 @@ namespace ColonizationMobileGame.ItemsExtraction
         public void ProduceItem()
         {
             StackZoneItem item = itemsPool.Get(itemType, transform.position);
-            productionStackZone.Add(item);
+            conveyor.Add(item);
         }
 
 

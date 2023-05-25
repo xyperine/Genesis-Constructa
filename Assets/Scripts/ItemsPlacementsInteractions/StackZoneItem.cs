@@ -16,6 +16,7 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions
 
         public bool Moving => _placementBehavior.Moving;
         public ItemType Type => type;
+        public bool LockedForPlayer { get; private set; }
         public StackZone Zone { get; private set; }
 
 
@@ -43,6 +44,12 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions
         public void SetPool(ItemsPool pool)
         {
             _pool = pool;
+        }
+
+
+        public void LockForPlayer(bool @lock)
+        {
+            LockedForPlayer = @lock;
         }
 
 

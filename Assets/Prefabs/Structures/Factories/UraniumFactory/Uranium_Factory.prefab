@@ -359,6 +359,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Uranium_Factory
       objectReference: {fileID: 0}
+    - target: {fileID: 624582491426858262, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 624582491426858262, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.579
+      objectReference: {fileID: 0}
+    - target: {fileID: 624582491426858262, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 624582491426858262, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 832378455076211880, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: builder.setupData.chainSO
       value: 

@@ -49,28 +49,23 @@ namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
                 return;
             }
             
-            int[] objectIDsInRadius = _interactablesTracker.GetObjectIDsInRadiusAround(transform.position, scanRadius);
+            MonoBehaviour[] objectsInRadius = _interactablesTracker.GetObjectsInRadiusAround(transform.position, scanRadius);
 
-            for (int i = 0; i < objectIDsInRadius.Length; i++)
+            for (int i = 0; i < objectsInRadius.Length; i++)
             {
-                TryToInteractWith(objectIDsInRadius[i]);
+                TryToInteractWith(objectsInRadius[i]);
             }
         }
 
 
-        private void TryToInteractWith(int objID)
+        private void TryToInteractWith(MonoBehaviour @object)
         {
-            if (!_interactablesTracker.IDsToObjectsMap.TryGetValue(objID, out MonoBehaviour value))
-            {
-                return;
-            }
-
-            if (value is not TObject)
+            if (@object is not TObject)
             {
                 return;
             }
             
-            TObject obj = (TObject) _interactablesTracker.IDsToObjectsMap[objID];
+            TObject obj = (TObject) @object;
             
             InteractWith(obj);
         }

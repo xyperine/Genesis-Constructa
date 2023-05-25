@@ -8,8 +8,6 @@ namespace ColonizationMobileGame.InteractablesTracking
     {
         private readonly Dictionary<int, MonoBehaviour> _idsToObjectsMap = new Dictionary<int, MonoBehaviour>();
 
-        public IReadOnlyDictionary<int, MonoBehaviour> IDsToObjectsMap => _idsToObjectsMap;
-
 
         public void RegisterObject(MonoBehaviour obj)
         {
@@ -22,11 +20,11 @@ namespace ColonizationMobileGame.InteractablesTracking
         }
 
 
-        public int[] GetObjectIDsInRadiusAround(Vector3 center, float radius)
+        public MonoBehaviour[] GetObjectsInRadiusAround(Vector3 center, float radius)
         {
-            int[] ids = _idsToObjectsMap.Where(kvp => IsObjectInRadius(kvp.Value, center, radius))
-                .Select(kvp => kvp.Key).ToArray();
-            return ids;
+            MonoBehaviour[] objects =
+                _idsToObjectsMap.Values.Where(mb => IsObjectInRadius(mb, center, radius)).ToArray();
+            return objects;
         }
 
 
