@@ -11,7 +11,7 @@ It is a 3D idle arcade mobile game. You are a robot sent to a distant planet to 
 
 Since it is a work in progress, it lacks some key features and is not really playable at the moment. If you want to download the project and do something with it - please, read [Using my assets/entire project :memo:](#using-my-assetsentire-project-memo) section, especially the point about [Shapes](https://assetstore.unity.com/packages/tools/particles-effects/shapes-173167).
 
-I made the repository public because I got tired of making this game in private and I want to expose and share it's insides.
+I made the repository public because I want to expose and share it's insides.
 
 Hope you will find something useful in here! :purple_heart:
 
