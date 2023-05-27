@@ -1,4 +1,4 @@
-# Colonization Mobile Game
+# Genesis Constructa
 
 > **Warning**  
 > The project is WIP:construction:
@@ -19,13 +19,12 @@ Hope you will find something useful in here! :purple_heart:
 
 Some screenshots may be out of date and may not represent the current state of the game. I will try to upload relevant screenshots as soon as something visual changes.
 
-<img src=Screenshots/Colonization%20Mobile%20Game_001.jpg width=200> &nbsp;
-<img src=Screenshots/Colonization%20Mobile%20Game_002.jpg width=200> &nbsp;
-<img src=Screenshots/Colonization%20Mobile%20Game_003.jpg width=200> &nbsp;
-<img src=Screenshots/Colonization%20Mobile%20Game_004.jpg width=200> &nbsp;
-<img src=Screenshots/Colonization%20Mobile%20Game_005.jpg width=200> &nbsp;
-<img src=Screenshots/Colonization%20Mobile%20Game_006.jpg width=200> &nbsp;
-<img src=Screenshots/Colonization%20Mobile%20Game_007.jpg width=200>
+<img src=Screenshots/Genesis%20Constructa_001.jpg width=200> &nbsp;
+<img src=Screenshots/Genesis%20Constructa_002.jpg width=200> &nbsp;
+<img src=Screenshots/Genesis%20Constructa_003.jpg width=200> &nbsp;
+<img src=Screenshots/Genesis%20Constructa_004.jpg width=200> &nbsp;
+<img src=Screenshots/Genesis%20Constructa_005.jpg width=200> &nbsp;
+<img src=Screenshots/Genesis%20Constructa_006.jpg width=200>
 
 ## What's inside? 🫀
 
