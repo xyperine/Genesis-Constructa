@@ -17,6 +17,14 @@ namespace ColonizationMobileGame.AreaVisualizationNS.TargetFitters
             Builder builder) : base(areaRectangle, settings)
         {
             _builder = builder;
+            _builder.Built += Disappear;
+        }
+
+
+        private void Disappear()
+        {
+            areaRectangle.enabled = false;
+            _builder.Built -= Disappear;
         }
 
 

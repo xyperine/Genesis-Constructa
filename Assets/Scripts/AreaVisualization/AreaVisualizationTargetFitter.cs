@@ -6,8 +6,8 @@ namespace ColonizationMobileGame.AreaVisualizationNS
 {
     public abstract class AreaVisualizationTargetFitter
     {
-        private readonly Rectangle _areaRectangle;
         private readonly AreaVisualizationSettingsData _settings;
+        protected readonly Rectangle areaRectangle;
 
         protected Vector2 areaSize;
 
@@ -16,7 +16,7 @@ namespace ColonizationMobileGame.AreaVisualizationNS
 
         protected AreaVisualizationTargetFitter(Rectangle areaRectangle, AreaVisualizationSettingsData settings)
         {
-            _areaRectangle = areaRectangle;
+            this.areaRectangle = areaRectangle;
             _settings = settings;
         }
 
@@ -38,10 +38,10 @@ namespace ColonizationMobileGame.AreaVisualizationNS
         {
             float padding = 1 + _settings.ProportionalPadding;
             
-            _areaRectangle.Width = areaSize.x * padding;
-            _areaRectangle.Height = areaSize.y * padding;
+            areaRectangle.Width = areaSize.x * padding;
+            areaRectangle.Height = areaSize.y * padding;
 
-            _areaRectangle.CornerRadius = Mathf.Min(areaSize.x, areaSize.y) * _settings.CornerRadius;
+            areaRectangle.CornerRadius = Mathf.Min(areaSize.x, areaSize.y) * _settings.CornerRadius;
         }
     }
 }
