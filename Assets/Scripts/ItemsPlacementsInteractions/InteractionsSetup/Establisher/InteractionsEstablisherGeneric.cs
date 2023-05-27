@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup.Establisher
+namespace GenesisConstructa.ItemsPlacementsInteractions.InteractionsSetup.Establisher
 {
     public abstract class InteractionsEstablisher<TInteractions> : InteractionsEstablisher
     {

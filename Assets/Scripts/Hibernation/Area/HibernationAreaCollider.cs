@@ -1,8 +1,8 @@
-﻿using ColonizationMobileGame.GameEvents;
-using ColonizationMobileGame.Utility.Extensions;
+﻿using GenesisConstructa.GameEvents;
+using GenesisConstructa.Utility.Extensions;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Hibernation.Area
+namespace GenesisConstructa.Hibernation.Area
 {
     public class HibernationAreaCollider : MonoBehaviour
     {

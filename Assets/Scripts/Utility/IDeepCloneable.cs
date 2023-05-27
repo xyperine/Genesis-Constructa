@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.Utility
+﻿namespace GenesisConstructa.Utility
 {
     public interface IDeepCloneable<out T>
         where T : IDeepCloneable<T>

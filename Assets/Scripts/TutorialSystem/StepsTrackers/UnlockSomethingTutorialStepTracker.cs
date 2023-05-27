@@ -1,8 +1,8 @@
-﻿using ColonizationMobileGame.Structures;
-using ColonizationMobileGame.UnlockingSystem;
+﻿using GenesisConstructa.Structures;
+using GenesisConstructa.UnlockingSystem;
 using UnityEngine;
 
-namespace ColonizationMobileGame.TutorialSystem.StepsTrackers
+namespace GenesisConstructa.TutorialSystem.StepsTrackers
 {
     public class UnlockSomethingTutorialStepTracker : TutorialStepTracker
     {

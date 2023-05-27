@@ -1,7 +1,7 @@
-﻿using ColonizationMobileGame.ItemsExtraction.ConditionsLogic;
+﻿using GenesisConstructa.ItemsExtraction.ConditionsLogic;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
+namespace GenesisConstructa.ItemsExtraction.Extra.KeyItemSystem
 {
     public class KeyItemExtractorCondition : ExtractorCondition
     {

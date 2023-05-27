@@ -1,8 +1,8 @@
 ﻿using System.Collections;
-using ColonizationMobileGame.Utility.Helpers;
+using GenesisConstructa.Utility.Helpers;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Audio
+namespace GenesisConstructa.Audio
 {
     public class WindSoundEffect : MonoBehaviour
     {

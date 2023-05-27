@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.UI
+﻿namespace GenesisConstructa.UI
 {
     public enum TimePrecision
     {

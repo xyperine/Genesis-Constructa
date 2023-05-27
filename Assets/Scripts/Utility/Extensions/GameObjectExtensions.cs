@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
-using ColonizationMobileGame.SetupSystem;
+using GenesisConstructa.SetupSystem;
 using Shapes;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Utility.Extensions
+namespace GenesisConstructa.Utility.Extensions
 {
     public static class GameObjectExtensions
     {

@@ -1,8 +1,8 @@
 ﻿using System;
-using ColonizationMobileGame.ItemsPlacementsInteractions;
+using GenesisConstructa.ItemsPlacementsInteractions;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ObjectPooling
+namespace GenesisConstructa.ObjectPooling
 {
     [Serializable]
     public struct ItemPoolEntry

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ColonizationMobileGame.IconsSystem
+namespace GenesisConstructa.IconsSystem
 {
     [Serializable]
     public abstract class ObjectIcon<T>

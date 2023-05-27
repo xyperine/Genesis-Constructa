@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections;
-using ColonizationMobileGame.Items;
-using ColonizationMobileGame.ItemsExtraction.ConditionsLogic;
-using ColonizationMobileGame.ItemsExtraction.Upgrading;
-using ColonizationMobileGame.ItemsPlacementsInteractions;
-using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
-using ColonizationMobileGame.ObjectPooling;
-using ColonizationMobileGame.SaveLoadSystem;
-using ColonizationMobileGame.UpgradingSystem;
+using GenesisConstructa.Items;
+using GenesisConstructa.ItemsExtraction.ConditionsLogic;
+using GenesisConstructa.ItemsExtraction.Upgrading;
+using GenesisConstructa.ItemsPlacementsInteractions;
+using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic;
+using GenesisConstructa.ObjectPooling;
+using GenesisConstructa.SaveLoadSystem;
+using GenesisConstructa.UpgradingSystem;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsExtraction
+namespace GenesisConstructa.ItemsExtraction
 {
     public class ExtractorProductionUnit : MonoBehaviour, IUpgradeable<ExtractorUpgradeData>, ISceneSaveable
     {

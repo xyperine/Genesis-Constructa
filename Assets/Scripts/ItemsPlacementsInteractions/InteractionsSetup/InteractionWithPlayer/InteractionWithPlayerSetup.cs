@@ -1,8 +1,8 @@
-﻿using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
+﻿using GenesisConstructa.ItemsPlacementsInteractions.Target;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup.InteractionWithPlayer
+namespace GenesisConstructa.ItemsPlacementsInteractions.InteractionsSetup.InteractionWithPlayer
 {
     public abstract class InteractionWithPlayerSetup : MonoBehaviour
     {

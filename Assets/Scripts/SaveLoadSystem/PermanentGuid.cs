@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ColonizationMobileGame.SaveLoadSystem
+namespace GenesisConstructa.SaveLoadSystem
 {
     [Serializable]
     public class PermanentGuid

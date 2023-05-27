@@ -1,7 +1,7 @@
-﻿using ColonizationMobileGame.Structures;
+﻿using GenesisConstructa.Structures;
 using UnityEngine;
 
-namespace ColonizationMobileGame.DebugTools
+namespace GenesisConstructa.DebugTools
 {
     public class DebugOperationsWindow : MonoBehaviour
     {

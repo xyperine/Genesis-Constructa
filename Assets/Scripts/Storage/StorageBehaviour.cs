@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ColonizationMobileGame.Items;
-using ColonizationMobileGame.ItemsPlacement.Core;
-using ColonizationMobileGame.ItemsPlacement.Movers;
-using ColonizationMobileGame.ItemsPlacementsInteractions;
-using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
-using ColonizationMobileGame.SaveLoadSystem;
-using ColonizationMobileGame.UI.ItemsAmount.Data;
-using ColonizationMobileGame.Utility.Helpers;
+using GenesisConstructa.Items;
+using GenesisConstructa.ItemsPlacement.Core;
+using GenesisConstructa.ItemsPlacement.Movers;
+using GenesisConstructa.ItemsPlacementsInteractions;
+using GenesisConstructa.ItemsPlacementsInteractions.Target;
+using GenesisConstructa.SaveLoadSystem;
+using GenesisConstructa.UI.ItemsAmount.Data;
+using GenesisConstructa.Utility.Helpers;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Storage
+namespace GenesisConstructa.Storage
 {
     public class StorageBehaviour : InteractionTarget, IItemsAmountDataProvider, ISceneSaveable
     {

@@ -1,12 +1,12 @@
-﻿using ColonizationMobileGame.ItemsExtraction;
-using ColonizationMobileGame.ItemsExtraction.Upgrading;
-using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
-using ColonizationMobileGame.SetupSystem.Upgrader.Extractors;
-using ColonizationMobileGame.UpgradingSystem;
+﻿using GenesisConstructa.ItemsExtraction;
+using GenesisConstructa.ItemsExtraction.Upgrading;
+using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic;
+using GenesisConstructa.SetupSystem.Upgrader.Extractors;
+using GenesisConstructa.UpgradingSystem;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace ColonizationMobileGame.SetupSystem.Extractors
+namespace GenesisConstructa.SetupSystem.Extractors
 {
     public class ExtractorSetup : MonoBehaviour
     {

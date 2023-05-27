@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.ProgressionMilestonesSystem
+﻿namespace GenesisConstructa.ProgressionMilestonesSystem
 {
     public enum ProgressionMilestoneType
     {

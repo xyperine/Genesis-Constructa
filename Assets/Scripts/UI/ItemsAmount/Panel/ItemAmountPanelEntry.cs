@@ -1,8 +1,8 @@
-﻿using ColonizationMobileGame.UI.ItemsAmount.Data;
+﻿using GenesisConstructa.UI.ItemsAmount.Data;
 using TMPro;
 using UnityEngine;
 
-namespace ColonizationMobileGame.UI.ItemsAmount.Panel
+namespace GenesisConstructa.UI.ItemsAmount.Panel
 {
     public class ItemAmountPanelEntry : MonoBehaviour
     {

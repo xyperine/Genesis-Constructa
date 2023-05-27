@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Linq;
-using ColonizationMobileGame.Items;
-using ColonizationMobileGame.SaveLoadSystem;
-using ColonizationMobileGame.UI.ItemsAmount.Data;
-using ColonizationMobileGame.Utility;
+using GenesisConstructa.Items;
+using GenesisConstructa.SaveLoadSystem;
+using GenesisConstructa.UI.ItemsAmount.Data;
+using GenesisConstructa.Utility;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsRequirementsSystem
+namespace GenesisConstructa.ItemsRequirementsSystem
 {
     [Serializable]
     public sealed class ItemRequirementsBlock : IDeepCloneable<ItemRequirementsBlock>, ISaveable

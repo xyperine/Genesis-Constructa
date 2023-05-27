@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ColonizationMobileGame.GameEvents
+namespace GenesisConstructa.GameEvents
 {
     [CreateAssetMenu(fileName = "Shelter_Built_Event", menuName = "Game Events/Shelter Built Event", order = 0)]
     public class ShelterBuiltEventSO : ScriptableObject

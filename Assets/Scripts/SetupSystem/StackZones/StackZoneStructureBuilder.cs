@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using ColonizationMobileGame.SetupSystem.StackZones.Markers;
-using ColonizationMobileGame.Utility.Extensions;
+using GenesisConstructa.SetupSystem.StackZones.Markers;
+using GenesisConstructa.Utility.Extensions;
 using UnityEngine;
 
-namespace ColonizationMobileGame.SetupSystem.StackZones
+namespace GenesisConstructa.SetupSystem.StackZones
 {
     public class StackZoneStructureBuilder
     {

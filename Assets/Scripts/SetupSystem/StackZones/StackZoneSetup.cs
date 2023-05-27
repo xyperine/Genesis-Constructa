@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace ColonizationMobileGame.SetupSystem.StackZones
+namespace GenesisConstructa.SetupSystem.StackZones
 {
     public class StackZoneSetup : MonoBehaviour
     {

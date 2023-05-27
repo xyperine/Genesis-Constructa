@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.UI.ArrowPointers.Regular
+﻿namespace GenesisConstructa.UI.ArrowPointers.Regular
 {
     public record RegularTargetValidationData
     {

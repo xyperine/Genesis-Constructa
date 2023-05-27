@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ColonizationMobileGame.GameEvents;
-using ColonizationMobileGame.SaveLoadSystem;
-using ColonizationMobileGame.TutorialSystem;
+using GenesisConstructa.GameEvents;
+using GenesisConstructa.SaveLoadSystem;
+using GenesisConstructa.TutorialSystem;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Timer
+namespace GenesisConstructa.Timer
 {
     public class GameTimer : MonoBehaviour, ISceneSaveable
     {

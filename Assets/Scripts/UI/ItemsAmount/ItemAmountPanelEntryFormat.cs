@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.UI.ItemsAmount
+﻿namespace GenesisConstructa.UI.ItemsAmount
 {
     public enum ItemAmountPanelEntryFormat
     {

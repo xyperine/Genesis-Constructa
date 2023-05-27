@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ColonizationMobileGame.BuildSystem;
-using ColonizationMobileGame.ItemsExtraction.Upgrading;
-using ColonizationMobileGame.ItemsRequirementsSystem;
-using ColonizationMobileGame.SaveLoadSystem;
-using ColonizationMobileGame.Structures;
-using ColonizationMobileGame.Utility.Validating;
+using GenesisConstructa.BuildSystem;
+using GenesisConstructa.ItemsExtraction.Upgrading;
+using GenesisConstructa.ItemsRequirementsSystem;
+using GenesisConstructa.SaveLoadSystem;
+using GenesisConstructa.Structures;
+using GenesisConstructa.Utility.Validating;
 using UnityEngine;
 
-namespace ColonizationMobileGame.UnlockingSystem
+namespace GenesisConstructa.UnlockingSystem
 {
     [CreateAssetMenu(fileName = "Unlocks_Chain", menuName = "Unlocks Chain", order = 0)]
     public class UnlocksChainSO : ScriptableObject, IPurchasableChain<Unlock>, ISaveable

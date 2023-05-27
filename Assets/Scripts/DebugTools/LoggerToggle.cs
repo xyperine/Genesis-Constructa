@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ColonizationMobileGame.DebugTools
+namespace GenesisConstructa.DebugTools
 {
     public class LoggerToggle : MonoBehaviour
     {

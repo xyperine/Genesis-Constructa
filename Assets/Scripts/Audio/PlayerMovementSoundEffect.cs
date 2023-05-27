@@ -1,7 +1,7 @@
-﻿using ColonizationMobileGame.Player;
+﻿using GenesisConstructa.Player;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Audio
+namespace GenesisConstructa.Audio
 {
     public class PlayerMovementSoundEffect : MonoBehaviour
     {

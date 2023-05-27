@@ -1,9 +1,9 @@
 ﻿using System.Linq;
-using ColonizationMobileGame.ItemsPlacementsInteractions;
-using ColonizationMobileGame.Utility.Extensions;
+using GenesisConstructa.ItemsPlacementsInteractions;
+using GenesisConstructa.Utility.Extensions;
 using UnityEngine;
 
-namespace ColonizationMobileGame.TutorialSystem.StepsTrackers
+namespace GenesisConstructa.TutorialSystem.StepsTrackers
 {
     public class PickUpItemsTutorialStepTracker : TutorialStepTracker
     {

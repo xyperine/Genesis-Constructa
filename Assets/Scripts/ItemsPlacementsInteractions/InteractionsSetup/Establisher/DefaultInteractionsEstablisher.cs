@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
-using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
-using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
-using ColonizationMobileGame.Utility.Validating;
+using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic;
+using GenesisConstructa.ItemsPlacementsInteractions.Target;
+using GenesisConstructa.Utility.Validating;
 
-namespace ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup.Establisher
+namespace GenesisConstructa.ItemsPlacementsInteractions.InteractionsSetup.Establisher
 {
     public class DefaultInteractionsEstablisher : InteractionsEstablisher<InteractionsList>
     {

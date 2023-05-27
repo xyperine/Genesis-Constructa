@@ -1,11 +1,11 @@
-﻿using ColonizationMobileGame.GameFading;
-using ColonizationMobileGame.SaveLoadSystem;
-using ColonizationMobileGame.Timer;
-using ColonizationMobileGame.UI;
-using ColonizationMobileGame.UI.GameOver;
+﻿using GenesisConstructa.GameFading;
+using GenesisConstructa.SaveLoadSystem;
+using GenesisConstructa.Timer;
+using GenesisConstructa.UI;
+using GenesisConstructa.UI.GameOver;
 using UnityEngine;
 
-namespace ColonizationMobileGame.GameFinalization
+namespace GenesisConstructa.GameFinalization
 {
     public class GameFinalizationSequence : MonoBehaviour
     {

@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace ColonizationMobileGame.InteractablesTracking
+namespace GenesisConstructa.InteractablesTracking
 {
     public class InteractablesTracker : MonoBehaviour
     {

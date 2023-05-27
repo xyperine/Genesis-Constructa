@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using ColonizationMobileGame.Structures;
-using ColonizationMobileGame.UnlockingSystem;
-using ColonizationMobileGame.Utility.Validating;
+using GenesisConstructa.Structures;
+using GenesisConstructa.UnlockingSystem;
+using GenesisConstructa.Utility.Validating;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace ColonizationMobileGame.UpgradingSystem
+namespace GenesisConstructa.UpgradingSystem
 {
     public abstract class UpgradesChainSO<TUpgradeData> : ScriptableObject, IUnlockableContainer
         where TUpgradeData : UpgradeData

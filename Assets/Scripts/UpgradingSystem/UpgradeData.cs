@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ColonizationMobileGame.UpgradingSystem
+namespace GenesisConstructa.UpgradingSystem
 {
     [Serializable]
     public class UpgradeData

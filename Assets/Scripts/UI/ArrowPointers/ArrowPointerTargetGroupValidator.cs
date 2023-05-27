@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace ColonizationMobileGame.UI.ArrowPointers
+namespace GenesisConstructa.UI.ArrowPointers
 {
     public abstract class ArrowPointerTargetGroupValidator : MonoBehaviour
     {

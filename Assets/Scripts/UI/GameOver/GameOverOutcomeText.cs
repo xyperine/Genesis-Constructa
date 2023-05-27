@@ -1,10 +1,10 @@
 ﻿using System;
-using ColonizationMobileGame.GameFinalization;
 using DG.Tweening;
+using GenesisConstructa.GameFinalization;
 using TMPro;
 using UnityEngine;
 
-namespace ColonizationMobileGame.UI.GameOver
+namespace GenesisConstructa.UI.GameOver
 {
     public class GameOverOutcomeText : MonoBehaviour
     {

@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.Structures
+﻿namespace GenesisConstructa.Structures
 {
     public enum StructureType
     {

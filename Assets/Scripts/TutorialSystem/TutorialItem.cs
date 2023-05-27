@@ -1,7 +1,7 @@
-﻿using ColonizationMobileGame.SaveLoadSystem;
+﻿using GenesisConstructa.SaveLoadSystem;
 using UnityEngine;
 
-namespace ColonizationMobileGame.TutorialSystem
+namespace GenesisConstructa.TutorialSystem
 {
     public class TutorialItem : MonoBehaviour, IPermanentGuidIdentifiable
     {

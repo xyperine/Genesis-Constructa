@@ -1,8 +1,8 @@
 ﻿using System;
-using ColonizationMobileGame.GameEvents;
+using GenesisConstructa.GameEvents;
 using UnityEngine;
 
-namespace ColonizationMobileGame.GameFading
+namespace GenesisConstructa.GameFading
 {
     public class GameFader : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace ColonizationMobileGame.SetupSystem.Upgrader
+namespace GenesisConstructa.SetupSystem.Upgrader
 {
     public abstract class UpgraderSetup<TUpgraderSetupData, TBuilder> : MonoBehaviour
         where TUpgraderSetupData : UpgraderSetupData

@@ -1,5 +1,5 @@
-﻿using ColonizationMobileGame.ItemsPlacement.Core.Area;
-using ColonizationMobileGame.Utility.Extensions;
+﻿using GenesisConstructa.ItemsPlacement.Core.Area;
+using GenesisConstructa.Utility.Extensions;
 using Shapes;
 using UnityEngine;
 

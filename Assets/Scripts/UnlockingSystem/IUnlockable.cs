@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ColonizationMobileGame.UnlockingSystem
+namespace GenesisConstructa.UnlockingSystem
 {
     public interface IUnlockable : IIdentifiable
     {

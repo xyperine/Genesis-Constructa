@@ -1,8 +1,8 @@
 ﻿using System;
-using ColonizationMobileGame.ItemsPlacement.Core;
+using GenesisConstructa.ItemsPlacement.Core;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsPlacement.Movers
+namespace GenesisConstructa.ItemsPlacement.Movers
 {
     [Serializable]
     public sealed class PlacingPlacementItemsMover : PlacementItemsMover

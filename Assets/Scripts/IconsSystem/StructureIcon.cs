@@ -1,7 +1,7 @@
 ﻿using System;
-using ColonizationMobileGame.Structures;
+using GenesisConstructa.Structures;
 
-namespace ColonizationMobileGame.IconsSystem
+namespace GenesisConstructa.IconsSystem
 {
     [Serializable]
     public class StructureIcon : ObjectIcon<StructureType>

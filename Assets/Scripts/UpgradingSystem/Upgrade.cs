@@ -1,13 +1,13 @@
 ﻿using System;
-using ColonizationMobileGame.ItemsRequirementsSystem;
-using ColonizationMobileGame.Structures;
-using ColonizationMobileGame.UnlockingSystem;
-using ColonizationMobileGame.Utility;
-using ColonizationMobileGame.Utility.Validating;
+using GenesisConstructa.ItemsRequirementsSystem;
+using GenesisConstructa.Structures;
+using GenesisConstructa.UnlockingSystem;
+using GenesisConstructa.Utility;
+using GenesisConstructa.Utility.Validating;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace ColonizationMobileGame.UpgradingSystem
+namespace GenesisConstructa.UpgradingSystem
 {
     [Serializable]
     public class Upgrade<TUpgradeData> : IUnlockable, IValidatable, IDeepCloneable<Upgrade<TUpgradeData>>, ISerializationCallbackReceiver

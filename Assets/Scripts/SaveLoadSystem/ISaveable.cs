@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.SaveLoadSystem
+﻿namespace GenesisConstructa.SaveLoadSystem
 {
     public interface ISaveable
     {

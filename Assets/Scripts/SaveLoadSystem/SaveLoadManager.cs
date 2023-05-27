@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace ColonizationMobileGame.SaveLoadSystem
+namespace GenesisConstructa.SaveLoadSystem
 {
     public class SaveLoadManager : MonoBehaviour
     {

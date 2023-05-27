@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
-using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
+using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic;
+using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
 
-namespace ColonizationMobileGame.SetupSystem.Upgrader.StackZones
+namespace GenesisConstructa.SetupSystem.Upgrader.StackZones
 {
     [Serializable]
     public class StackZoneUpgraderSetupData : UpgraderSetupData<StackZone, StackZoneUpgradesChainSO, StackZoneUpgradeData>

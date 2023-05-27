@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
-using ColonizationMobileGame.Utility.Observing;
+using GenesisConstructa.ItemsPlacementsInteractions.Target;
+using GenesisConstructa.Utility.Observing;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup
+namespace GenesisConstructa.ItemsPlacementsInteractions.InteractionsSetup
 {
     [Serializable]
     public class InteractionsList

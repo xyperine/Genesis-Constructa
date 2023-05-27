@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using ColonizationMobileGame.Structures;
-using ColonizationMobileGame.UnlockingSystem;
-using ColonizationMobileGame.Utility.Validating;
+using GenesisConstructa.Structures;
+using GenesisConstructa.UnlockingSystem;
+using GenesisConstructa.Utility.Validating;
 using UnityEngine;
 
-namespace ColonizationMobileGame.BuildSystem
+namespace GenesisConstructa.BuildSystem
 {
     [CreateAssetMenu(fileName = "Build_Data", menuName = "Build Data")]
     public class BuildDataSO : ScriptableObject, IUnlockableContainer

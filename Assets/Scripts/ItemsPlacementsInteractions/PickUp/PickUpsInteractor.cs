@@ -1,6 +1,6 @@
-﻿using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
+﻿using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic;
 
-namespace ColonizationMobileGame.ItemsPlacementsInteractions.PickUp
+namespace GenesisConstructa.ItemsPlacementsInteractions.PickUp
 {
     public class PickUpsInteractor : StackZoneInteractor<StackZoneItem, PickUpStackZoneBehaviour>
     {

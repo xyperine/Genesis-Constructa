@@ -1,8 +1,8 @@
 using System;
-using ColonizationMobileGame.SaveLoadSystem;
+using GenesisConstructa.SaveLoadSystem;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Player
+namespace GenesisConstructa.Player
 {
     public class PlayerMovement : MonoBehaviour, ISceneSaveable
     {

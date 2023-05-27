@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
-using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
-using ColonizationMobileGame.Utility.Helpers;
+using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic;
+using GenesisConstructa.ItemsPlacementsInteractions.Target;
+using GenesisConstructa.Utility.Helpers;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsPlacementsInteractions.Transfer
+namespace GenesisConstructa.ItemsPlacementsInteractions.Transfer
 {
     public class TransferStackZoneBehaviour : MonoBehaviour
     {

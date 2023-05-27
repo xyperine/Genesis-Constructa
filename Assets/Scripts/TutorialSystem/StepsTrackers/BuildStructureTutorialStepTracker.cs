@@ -1,7 +1,7 @@
-﻿using ColonizationMobileGame.BuildSystem;
+﻿using GenesisConstructa.BuildSystem;
 using UnityEngine;
 
-namespace ColonizationMobileGame.TutorialSystem.StepsTrackers
+namespace GenesisConstructa.TutorialSystem.StepsTrackers
 {
     public class BuildStructureTutorialStepTracker : TutorialStepTracker
     {

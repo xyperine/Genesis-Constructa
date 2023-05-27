@@ -1,8 +1,8 @@
 ﻿using System;
-using ColonizationMobileGame.UpgradingSystem;
+using GenesisConstructa.UpgradingSystem;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgrading
+namespace GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic.Upgrading
 {
     [Serializable]
     public class StackZoneUpgradeData : UpgradeData

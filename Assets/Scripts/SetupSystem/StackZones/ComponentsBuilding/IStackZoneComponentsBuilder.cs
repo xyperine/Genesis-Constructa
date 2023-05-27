@@ -1,6 +1,6 @@
-﻿using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
+﻿using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic;
 
-namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
+namespace GenesisConstructa.SetupSystem.StackZones.ComponentsBuilding
 {
     public interface IStackZoneComponentsBuilder
     {

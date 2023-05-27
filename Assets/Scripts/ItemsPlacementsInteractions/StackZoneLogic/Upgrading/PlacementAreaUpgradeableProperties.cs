@@ -1,8 +1,8 @@
-﻿using ColonizationMobileGame.ItemsPlacement.Core.Area;
-using ColonizationMobileGame.Utility.Extensions;
+﻿using GenesisConstructa.ItemsPlacement.Core.Area;
+using GenesisConstructa.Utility.Extensions;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgrading
+namespace GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic.Upgrading
 {
     public class PlacementAreaUpgradeableProperties
     {

@@ -1,8 +1,8 @@
-﻿using ColonizationMobileGame.Utility.Extensions;
+﻿using GenesisConstructa.Utility.Extensions;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ColonizationMobileGame.GameFading
+namespace GenesisConstructa.GameFading
 {
     public class ImageFader : MonoBehaviour
     {

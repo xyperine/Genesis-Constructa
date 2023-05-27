@@ -1,7 +1,7 @@
 ﻿using System;
 using ColonizationMobileGame.AreaVisualizationNS.TargetFitters;
-using ColonizationMobileGame.BuildSystem;
-using ColonizationMobileGame.ItemsPlacement.Core.Area;
+using GenesisConstructa.BuildSystem;
+using GenesisConstructa.ItemsPlacement.Core.Area;
 using Shapes;
 using Sirenix.OdinInspector;
 using UnityEngine;

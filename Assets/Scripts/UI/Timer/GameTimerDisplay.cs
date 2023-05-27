@@ -1,11 +1,11 @@
 ﻿using System;
-using ColonizationMobileGame.Timer;
 using DG.Tweening;
+using GenesisConstructa.Timer;
 using TMPro;
 using UnityEngine;
-using GameTimer = ColonizationMobileGame.Timer.GameTimer;
+using GameTimer = GenesisConstructa.Timer.GameTimer;
 
-namespace ColonizationMobileGame.UI.Timer
+namespace GenesisConstructa.UI.Timer
 {
     public class GameTimerDisplay : MonoBehaviour
     {

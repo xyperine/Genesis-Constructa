@@ -1,8 +1,8 @@
-﻿using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
+﻿using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
 using UnityEditor;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsPlacement.Core.Area
+namespace GenesisConstructa.ItemsPlacement.Core.Area
 {
     [ExecuteInEditMode]
     public sealed class PlacementAreaDrawer : MonoBehaviour

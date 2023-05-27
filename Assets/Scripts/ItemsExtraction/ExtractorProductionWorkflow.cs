@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.ItemsExtraction
+﻿namespace GenesisConstructa.ItemsExtraction
 {
     public enum ExtractorProductionWorkflow
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ColonizationMobileGame.UI.ArrowPointers.Regular
+namespace GenesisConstructa.UI.ArrowPointers.Regular
 {
     public sealed class RegularArrowPointerTarget : ArrowPointerTarget
     {

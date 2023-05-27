@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using ColonizationMobileGame.Audio;
-using ColonizationMobileGame.Items;
-using ColonizationMobileGame.ItemsPlacementsInteractions;
-using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
-using ColonizationMobileGame.UI.ItemsAmount.Data;
-using ColonizationMobileGame.Utility.Helpers;
+using GenesisConstructa.Audio;
+using GenesisConstructa.Items;
+using GenesisConstructa.ItemsPlacementsInteractions;
+using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic;
+using GenesisConstructa.UI.ItemsAmount.Data;
+using GenesisConstructa.Utility.Helpers;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Player
+namespace GenesisConstructa.Player
 {
     public class PlayerStackZone : StackZone, IItemsAmountDataProvider
     {

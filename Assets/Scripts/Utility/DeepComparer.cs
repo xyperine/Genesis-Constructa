@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace ColonizationMobileGame.Utility
+namespace GenesisConstructa.Utility
 {
     public static class DeepComparer
     {

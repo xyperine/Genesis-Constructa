@@ -1,8 +1,8 @@
-﻿using ColonizationMobileGame.SetupSystem;
-using ColonizationMobileGame.SetupSystem.Upgrader.StackZones;
-using ColonizationMobileGame.UpgradingSystem;
+﻿using GenesisConstructa.SetupSystem;
+using GenesisConstructa.SetupSystem.Upgrader.StackZones;
+using GenesisConstructa.UpgradingSystem;
 
-namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgrading
+namespace GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic.Upgrading
 {
     public class StackZoneUpgrader : Upgrader<StackZoneUpgradeData>
     {

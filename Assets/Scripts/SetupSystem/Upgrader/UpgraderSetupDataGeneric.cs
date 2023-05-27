@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ColonizationMobileGame.UpgradingSystem;
+using GenesisConstructa.UpgradingSystem;
 using UnityEngine;
 
-namespace ColonizationMobileGame.SetupSystem.Upgrader
+namespace GenesisConstructa.SetupSystem.Upgrader
 {
     [Serializable]
     public abstract class UpgraderSetupData<TUpgradeable, TUpgradesChain, TUpgradeData>: UpgraderSetupData

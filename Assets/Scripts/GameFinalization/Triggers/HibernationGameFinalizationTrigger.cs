@@ -1,7 +1,7 @@
-﻿using ColonizationMobileGame.Hibernation.Area;
+﻿using GenesisConstructa.Hibernation.Area;
 using UnityEngine;
 
-namespace ColonizationMobileGame.GameFinalization.Triggers
+namespace GenesisConstructa.GameFinalization.Triggers
 {
     public class HibernationGameFinalizationTrigger : GameFinalizationTrigger
     {

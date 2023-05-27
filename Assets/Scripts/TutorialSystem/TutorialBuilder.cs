@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
-using ColonizationMobileGame.SaveLoadSystem;
 using Cysharp.Threading.Tasks;
+using GenesisConstructa.SaveLoadSystem;
 using UnityEngine;
 
-namespace ColonizationMobileGame.TutorialSystem
+namespace GenesisConstructa.TutorialSystem
 {
     public class TutorialBuilder : MonoBehaviour, ISceneSaveable
     {

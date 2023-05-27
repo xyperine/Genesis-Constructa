@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using ColonizationMobileGame.Items;
-using ColonizationMobileGame.ItemsPlacement.Movers;
-using ColonizationMobileGame.ItemsPlacementsInteractions;
-using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
+using GenesisConstructa.Items;
+using GenesisConstructa.ItemsPlacement.Movers;
+using GenesisConstructa.ItemsPlacementsInteractions;
+using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsPlacement.Core.Area
+namespace GenesisConstructa.ItemsPlacement.Core.Area
 {
     public abstract class PlacementArea : MonoBehaviour
     { 

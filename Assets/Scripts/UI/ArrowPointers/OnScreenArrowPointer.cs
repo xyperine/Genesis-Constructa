@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ColonizationMobileGame.UI.ArrowPointers
+namespace GenesisConstructa.UI.ArrowPointers
 {
     public class OnScreenArrowPointer : MonoBehaviour
     {

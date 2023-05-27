@@ -1,7 +1,7 @@
-﻿using ColonizationMobileGame.Hibernation.Area;
+﻿using GenesisConstructa.Hibernation.Area;
 using UnityEngine;
 
-namespace ColonizationMobileGame.UI.ArrowPointers.Hibernation
+namespace GenesisConstructa.UI.ArrowPointers.Hibernation
 {
     public sealed class HibernationAreaArrowPointerTarget : ArrowPointerTarget
     {

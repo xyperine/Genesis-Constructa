@@ -1,7 +1,7 @@
-﻿using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
+﻿using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsPlacementsInteractions.PickUp
+namespace GenesisConstructa.ItemsPlacementsInteractions.PickUp
 {
     public class PickUpStackZoneBehaviour : MonoBehaviour
     {

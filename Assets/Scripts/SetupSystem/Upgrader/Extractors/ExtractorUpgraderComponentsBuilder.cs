@@ -1,8 +1,8 @@
 ﻿using System;
-using ColonizationMobileGame.ItemsExtraction.Upgrading;
+using GenesisConstructa.ItemsExtraction.Upgrading;
 using UnityEngine;
 
-namespace ColonizationMobileGame.SetupSystem.Upgrader.Extractors
+namespace GenesisConstructa.SetupSystem.Upgrader.Extractors
 {
     [Serializable]
     public class ExtractorUpgraderComponentsBuilder : UpgraderComponentsBuilder<ExtractorUpgraderSetupData>

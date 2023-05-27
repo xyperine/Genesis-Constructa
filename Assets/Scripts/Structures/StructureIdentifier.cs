@@ -2,7 +2,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Structures
+namespace GenesisConstructa.Structures
 {
     [Serializable]
     public class StructureIdentifier

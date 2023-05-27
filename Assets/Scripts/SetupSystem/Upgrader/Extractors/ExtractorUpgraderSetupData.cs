@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using ColonizationMobileGame.ItemsExtraction.Upgrading;
-using ColonizationMobileGame.UpgradingSystem;
+using GenesisConstructa.ItemsExtraction.Upgrading;
+using GenesisConstructa.UpgradingSystem;
 
-namespace ColonizationMobileGame.SetupSystem.Upgrader.Extractors
+namespace GenesisConstructa.SetupSystem.Upgrader.Extractors
 {
     [Serializable]
     public class ExtractorUpgraderSetupData : UpgraderSetupData<IUpgradeable<ExtractorUpgradeData>, ExtractorUpgradesChainSO, ExtractorUpgradeData>

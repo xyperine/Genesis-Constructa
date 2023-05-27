@@ -1,13 +1,13 @@
 ﻿using System.Collections;
-using ColonizationMobileGame.Items;
-using ColonizationMobileGame.ItemsExtraction.ConditionsLogic;
-using ColonizationMobileGame.ItemsPlacement.Core;
-using ColonizationMobileGame.ItemsPlacement.Movers;
-using ColonizationMobileGame.ItemsPlacementsInteractions;
-using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
+using GenesisConstructa.Items;
+using GenesisConstructa.ItemsExtraction.ConditionsLogic;
+using GenesisConstructa.ItemsPlacement.Core;
+using GenesisConstructa.ItemsPlacement.Movers;
+using GenesisConstructa.ItemsPlacementsInteractions;
+using GenesisConstructa.ItemsPlacementsInteractions.Target;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsExtraction.Extra
+namespace GenesisConstructa.ItemsExtraction.Extra
 {
     public class ExtractorConversionUnit : InteractionTarget
     {

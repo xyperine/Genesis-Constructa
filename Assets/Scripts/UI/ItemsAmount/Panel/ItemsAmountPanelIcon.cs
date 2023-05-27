@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace ColonizationMobileGame.UI.ItemsAmount.Panel
+namespace GenesisConstructa.UI.ItemsAmount.Panel
 {
     public class ItemsAmountPanelIcon : MonoBehaviour
     {

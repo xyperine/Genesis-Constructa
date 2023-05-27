@@ -1,7 +1,7 @@
-﻿using ColonizationMobileGame.Items;
+﻿using GenesisConstructa.Items;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsPlacementsInteractions.Target
+namespace GenesisConstructa.ItemsPlacementsInteractions.Target
 {
     public abstract class InteractionTarget : MonoBehaviour
     {

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding;
-using ColonizationMobileGame.Utility;
+using GenesisConstructa.SetupSystem.StackZones.ComponentsBuilding;
+using GenesisConstructa.Utility;
 using UnityEngine;
 
-namespace ColonizationMobileGame.SetupSystem.StackZones
+namespace GenesisConstructa.SetupSystem.StackZones
 {
     [Serializable]
     public class StackZoneSetupBuildController

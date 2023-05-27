@@ -1,7 +1,7 @@
-﻿using ColonizationMobileGame.BuildSystem;
+﻿using GenesisConstructa.BuildSystem;
 using UnityEngine;
 
-namespace ColonizationMobileGame.GameEvents
+namespace GenesisConstructa.GameEvents
 {
     public class ShelterBuiltEvent : MonoBehaviour
     {

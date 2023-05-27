@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ColonizationMobileGame.UnlockingSystem
+namespace GenesisConstructa.UnlockingSystem
 {
     public interface IUnlockableContainer
     {

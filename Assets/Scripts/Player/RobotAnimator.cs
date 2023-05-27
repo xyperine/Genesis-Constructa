@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ColonizationMobileGame.Player
+namespace GenesisConstructa.Player
 {
     public class RobotAnimator : MonoBehaviour
     {

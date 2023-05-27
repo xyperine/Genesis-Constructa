@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ColonizationMobileGame.ItemsPlacement.Core
+namespace GenesisConstructa.ItemsPlacement.Core
 {
     public interface IPlacementItemsCollection
     {

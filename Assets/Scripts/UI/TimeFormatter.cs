@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ColonizationMobileGame.UI
+namespace GenesisConstructa.UI
 {
     public class TimeFormatter
     {

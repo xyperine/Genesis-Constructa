@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using ColonizationMobileGame.Structures;
+using GenesisConstructa.Structures;
 using UnityEngine;
 
-namespace ColonizationMobileGame.IconsSystem
+namespace GenesisConstructa.IconsSystem
 {
     [CreateAssetMenu(fileName = "Icons_Service", menuName = "Icons Service")]
     public class ObjectsIconsSO : ScriptableObject

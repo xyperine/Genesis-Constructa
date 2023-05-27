@@ -1,20 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using ColonizationMobileGame.GameFading;
-using ColonizationMobileGame.SaveLoadSystem;
-using ColonizationMobileGame.TutorialSystem;
-using ColonizationMobileGame.Utility.Helpers;
 using DG.Tweening;
+using GenesisConstructa.GameFading;
+using GenesisConstructa.SaveLoadSystem;
+using GenesisConstructa.TutorialSystem;
+using GenesisConstructa.Utility.Helpers;
+using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-#if UNITY_EDITOR
-using UnityEditor;
-using UnityEditor.SceneManagement;
-#endif
-
-namespace ColonizationMobileGame.Initialization
+namespace GenesisConstructa.Initialization
 {
     public class Bootstrapper : MonoBehaviour
 #if UNITY_EDITOR

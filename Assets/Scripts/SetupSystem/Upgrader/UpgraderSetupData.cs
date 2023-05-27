@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ColonizationMobileGame.SetupSystem.Upgrader
+namespace GenesisConstructa.SetupSystem.Upgrader
 {
     [Serializable]
     public class UpgraderSetupData : IConstructData

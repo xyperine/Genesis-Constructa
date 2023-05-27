@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.ItemsPlacement.Core
+﻿namespace GenesisConstructa.ItemsPlacement.Core
 {
     public enum Axes
     {

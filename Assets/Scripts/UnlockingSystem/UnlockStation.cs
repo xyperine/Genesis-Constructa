@@ -1,11 +1,11 @@
 ﻿using System;
-using ColonizationMobileGame.ItemsPlacementsInteractions;
-using ColonizationMobileGame.SaveLoadSystem;
-using ColonizationMobileGame.Structures;
-using ColonizationMobileGame.UI.ItemsAmount.Data;
+using GenesisConstructa.ItemsPlacementsInteractions;
+using GenesisConstructa.SaveLoadSystem;
+using GenesisConstructa.Structures;
+using GenesisConstructa.UI.ItemsAmount.Data;
 using UnityEngine;
 
-namespace ColonizationMobileGame.UnlockingSystem
+namespace GenesisConstructa.UnlockingSystem
 {
     public class UnlockStation : MonoBehaviour, IItemsAmountDataProvider, ISceneSaveable
     {

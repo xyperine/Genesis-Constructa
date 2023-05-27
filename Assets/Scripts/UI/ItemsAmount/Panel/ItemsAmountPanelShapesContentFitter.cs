@@ -1,12 +1,12 @@
 ﻿using System.Linq;
-using ColonizationMobileGame.Utility.Extensions;
 using DG.Tweening;
+using GenesisConstructa.Utility.Extensions;
 using Shapes;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ColonizationMobileGame.UI.ItemsAmount.Panel
+namespace GenesisConstructa.UI.ItemsAmount.Panel
 {
     public class ItemsAmountPanelShapesContentFitter : MonoBehaviour
     {

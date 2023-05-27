@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ColonizationMobileGame.GameFading
+namespace GenesisConstructa.GameFading
 {
     [Flags]
     public enum FadeFlags

@@ -2,7 +2,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Player
+namespace GenesisConstructa.Player
 {
     public class RobotAntennasBlinkingBehaviour : MonoBehaviour
     {

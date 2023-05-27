@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ColonizationMobileGame.Hibernation
+namespace GenesisConstructa.Hibernation
 {
     public class HibernationObject : MonoBehaviour
     {

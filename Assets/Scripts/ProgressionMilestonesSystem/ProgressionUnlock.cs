@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ColonizationMobileGame.ProgressionMilestonesSystem
+namespace GenesisConstructa.ProgressionMilestonesSystem
 {
     public class ProgressionUnlock : MonoBehaviour
     {

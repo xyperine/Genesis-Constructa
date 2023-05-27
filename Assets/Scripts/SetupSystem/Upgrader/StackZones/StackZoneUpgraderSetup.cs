@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.SetupSystem.Upgrader.StackZones
+﻿namespace GenesisConstructa.SetupSystem.Upgrader.StackZones
 {
     public class StackZoneUpgraderSetup : UpgraderSetup<StackZoneUpgraderSetupData, StackZoneUpgraderComponentsBuilder>
     {

@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ColonizationMobileGame.InteractablesTracking;
-using ColonizationMobileGame.ItemsPlacementsInteractions;
-using ColonizationMobileGame.SaveLoadSystem;
-using ColonizationMobileGame.Utility.Extensions;
+using GenesisConstructa.InteractablesTracking;
+using GenesisConstructa.ItemsPlacementsInteractions;
+using GenesisConstructa.SaveLoadSystem;
+using GenesisConstructa.Utility.Extensions;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Items
+namespace GenesisConstructa.Items
 {
     public class StartItems : MonoBehaviour, ISceneSaveable, IInteractablesTrackerUser
     {

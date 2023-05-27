@@ -1,7 +1,7 @@
-﻿using ColonizationMobileGame.ItemsExtraction.Upgrading;
+﻿using GenesisConstructa.ItemsExtraction.Upgrading;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Audio
+namespace GenesisConstructa.Audio
 {
     public class StructureActionSoundEffect : MonoBehaviour
     {

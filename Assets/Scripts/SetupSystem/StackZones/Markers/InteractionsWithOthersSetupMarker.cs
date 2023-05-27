@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.SetupSystem.StackZones.Markers
+﻿namespace GenesisConstructa.SetupSystem.StackZones.Markers
 {
     public class InteractionsWithOthersSetupMarker : SetupMarker
     {

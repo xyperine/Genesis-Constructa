@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.UI.ArrowPointers.Hibernation
+﻿namespace GenesisConstructa.UI.ArrowPointers.Hibernation
 {
     public sealed class HibernationAreaArrowPointerTargetGroupValidator : ArrowPointerTargetGroupValidator
     {

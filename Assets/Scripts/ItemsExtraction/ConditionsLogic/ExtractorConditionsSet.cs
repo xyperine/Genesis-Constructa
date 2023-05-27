@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsExtraction.ConditionsLogic
+namespace GenesisConstructa.ItemsExtraction.ConditionsLogic
 {
     [Serializable]
     public class ExtractorConditionsSet : MonoBehaviour

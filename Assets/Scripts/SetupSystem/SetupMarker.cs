@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ColonizationMobileGame.SetupSystem
+namespace GenesisConstructa.SetupSystem
 {
     public abstract class SetupMarker : MonoBehaviour
     {

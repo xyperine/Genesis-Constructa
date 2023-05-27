@@ -1,9 +1,9 @@
 ﻿using System.Linq;
-using ColonizationMobileGame.Structures;
-using ColonizationMobileGame.UnlockingSystem;
+using GenesisConstructa.Structures;
+using GenesisConstructa.UnlockingSystem;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ProgressionMilestonesSystem
+namespace GenesisConstructa.ProgressionMilestonesSystem
 {
     public class MineralFactoryUnlockedMilestone : ProgressionMilestone
     {

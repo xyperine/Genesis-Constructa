@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using ColonizationMobileGame.ItemsPlacementsInteractions;
-using ColonizationMobileGame.Utility.Helpers;
+using GenesisConstructa.ItemsPlacementsInteractions;
+using GenesisConstructa.Utility.Helpers;
 
-namespace ColonizationMobileGame.Items
+namespace GenesisConstructa.Items
 {
     public class StartItemsDistributor : ItemsDistributor<List<StackZoneItem>>
     {

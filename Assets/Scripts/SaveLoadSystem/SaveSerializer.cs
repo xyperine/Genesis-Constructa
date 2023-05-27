@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using UnityEngine;
 
-namespace ColonizationMobileGame.SaveLoadSystem
+namespace GenesisConstructa.SaveLoadSystem
 {
     public class SaveSerializer<T>
         where T : new()

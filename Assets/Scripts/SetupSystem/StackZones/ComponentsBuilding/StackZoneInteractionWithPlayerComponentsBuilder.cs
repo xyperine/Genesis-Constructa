@@ -1,10 +1,10 @@
-﻿using ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup.InteractionWithPlayer;
-using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
-using ColonizationMobileGame.SetupSystem.StackZones.Markers;
-using ColonizationMobileGame.Utility.Extensions;
+﻿using GenesisConstructa.ItemsPlacementsInteractions.InteractionsSetup.InteractionWithPlayer;
+using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic;
+using GenesisConstructa.SetupSystem.StackZones.Markers;
+using GenesisConstructa.Utility.Extensions;
 using UnityEngine;
 
-namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
+namespace GenesisConstructa.SetupSystem.StackZones.ComponentsBuilding
 {
     public class StackZoneInteractionWithPlayerComponentsBuilder : StackZoneComponentsBuilder
     {

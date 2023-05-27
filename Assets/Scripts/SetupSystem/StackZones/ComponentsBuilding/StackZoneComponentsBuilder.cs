@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
-using ColonizationMobileGame.Utility.Extensions;
+using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic;
+using GenesisConstructa.Utility.Extensions;
 using UnityEditor;
 using UnityEngine;
 
-namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
+namespace GenesisConstructa.SetupSystem.StackZones.ComponentsBuilding
 {
     public abstract class StackZoneComponentsBuilder : IStackZoneComponentsBuilder
     {

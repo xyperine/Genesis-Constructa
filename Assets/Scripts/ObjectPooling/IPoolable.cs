@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.ObjectPooling
+﻿namespace GenesisConstructa.ObjectPooling
 {
     public interface IPoolable
     {

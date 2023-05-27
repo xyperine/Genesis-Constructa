@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup;
-using ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup.Establisher;
-using ColonizationMobileGame.ItemsPlacementsInteractions.PickUp;
-using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
-using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
-using ColonizationMobileGame.ItemsPlacementsInteractions.Transfer;
-using ColonizationMobileGame.SetupSystem.StackZones.Markers;
-using ColonizationMobileGame.Utility.Extensions;
+using GenesisConstructa.ItemsPlacementsInteractions.InteractionsSetup;
+using GenesisConstructa.ItemsPlacementsInteractions.InteractionsSetup.Establisher;
+using GenesisConstructa.ItemsPlacementsInteractions.PickUp;
+using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic;
+using GenesisConstructa.ItemsPlacementsInteractions.Target;
+using GenesisConstructa.ItemsPlacementsInteractions.Transfer;
+using GenesisConstructa.SetupSystem.StackZones.Markers;
+using GenesisConstructa.Utility.Extensions;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
+namespace GenesisConstructa.SetupSystem.StackZones.ComponentsBuilding
 {
     public class StackZoneInteractionsWithOthersComponentsBuilder : StackZoneComponentsBuilder
     {

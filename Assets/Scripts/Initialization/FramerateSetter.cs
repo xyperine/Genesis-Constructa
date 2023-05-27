@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ColonizationMobileGame.Initialization
+namespace GenesisConstructa.Initialization
 {
     public class FramerateSetter : MonoBehaviour
     {

@@ -1,8 +1,8 @@
-﻿using ColonizationMobileGame.InteractablesTracking;
-using ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup.Establisher;
+﻿using GenesisConstructa.InteractablesTracking;
+using GenesisConstructa.ItemsPlacementsInteractions.InteractionsSetup.Establisher;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
+namespace GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic
 {
     public abstract class StackZoneInteractor<TObject, TBehaviour> : MonoBehaviour, IInteractablesTrackerUser
         where TObject : MonoBehaviour

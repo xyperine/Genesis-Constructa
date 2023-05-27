@@ -1,9 +1,9 @@
 ﻿using System.Collections;
-using ColonizationMobileGame.Timer;
-using ColonizationMobileGame.Utility.Helpers;
+using GenesisConstructa.Timer;
+using GenesisConstructa.Utility.Helpers;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Audio
+namespace GenesisConstructa.Audio
 {
     public class GameTimerSoundEffect : MonoBehaviour
     {

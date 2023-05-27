@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.Timer
+﻿namespace GenesisConstructa.Timer
 {
     // Thresholds in seconds
     public enum GameTimerPhase

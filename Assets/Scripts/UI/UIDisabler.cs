@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace ColonizationMobileGame.UI
+namespace GenesisConstructa.UI
 {
     public class UIDisabler : MonoBehaviour
     {

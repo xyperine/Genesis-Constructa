@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Generator
+namespace GenesisConstructa.Generator
 {
     public sealed class GeneratorLightingController : MonoBehaviour
     {

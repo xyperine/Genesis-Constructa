@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-namespace ColonizationMobileGame.UI.ItemsAmount.Panel
+namespace GenesisConstructa.UI.ItemsAmount.Panel
 {
     public class ItemsAmountPanelPlayerProximityScaler : MonoBehaviour
     {

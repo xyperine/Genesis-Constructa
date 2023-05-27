@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.UpgradingSystem
+﻿namespace GenesisConstructa.UpgradingSystem
 {
     public interface IUpgradeable<in TUpgradeData>
         where TUpgradeData : UpgradeData

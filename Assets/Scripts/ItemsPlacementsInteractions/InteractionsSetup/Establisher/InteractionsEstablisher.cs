@@ -1,8 +1,8 @@
-﻿using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
-using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
+﻿using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic;
+using GenesisConstructa.ItemsPlacementsInteractions.Target;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup.Establisher
+namespace GenesisConstructa.ItemsPlacementsInteractions.InteractionsSetup.Establisher
 {
     public abstract class InteractionsEstablisher : MonoBehaviour
     {

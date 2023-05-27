@@ -1,8 +1,8 @@
 ﻿using System;
-using ColonizationMobileGame.ItemsPlacementsInteractions;
+using GenesisConstructa.ItemsPlacementsInteractions;
 using UnityEngine;
 
-namespace ColonizationMobileGame.SetupSystem.Upgrader
+namespace GenesisConstructa.SetupSystem.Upgrader
 {
     [Serializable]
     public abstract class UpgraderComponentsBuilder<TSetupData>

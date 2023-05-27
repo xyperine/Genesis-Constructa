@@ -1,16 +1,16 @@
 ﻿using System;
-using ColonizationMobileGame.InteractablesTracking;
-using ColonizationMobileGame.ItemsExtraction;
-using ColonizationMobileGame.ItemsPlacementsInteractions;
-using ColonizationMobileGame.ObjectPooling;
-using ColonizationMobileGame.SaveLoadSystem;
-using ColonizationMobileGame.Structures;
-using ColonizationMobileGame.UI.ItemsAmount.Data;
-using ColonizationMobileGame.UnlockingSystem;
-using ColonizationMobileGame.Utility.Extensions;
+using GenesisConstructa.InteractablesTracking;
+using GenesisConstructa.ItemsExtraction;
+using GenesisConstructa.ItemsPlacementsInteractions;
+using GenesisConstructa.ObjectPooling;
+using GenesisConstructa.SaveLoadSystem;
+using GenesisConstructa.Structures;
+using GenesisConstructa.UI.ItemsAmount.Data;
+using GenesisConstructa.UnlockingSystem;
+using GenesisConstructa.Utility.Extensions;
 using UnityEngine;
 
-namespace ColonizationMobileGame.BuildSystem
+namespace GenesisConstructa.BuildSystem
 {
     public sealed class Builder : MonoBehaviour, IItemsAmountDataProvider, ISceneSaveable, IInteractablesTrackerUser, IIdentifiable
     {

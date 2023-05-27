@@ -1,8 +1,8 @@
 ﻿using System;
-using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
+using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsExtraction.Upgrading
+namespace GenesisConstructa.ItemsExtraction.Upgrading
 {
     [Serializable]
     public class ExtractorUpgradeData : StackZoneUpgradeData

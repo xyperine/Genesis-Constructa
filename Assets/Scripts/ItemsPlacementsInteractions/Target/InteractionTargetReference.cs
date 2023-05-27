@@ -1,7 +1,7 @@
-using ColonizationMobileGame.InteractablesTracking;
+using GenesisConstructa.InteractablesTracking;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsPlacementsInteractions.Target
+namespace GenesisConstructa.ItemsPlacementsInteractions.Target
 {
     public sealed class InteractionTargetReference : MonoBehaviour, IInteractablesTrackerUser
     {

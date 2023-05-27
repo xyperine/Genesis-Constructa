@@ -1,10 +1,10 @@
 ﻿using System.Linq;
-using ColonizationMobileGame.ItemsPlacement.Collections;
-using ColonizationMobileGame.ItemsPlacement.Core;
-using ColonizationMobileGame.ItemsPlacement.Core.Area;
+using GenesisConstructa.ItemsPlacement.Collections;
+using GenesisConstructa.ItemsPlacement.Core;
+using GenesisConstructa.ItemsPlacement.Core.Area;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsPlacement.Areas
+namespace GenesisConstructa.ItemsPlacement.Areas
 {
     public sealed class RearrangeablePlacementArea : PlacementArea
     {

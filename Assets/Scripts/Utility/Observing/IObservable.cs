@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ColonizationMobileGame.Utility.Observing
+namespace GenesisConstructa.Utility.Observing
 {
     public interface IObservable
     {

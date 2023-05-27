@@ -1,6 +1,6 @@
-﻿using ColonizationMobileGame.Structures;
+﻿using GenesisConstructa.Structures;
 
-namespace ColonizationMobileGame.UnlockingSystem
+namespace GenesisConstructa.UnlockingSystem
 {
     public interface IIdentifiable
     {

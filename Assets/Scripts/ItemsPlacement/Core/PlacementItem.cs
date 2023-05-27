@@ -1,8 +1,8 @@
-﻿using ColonizationMobileGame.ObjectPooling;
-using DG.Tweening;
+﻿using DG.Tweening;
+using GenesisConstructa.ObjectPooling;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsPlacement.Core
+namespace GenesisConstructa.ItemsPlacement.Core
 {
     [RequireComponent(typeof(IPoolable))]
     public sealed class PlacementItem : MonoBehaviour

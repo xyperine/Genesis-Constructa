@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
-using ColonizationMobileGame.Items;
-using ColonizationMobileGame.SaveLoadSystem;
+using GenesisConstructa.Items;
+using GenesisConstructa.SaveLoadSystem;
 
-namespace ColonizationMobileGame.ItemsRequirementsSystem
+namespace GenesisConstructa.ItemsRequirementsSystem
 {
     public class ItemsRequirementsChain : IChain<ItemRequirementsBlock>, ISaveable
     {

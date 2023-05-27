@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ColonizationMobileGame.Utility.Helpers
+namespace GenesisConstructa.Utility.Helpers
 {
     public static class EnumHelpers
     {

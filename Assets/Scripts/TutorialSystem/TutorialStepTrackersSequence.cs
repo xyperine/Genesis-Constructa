@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
-using ColonizationMobileGame.SaveLoadSystem;
+using GenesisConstructa.SaveLoadSystem;
 
-namespace ColonizationMobileGame.TutorialSystem
+namespace GenesisConstructa.TutorialSystem
 {
     public class TutorialStepTrackersSequence : IChain<TutorialStepTracker>, ISaveable
     {

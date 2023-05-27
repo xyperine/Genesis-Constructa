@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.UI.ItemsAmount.Data
+﻿namespace GenesisConstructa.UI.ItemsAmount.Data
 {
     public interface IItemsAmountDataProvider
     {

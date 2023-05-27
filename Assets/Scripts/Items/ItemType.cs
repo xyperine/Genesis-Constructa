@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.Items
+﻿namespace GenesisConstructa.Items
 {
     public enum ItemType
     {

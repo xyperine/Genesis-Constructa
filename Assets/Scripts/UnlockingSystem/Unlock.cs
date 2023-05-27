@@ -1,10 +1,10 @@
 ﻿using System;
-using ColonizationMobileGame.ItemsRequirementsSystem;
-using ColonizationMobileGame.Structures;
+using GenesisConstructa.ItemsRequirementsSystem;
+using GenesisConstructa.Structures;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace ColonizationMobileGame.UnlockingSystem
+namespace GenesisConstructa.UnlockingSystem
 {
     [Serializable]
     public class Unlock : IIdentifiable

@@ -1,5 +1,5 @@
-﻿using ColonizationMobileGame.BuildSystem;
-using ColonizationMobileGame.Utility.Extensions;
+﻿using GenesisConstructa.BuildSystem;
+using GenesisConstructa.Utility.Extensions;
 using Shapes;
 using UnityEngine;
 

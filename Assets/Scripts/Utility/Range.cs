@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Utility
+namespace GenesisConstructa.Utility
 {
     [Serializable]
     public class Range : ISerializationCallbackReceiver

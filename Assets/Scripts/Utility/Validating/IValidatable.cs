@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.Utility.Validating
+﻿namespace GenesisConstructa.Utility.Validating
 {
     public interface IValidatable
     {

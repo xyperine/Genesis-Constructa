@@ -1,7 +1,7 @@
-﻿using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
+﻿using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsPlacement.Core.Area
+namespace GenesisConstructa.ItemsPlacement.Core.Area
 {
     public sealed class PlacementItemPositionCalculator
     {

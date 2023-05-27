@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ColonizationMobileGame.Utility.Extensions
+namespace GenesisConstructa.Utility.Extensions
 {
     public static class ColorExtensions
     {

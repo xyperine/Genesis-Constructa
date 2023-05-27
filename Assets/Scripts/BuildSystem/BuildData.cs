@@ -1,12 +1,12 @@
 ﻿using System;
-using ColonizationMobileGame.ItemsRequirementsSystem;
-using ColonizationMobileGame.Structures;
-using ColonizationMobileGame.UnlockingSystem;
-using ColonizationMobileGame.Utility;
-using ColonizationMobileGame.Utility.Validating;
+using GenesisConstructa.ItemsRequirementsSystem;
+using GenesisConstructa.Structures;
+using GenesisConstructa.UnlockingSystem;
+using GenesisConstructa.Utility;
+using GenesisConstructa.Utility.Validating;
 using UnityEngine;
 
-namespace ColonizationMobileGame.BuildSystem
+namespace GenesisConstructa.BuildSystem
 {
     [Serializable]
     public sealed class BuildData : IUnlockable, IDeepCloneable<BuildData>, IValidatable, ISerializationCallbackReceiver

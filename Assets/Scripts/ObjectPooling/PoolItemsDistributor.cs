@@ -1,8 +1,8 @@
-﻿using ColonizationMobileGame.Items;
-using ColonizationMobileGame.ItemsPlacementsInteractions;
+﻿using GenesisConstructa.Items;
+using GenesisConstructa.ItemsPlacementsInteractions;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ObjectPooling
+namespace GenesisConstructa.ObjectPooling
 {
     public class PoolItemsDistributor : ItemsDistributor<ItemsPool>
     {

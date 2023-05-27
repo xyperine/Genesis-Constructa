@@ -1,7 +1,7 @@
-﻿using ColonizationMobileGame.BuildSystem;
+﻿using GenesisConstructa.BuildSystem;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ProgressionMilestonesSystem
+namespace GenesisConstructa.ProgressionMilestonesSystem
 {
     public class MetalFactoryBuiltMilestone : ProgressionMilestone
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ColonizationMobileGame.BuildSystem
+namespace GenesisConstructa.BuildSystem
 {
     [CreateAssetMenu(fileName = "Build_Effect", menuName = "Build Effect", order = 0)]
     public class BuildEffectSO : ScriptableObject

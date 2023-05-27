@@ -1,7 +1,7 @@
 ﻿using System;
-using ColonizationMobileGame.Items;
+using GenesisConstructa.Items;
 
-namespace ColonizationMobileGame.UI.ItemsAmount.Data
+namespace GenesisConstructa.UI.ItemsAmount.Data
 {
     public class ItemAmountData
     {

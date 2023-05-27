@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.SetupSystem
+﻿namespace GenesisConstructa.SetupSystem
 {
     public interface IConstructData
     {

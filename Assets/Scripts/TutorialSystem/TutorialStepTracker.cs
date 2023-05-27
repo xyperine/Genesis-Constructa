@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ColonizationMobileGame.TutorialSystem
+namespace GenesisConstructa.TutorialSystem
 {
     public abstract class TutorialStepTracker : MonoBehaviour
     {

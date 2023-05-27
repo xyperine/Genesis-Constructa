@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace ColonizationMobileGame.UI.ArrowPointers
+namespace GenesisConstructa.UI.ArrowPointers
 {
     public class ArrowPointersDrawer : MonoBehaviour
     {

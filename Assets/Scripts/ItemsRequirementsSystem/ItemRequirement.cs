@@ -1,11 +1,11 @@
 ﻿using System;
-using ColonizationMobileGame.Items;
-using ColonizationMobileGame.SaveLoadSystem;
-using ColonizationMobileGame.Utility.Validating;
+using GenesisConstructa.Items;
+using GenesisConstructa.SaveLoadSystem;
+using GenesisConstructa.Utility.Validating;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsRequirementsSystem
+namespace GenesisConstructa.ItemsRequirementsSystem
 {
     [Serializable]
     public sealed class ItemRequirement : IValidatable, ICloneable, ISaveable

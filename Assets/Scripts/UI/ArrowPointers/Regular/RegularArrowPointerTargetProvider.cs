@@ -1,7 +1,7 @@
-﻿using ColonizationMobileGame.BuildSystem;
+﻿using GenesisConstructa.BuildSystem;
 using UnityEngine;
 
-namespace ColonizationMobileGame.UI.ArrowPointers.Regular
+namespace GenesisConstructa.UI.ArrowPointers.Regular
 {
     public sealed class RegularArrowPointerTargetProvider : ArrowPointerTargetProvider<RegularArrowPointerTargetGroupValidator>
     {

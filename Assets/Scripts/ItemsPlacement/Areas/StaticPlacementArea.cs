@@ -1,7 +1,7 @@
-﻿using ColonizationMobileGame.ItemsPlacement.Collections;
-using ColonizationMobileGame.ItemsPlacement.Core.Area;
+﻿using GenesisConstructa.ItemsPlacement.Collections;
+using GenesisConstructa.ItemsPlacement.Core.Area;
 
-namespace ColonizationMobileGame.ItemsPlacement.Areas
+namespace GenesisConstructa.ItemsPlacement.Areas
 {
     public sealed class StaticPlacementArea : PlacementArea
     {

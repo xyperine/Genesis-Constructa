@@ -1,11 +1,11 @@
 ﻿using System;
-using ColonizationMobileGame.ItemsPlacementsInteractions;
-using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
-using ColonizationMobileGame.SaveLoadSystem;
-using ColonizationMobileGame.UI.ItemsAmount.Data;
+using GenesisConstructa.ItemsPlacementsInteractions;
+using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic;
+using GenesisConstructa.SaveLoadSystem;
+using GenesisConstructa.UI.ItemsAmount.Data;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
+namespace GenesisConstructa.ItemsExtraction.Extra.KeyItemSystem
 {
     public class KeyItemSlot : StackZone, IItemsAmountDataProvider, ISaveable
     {

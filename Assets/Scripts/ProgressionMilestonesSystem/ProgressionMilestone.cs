@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ProgressionMilestonesSystem
+namespace GenesisConstructa.ProgressionMilestonesSystem
 {
     public abstract class ProgressionMilestone : MonoBehaviour, IProgressionMilestone
     {

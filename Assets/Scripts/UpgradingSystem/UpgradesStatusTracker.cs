@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ColonizationMobileGame.UpgradingSystem
+namespace GenesisConstructa.UpgradingSystem
 {
     public sealed class UpgradesStatusTracker<TUpgradeData>
         where TUpgradeData : UpgradeData

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ColonizationMobileGame.ProgressionMilestonesSystem
+namespace GenesisConstructa.ProgressionMilestonesSystem
 {
     public interface IProgressionMilestone
     {

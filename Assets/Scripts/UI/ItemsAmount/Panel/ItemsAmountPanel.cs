@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using ColonizationMobileGame.IconsSystem;
-using ColonizationMobileGame.Items;
-using ColonizationMobileGame.UI.ItemsAmount.Data;
+using GenesisConstructa.IconsSystem;
+using GenesisConstructa.Items;
+using GenesisConstructa.UI.ItemsAmount.Data;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace ColonizationMobileGame.UI.ItemsAmount.Panel
+namespace GenesisConstructa.UI.ItemsAmount.Panel
 {
     public class ItemsAmountPanel : MonoBehaviour
     {

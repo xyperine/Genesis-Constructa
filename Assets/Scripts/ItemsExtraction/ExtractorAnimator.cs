@@ -1,7 +1,7 @@
-﻿using ColonizationMobileGame.ItemsExtraction.ConditionsLogic;
+﻿using GenesisConstructa.ItemsExtraction.ConditionsLogic;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsExtraction
+namespace GenesisConstructa.ItemsExtraction
 {
     public class ExtractorAnimator : MonoBehaviour
     {

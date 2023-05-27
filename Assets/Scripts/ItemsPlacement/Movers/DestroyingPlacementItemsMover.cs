@@ -1,7 +1,7 @@
-﻿using ColonizationMobileGame.ItemsPlacement.Core;
+﻿using GenesisConstructa.ItemsPlacement.Core;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsPlacement.Movers
+namespace GenesisConstructa.ItemsPlacement.Movers
 {
     public sealed class DestroyingPlacementItemsMover : PlacementItemsMover
     {

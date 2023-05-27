@@ -1,7 +1,7 @@
-﻿using ColonizationMobileGame.TutorialSystem;
+﻿using GenesisConstructa.TutorialSystem;
 using UnityEngine;
 
-namespace ColonizationMobileGame.UI.ArrowPointers.Tutorial
+namespace GenesisConstructa.UI.ArrowPointers.Tutorial
 {
     public class TutorialArrowPointerTargetProvider : ArrowPointerTargetProvider<TutorialArrowPointerTargetGroupValidator>
     {

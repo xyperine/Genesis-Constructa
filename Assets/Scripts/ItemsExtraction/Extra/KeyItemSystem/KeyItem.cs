@@ -1,8 +1,8 @@
 ﻿using System;
-using ColonizationMobileGame.SaveLoadSystem;
+using GenesisConstructa.SaveLoadSystem;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem
+namespace GenesisConstructa.ItemsExtraction.Extra.KeyItemSystem
 {
     public class KeyItem : MonoBehaviour, ISaveable
     {

@@ -1,7 +1,7 @@
-﻿using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
-using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
+﻿using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic;
+using GenesisConstructa.ItemsPlacementsInteractions.Target;
 
-namespace ColonizationMobileGame.ItemsPlacementsInteractions.Transfer
+namespace GenesisConstructa.ItemsPlacementsInteractions.Transfer
 {
     public class TransfersInteractor : StackZoneInteractor<InteractionTargetReference, TransferStackZoneBehaviour>
     {

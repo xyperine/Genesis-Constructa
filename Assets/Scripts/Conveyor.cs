@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using ColonizationMobileGame.Items;
-using ColonizationMobileGame.ItemsPlacementsInteractions;
-using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
-using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
+using GenesisConstructa.Items;
+using GenesisConstructa.ItemsPlacementsInteractions;
+using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic;
+using GenesisConstructa.ItemsPlacementsInteractions.Target;
 using UnityEngine;
 
-namespace ColonizationMobileGame
+namespace GenesisConstructa
 {
     public class Conveyor : InteractionTarget
     {

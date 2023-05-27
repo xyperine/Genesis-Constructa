@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ColonizationMobileGame.GameFading
+namespace GenesisConstructa.GameFading
 {
     public class TimeScaler : MonoBehaviour
     {

@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace ColonizationMobileGame.Utility.Validating
+namespace GenesisConstructa.Utility.Validating
 {
     /// <summary>
     /// Use it in OnValidate() event function to call IValidatable.OnValidate on a non-monobehaviour members of an object using this class

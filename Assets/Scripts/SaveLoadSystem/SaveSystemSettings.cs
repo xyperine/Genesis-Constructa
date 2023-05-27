@@ -1,7 +1,7 @@
 ﻿using Hextant;
 using UnityEngine;
 
-namespace ColonizationMobileGame.SaveLoadSystem
+namespace GenesisConstructa.SaveLoadSystem
 {
     [Settings(SettingsUsage.RuntimeProject, "Save System")]
     public sealed class SaveSystemSettings : Settings<SaveSystemSettings>

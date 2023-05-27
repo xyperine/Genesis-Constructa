@@ -1,14 +1,14 @@
 ﻿using System.Linq;
-using ColonizationMobileGame.Items;
-using ColonizationMobileGame.ItemsPlacement.Core;
-using ColonizationMobileGame.ItemsPlacement.Core.Area;
-using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
-using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
-using ColonizationMobileGame.SaveLoadSystem;
-using ColonizationMobileGame.UpgradingSystem;
+using GenesisConstructa.Items;
+using GenesisConstructa.ItemsPlacement.Core;
+using GenesisConstructa.ItemsPlacement.Core.Area;
+using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
+using GenesisConstructa.ItemsPlacementsInteractions.Target;
+using GenesisConstructa.SaveLoadSystem;
+using GenesisConstructa.UpgradingSystem;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
+namespace GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic
 {
     public class StackZone : InteractionTarget, IUpgradeable<StackZoneUpgradeData>, IPermanentGuidIdentifiable
     {

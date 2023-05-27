@@ -1,7 +1,7 @@
-﻿using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
+﻿using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic
+namespace GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic
 {
     public class StackZoneSetup : MonoBehaviour
     {

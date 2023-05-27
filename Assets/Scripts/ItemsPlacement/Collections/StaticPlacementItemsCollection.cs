@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ColonizationMobileGame.ItemsPlacement.Core;
+using GenesisConstructa.ItemsPlacement.Core;
 
-namespace ColonizationMobileGame.ItemsPlacement.Collections
+namespace GenesisConstructa.ItemsPlacement.Collections
 {
     public sealed class StaticPlacementItemsCollection : IPlacementItemsCollection
     {

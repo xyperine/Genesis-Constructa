@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Utility.Helpers
+namespace GenesisConstructa.Utility.Helpers
 {
     public static class YieldInstructionsHelpers
     {

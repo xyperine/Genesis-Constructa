@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using ColonizationMobileGame.Structures;
-using ColonizationMobileGame.UnlockingSystem;
+using GenesisConstructa.Structures;
+using GenesisConstructa.UnlockingSystem;
 using UnityEngine;
 
-namespace ColonizationMobileGame.UI.ItemsAmount.Data
+namespace GenesisConstructa.UI.ItemsAmount.Data
 {
     public class ItemsAmountPanelData : MonoBehaviour
     {

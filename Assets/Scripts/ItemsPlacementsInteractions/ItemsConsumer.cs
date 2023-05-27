@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections;
-using ColonizationMobileGame.Items;
-using ColonizationMobileGame.ItemsPlacement.Core;
-using ColonizationMobileGame.ItemsPlacement.Movers;
-using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
-using ColonizationMobileGame.ItemsRequirementsSystem;
-using ColonizationMobileGame.Utility.Helpers;
+using GenesisConstructa.Items;
+using GenesisConstructa.ItemsPlacement.Core;
+using GenesisConstructa.ItemsPlacement.Movers;
+using GenesisConstructa.ItemsPlacementsInteractions.Target;
+using GenesisConstructa.ItemsRequirementsSystem;
+using GenesisConstructa.Utility.Helpers;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsPlacementsInteractions
+namespace GenesisConstructa.ItemsPlacementsInteractions
 {
     public class ItemsConsumer : InteractionTarget
     {

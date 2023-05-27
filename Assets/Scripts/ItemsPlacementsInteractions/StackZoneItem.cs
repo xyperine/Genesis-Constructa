@@ -1,10 +1,10 @@
-﻿using ColonizationMobileGame.Items;
-using ColonizationMobileGame.ItemsPlacement.Core;
-using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
-using ColonizationMobileGame.ObjectPooling;
+﻿using GenesisConstructa.Items;
+using GenesisConstructa.ItemsPlacement.Core;
+using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic;
+using GenesisConstructa.ObjectPooling;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsPlacementsInteractions
+namespace GenesisConstructa.ItemsPlacementsInteractions
 {
     [RequireComponent(typeof(PlacementItem))]
     public sealed class StackZoneItem : MonoBehaviour, IPoolable

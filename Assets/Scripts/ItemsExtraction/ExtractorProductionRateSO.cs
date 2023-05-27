@@ -1,7 +1,7 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsExtraction
+namespace GenesisConstructa.ItemsExtraction
 {
     [CreateAssetMenu(fileName = "Extractor_Production_Rate", menuName = "Extractor/Production Rate", order = 0)]
     public sealed class ExtractorProductionRateSO : ScriptableObject

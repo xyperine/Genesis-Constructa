@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using ColonizationMobileGame.Items;
-using ColonizationMobileGame.ItemsPlacementsInteractions;
+using GenesisConstructa.Items;
+using GenesisConstructa.ItemsPlacementsInteractions;
 
-namespace ColonizationMobileGame.Utility.Extensions
+namespace GenesisConstructa.Utility.Extensions
 {
     public static class ItemsPlacementExtensions
     {

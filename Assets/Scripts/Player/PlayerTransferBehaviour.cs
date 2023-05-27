@@ -1,8 +1,8 @@
-﻿using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
-using ColonizationMobileGame.ItemsPlacementsInteractions.Transfer;
+﻿using GenesisConstructa.ItemsPlacementsInteractions.Target;
+using GenesisConstructa.ItemsPlacementsInteractions.Transfer;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Player
+namespace GenesisConstructa.Player
 {
     public sealed class PlayerTransferBehaviour : TransferStackZoneBehaviour
     {

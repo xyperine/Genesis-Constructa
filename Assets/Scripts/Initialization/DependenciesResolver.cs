@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using ColonizationMobileGame.InteractablesTracking;
+using GenesisConstructa.InteractablesTracking;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Initialization
+namespace GenesisConstructa.Initialization
 {
     public class DependenciesResolver : MonoBehaviour
     {

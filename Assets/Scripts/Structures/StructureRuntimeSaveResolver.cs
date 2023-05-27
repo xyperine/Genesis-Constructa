@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Linq;
-using ColonizationMobileGame.ItemsExtraction;
-using ColonizationMobileGame.ItemsExtraction.Extra.KeyItemSystem;
-using ColonizationMobileGame.ItemsExtraction.Upgrading;
-using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
-using ColonizationMobileGame.SaveLoadSystem;
+using GenesisConstructa.ItemsExtraction;
+using GenesisConstructa.ItemsExtraction.Extra.KeyItemSystem;
+using GenesisConstructa.ItemsExtraction.Upgrading;
+using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic;
+using GenesisConstructa.SaveLoadSystem;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Structures
+namespace GenesisConstructa.Structures
 {
     public class StructureRuntimeSaveResolver : MonoBehaviour, ISaveable, IPermanentGuidIdentifiable
     {

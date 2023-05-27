@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup.InteractionWithPlayer
+﻿namespace GenesisConstructa.ItemsPlacementsInteractions.InteractionsSetup.InteractionWithPlayer
 {
     public class TransferInteractionWithPlayerSetup : InteractionWithPlayerSetup
     {

@@ -1,10 +1,10 @@
 ﻿using System.Linq;
-using ColonizationMobileGame.ItemsPlacementsInteractions;
-using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
-using ColonizationMobileGame.UI.ItemsAmount.Data;
+using GenesisConstructa.ItemsPlacementsInteractions;
+using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic;
+using GenesisConstructa.UI.ItemsAmount.Data;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsExtraction.Extra
+namespace GenesisConstructa.ItemsExtraction.Extra
 {
     public class ConversionStackZone : StackZone, IItemsAmountDataProvider
     {

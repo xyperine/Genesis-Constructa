@@ -1,7 +1,7 @@
-﻿using ColonizationMobileGame.GameEvents;
+﻿using GenesisConstructa.GameEvents;
 using UnityEngine;
 
-namespace ColonizationMobileGame.GameFinalization
+namespace GenesisConstructa.GameFinalization
 {
     public class GameFinalizer : MonoBehaviour
     {

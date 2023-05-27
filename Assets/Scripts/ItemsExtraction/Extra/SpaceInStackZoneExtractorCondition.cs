@@ -1,8 +1,8 @@
-﻿using ColonizationMobileGame.ItemsExtraction.ConditionsLogic;
-using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
+﻿using GenesisConstructa.ItemsExtraction.ConditionsLogic;
+using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsExtraction.Extra
+namespace GenesisConstructa.ItemsExtraction.Extra
 {
     public sealed class SpaceInStackZoneExtractorCondition : ExtractorCondition
     {

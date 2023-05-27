@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup
+﻿namespace GenesisConstructa.ItemsPlacementsInteractions.InteractionsSetup
 {
     public enum InteractionType
     {

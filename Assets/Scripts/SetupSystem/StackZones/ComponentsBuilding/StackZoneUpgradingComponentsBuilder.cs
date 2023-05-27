@@ -1,10 +1,10 @@
-﻿using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
-using ColonizationMobileGame.SetupSystem.StackZones.Markers;
-using ColonizationMobileGame.SetupSystem.Upgrader.StackZones;
-using ColonizationMobileGame.Utility.Extensions;
+﻿using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic;
+using GenesisConstructa.SetupSystem.StackZones.Markers;
+using GenesisConstructa.SetupSystem.Upgrader.StackZones;
+using GenesisConstructa.Utility.Extensions;
 using UnityEngine;
 
-namespace ColonizationMobileGame.SetupSystem.StackZones.ComponentsBuilding
+namespace GenesisConstructa.SetupSystem.StackZones.ComponentsBuilding
 {
     public class StackZoneUpgradingComponentsBuilder : StackZoneComponentsBuilder
     {

@@ -1,9 +1,9 @@
-﻿using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic;
-using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
+﻿using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic;
+using GenesisConstructa.ItemsPlacementsInteractions.Target;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup
+namespace GenesisConstructa.ItemsPlacementsInteractions.InteractionsSetup
 {
     [CreateAssetMenu(fileName = "Player_Interactions", menuName = "Items Interactions/Player Interactions", order = 0)]
     public class PlayerInteractionsSO : ScriptableObject

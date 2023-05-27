@@ -1,8 +1,8 @@
 ﻿using System;
-using ColonizationMobileGame.GameFinalization;
+using GenesisConstructa.GameFinalization;
 using UnityEngine;
 
-namespace ColonizationMobileGame.GameEvents
+namespace GenesisConstructa.GameEvents
 {
     [CreateAssetMenu(fileName = "Game_Finalization_Event", menuName = "Game Events/Game Finalization Event", order = 0)]
     public class GameFinalizationEventSO : ScriptableObject

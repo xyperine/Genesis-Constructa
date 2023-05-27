@@ -1,12 +1,12 @@
 ﻿using System;
-using ColonizationMobileGame.Items;
-using ColonizationMobileGame.ItemsPlacement.Core.Area;
-using ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup;
-using ColonizationMobileGame.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
+using GenesisConstructa.Items;
+using GenesisConstructa.ItemsPlacement.Core.Area;
+using GenesisConstructa.ItemsPlacementsInteractions.InteractionsSetup;
+using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic.Upgrading;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace ColonizationMobileGame.SetupSystem.StackZones
+namespace GenesisConstructa.SetupSystem.StackZones
 {
     [Serializable]
     public class StackZoneSetupData : IConstructData

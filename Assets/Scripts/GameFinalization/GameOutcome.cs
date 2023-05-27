@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.GameFinalization
+﻿namespace GenesisConstructa.GameFinalization
 {
     public enum GameOutcome
     {

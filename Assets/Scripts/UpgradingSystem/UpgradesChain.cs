@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ColonizationMobileGame.ItemsRequirementsSystem;
-using ColonizationMobileGame.SaveLoadSystem;
+using GenesisConstructa.ItemsRequirementsSystem;
+using GenesisConstructa.SaveLoadSystem;
 
-namespace ColonizationMobileGame.UpgradingSystem
+namespace GenesisConstructa.UpgradingSystem
 {
     public class UpgradesChain<TUpgradeData> : IPurchasableChain<Upgrade<TUpgradeData>>, ISaveable
         where TUpgradeData : UpgradeData

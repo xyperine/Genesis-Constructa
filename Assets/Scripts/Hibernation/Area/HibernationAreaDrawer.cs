@@ -1,7 +1,7 @@
 ﻿using Shapes;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Hibernation.Area
+namespace GenesisConstructa.Hibernation.Area
 {
     public class HibernationAreaDrawer : MonoBehaviour
     {

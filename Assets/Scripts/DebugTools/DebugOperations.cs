@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ColonizationMobileGame.BuildSystem;
-using ColonizationMobileGame.Items;
-using ColonizationMobileGame.ItemsExtraction.Upgrading;
-using ColonizationMobileGame.ItemsPlacementsInteractions;
-using ColonizationMobileGame.ObjectPooling;
-using ColonizationMobileGame.Player;
-using ColonizationMobileGame.Structures;
-using ColonizationMobileGame.UnlockingSystem;
+using GenesisConstructa.BuildSystem;
+using GenesisConstructa.Items;
+using GenesisConstructa.ItemsExtraction.Upgrading;
+using GenesisConstructa.ItemsPlacementsInteractions;
+using GenesisConstructa.ObjectPooling;
+using GenesisConstructa.Player;
+using GenesisConstructa.Structures;
+using GenesisConstructa.UnlockingSystem;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace ColonizationMobileGame.DebugTools
+namespace GenesisConstructa.DebugTools
 {
     public class DebugOperations : MonoBehaviour
     {

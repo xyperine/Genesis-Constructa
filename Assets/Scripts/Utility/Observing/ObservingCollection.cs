@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Utility.Observing
+namespace GenesisConstructa.Utility.Observing
 {
     [Serializable]
     public class ObservingCollection<T> : ICollection<T>

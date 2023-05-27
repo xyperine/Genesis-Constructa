@@ -1,10 +1,10 @@
 ﻿using System;
-using ColonizationMobileGame.ItemsPlacementsInteractions.Target;
-using ColonizationMobileGame.Utility.Observing;
-using ColonizationMobileGame.Utility.Validating;
+using GenesisConstructa.ItemsPlacementsInteractions.Target;
+using GenesisConstructa.Utility.Observing;
+using GenesisConstructa.Utility.Validating;
 using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsPlacementsInteractions.InteractionsSetup
+namespace GenesisConstructa.ItemsPlacementsInteractions.InteractionsSetup
 {
     [Serializable]
     public class Interaction : IValidatable, IObservable

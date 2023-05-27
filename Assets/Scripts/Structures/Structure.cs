@@ -1,8 +1,8 @@
-﻿using ColonizationMobileGame.ItemsExtraction.Upgrading;
-using DG.Tweening;
+﻿using DG.Tweening;
+using GenesisConstructa.ItemsExtraction.Upgrading;
 using UnityEngine;
 
-namespace ColonizationMobileGame.Structures
+namespace GenesisConstructa.Structures
 {
     public class Structure : MonoBehaviour
     {

@@ -1,7 +1,7 @@
-﻿using ColonizationMobileGame.Timer;
+﻿using GenesisConstructa.Timer;
 using UnityEngine;
 
-namespace ColonizationMobileGame.GameFinalization.Triggers
+namespace GenesisConstructa.GameFinalization.Triggers
 {
     public class TimeIsOutGameFinalizationTrigger : GameFinalizationTrigger
     {

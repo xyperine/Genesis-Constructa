@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ColonizationMobileGame.ItemsPlacement.Core
+namespace GenesisConstructa.ItemsPlacement.Core
 {
     public abstract class PlacementItemsMover
     {

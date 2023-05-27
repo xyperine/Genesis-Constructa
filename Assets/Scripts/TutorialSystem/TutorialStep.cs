@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame.TutorialSystem
+﻿namespace GenesisConstructa.TutorialSystem
 {
     public enum TutorialStep
     {

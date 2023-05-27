@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using ColonizationMobileGame.SaveLoadSystem;
-using ColonizationMobileGame.SetupSystem;
-using ColonizationMobileGame.UI.ItemsAmount.Data;
+using GenesisConstructa.SaveLoadSystem;
+using GenesisConstructa.SetupSystem;
+using GenesisConstructa.UI.ItemsAmount.Data;
 using UnityEngine;
 
-namespace ColonizationMobileGame.UpgradingSystem
+namespace GenesisConstructa.UpgradingSystem
 {
     public abstract class Upgrader<TUpgradeData> : MonoBehaviour, IConstructable, IItemsAmountDataProvider, ISceneSaveable
         where TUpgradeData : UpgradeData

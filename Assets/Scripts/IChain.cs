@@ -1,4 +1,4 @@
-﻿namespace ColonizationMobileGame
+﻿namespace GenesisConstructa
 {
     public interface IChain<out T>
     {
