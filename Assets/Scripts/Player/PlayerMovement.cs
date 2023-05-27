@@ -8,6 +8,7 @@ namespace ColonizationMobileGame.Player
     {
         [SerializeField] private Rigidbody rigidBody;
         [SerializeField] private Joystick joystick;
+        [SerializeField] private Transform cameraTransform;
         [SerializeField] private float speed;
         [SerializeField, Range(0f, 10f)] private float smoothness;
 
@@ -16,6 +17,7 @@ namespace ColonizationMobileGame.Player
         private const float SMOOTHNESS_MODIFIER = 1f / 8f;
 
         private float _smoothnessT;
+        private Quaternion _cameraYRotation;
         
         private Vector3 _velocity;
         private Vector3 _newVelocity;
@@ -29,6 +31,7 @@ namespace ColonizationMobileGame.Player
         private void Awake()
         {
             _smoothnessT = 1f / (1f + smoothness) * SMOOTHNESS_MODIFIER;
+            _cameraYRotation = Quaternion.AngleAxis(cameraTransform.rotation.eulerAngles.y, Vector3.up);
         }
 
 
@@ -40,7 +43,7 @@ namespace ColonizationMobileGame.Player
 
         private void GetMovementThisFrame()
         {
-            Vector3 input = new Vector3(joystick.Horizontal, 0f, joystick.Vertical);
+            Vector3 input = _cameraYRotation * new Vector3(joystick.Horizontal, 0f, joystick.Vertical);
             _newVelocity = speed * input;
         }
 

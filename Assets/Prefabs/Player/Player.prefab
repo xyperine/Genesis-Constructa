@@ -188,6 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 6753569587692771541}
   joystick: {fileID: 0}
+  cameraTransform: {fileID: 0}
   speed: 12
   smoothness: 1.8
   guid:
