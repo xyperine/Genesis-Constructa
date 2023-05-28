@@ -446,7 +446,7 @@ MonoBehaviour:
   text: {fileID: 530262725}
   color: {r: 0.99759376, g: 1, b: 0.6745283, a: 1}
   fadeInDurationInSeconds: 2
---- !u!21 &593015646
+--- !u!21 &561572197
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -1094,7 +1094,7 @@ PrefabInstance:
       objectReference: {fileID: 1346288776}
     - target: {fileID: 5543172827917823667, guid: a22df1e1834d15f41bfaa78221fc3d48, type: 3}
       propertyPath: active
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6418721173179897219, guid: a22df1e1834d15f41bfaa78221fc3d48, type: 3}
       propertyPath: m_AnchorMax.y
