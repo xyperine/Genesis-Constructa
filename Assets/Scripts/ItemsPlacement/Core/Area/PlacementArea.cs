@@ -12,11 +12,11 @@ namespace GenesisConstructa.ItemsPlacement.Core.Area
     { 
         [SerializeField] protected PlacementAreaSettingsSO placementSettings;
         [SerializeField] private bool mirror = true;
-
+        
         private PlacementAreaUpgradeableProperties _upgradeableProperties;
         
         private PlacingPlacementItemsMover _itemsMover;
-        
+
         protected IPlacementItemsCollection itemsCollection;
         protected PlacementItemPositionCalculator itemPositionCalculator;
         
@@ -70,12 +70,12 @@ namespace GenesisConstructa.ItemsPlacement.Core.Area
         }
 
 
-        private void MoveItem(PlacementItem item)
+        protected virtual void MoveItem(PlacementItem item)
         {
             Vector3 position = itemPositionCalculator.Calculate(itemsCollection.FirstNullIndex);
             _itemsMover.MoveItem(item, position);   
         }
-        
+
 
         private void RotateItem(PlacementItem item)
         {

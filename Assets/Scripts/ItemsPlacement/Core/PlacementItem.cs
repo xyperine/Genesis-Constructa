@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using GenesisConstructa.ObjectPooling;
 using UnityEngine;
 
@@ -17,6 +18,8 @@ namespace GenesisConstructa.ItemsPlacement.Core
         public bool Moving => _movingTween is {active: true};
 
         public ItemAlignment Alignment => alignment;
+        
+        public event Action Arrived;
 
 
         private void Awake()
@@ -33,7 +36,8 @@ namespace GenesisConstructa.ItemsPlacement.Core
 
         public void MoveToArea(Vector3 position)
         {
-            _movingTween = transform.DOLocalMove(position, tweenDuration).SetEase(easingCurve);
+            _movingTween = transform.DOLocalMove(position, tweenDuration).SetEase(easingCurve)
+                .OnComplete(() => Arrived?.Invoke());
         }
 
 
