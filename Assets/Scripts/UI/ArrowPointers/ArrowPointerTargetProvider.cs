@@ -6,12 +6,23 @@ namespace GenesisConstructa.UI.ArrowPointers
         where TGroupValidator : ArrowPointerTargetGroupValidator
     {
         [SerializeField] protected Transform transformToPointAt;
-
+        
+        private ArrowPointerTarget _target;
+        private TGroupValidator _groupValidator;
+        
 
         protected void Register()
         {
-            ArrowPointerTarget target = GetTarget();
-            FindObjectOfType<TGroupValidator>().RegisterTarget(target);
+            _target = GetTarget();
+            _groupValidator = FindObjectOfType<TGroupValidator>();
+            
+            _groupValidator.RegisterTarget(_target);
+        }
+
+
+        protected void Unregister()
+        {
+            _groupValidator?.UnregisterTarget(_target);
         }
 
 

@@ -11,6 +11,7 @@ namespace GenesisConstructa.UI.ArrowPointers.Regular
         private void OnEnable()
         {
             builder.Unlocked += Register;
+            builder.Built += Unregister;
         }
 
 
@@ -23,6 +24,7 @@ namespace GenesisConstructa.UI.ArrowPointers.Regular
         private void OnDisable()
         {
             builder.Unlocked -= Register;
+            builder.Built -= Unregister;
         }
     }
 }

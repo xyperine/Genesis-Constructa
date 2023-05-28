@@ -31,7 +31,6 @@ namespace GenesisConstructa.UI.ArrowPointers.Regular
             if (IsOnScreen(target))
             {
                 targetData.OnScreenDuration += Time.deltaTime;
-                targetData.OffScreenDuration = 0f;
             }
             else
             {

@@ -16,8 +16,15 @@ namespace GenesisConstructa.UI.ArrowPointers
             {
                 targets.Add(target);
             }
-            
+
             Debug.Log(targets.Count);
+        }
+
+
+        public void UnregisterTarget(ArrowPointerTarget target)
+        {
+            targets.Remove(target);
+            drawer.StopDrawing(target);
         }
 
 

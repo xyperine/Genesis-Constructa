@@ -28,11 +28,20 @@ namespace GenesisConstructa.UI.ArrowPointers
         public void PointTo(ArrowPointerTarget target)
         {
             _target = target;
+            
+            DrawBasedOnConditions();
+            
             gameObject.SetActive(true);
         }
         
         
         private void Update()
+        {
+            DrawBasedOnConditions();
+        }
+
+
+        private void DrawBasedOnConditions()
         {
             if (!_target.RequiresPointing)
             {
@@ -57,20 +66,20 @@ namespace GenesisConstructa.UI.ArrowPointers
         }
 
 
-        public void Disable()
-        {
-            _target = null;
-            onScreenArrowPointer.transform.SetParent(transform);
-            gameObject.SetActive(false);
-        }
-
-
         private bool IsOnScreen()
         {
             Vector3 viewportPosition = _camera.WorldToViewportPoint(_target.Transform.position);
             bool onScreen = viewportPosition.x is > 0f and < 1f &&
                             viewportPosition.y is > 0f and < 1f;
             return onScreen;
+        }
+
+
+        public void Disable()
+        {
+            gameObject.SetActive(false);
+            _target = null;
+            onScreenArrowPointer.transform.SetParent(transform);
         }
     }
 }
