@@ -50,24 +50,20 @@ SpriteAtlas:
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: 5f8da180af9bbc84c8bd725685d70856, type: 3}
-  - {fileID: 21300000, guid: dfee9cb05d88f2c47976aaee208f9abe, type: 3}
-  - {fileID: 21300000, guid: 5efa5a348f009b74fa8807c524f53366, type: 3}
-  - {fileID: 21300000, guid: c83063e4718e57f4a85303de55f09343, type: 3}
-  - {fileID: 21300000, guid: be36ec05a02d3f24abdee89875601de7, type: 3}
-  - {fileID: 21300000, guid: a550a48666cfc934e8ae3fc02a3be07a, type: 3}
-  - {fileID: 21300000, guid: 3cc72ea69b79f2c488fb221515dc810f, type: 3}
-  - {fileID: 21300000, guid: 2d7357e7e9dbd8c4e97f26def86379b2, type: 3}
-  - {fileID: 21300000, guid: 2396e67861e81b04b91e102ff8c1c9ec, type: 3}
+  - {fileID: 21300000, guid: 6b07ddc0b5c1fa24ca8f2562e00bd20c, type: 3}
+  - {fileID: 21300000, guid: dc29eb014bb70e746a296bb6775f54f1, type: 3}
+  - {fileID: 21300000, guid: bc4314a31baaf5b418aeabf5eab56e82, type: 3}
+  - {fileID: 21300000, guid: a7879d543d481654baa4346301e3e0ac, type: 3}
+  - {fileID: 21300000, guid: f26f4f986cbc10e4893df64f958d6875, type: 3}
+  - {fileID: 21300000, guid: 281f972bd0a8fd54c800c157799298be, type: 3}
+  - {fileID: 21300000, guid: e63f3fce17ae4ae43a7f2a209cc0d614, type: 3}
   m_PackedSpriteNamesToIndex:
-  - Mineral_Factory_Icon
   - Generator_Icon
-  - Storage_Icon
+  - Mineral_Factory_Icon
+  - Shelter_Icon
+  - Uranium_Factory_Icon
   - Metal_Factory_Icon
   - Carbon_Compressor_Icon
-  - Shelter_Icon
-  - Farm_Icon
-  - Uranium_Factory_Icon
   - Carbon_Factory_Icon
   m_RenderDataMap: {}
   m_Tag: Icons_Atlas
