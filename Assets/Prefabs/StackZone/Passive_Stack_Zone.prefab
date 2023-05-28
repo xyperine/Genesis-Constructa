@@ -55,6 +55,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Passive_Stack_Zone
       objectReference: {fileID: 0}
+    - target: {fileID: 5596898776520863123, guid: c85ca864afb5dd647a315607f1a288dd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7806691991134491457, guid: c85ca864afb5dd647a315607f1a288dd, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7806691991134491457, guid: c85ca864afb5dd647a315607f1a288dd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
