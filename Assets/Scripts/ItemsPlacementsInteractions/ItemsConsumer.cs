@@ -57,6 +57,11 @@ namespace GenesisConstructa.ItemsPlacementsInteractions
 
         private void BeginWaitingForDelay()
         {
+            if (!gameObject.activeInHierarchy)
+            {
+                return;
+            }
+            
             StartCoroutine(WaitForDelayRoutine());
         }
 

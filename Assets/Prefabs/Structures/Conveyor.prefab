@@ -162,8 +162,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 807d4991dcac40d4847efb94786d32ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  renderer: {fileID: 7546726938363847869}
   material: {fileID: 2100000, guid: 6e2780f55c877dc40896293518378705, type: 2}
   speed: 1
+  conditionsUnit: {fileID: 0}
   productionZone: {fileID: 0}
   startingPoint: {fileID: 6643499146841040893}
   unlockPoint: {fileID: 1089700701866425637}

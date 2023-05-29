@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using GenesisConstructa.Items;
+using GenesisConstructa.ItemsExtraction.ConditionsLogic;
 using GenesisConstructa.ItemsPlacementsInteractions;
 using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic;
 using GenesisConstructa.ItemsPlacementsInteractions.Target;
@@ -10,16 +12,24 @@ namespace GenesisConstructa
 {
     public class Conveyor : InteractionTarget
     {
+        [SerializeField] private new Renderer renderer;
         [SerializeField] private Material material;
         [SerializeField, Range(-1f, 1f)] private float speed;
+
+        [SerializeField] private ExtractorConditionsUnit conditionsUnit;
 
         [SerializeField] private StackZone productionZone;
         [SerializeField] private Transform startingPoint;
         [SerializeField] private Transform unlockPoint;
         [SerializeField] private Transform endPoint;
 
+        private static readonly int SpeedShaderPropertyID = Shader.PropertyToID("_Speed");
+        
         private readonly List<StackZoneItem> _itemsOnBelt = new List<StackZoneItem>();
         private readonly Vector3 _direction = Vector3.back;
+
+        private bool _powered;
+        private Material _runtimeMaterial;
 
         public override bool CanTakeMore => productionZone.CanTakeMore;
         public override ItemType[] AcceptableItems { get; } = (ItemType[]) Enum.GetValues(typeof(ItemType));
@@ -27,7 +37,32 @@ namespace GenesisConstructa
         
         private void OnValidate()
         {
-            material.SetFloat("_Speed", speed * 0.182f);
+            SetMaterialSpeed(material, speed);
+        }
+
+
+        private void SetMaterialSpeed(Material material, float speed)
+        {
+            const float speedSyncMultiplier = 0.182f;
+            material.SetFloat(SpeedShaderPropertyID, speed * speedSyncMultiplier);
+        }
+
+
+        private void Awake()
+        {
+            _runtimeMaterial = renderer.materials.Single(m => m.name[..material.name.Length] == material.name);
+            
+            conditionsUnit.ConditionsChanged += OnConditionsChanged;
+        }
+
+
+        private void OnConditionsChanged()
+        {
+            _powered = conditionsUnit.WorkConditionsMet;
+
+            float speed = _powered ? 
+                this.speed : 0f;
+            SetMaterialSpeed(_runtimeMaterial, speed);
         }
 
 
@@ -51,6 +86,11 @@ namespace GenesisConstructa
 
         private void Update()
         {
+            if (!_powered)
+            {
+                return;
+            }
+            
             for (int i = _itemsOnBelt.Count - 1; i >= 0; i--)
             {
                 StackZoneItem item = _itemsOnBelt[i];
