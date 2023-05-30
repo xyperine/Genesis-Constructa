@@ -31,7 +31,7 @@ namespace GenesisConstructa.Conveyor
         private void SetMaterialSpeed(Material material, float speed)
         {
             const float speedSyncMultiplier = 0.182f;
-            material.SetFloat(SpeedShaderPropertyID, speed * speedSyncMultiplier);
+            material?.SetFloat(SpeedShaderPropertyID, speed * speedSyncMultiplier);
         }
     }
 }
