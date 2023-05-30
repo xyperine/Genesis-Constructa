@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GenesisConstructa.Audio
 {
-    public class StructureActionSoundEffect : MonoBehaviour
+    public class StructureUpgradeSoundEffect : MonoBehaviour
     {
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private ExtractorUpgrader upgrader;
@@ -11,6 +11,11 @@ namespace GenesisConstructa.Audio
 
         private void Start()
         {
+            if (upgrader.Chain?.RequirementsChain == null)
+            {
+                return;
+            }
+            
             upgrader.Chain.RequirementsChain.ChangingBlock += Play;
         }
 
