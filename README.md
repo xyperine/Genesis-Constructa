@@ -19,12 +19,12 @@ Hope you will find something useful in here! :purple_heart:
 
 Some screenshots may be out of date and may not represent the current state of the game. I will try to upload relevant screenshots as soon as something visual changes.
 
-<img src=Screenshots/Genesis%20Constructa_001.jpg width=200> &nbsp;
-<img src=Screenshots/Genesis%20Constructa_002.jpg width=200> &nbsp;
-<img src=Screenshots/Genesis%20Constructa_003.jpg width=200> &nbsp;
-<img src=Screenshots/Genesis%20Constructa_004.jpg width=200> &nbsp;
-<img src=Screenshots/Genesis%20Constructa_005.jpg width=200> &nbsp;
-<img src=Screenshots/Genesis%20Constructa_006.jpg width=200>
+<img src=Screenshots/Genesis_Constructa_screenshot_0.jpg width=200> &nbsp;
+<img src=Screenshots/Genesis_Constructa_screenshot_1.jpg width=200> &nbsp;
+<img src=Screenshots/Genesis_Constructa_screenshot_2.jpg width=200> &nbsp;
+<img src=Screenshots/Genesis_Constructa_screenshot_3.jpg width=200> &nbsp;
+<img src=Screenshots/Genesis_Constructa_screenshot_4.jpg width=200> &nbsp;
+<img src=Screenshots/Genesis_Constructa_screenshot_5.jpg width=200>
 
 ## What's inside? 🫀
 
