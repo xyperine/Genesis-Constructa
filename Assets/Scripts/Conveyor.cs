@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using GenesisConstructa.Items;
@@ -6,22 +7,29 @@ using GenesisConstructa.ItemsExtraction.ConditionsLogic;
 using GenesisConstructa.ItemsPlacementsInteractions;
 using GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic;
 using GenesisConstructa.ItemsPlacementsInteractions.Target;
+using GenesisConstructa.Utility.Helpers;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace GenesisConstructa
 {
     public class Conveyor : InteractionTarget
     {
+        [Header("References")]
         [SerializeField] private new Renderer renderer;
         [SerializeField] private Material material;
-        [SerializeField, Range(-1f, 1f)] private float speed;
-
         [SerializeField] private ExtractorConditionsUnit conditionsUnit;
-
         [SerializeField] private StackZone productionZone;
+
+        [Header("Important points on the belt")]
         [SerializeField] private Transform startingPoint;
         [SerializeField] private Transform unlockPoint;
         [SerializeField] private Transform endPoint;
+
+        [Header("Properties")]
+        [SerializeField, Range(-1f, 1f)] private float speed;
+        [SerializeField] private bool workAfterGoingOffline;
+        [SerializeField, ShowIf(nameof(workAfterGoingOffline)), Min(0f), Indent()] private float turnOffDelayInSeconds;
 
         private static readonly int SpeedShaderPropertyID = Shader.PropertyToID("_Speed");
         
@@ -58,7 +66,34 @@ namespace GenesisConstructa
 
         private void OnConditionsChanged()
         {
-            _powered = conditionsUnit.WorkConditionsMet;
+            if (conditionsUnit.WorkConditionsMet)
+            {
+                SetPoweredStatus(true);
+                return;
+            }
+            
+            if (workAfterGoingOffline)
+            {
+                StartCoroutine(DelayTurnOffRoutine());
+            }
+            else
+            {
+                SetPoweredStatus(false);
+            }
+        }
+
+
+        private IEnumerator DelayTurnOffRoutine()
+        {
+            yield return YieldInstructionsHelpers.GetWaitForSeconds(turnOffDelayInSeconds);
+            
+            SetPoweredStatus(false);
+        }
+
+
+        private void SetPoweredStatus(bool status)
+        {
+            _powered = status;
 
             float speed = _powered ? 
                 this.speed : 0f;

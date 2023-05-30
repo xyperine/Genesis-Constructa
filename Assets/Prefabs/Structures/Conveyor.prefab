@@ -164,12 +164,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderer: {fileID: 7546726938363847869}
   material: {fileID: 2100000, guid: 6e2780f55c877dc40896293518378705, type: 2}
-  speed: 1
   conditionsUnit: {fileID: 0}
   productionZone: {fileID: 0}
   startingPoint: {fileID: 6643499146841040893}
   unlockPoint: {fileID: 1089700701866425637}
   endPoint: {fileID: 5986418785138688323}
+  speed: 1
+  workAfterGoingOffline: 0
+  turnOffDelayInSeconds: 0
 --- !u!1 &8552030286964147235
 GameObject:
   m_ObjectHideFlags: 0
