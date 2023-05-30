@@ -74,6 +74,9 @@ GameObject:
   - component: {fileID: 5719478495086415991}
   - component: {fileID: 7546726938363847869}
   - component: {fileID: 2805745583068128632}
+  - component: {fileID: 7402129906047457182}
+  - component: {fileID: 1287803471721300660}
+  - component: {fileID: 1354632632582514045}
   m_Layer: 8
   m_Name: Conveyor
   m_TagString: Untagged
@@ -162,16 +165,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 807d4991dcac40d4847efb94786d32ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderer: {fileID: 7546726938363847869}
-  material: {fileID: 2100000, guid: 6e2780f55c877dc40896293518378705, type: 2}
-  conditionsUnit: {fileID: 0}
+  speedController: {fileID: 7402129906047457182}
+  powerController: {fileID: 1287803471721300660}
   productionZone: {fileID: 0}
-  startingPoint: {fileID: 6643499146841040893}
+  startPoint: {fileID: 6643499146841040893}
   unlockPoint: {fileID: 1089700701866425637}
   endPoint: {fileID: 5986418785138688323}
+--- !u!114 &7402129906047457182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8339435446578955624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8be8dfb842844771b76cce08398beb0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerController: {fileID: 1287803471721300660}
+  beltRenderer: {fileID: 1354632632582514045}
   speed: 1
+--- !u!114 &1287803471721300660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8339435446578955624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1f1395999e6424aaa0b148ec4e9a3d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conditionsUnit: {fileID: 0}
   workAfterGoingOffline: 0
   turnOffDelayInSeconds: 0
+--- !u!114 &1354632632582514045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8339435446578955624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bf2ae9f2ce74cdeac9f169b938e7e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderer: {fileID: 7546726938363847869}
+  material: {fileID: 2100000, guid: 6e2780f55c877dc40896293518378705, type: 2}
 --- !u!1 &8552030286964147235
 GameObject:
   m_ObjectHideFlags: 0

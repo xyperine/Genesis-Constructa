@@ -567,6 +567,14 @@ PrefabInstance:
       propertyPath: workAfterGoingOffline
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7027221729487894640, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: turnOffDelayInSeconds
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7027221729487894640, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
+      propertyPath: workAfterGoingOffline
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9071465920047519392, guid: b3134d23e164987449c78b0f4fca2986, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1

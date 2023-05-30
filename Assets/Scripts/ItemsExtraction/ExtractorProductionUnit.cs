@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using GenesisConstructa.Conveyor;
 using GenesisConstructa.Items;
 using GenesisConstructa.ItemsExtraction.ConditionsLogic;
 using GenesisConstructa.ItemsExtraction.Upgrading;
@@ -20,7 +21,7 @@ namespace GenesisConstructa.ItemsExtraction
         [SerializeField] private ItemType itemType;
 
         [SerializeField] private StackZone productionStackZone;
-        [SerializeField] private Conveyor conveyor;
+        [SerializeField] private ConveyorBelt conveyorBelt;
         [SerializeField] private ItemsPool itemsPool;
 
         [SerializeField] private bool produce = true;
@@ -100,7 +101,7 @@ namespace GenesisConstructa.ItemsExtraction
         public void ProduceItem()
         {
             StackZoneItem item = itemsPool.Get(itemType, transform.position);
-            conveyor.Add(item);
+            conveyorBelt.Add(item);
         }
 
 
