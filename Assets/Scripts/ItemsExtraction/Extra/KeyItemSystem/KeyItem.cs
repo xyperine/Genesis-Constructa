@@ -20,12 +20,6 @@ namespace GenesisConstructa.ItemsExtraction.Extra.KeyItemSystem
         }
 
 
-        public void Adjust(float n)
-        {
-            _elapsedTime = Mathf.Round(_elapsedTime / n) * n;
-        }
-
-
         public void Clear()
         {
             _elapsedTime = 0f;

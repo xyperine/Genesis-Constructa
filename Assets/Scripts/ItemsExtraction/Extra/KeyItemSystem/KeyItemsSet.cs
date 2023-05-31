@@ -38,6 +38,14 @@ namespace GenesisConstructa.ItemsExtraction.Extra.KeyItemSystem
                 slot.Tick();
             }
             
+            foreach (KeyItemSlot slot in slots)
+            {
+                if (slot.Filled && !slot.Synced)
+                {
+                    slot.SyncLifetime(minLifetime);
+                }
+            }
+            
             if (Filled)
             {
                 return;
@@ -45,7 +53,15 @@ namespace GenesisConstructa.ItemsExtraction.Extra.KeyItemSystem
 
             foreach (KeyItemSlot slot in slots)
             {
-                slot.Adjust(minLifetime);
+                if (!slot.Filled)
+                {
+                    continue;
+                }
+                
+                if (Mathf.Approximately((slot.Lifetime / minLifetime) % 1, 0))
+                {
+                    slot.DecrementSyncedLifetimes();
+                }
             }
         }
     }

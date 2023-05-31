@@ -13,9 +13,12 @@ namespace GenesisConstructa.ItemsExtraction.Extra.KeyItemSystem
 
         private KeyItem _item;
         private object _itemSaveData;
-        
+
+        private int _minLifetimes;
+
         public bool Filled => HasItems;
         public float Lifetime => _item.Lifetime;
+        public bool Synced { get; private set; }
 
 
         private void Start()
@@ -54,14 +57,21 @@ namespace GenesisConstructa.ItemsExtraction.Extra.KeyItemSystem
         }
 
 
-        public void Adjust(float l)
+        public void SyncLifetime(float minLifetime)
         {
-            if (!_item)
+            _minLifetimes = (int) (Lifetime / minLifetime);
+            Synced = true;
+        }
+        
+
+        public void DecrementSyncedLifetimes()
+        {
+            _minLifetimes--;
+
+            if (_minLifetimes <= 0)
             {
-                return;
+                Clear();
             }
-            
-            _item.Adjust(l);
         }
 
 
@@ -75,6 +85,8 @@ namespace GenesisConstructa.ItemsExtraction.Extra.KeyItemSystem
 
             _item = null;
             _itemSaveData = null;
+            _minLifetimes = 0;
+            Synced = false;
 
             SetItemsAmountData();
         }
