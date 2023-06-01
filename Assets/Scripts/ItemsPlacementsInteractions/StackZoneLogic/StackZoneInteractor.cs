@@ -15,6 +15,7 @@ namespace GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic
         private InteractablesTracker _interactablesTracker;
         
         protected abstract bool CanScan { get; }
+        protected abstract bool IgnoreYPosition { get; }
 
 
         public void SetInteractablesTracker(InteractablesTracker interactablesTracker)
@@ -48,8 +49,9 @@ namespace GenesisConstructa.ItemsPlacementsInteractions.StackZoneLogic
             {
                 return;
             }
-            
-            MonoBehaviour[] objectsInRadius = _interactablesTracker.GetObjectsInRadiusAround(transform.position, scanRadius);
+
+            MonoBehaviour[] objectsInRadius =
+                _interactablesTracker.GetObjectsInRadiusAround(transform.position, scanRadius, IgnoreYPosition);
 
             for (int i = 0; i < objectsInRadius.Length; i++)
             {

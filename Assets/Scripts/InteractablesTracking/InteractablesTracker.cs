@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using GenesisConstructa.Utility.Extensions;
 using UnityEngine;
 
 namespace GenesisConstructa.InteractablesTracking
@@ -20,19 +21,30 @@ namespace GenesisConstructa.InteractablesTracking
         }
 
 
-        public MonoBehaviour[] GetObjectsInRadiusAround(Vector3 center, float radius)
+        public MonoBehaviour[] GetObjectsInRadiusAround(Vector3 center, float radius, bool ignoreY)
         {
             MonoBehaviour[] objects =
-                _idsToObjectsMap.Values.Where(mb => IsObjectInRadius(mb, center, radius)).ToArray();
+                _idsToObjectsMap.Values.Where(mb => IsObjectInRadius(mb, center, radius, ignoreY)).ToArray();
             return objects;
         }
 
 
-        private bool IsObjectInRadius(MonoBehaviour obj, Vector3 center, float radius)
+        private bool IsObjectInRadius(MonoBehaviour obj, Vector3 center, float radius, bool ignoreY)
         {
-            return obj &&
-                   obj.isActiveAndEnabled &&
-                   Vector3.Distance(center, obj.transform.position) <= radius;
+            if (!obj || !obj.isActiveAndEnabled)
+            {
+                return false;
+            }
+            
+            Vector3 objPosition = obj.transform.position;
+            
+            if (ignoreY)
+            {
+                center = center.XZPlane();
+                objPosition = objPosition.XZPlane();
+            }
+            
+            return Vector3.Distance(center, objPosition) <= radius;
         }
     }
 }

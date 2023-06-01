@@ -5,7 +5,8 @@ namespace GenesisConstructa.ItemsPlacementsInteractions.PickUp
     public class PickUpsInteractor : StackZoneInteractor<StackZoneItem, PickUpStackZoneBehaviour>
     {
         protected override bool CanScan => behaviour.EnoughSpace;
-        
+        protected override bool IgnoreYPosition => true;
+
 
         protected override void InteractWith(StackZoneItem item)
         {

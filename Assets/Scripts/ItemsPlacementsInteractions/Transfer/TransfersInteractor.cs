@@ -6,6 +6,7 @@ namespace GenesisConstructa.ItemsPlacementsInteractions.Transfer
     public class TransfersInteractor : StackZoneInteractor<InteractionTargetReference, TransferStackZoneBehaviour>
     {
         protected override bool CanScan => behaviour.CanGive;
+        protected override bool IgnoreYPosition => false;
 
 
         protected override void InteractWith(InteractionTargetReference reference)
