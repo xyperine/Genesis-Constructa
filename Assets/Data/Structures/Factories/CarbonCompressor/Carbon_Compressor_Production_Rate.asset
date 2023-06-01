@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fc080b9c1d42359790517a955fc5e5, type: 3}
   m_Name: Carbon_Compressor_Production_Rate
   m_EditorClassIdentifier: 
-  secondsPerItem: 5.1282053
-  itemsPerSecond: 0.195
+  secondsPerItem: 4.6620045
+  itemsPerSecond: 0.21450001

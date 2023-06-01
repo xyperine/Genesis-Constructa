@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6fc080b9c1d42359790517a955fc5e5, type: 3}
   m_Name: Metal_Factory_Production_Rate
   m_EditorClassIdentifier: 
-  secondsPerItem: 2.8
-  itemsPerSecond: 0.35714287
+  secondsPerItem: 2.5454545
+  itemsPerSecond: 0.39285716

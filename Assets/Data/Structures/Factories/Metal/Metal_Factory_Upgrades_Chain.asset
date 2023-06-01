@@ -22,7 +22,7 @@ MonoBehaviour:
         amount: 2
     data:
       capacity: 24
-      itemsPerSecond: 0.55055
+      itemsPerSecond: 0.605605
     identifier:
       structureType: 2
       level: 1
@@ -37,7 +37,7 @@ MonoBehaviour:
         amount: 2
     data:
       capacity: 32
-      itemsPerSecond: 0.75
+      itemsPerSecond: 0.825
     identifier:
       structureType: 2
       level: 2

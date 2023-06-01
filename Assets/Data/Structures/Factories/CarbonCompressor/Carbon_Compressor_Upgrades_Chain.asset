@@ -26,7 +26,7 @@ MonoBehaviour:
         amount: 5
     data:
       capacity: 9
-      itemsPerSecond: 0.234
+      itemsPerSecond: 0.2574
     identifier:
       structureType: 6
       level: 1
