@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using GenesisConstructa.GameEvents;
 using GenesisConstructa.SaveLoadSystem;
-using GenesisConstructa.TutorialSystem;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -12,8 +11,7 @@ namespace GenesisConstructa.Timer
     public class GameTimer : MonoBehaviour, ISceneSaveable
     {
         [SerializeField] private ShelterBuiltEventSO shelterBuiltEventSO;
-        [SerializeField] private TutorialBuilder tutorialBuilder;
-        
+
         [SerializeField, Range(10, 30)] private int minutes = 20;
 
         [SerializeField, HideInInspector] private PermanentGuid guid;
@@ -49,22 +47,13 @@ namespace GenesisConstructa.Timer
 
         private void Start()
         {
-            if (tutorialBuilder.Complete)
-            {
-                Activate();
-            }
-            else
-            {
-                tutorialBuilder.Completed += Activate;
-            }
+            Activate();
         }
 
 
         private void Activate()
         {
             _active = true;
-
-            tutorialBuilder.Completed -= Activate;
         }
 
 
@@ -115,7 +104,6 @@ namespace GenesisConstructa.Timer
         {
             Debug.LogWarning($"Time left: {TimeSpan.FromSeconds(SecondsLeft):mm\\:ss\\:fff}");
 
-            tutorialBuilder.Completed -= Activate;
             shelterBuiltEventSO.Built -= Deactivate;
         }
 
