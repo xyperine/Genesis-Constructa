@@ -210,6 +210,10 @@ PrefabInstance:
       value: Game_Timer
       objectReference: {fileID: 0}
     - target: {fileID: 6004789128823323018, guid: fc8a836f168e57d48980a9c924f308ec, type: 3}
+      propertyPath: minutes
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6004789128823323018, guid: fc8a836f168e57d48980a9c924f308ec, type: 3}
       propertyPath: tutorialBuilder
       value: 
       objectReference: {fileID: 2856489053948357998}
