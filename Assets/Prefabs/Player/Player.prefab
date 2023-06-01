@@ -207,6 +207,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 5654864078016059290}
   audioSource: {fileID: 7999500342954749020}
+  pitchRange:
+    <Min>k__BackingField: 0.975
+    <Max>k__BackingField: 1.025
 --- !u!114 &7218556812693203299
 MonoBehaviour:
   m_ObjectHideFlags: 0

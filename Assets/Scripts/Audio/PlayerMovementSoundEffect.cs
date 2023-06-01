@@ -1,4 +1,5 @@
 ﻿using GenesisConstructa.Player;
+using GenesisConstructa.Utility;
 using UnityEngine;
 
 namespace GenesisConstructa.Audio
@@ -7,6 +8,7 @@ namespace GenesisConstructa.Audio
     {
         [SerializeField] private PlayerMovement playerMovement;
         [SerializeField] private AudioSource audioSource;
+        [SerializeField] private Range pitchRange;
 
 
         private void LateUpdate()
@@ -17,7 +19,7 @@ namespace GenesisConstructa.Audio
                 return;
             }
 
-            audioSource.pitch = playerMovement.RelativeVelocity;
+            audioSource.pitch = playerMovement.RelativeVelocity * pitchRange.Random();
             
             if (audioSource.isPlaying)
             {

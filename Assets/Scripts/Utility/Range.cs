@@ -10,6 +10,12 @@ namespace GenesisConstructa.Utility
         [field: SerializeField] public float Max { get; set; }
         
         
+        public float Random()
+        {
+            return UnityEngine.Random.Range(Min, Max);
+        }
+        
+        
         public void OnBeforeSerialize()
         {
             if (Min > Max)
