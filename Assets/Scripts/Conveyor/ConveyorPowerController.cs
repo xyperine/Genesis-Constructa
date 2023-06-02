@@ -13,6 +13,7 @@ namespace GenesisConstructa.Conveyor
         [SerializeField] private bool workAfterGoingOffline;
         [SerializeField, ShowIf(nameof(workAfterGoingOffline)), Min(0f), Indent()] private float turnOffDelayInSeconds;
 
+        private bool _delayActive;
         private Coroutine _delayCoroutine;
         
         public bool Powered { get; private set; }
@@ -40,11 +41,14 @@ namespace GenesisConstructa.Conveyor
 
         private void TurnOn()
         {
-            if (_delayCoroutine != null)
+            if (_delayActive)
             {
                 StopCoroutine(_delayCoroutine);
+                _delayCoroutine = null;
+
+                _delayActive = false;
             }
-                
+            
             SetPoweredStatus(true);
         }
 
@@ -53,7 +57,10 @@ namespace GenesisConstructa.Conveyor
         {
             if (workAfterGoingOffline)
             {
-                _delayCoroutine = StartCoroutine(DelayTurnOffRoutine());
+                if (!_delayActive)
+                {
+                    _delayCoroutine = StartCoroutine(DelayTurnOffRoutine());
+                }
             }
             else
             {
@@ -64,7 +71,11 @@ namespace GenesisConstructa.Conveyor
 
         private IEnumerator DelayTurnOffRoutine()
         {
+            _delayActive = true;
+            
             yield return YieldInstructionsHelpers.GetWaitForSeconds(turnOffDelayInSeconds);
+            
+            _delayActive = false;
             
             SetPoweredStatus(false);
         }
