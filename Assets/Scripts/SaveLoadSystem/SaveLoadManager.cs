@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using GenesisConstructa.Utility.Extensions;
 using UnityEngine;
 
 namespace GenesisConstructa.SaveLoadSystem
@@ -28,6 +29,12 @@ namespace GenesisConstructa.SaveLoadSystem
         private void Load()
         {
             _gameState = _saveSerializer.ReadFile();
+            
+            if (_gameState.IsNullOrEmpty())
+            {
+                return;
+            }
+            
             RestoreState();
         }
 

@@ -123,6 +123,39 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!21 &139937725
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Rect Transparent [CORNER_RADIUS] (instance)
+  m_Shader: {fileID: 4800000, guid: 616a25aec4b286744b9fa8a7c081c531, type: 3}
+  m_ShaderKeywords: CORNER_RADIUS
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _StencilComp: 8
+    - _StencilID: 0
+    - _StencilOp: 0
+    - _StencilOpPass: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _ZOffsetFactor: -20
+    - _ZOffsetUnits: 0
+    - _ZTest: 4
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!114 &241474614 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5543172826725218058, guid: a22df1e1834d15f41bfaa78221fc3d48, type: 3}
@@ -780,39 +813,6 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 9170210779363729308, guid: 3e5b5bbf78feab74aa1d3d90c37d8efe, type: 3}
   m_PrefabInstance: {fileID: 9170210778721575418}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1047092269
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Rect Transparent [CORNER_RADIUS] (instance)
-  m_Shader: {fileID: 4800000, guid: 616a25aec4b286744b9fa8a7c081c531, type: 3}
-  m_ShaderKeywords: CORNER_RADIUS
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _StencilComp: 8
-    - _StencilID: 0
-    - _StencilOp: 0
-    - _StencilOpPass: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _ZOffsetFactor: -20
-    - _ZOffsetUnits: 0
-    - _ZTest: 4
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!114 &1346288776 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9170210779363729309, guid: 3e5b5bbf78feab74aa1d3d90c37d8efe, type: 3}
@@ -1092,10 +1092,6 @@ PrefabInstance:
       propertyPath: imageFader
       value: 
       objectReference: {fileID: 1346288776}
-    - target: {fileID: 5543172827917823667, guid: a22df1e1834d15f41bfaa78221fc3d48, type: 3}
-      propertyPath: active
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6418721173179897219, guid: a22df1e1834d15f41bfaa78221fc3d48, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
