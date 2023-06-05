@@ -17,7 +17,7 @@ If you want to download the project and do something with it - please, read [Usi
 
 ## Play the game :video_game:
 
-The game is in review right now, I will link it as soon as it will be published.
+The game is published on Google Play, you can download it [here](https://play.google.com/store/apps/details?id=com.Ewsannne.GenesisConstructa)
 
 ## How does it look? :eyes:
 
