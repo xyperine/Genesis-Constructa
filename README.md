@@ -1,11 +1,13 @@
 # Genesis Constructa
 
 ## Table of contents :page_with_curl:
+
 * [About :information_source:](#about-information_source)
 * [Play the game :video_game:](#play-the-game-video_game)
 * [How does it look? :eyes:](#how-does-it-look-eyes)
 * [Using my assets/entire project :memo:](#using-my-assetsentire-project-memo)
 * [Future :crystal_ball:](#future-crystal_ball)
+* [Credits :copyright:](#credits-copyright)
 
 ## About :information_source:
 
@@ -17,7 +19,7 @@ If you want to download the project and do something with it - please, read [Usi
 
 ## Play the game :video_game:
 
-The game is published on Google Play, you can download it [here](https://play.google.com/store/apps/details?id=com.Ewsannne.GenesisConstructa)
+The game is available on Google Play, you can download it [here](https://play.google.com/store/apps/details?id=com.Ewsannne.GenesisConstructa).
 
 ## How does it look? :eyes:
 
@@ -49,3 +51,12 @@ While I consider this game finished and probably won't work on it anymore, there
 - **Add bloom/glow and lighing** - from the beggining of the project I was thinking that I will add nice glow post-processing effect and additional lights to some elements, however, my dreams were shattered by awful performance with those features. But I still want to have bloom and lights! Those effects can be faked, it will probably look nice, but will come with a cost of higher maintenance.
 - **Improve performance** - right now the game is not running as smooth as I want it to. I want it to run at 60 fps on my Xiaomi Redmi 9, but I get something between 30 and 60, leaning towards 30 mostly. Most of the performance problems come from rendering. I have a lot of models with multiple submeshes with different materials, which leads to a lot of draw calls, also the water shader, while being absolutely gorgeous, it requires a lot of resources to render it.
 - Some minor improvements...
+
+## Credits :copyright:
+
+- Background music - "Space ambient" by Osmic licensed CC BY 3.0: https://opengameart.org/content/space-ambient
+- Player movement sound - "Sci-Fi Sound Effects Library" by Little Robot Sound Factory licensed CC BY 3.0: https://opengameart.org/content/sci-fi-sound-effects-library, www.littlerobotsoundfactory.com
+- Shapes plugin - "Shapes" by [Freya Holmer](https://acegikmo.com) licensed with custom license: https://assetstore.unity.com/packages/tools/particles-effects/shapes-173167
+- Water shader - "Stylized Water Shader Unity URP" by [tojynick](https://tojynick.me) licensed MIT: https://github.com/tojynick/Stylized-Water-Shader-Unity-URP
+
+Some of the sounds in this project were created by David McKee (ViRiX) soundcloud.com/virix
